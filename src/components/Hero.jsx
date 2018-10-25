@@ -7,19 +7,26 @@ import Twitter from "../assets/images/twitter.svg";
 import YouTube from "../assets/images/youtube.svg";
 
 const HeroContainer = styled.div`
-	display: grid;
-	height: 100vh;
-	grid-template-columns: 2.7fr 0.2fr 0.2fr 0.9fr;
-	grid-template-rows: 1.3fr 0.4fr 0.9fr 1.4fr;
-	grid-gap: 0px;
-	grid-template-areas: ". . . ." ". . . ." ". . . ." ". . . .";
+	@media screen and (min-width: 768px) {
+		display: grid;
+		height: 100vh;
+		grid-template-columns: 2.7fr 0.2fr 0.2fr 0.9fr;
+		grid-template-rows: 1.3fr 0.4fr 0.9fr 1.4fr;
+		grid-gap: 0px;
+		grid-template-areas: ". . . ." ". . . ." ". . . ." ". . . .";
+	}
 
 	& > * {
 		align-items: center;
 		display: flex;
 		justify-content: center;
+		min-height: 300px;
 		position: relative;
 		width: 100%;
+
+		@media screen and (min-width: 768px) {
+			min-height: auto;
+		}
 
 		& > div {
 			padding: 32px;
@@ -137,10 +144,14 @@ const HeroVideos = styled.div`
 
 	img {
 		height: auto;
-		max-width: 50%;
+		max-width: 100px;
 		position: relative;
 
 		transition: 0.4s all ease;
+
+		@media screen and (min-width: 768px) {
+			max-width: 50%;
+		}
 	}
 `;
 
@@ -173,10 +184,14 @@ const HeroTwitter = styled.div`
 
 	img {
 		height: auto;
-		max-width: 50%;
+		max-width: 100px;
 		position: relative;
 
 		transition: 0.4s all ease;
+
+		@media screen and (min-width: 768px) {
+			max-width: 50%;
+		}
 	}
 `;
 
