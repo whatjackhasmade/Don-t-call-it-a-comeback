@@ -297,10 +297,10 @@ const Hero = () => (
 				</div>
 			</HeroNoFace>
 			<HeroCV>
-				<Link src="mailto:jack@noface.co.uk">Email Me</Link>
+				<a src="mailto:jack@noface.co.uk">Email Me</a>
 			</HeroCV>
 			<HeroEmail>
-				<Link src="">View my CV</Link>
+				<Link to="cv">View my CV</Link>
 			</HeroEmail>
 		</HeroContainer>
 	</div>
