@@ -17,7 +17,7 @@ const Container = styled.main`
 `;
 
 const CVIntro = styled.div`
-	margin: 64px auto 64px;
+	margin: 0 auto 64px;
 	text-align: center;
 
 	h1 {
@@ -29,6 +29,10 @@ const CVIntro = styled.div`
 		margin-bottom: 32px;
 		max-width: 200px;
 	}
+
+	@media screen and (min-width: 576px) {
+		margin: 0 auto 64px;
+	}
 `;
 
 const Timeline = styled.div`
@@ -37,7 +41,7 @@ const Timeline = styled.div`
 `;
 
 const TimelineControls = styled.div`
-	margin-bottom: 128px;
+	margin-bottom: 32px;
 	position: relative;
 
 	text-align: center;
@@ -49,7 +53,7 @@ const TimelineControls = styled.div`
 		border: 1px solid white;
 		border-left: none;
 		color: white;
-		font-size: 1.6rem;
+		font-size: 1.2rem;
 		transition: 0.2s all ease;
 
 		&:first-child {
@@ -63,6 +67,12 @@ const TimelineControls = styled.div`
 
 		&:hover {
 			color: rgba(255, 255, 255, 0.6);
+		}
+
+		@media screen and (min-width: 576px) {
+			margin-bottom: 128px;
+
+			font-size: 1.6rem;
 		}
 	}
 
@@ -78,7 +88,6 @@ const TimelineControls = styled.div`
 
 const TimelineItem = styled.div`
 	margin-left: 0;
-	max-width: 50%;
 	padding: 32px;
 	position: relative;
 
@@ -93,6 +102,10 @@ const TimelineItem = styled.div`
 
 		background-color: #8367dd;
 		transition: 0.2s width ease;
+	}
+
+	@media screen and (min-width: 576px) {
+		max-width: 50%;
 	}
 `;
 
@@ -131,7 +144,7 @@ var myTimeline = [
 		description:
 			"NoFace is a design agency focused solely on helping local businesses define their identities, and form a holistic brand that will represent their message.",
 		event: "NoFace",
-		type: "job",
+		type: "jobs",
 		url: ""
 	},
 	{
@@ -141,7 +154,7 @@ var myTimeline = [
 		description:
 			"As a web developer, I was responsible assisting with both the front end designs of websites and helping by using web technologies, front end and back end languages such as HTML, CSS, SCSS.",
 		event: "Moov2",
-		type: "job",
+		type: "jobs",
 		url: ""
 	},
 	{
@@ -151,7 +164,7 @@ var myTimeline = [
 		description:
 			"As a web developer, I was tasked with creating designs for clients and following a structured creative process when generating ideas and solutions. As well as the initial designs, I was also responsible for creating the website applications and interfaces that will be used as an end product.",
 		event: "CloudTen",
-		type: "job",
+		type: "jobs",
 		url: ""
 	},
 	{
@@ -160,7 +173,7 @@ var myTimeline = [
 		dateTimeline: new Date("June 6, 2017 03:24:00"),
 		description: "somewhere@gmail.com",
 		event: "Winchester Creatives",
-		type: "talk",
+		type: "talks",
 		url: "https://twitter.com/studiorepublic/status/872154777928564737"
 	},
 	{
@@ -169,7 +182,7 @@ var myTimeline = [
 		dateTimeline: new Date("July 27, 2017 03:24:00"),
 		description: "somewhere@gmail.com",
 		event: "WPBournemouth",
-		type: "talk",
+		type: "talks",
 		url: "https://twitter.com/WPBournemouth/status/890650202280939520"
 	},
 	{
@@ -178,7 +191,7 @@ var myTimeline = [
 		dateTimeline: new Date("December 11, 2017 03:24:00"),
 		description: "somewhere@gmail.com",
 		event: "Fullstack Hampshire",
-		type: "talk",
+		type: "talks",
 		url: "https://twitter.com/whatjackhasmade/status/940646102394724352"
 	},
 	{
@@ -187,7 +200,7 @@ var myTimeline = [
 		dateTimeline: new Date("June 20, 2018 03:24:00"),
 		description: "somewhere@gmail.com",
 		event: "Fullstack Hampshire",
-		type: "talk",
+		type: "talks",
 		url: "https://twitter.com/fullstackhants/status/1009499162742837273"
 	},
 	{
@@ -196,7 +209,7 @@ var myTimeline = [
 		dateTimeline: new Date("December 17, 1995 03:24:00"),
 		description: "somewhere@gmail.com",
 		event: "Solent",
-		type: "talk",
+		type: "talks",
 		url: ""
 	},
 	{
@@ -206,7 +219,7 @@ var myTimeline = [
 		description:
 			"With the rise in the use of mobile devices, there has been a clear divide between native mobile applications and online websites. In this presentation, Jack will demonstrate how both industries can be implemented in an all-in-one solution. What benefits there are to blending the industries and how you can get started today.",
 		event: "BCS, Solent University",
-		type: "talk",
+		type: "talks",
 		url:
 			"https://www.eventbrite.co.uk/e/hampshire-branch-progressive-web-applications-blending-industires-registration-50682126605?aff=eand#"
 	},
@@ -217,7 +230,7 @@ var myTimeline = [
 		description:
 			"With the rise in the use of mobile devices, there has been a clear divide between native mobile applications and online websites. In this presentation, Jack will demonstrate how both industries can be implemented in an all-in-one solution. What benefits there are to blending the industries and how you can get started today.",
 		event: "Developer Southcoast",
-		type: "talk",
+		type: "talks",
 		url: "https://www.meetup.com/DeveloperSouthCoast/events/255169865/"
 	}
 ];
@@ -227,8 +240,11 @@ myTimeline = myTimeline.sort((b, a) => a.dateTimeline - b.dateTimeline);
 const Chapters = ({ chapters }) => (
 	<>
 		{myTimeline.map(chapter => (
-			<TimelineItem className="myTimeline" key={chapter.title}>
-				<div class="timeline__content">
+			<TimelineItem
+				key={chapter.dateTimeline}
+				className={chapter.type !== "jobs" ? "hide" : "show"}
+			>
+				<div className="timeline__content">
 					<a href={chapter.url}>
 						<h2>
 							{chapter.event} - {chapter.title}
@@ -237,7 +253,7 @@ const Chapters = ({ chapters }) => (
 					<h3>{chapter.date}</h3>
 					<p>{chapter.description}</p>
 				</div>
-				<div class="chapter__image">
+				<div className="chapter__image">
 					<img src="https://dummyimage.com/500x200.gif" alt="" />
 				</div>
 			</TimelineItem>
@@ -246,6 +262,24 @@ const Chapters = ({ chapters }) => (
 );
 
 class CV extends Component {
+	constructor(props) {
+		super(props);
+		this.state = { filterActive: 2, timelineFilter: "jobs" };
+	}
+
+	handleClick(e, n, t) {
+		this.setState(prevState => ({ filterActive: n }));
+		this.setState(prevState => ({ timelineFilter: t }));
+	}
+
+	// handleClick(e) {
+	// 	this.setState(prevState => ({ filterActive: e }));
+	// 	console.log(e);
+	// 	// this.setState(prevState => ({
+	// 	// 	timelineFilter: "talks"
+	// 	// }));
+	// }
+
 	render() {
 		return (
 			<Wrapper>
@@ -256,10 +290,30 @@ class CV extends Component {
 						<h2>Front-end Website Developer</h2>
 					</CVIntro>
 					<TimelineControls>
-						<button>All</button>
-						<button className="active">Jobs</button>
-						<button>Talks</button>
-						<button>Awards</button>
+						<button
+							className={this.state.filterActive === 1 ? "active" : null}
+							onClick={e => this.handleClick(e, 1, "all")}
+						>
+							All
+						</button>
+						<button
+							className={this.state.filterActive === 2 ? "active" : null}
+							onClick={e => this.handleClick(e, 2, "jobs")}
+						>
+							Jobs
+						</button>
+						<button
+							className={this.state.filterActive === 3 ? "active" : null}
+							onClick={e => this.handleClick(e, 3, "talks")}
+						>
+							Talks
+						</button>
+						<button
+							className={this.state.filterActive === 4 ? "active" : null}
+							onClick={e => this.handleClick(e, 4, "awards")}
+						>
+							Awards
+						</button>
 					</TimelineControls>
 					<Timeline>
 						<Chapters myTimeline={myTimeline} />
