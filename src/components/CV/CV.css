@@ -6,6 +6,12 @@
 	min-height: 300px;
 }
 
-.hide {
-	display: none;
+.hide.hide {
+	height: 0px;
+	overflow: hidden;
+	padding: 0;
+}
+
+.hide:before {
+	opacity: 0;
 }

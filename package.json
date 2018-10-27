@@ -34,6 +34,7 @@
     "react-disqus-comments": "^1.1.1",
     "react-dom": "^16.4.1",
     "react-helmet": "^5.2.0",
+    "react-image-webp": "^0.2.2",
     "react-share": "^2.0.0",
     "react-twitter-widgets": "^1.7.1",
     "styled-components": "^3.4.10",

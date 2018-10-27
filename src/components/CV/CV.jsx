@@ -1,7 +1,17 @@
 import React, { Component } from "react";
 import "./CV.css";
 import styled from "styled-components";
+import Image from "react-image-webp";
+
 import avatar from "../../assets/images/avatar.jpg";
+import cloudtenJPG from "../../assets/images/cv/cloud-ten.jpg";
+import cloudtenWebP from "../../assets/images/cv/cloud-ten.webp";
+import moov2JPG from "../../assets/images/cv/moov2.jpg";
+import moov2WebP from "../../assets/images/cv/moov2.webp";
+import nofaceJPG from "../../assets/images/cv/noface.jpg";
+import nofaceWebP from "../../assets/images/cv/noface.webp";
+import winchesterJPG from "../../assets/images/cv/winchester-creatives.jpg";
+import winchesterWebP from "../../assets/images/cv/winchester-creatives.webp";
 
 const Container = styled.main`
 	@import url("https://fonts.googleapis.com/css?family=Poppins:400,700");
@@ -46,6 +56,12 @@ const TimelineControls = styled.div`
 
 	text-align: center;
 
+	@media screen and (min-width: 576px) {
+		margin-bottom: 64px;
+
+		font-size: 1.6rem;
+	}
+
 	button {
 		padding: 8px 16px;
 
@@ -53,6 +69,7 @@ const TimelineControls = styled.div`
 		border: 1px solid white;
 		border-left: none;
 		color: white;
+		cursor: pointer;
 		font-size: 1.2rem;
 		transition: 0.2s all ease;
 
@@ -68,12 +85,6 @@ const TimelineControls = styled.div`
 		&:hover {
 			color: rgba(255, 255, 255, 0.6);
 		}
-
-		@media screen and (min-width: 576px) {
-			margin-bottom: 128px;
-
-			font-size: 1.6rem;
-		}
 	}
 
 	.active {
@@ -87,8 +98,10 @@ const TimelineControls = styled.div`
 `;
 
 const TimelineItem = styled.div`
+	display: flex;
+	flex-direction: column-reverse;
 	margin-left: 0;
-	padding: 32px;
+	padding: 16px;
 	position: relative;
 
 	&:before {
@@ -104,8 +117,30 @@ const TimelineItem = styled.div`
 		transition: 0.2s width ease;
 	}
 
+	.chapter__image {
+		margin-bottom: 16px;
+
+		@media screen and (min-width: 576px) {
+			margin-bottom: 0;
+			margin-left: 10%;
+			width: 40%;
+		}
+	}
+
+	.timeline__content {
+		@media screen and (min-width: 576px) {
+			width: 50%;
+		}
+	}
+
+	a,
+	img {
+		display: block;
+	}
+
 	@media screen and (min-width: 576px) {
-		max-width: 50%;
+		flex-direction: row;
+		padding: 32px;
 	}
 `;
 
@@ -144,8 +179,10 @@ var myTimeline = [
 		description:
 			"NoFace is a design agency focused solely on helping local businesses define their identities, and form a holistic brand that will represent their message.",
 		event: "NoFace",
+		image: nofaceJPG,
+		imageWebP: nofaceWebP,
 		type: "jobs",
-		url: ""
+		url: "https://noface.co.uk"
 	},
 	{
 		title: "Front-end Developer & Designer",
@@ -154,8 +191,10 @@ var myTimeline = [
 		description:
 			"As a web developer, I was responsible assisting with both the front end designs of websites and helping by using web technologies, front end and back end languages such as HTML, CSS, SCSS.",
 		event: "Moov2",
+		image: moov2JPG,
+		imageWebP: moov2WebP,
 		type: "jobs",
-		url: ""
+		url: "https://moov2.com"
 	},
 	{
 		title: "Front-end Developer & Designer",
@@ -164,8 +203,10 @@ var myTimeline = [
 		description:
 			"As a web developer, I was tasked with creating designs for clients and following a structured creative process when generating ideas and solutions. As well as the initial designs, I was also responsible for creating the website applications and interfaces that will be used as an end product.",
 		event: "CloudTen",
+		image: cloudtenJPG,
+		imageWebP: cloudtenWebP,
 		type: "jobs",
-		url: ""
+		url: "https://CloudTenGroup.co.uk"
 	},
 	{
 		title: "Finish What You Started",
@@ -173,6 +214,8 @@ var myTimeline = [
 		dateTimeline: new Date("June 6, 2017 03:24:00"),
 		description: "somewhere@gmail.com",
 		event: "Winchester Creatives",
+		image: "",
+		imageWebP: "",
 		type: "talks",
 		url: "https://twitter.com/studiorepublic/status/872154777928564737"
 	},
@@ -182,6 +225,8 @@ var myTimeline = [
 		dateTimeline: new Date("July 27, 2017 03:24:00"),
 		description: "somewhere@gmail.com",
 		event: "WPBournemouth",
+		image: "",
+		imageWebP: "",
 		type: "talks",
 		url: "https://twitter.com/WPBournemouth/status/890650202280939520"
 	},
@@ -191,6 +236,8 @@ var myTimeline = [
 		dateTimeline: new Date("December 11, 2017 03:24:00"),
 		description: "somewhere@gmail.com",
 		event: "Fullstack Hampshire",
+		image: "",
+		imageWebP: "",
 		type: "talks",
 		url: "https://twitter.com/whatjackhasmade/status/940646102394724352"
 	},
@@ -200,6 +247,8 @@ var myTimeline = [
 		dateTimeline: new Date("June 20, 2018 03:24:00"),
 		description: "somewhere@gmail.com",
 		event: "Fullstack Hampshire",
+		image: "",
+		imageWebP: "",
 		type: "talks",
 		url: "https://twitter.com/fullstackhants/status/1009499162742837273"
 	},
@@ -209,6 +258,8 @@ var myTimeline = [
 		dateTimeline: new Date("December 17, 1995 03:24:00"),
 		description: "somewhere@gmail.com",
 		event: "Solent",
+		image: "",
+		imageWebP: "",
 		type: "talks",
 		url: ""
 	},
@@ -219,6 +270,8 @@ var myTimeline = [
 		description:
 			"With the rise in the use of mobile devices, there has been a clear divide between native mobile applications and online websites. In this presentation, Jack will demonstrate how both industries can be implemented in an all-in-one solution. What benefits there are to blending the industries and how you can get started today.",
 		event: "BCS, Solent University",
+		image: "",
+		imageWebP: "",
 		type: "talks",
 		url:
 			"https://www.eventbrite.co.uk/e/hampshire-branch-progressive-web-applications-blending-industires-registration-50682126605?aff=eand#"
@@ -230,6 +283,8 @@ var myTimeline = [
 		description:
 			"With the rise in the use of mobile devices, there has been a clear divide between native mobile applications and online websites. In this presentation, Jack will demonstrate how both industries can be implemented in an all-in-one solution. What benefits there are to blending the industries and how you can get started today.",
 		event: "Developer Southcoast",
+		image: "",
+		imageWebP: "",
 		type: "talks",
 		url: "https://www.meetup.com/DeveloperSouthCoast/events/255169865/"
 	}
@@ -245,7 +300,7 @@ const Chapters = ({ chapters }) => (
 				className={chapter.type !== "jobs" ? "hide" : "show"}
 			>
 				<div className="timeline__content">
-					<a href={chapter.url}>
+					<a href={chapter.url} target="_blank">
 						<h2>
 							{chapter.event} - {chapter.title}
 						</h2>
@@ -254,7 +309,9 @@ const Chapters = ({ chapters }) => (
 					<p>{chapter.description}</p>
 				</div>
 				<div className="chapter__image">
-					<img src="https://dummyimage.com/500x200.gif" alt="" />
+					<a href={chapter.url} target="_blank">
+						<Image src={chapter.image} webp={chapter.imageWebP} alt="" />
+					</a>
 				</div>
 			</TimelineItem>
 		))}
