@@ -22,10 +22,10 @@ class Navigation extends Component {
 	render() {
 		return (
 			<NavigationContainer>
-				<Link to="test">Home</Link>
-				<Link to="test">CV</Link>
-				<Link to="test">Work</Link>
-				<Link to="test">Blog</Link>
+				<Link to="/">Home</Link>
+				<Link to="/cv">CV</Link>
+				<Link to="/#work">Work</Link>
+				<Link to="/#blog">Blog</Link>
 			</NavigationContainer>
 		);
 	}
