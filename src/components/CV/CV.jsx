@@ -40,6 +40,15 @@ const CVIntro = styled.div`
 		max-width: 200px;
 	}
 
+	p {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 840px;
+
+		font-size: 18px;
+		text-align: left;
+	}
+
 	@media screen and (min-width: 576px) {
 		margin: 0 auto 64px;
 	}
@@ -345,6 +354,34 @@ class CV extends Component {
 						<img src={avatar} alt="Jack Pritchard" />
 						<h1>Jack Pritchard</h1>
 						<h2>Front-end Website Developer</h2>
+						<p>
+							I’m a passionate website designer and developer. I want to improve
+							how businesses present themselves in the form of brand development
+							and design.
+						</p>
+						<p>
+							Born and raise in Swansea, I came to the South of England to
+							complete studies in Website Design and Development where I
+							graduated with a 1 : 1 on my undergraduate course.
+						</p>
+						<p>
+							I’ve now continued my studies with a focus on growing my business,
+							by continuning my studies on a post-graduate MA Creative
+							Enterprise course.
+						</p>
+						<p>
+							My primary focus is website development, specifically front-end
+							web technologies and implementing the latest frameworks to create
+							bespoke solutions to solve business problems.
+						</p>
+						<p>
+							I have experience in HTML, CSS, SCSS, JavaScript, jQuery, React,
+							PHP, WordPress, Gatsby. Although I have experience creating
+							bespoke backend systems, my true passion lies in the front-end
+							development of websites. Turning designs into functional pages
+							that represent brands or enable users to make use of web
+							applications.
+						</p>
 					</CVIntro>
 					<TimelineControls>
 						<button
