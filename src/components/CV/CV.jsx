@@ -14,9 +14,6 @@ import winchesterJPG from "../../assets/images/cv/winchester-creatives.jpg";
 import winchesterWebP from "../../assets/images/cv/winchester-creatives.webp";
 
 const Container = styled.main`
-	@import url("https://fonts.googleapis.com/css?family=Poppins:400,700");
-	font-family: "Poppins", sans-serif;
-
 	margin: 0 auto;
 	max-width: 1100px;
 	padding-top: 64px;
@@ -338,14 +335,6 @@ class CV extends Component {
 		this.setState(prevState => ({ timelineFilter: t }));
 	}
 
-	// handleClick(e) {
-	// 	this.setState(prevState => ({ filterActive: e }));
-	// 	console.log(e);
-	// 	// this.setState(prevState => ({
-	// 	// 	timelineFilter: "talks"
-	// 	// }));
-	// }
-
 	render() {
 		return (
 			<Wrapper>
@@ -362,7 +351,7 @@ class CV extends Component {
 						<p>
 							Born and raise in Swansea, I came to the South of England to
 							complete studies in Website Design and Development where I
-							graduated with a 1 : 1 on my undergraduate course.
+							graduated with a 1:1 on my undergraduate course.
 						</p>
 						<p>
 							I’ve now continued my studies with a focus on growing my business,
