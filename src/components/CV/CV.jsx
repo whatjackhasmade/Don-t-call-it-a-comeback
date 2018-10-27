@@ -6,16 +6,27 @@ import Image from "react-image-webp";
 import avatar from "../../assets/images/avatar.jpg";
 import cloudtenJPG from "../../assets/images/cv/cloud-ten.jpg";
 import cloudtenWebP from "../../assets/images/cv/cloud-ten.webp";
+import finish2JPG from "../../assets/images/cv/finish-what-you-started-2.jpg";
+import finish2WebP from "../../assets/images/cv/finish-what-you-started-2.webp";
 import moov2JPG from "../../assets/images/cv/moov2.jpg";
 import moov2WebP from "../../assets/images/cv/moov2.webp";
+import needJPG from "../../assets/images/cv/need-for-speed.jpg";
+import needWebP from "../../assets/images/cv/need-for-speed.webp";
 import nofaceJPG from "../../assets/images/cv/noface.jpg";
 import nofaceWebP from "../../assets/images/cv/noface.webp";
+import offonJPG from "../../assets/images/cv/offline-is-new-online.jpg";
+import offonWebP from "../../assets/images/cv/offline-is-new-online.webp";
+import pwablendingJPG from "../../assets/images/cv/pwa-blending.jpg";
+import pwablendingWebP from "../../assets/images/cv/pwa-blending.webp";
 import winchesterJPG from "../../assets/images/cv/winchester-creatives.jpg";
 import winchesterWebP from "../../assets/images/cv/winchester-creatives.webp";
+import worldskillsJPG from "../../assets/images/cv/worldskills.jpg";
+import worldskillsWebP from "../../assets/images/cv/worldskills.webp";
 
 const Container = styled.main`
 	margin: 0 auto;
 	max-width: 1100px;
+	padding-bottom: 128px;
 	padding-top: 64px;
 
 	h2 {
@@ -231,8 +242,8 @@ var myTimeline = [
 		dateTimeline: new Date("July 27, 2017 03:24:00"),
 		description: "somewhere@gmail.com",
 		event: "WPBournemouth",
-		image: "",
-		imageWebP: "",
+		image: finish2JPG,
+		imageWebP: finish2WebP,
 		type: "talks",
 		url: "https://twitter.com/WPBournemouth/status/890650202280939520"
 	},
@@ -240,10 +251,11 @@ var myTimeline = [
 		title: "Need for Speed",
 		date: "December 2017",
 		dateTimeline: new Date("December 11, 2017 03:24:00"),
-		description: "somewhere@gmail.com",
+		description:
+			"Waiting for websites to load sucks, right? In this lightning talk, I give a breakdown on how to improve your websites page rendering speeds and time to first meaningful paints without any decrease in quality!",
 		event: "Fullstack Hampshire",
-		image: "",
-		imageWebP: "",
+		image: needJPG,
+		imageWebP: needWebP,
 		type: "talks",
 		url: "https://twitter.com/whatjackhasmade/status/940646102394724352"
 	},
@@ -251,10 +263,11 @@ var myTimeline = [
 		title: "Offline is the New Online",
 		date: "June 2018",
 		dateTimeline: new Date("June 20, 2018 03:24:00"),
-		description: "somewhere@gmail.com",
+		description:
+			"Jack's talk covers the key benefits of using offline technologies, and why he believes that the next step in progress for web development is a focus on offline applications.",
 		event: "Fullstack Hampshire",
-		image: "",
-		imageWebP: "",
+		image: offonJPG,
+		imageWebP: offonWebP,
 		type: "talks",
 		url: "https://twitter.com/fullstackhants/status/1009499162742837273"
 	},
@@ -276,8 +289,8 @@ var myTimeline = [
 		description:
 			"With the rise in the use of mobile devices, there has been a clear divide between native mobile applications and online websites. In this presentation, Jack will demonstrate how both industries can be implemented in an all-in-one solution. What benefits there are to blending the industries and how you can get started today.",
 		event: "BCS, Solent University",
-		image: "",
-		imageWebP: "",
+		image: pwablendingJPG,
+		imageWebP: pwablendingWebP,
 		type: "talks",
 		url:
 			"https://www.eventbrite.co.uk/e/hampshire-branch-progressive-web-applications-blending-industires-registration-50682126605?aff=eand#"
@@ -293,36 +306,23 @@ var myTimeline = [
 		imageWebP: "",
 		type: "talks",
 		url: "https://www.meetup.com/DeveloperSouthCoast/events/255169865/"
+	},
+	{
+		title: "1st Place - WorldSkills UK",
+		date: "March 2013",
+		dateTimeline: new Date("March 25, 2013 03:24:00"),
+		description:
+			"Young people from across Wales descended on Swansea to take part in the all-Wales final to find the most talented students in the field of web design. Hosted by Gower College Swansea and Judged by Industry Experts from the School of Applied Computing, the WorldSkills Web Design Competition is part of a network of tournaments supported by the Welsh Government and the European Social Fund to highlight the importance of developing strong Employment skills.",
+		event: "Developer Southcoast",
+		image: worldskillsJPG,
+		imageWebP: worldskillsWebP,
+		type: "awards",
+		url:
+			"https://uwtsdcomputing.blog/2013/03/25/applied-computing-judges-prestigious-worldskills-competition/"
 	}
 ];
 
 myTimeline = myTimeline.sort((b, a) => a.dateTimeline - b.dateTimeline);
-
-const Chapters = ({ chapters }) => (
-	<>
-		{myTimeline.map(chapter => (
-			<TimelineItem
-				key={chapter.dateTimeline}
-				className={chapter.type !== "jobs" ? "hide" : "show"}
-			>
-				<div className="timeline__content">
-					<a href={chapter.url} target="_blank">
-						<h2>
-							{chapter.event} - {chapter.title}
-						</h2>
-					</a>
-					<h3>{chapter.date}</h3>
-					<p>{chapter.description}</p>
-				</div>
-				<div className="chapter__image">
-					<a href={chapter.url} target="_blank">
-						<Image src={chapter.image} webp={chapter.imageWebP} alt="" />
-					</a>
-				</div>
-			</TimelineItem>
-		))}
-	</>
-);
 
 class CV extends Component {
 	constructor(props) {
@@ -399,7 +399,33 @@ class CV extends Component {
 						</button>
 					</TimelineControls>
 					<Timeline>
-						<Chapters myTimeline={myTimeline} />
+						{myTimeline.map(chapter => (
+							<TimelineItem
+								key={chapter.dateTimeline}
+								className={
+									chapter.type !== this.state.timelineFilter ? "hide" : "show"
+								}
+							>
+								<div className="timeline__content">
+									<a href={chapter.url} target="_blank">
+										<h2>
+											{chapter.event} - {chapter.title}
+										</h2>
+									</a>
+									<h3>{chapter.date}</h3>
+									<p>{chapter.description}</p>
+								</div>
+								<div className="chapter__image">
+									<a href={chapter.url} target="_blank">
+										<Image
+											src={chapter.image}
+											webp={chapter.imageWebP}
+											alt=""
+										/>
+									</a>
+								</div>
+							</TimelineItem>
+						))}
 					</Timeline>
 				</Container>
 			</Wrapper>
