@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-import heroImage from "../assets/images/jack-pritchard.jpg";
-import Twitter from "../assets/images/twitter.svg";
-import YouTube from "../assets/images/youtube.svg";
+import heroImage from "../../assets/images/jack-pritchard.jpg";
+import Twitter from "../../assets/images/twitter.svg";
+import YouTube from "../../assets/images/youtube.svg";
 
 const HeroContainer = styled.div`
 	@media screen and (min-width: 768px) {

@@ -13,11 +13,5 @@ storiesOf("Welcome", module).add("to Storybook", () => (
 ));
 
 storiesOf("Button", module)
-	.add("with text", () => <Button>Hello Button</Button>)
-	.add("with some emoji", () => (
-		<Button>
-			<span role="img" aria-label="so cool">
-				😀 😎 👍 💯
-			</span>
-		</Button>
-	));
+	.add("Primary", () => <Button type="primary" text="Primary Button" />)
+	.add("Secondary", () => <Button type="secondary" text="Secondary Button" />);

@@ -6,15 +6,37 @@ const Btn = styled.button`
 	padding: 8px 16px;
 
 	background: none;
-	border: 1px solid blue;
-	color: blue;
+	border: 1px solid var(--primary);
+	color: var(--primary);
 	cursor: pointer;
 	transition: 0.2s all ease;
 
 	&:active,
 	&:hover,
 	&:focus {
-		background: blue;
+		background: var(--primary);
+		color: white;
+	}
+
+	&.secondary {
+		border: 1px solid var(--secondary);
+		color: var(--secondary);
+
+		&:active,
+		&:hover,
+		&:focus {
+			background: var(--secondary);
+			color: white;
+		}
+
+		&.active {
+			background: var(--secondary);
+			color: white;
+		}
+	}
+
+	&.active {
+		background: var(--primary);
 		color: white;
 	}
 `;
@@ -29,7 +51,11 @@ class Button extends Component {
 	}
 
 	render() {
-		return <Btn onClick={e => this.handleClick(e)}>Yo</Btn>;
+		return (
+			<Btn className={this.props.type} onClick={e => this.handleClick(e)}>
+				{this.props.text}
+			</Btn>
+		);
 	}
 }
 

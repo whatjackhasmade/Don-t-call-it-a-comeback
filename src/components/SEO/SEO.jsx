@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Helmet from "react-helmet";
 import urljoin from "url-join";
 import config from "../../../data/SiteConfig";
-import resetStyles from "../../assets/styles/_normalize.scss";
+import resetStyles from "../../assets/styles/all.css";
 
 class SEO extends Component {
 	render() {

@@ -24,6 +24,7 @@
     "gatsby-remark-prismjs": "2.0.5",
     "gatsby-remark-responsive-iframe": "2.0.5",
     "gatsby-source-filesystem": "2.0.1",
+    "gatsby-transformer-json": "^2.1.4",
     "gatsby-transformer-remark": "2.1.1",
     "gatsby-transformer-sharp": "2.1.1",
     "lodash": "^4.17.4",
@@ -41,6 +42,12 @@
     "url-join": "^4.0.0"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.4.11",
+    "@storybook/addon-links": "^3.4.11",
+    "@storybook/addons": "^3.4.11",
+    "@storybook/react": "^3.4.11",
+    "babel-core": "^6.26.3",
+    "babel-runtime": "^6.26.0",
     "cli-glob": "^0.1.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
@@ -55,13 +62,7 @@
     "stylefmt": "^6.0.0",
     "stylelint": "^9.2.0",
     "stylelint-config-standard": "^18.0.0",
-    "write-good": "^0.11.3",
-    "@storybook/react": "^3.4.11",
-    "@storybook/addon-actions": "^3.4.11",
-    "@storybook/addon-links": "^3.4.11",
-    "@storybook/addons": "^3.4.11",
-    "babel-core": "^6.26.3",
-    "babel-runtime": "^6.26.0"
+    "write-good": "^0.11.3"
   },
   "keywords": [
     "gatsby"
