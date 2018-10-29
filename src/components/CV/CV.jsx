@@ -25,46 +25,95 @@ import worldskillsWebP from "../../assets/images/cv/worldskills.webp";
 
 const Container = styled.main`
 	margin: 0 auto;
-	max-width: 1100px;
 	padding-bottom: 128px;
-	padding-top: 64px;
 
 	h2 {
 		margin: 0 auto 8px;
 	}
+
+	// * {
+	// 	outline: red 1px dotted;
+	// }
 `;
 
 const CVIntro = styled.div`
-	margin: 0 auto 64px;
-	text-align: center;
+	display: flex;
+
+	a {
+		border-radius: 3px;
+		padding: 8px 16px;
+
+		border: 1px solid blue;
+		color: blue;
+		transition: 0.2s all ease;
+
+		&:active,
+		&:hover,
+		&:focus {
+			background: blue;
+			color: white;
+		}
+	}
+
+	div {
+		align-items: flex-start;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-height: 600px;
+		position: relative;
+		width: 70%;
+
+		*:not(img) {
+			margin-left: 20%;
+			margin-right: 164px;
+		}
+
+		~ div {
+			width: 30%;
+
+			background: blue;
+		}
+	}
 
 	h1 {
-		margin-top: 0;
+		color: blue;
 	}
 
 	img {
-		border-radius: 50%;
-		margin-bottom: 32px;
 		max-width: 200px;
-	}
+		position: absolute;
+		right: -100px;
+		bottom: 200px;
+		z-index: 1;
 
-	p {
-		margin-left: auto;
-		margin-right: auto;
-		max-width: 840px;
-
-		font-size: 18px;
-		text-align: left;
+		border-radius: 50%;
 	}
 
 	@media screen and (min-width: 576px) {
-		margin: 0 auto 64px;
+		margin: 0 auto 32px;
+	}
+`;
+
+const CVAbout = styled.section`
+	margin: 64px auto;
+
+	* {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 1300px;
+		width: 90%;
 	}
 `;
 
 const Timeline = styled.div`
 	margin-top: 32px;
 	position: relative;
+
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1300px;
+	width: 90%;
 `;
 
 const TimelineControls = styled.div`
@@ -83,15 +132,15 @@ const TimelineControls = styled.div`
 		padding: 8px 16px;
 
 		background: none;
-		border: 1px solid white;
+		border: 1px solid blue;
 		border-left: none;
-		color: white;
+		color: blue;
 		cursor: pointer;
 		font-size: 1.2rem;
 		transition: 0.2s all ease;
 
 		&:first-child {
-			border: 1px solid white;
+			border: 1px solid blue;
 			border-radius: 5px 0 0 5px;
 		}
 
@@ -100,16 +149,16 @@ const TimelineControls = styled.div`
 		}
 
 		&:hover {
-			color: rgba(255, 255, 255, 0.6);
+			color: rgba(0, 0, 255, 0.6);
 		}
 	}
 
 	.active {
-		background: white;
-		color: black;
+		background: blue;
+		color: white;
 
 		&:hover {
-			color: black;
+			color: white;
 		}
 	}
 `;
@@ -162,12 +211,8 @@ const TimelineItem = styled.div`
 `;
 
 const Wrapper = styled.section`
-	background: #1f2e4b;
-	background: -moz-linear-gradient(top, #1f2e4b 0%, #353e75 100%);
-	background: -webkit-linear-gradient(top, #1f2e4b 0%, #353e75 100%);
-	background: linear-gradient(to bottom, #1f2e4b 0%, #353e75 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1f2e4b', endColorstr='#353e75',GradientType=0 );
-	color: white;
+	background: #fff;
+	color: black;
 	min-height: 100vh;
 `;
 
@@ -324,6 +369,18 @@ var myTimeline = [
 
 myTimeline = myTimeline.sort((b, a) => a.dateTimeline - b.dateTimeline);
 
+var today = new Date();
+var curHr = today.getHours();
+var greeting;
+
+if (curHr < 12) {
+	greeting = "Morning";
+} else if (curHr < 18) {
+	greeting = "Afternoon";
+} else {
+	greeting = "Evening";
+}
+
 class CV extends Component {
 	constructor(props) {
 		super(props);
@@ -340,9 +397,17 @@ class CV extends Component {
 			<Wrapper>
 				<Container className="cv">
 					<CVIntro>
-						<img src={avatar} alt="Jack Pritchard" />
-						<h1>Jack Pritchard</h1>
-						<h2>Front-end Website Developer</h2>
+						<div className="">
+							<h4>Good {greeting}</h4>
+							<h1>I'm Jack Pritchard</h1>
+							<h2>Freelance Front-end Website Developer</h2>
+							<a href="mailto:jack@noface.co.uk">Hire Me</a>
+							<img src={avatar} alt="Jack Pritchard" />
+						</div>
+						<div className="" />
+					</CVIntro>
+					<CVAbout>
+						<h2>About Me</h2>
 						<p>
 							I’m a passionate website designer and developer. I want to improve
 							how businesses present themselves in the form of brand development
@@ -371,7 +436,7 @@ class CV extends Component {
 							that represent brands or enable users to make use of web
 							applications.
 						</p>
-					</CVIntro>
+					</CVAbout>
 					<TimelineControls>
 						<button
 							className={this.state.filterActive === 1 ? "active" : null}
