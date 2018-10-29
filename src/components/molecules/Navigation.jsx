@@ -18,6 +18,7 @@ const NavigationContainer = styled.nav`
 		}
 	}
 `;
+
 class Navigation extends Component {
 	render() {
 		return (

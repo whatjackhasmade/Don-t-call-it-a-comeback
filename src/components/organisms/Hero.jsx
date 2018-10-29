@@ -50,8 +50,27 @@ const HeroIntro = styled.div`
 `;
 
 const HeroDescription = styled.div`
-	background-color: #1c1c1c;
+	background-color: blue;
 	color: white;
+	width: 20%;
+
+	.emoji {
+		display: inline-block;
+		margin-right: 8px;
+		width: 44px;
+		text-align: center;
+	}
+
+	li {
+		font-size: 3rem;
+	}
+
+	ul {
+		margin: 32px auto;
+		padding: 0;
+
+		list-style: none;
+	}
 `;
 
 const Hero = () => (
@@ -66,23 +85,30 @@ const Hero = () => (
 				<div>
 					<div>
 						<h1>Jack Pritchard</h1>
-						<h2>
-							Award Winning <br /> Website Developer
-						</h2>
-
-						<h2>About Jack</h2>
-						<p>Hey so, uhhh, I'm Jack?</p>
-						<p>
-							I build websites for businesses to earn money for coffee and food.
-						</p>
+						<h2>Award Winning Web Developer</h2>
 					</div>
 					<div>
 						<h2>Developer Languages</h2>
-						<p>HTML5, CSS3, JavaScript, PHP, MYSQL, React</p>
-					</div>
-					<div>
-						<h2>About Jack</h2>
-						<p>Hey so, uhhh, I'm Jack?</p>
+						<ul>
+							<li>
+								<span className="emoji">🔨</span> HTML
+							</li>
+							<li>
+								<span className="emoji">👓</span> SCSS/CSS
+							</li>
+							<li>
+								<span className="emoji">💻</span> JavaScript
+							</li>
+							<li>
+								<span className="emoji">⚛</span> React
+							</li>
+							<li>
+								<span className="emoji">🐘</span> PHP
+							</li>
+							<li>
+								<span className="emoji">🗃</span> MYSQL
+							</li>
+						</ul>
 					</div>
 				</div>
 			</HeroDescription>

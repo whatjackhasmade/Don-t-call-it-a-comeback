@@ -694,6 +694,95 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@emotion/cache@^0.8.8":
+  version "0.8.8"
+  resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-0.8.8.tgz#2c3bd1aa5fdb88f1cc2325176a3f3201739e726c"
+  dependencies:
+    "@emotion/sheet" "^0.8.1"
+    "@emotion/stylis" "^0.7.1"
+    "@emotion/utils" "^0.8.2"
+
+"@emotion/core@^0.13.1":
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/@emotion/core/-/core-0.13.1.tgz#4fa4983e18dbf089fa16584486c8033ca50013ea"
+  dependencies:
+    "@emotion/cache" "^0.8.8"
+    "@emotion/css" "^0.9.8"
+    "@emotion/serialize" "^0.9.1"
+    "@emotion/sheet" "^0.8.1"
+    "@emotion/utils" "^0.8.2"
+
+"@emotion/css@^0.9.8":
+  version "0.9.8"
+  resolved "https://registry.yarnpkg.com/@emotion/css/-/css-0.9.8.tgz#43fd45c576656d4ed9cc3b8b427c66a2ed6af30a"
+  dependencies:
+    "@emotion/serialize" "^0.9.1"
+    "@emotion/utils" "^0.8.2"
+
+"@emotion/hash@^0.6.6":
+  version "0.6.6"
+  resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.6.6.tgz#62266c5f0eac6941fece302abad69f2ee7e25e44"
+
+"@emotion/is-prop-valid@^0.6.8":
+  version "0.6.8"
+  resolved "https://registry.yarnpkg.com/@emotion/is-prop-valid/-/is-prop-valid-0.6.8.tgz#68ad02831da41213a2089d2cab4e8ac8b30cbd85"
+  dependencies:
+    "@emotion/memoize" "^0.6.6"
+
+"@emotion/memoize@^0.6.6":
+  version "0.6.6"
+  resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.6.6.tgz#004b98298d04c7ca3b4f50ca2035d4f60d2eed1b"
+
+"@emotion/provider@^0.11.2":
+  version "0.11.2"
+  resolved "https://registry.yarnpkg.com/@emotion/provider/-/provider-0.11.2.tgz#7099f1df5641969ee4d6ff5cf1561295914030aa"
+  dependencies:
+    "@emotion/cache" "^0.8.8"
+    "@emotion/weak-memoize" "^0.1.3"
+
+"@emotion/serialize@^0.9.1":
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/@emotion/serialize/-/serialize-0.9.1.tgz#a494982a6920730dba6303eb018220a2b629c145"
+  dependencies:
+    "@emotion/hash" "^0.6.6"
+    "@emotion/memoize" "^0.6.6"
+    "@emotion/unitless" "^0.6.7"
+    "@emotion/utils" "^0.8.2"
+
+"@emotion/sheet@^0.8.1":
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/@emotion/sheet/-/sheet-0.8.1.tgz#6eed686c927a1c39f5045ec45ecfa36de896819d"
+
+"@emotion/styled-base@^0.10.6":
+  version "0.10.6"
+  resolved "https://registry.yarnpkg.com/@emotion/styled-base/-/styled-base-0.10.6.tgz#c95631b6b4f19da97e7b44ee4e3ee1931afde264"
+  dependencies:
+    "@emotion/is-prop-valid" "^0.6.8"
+    "@emotion/serialize" "^0.9.1"
+    "@emotion/utils" "^0.8.2"
+
+"@emotion/styled@^0.10.6":
+  version "0.10.6"
+  resolved "https://registry.yarnpkg.com/@emotion/styled/-/styled-0.10.6.tgz#1f6af1d3d4bf9fdeb05a4d220046ce11ad21a7ca"
+  dependencies:
+    "@emotion/styled-base" "^0.10.6"
+
+"@emotion/stylis@^0.7.1":
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/@emotion/stylis/-/stylis-0.7.1.tgz#50f63225e712d99e2b2b39c19c70fff023793ca5"
+
+"@emotion/unitless@^0.6.7":
+  version "0.6.7"
+  resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.6.7.tgz#53e9f1892f725b194d5e6a1684a7b394df592397"
+
+"@emotion/utils@^0.8.2":
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/@emotion/utils/-/utils-0.8.2.tgz#576ff7fb1230185b619a75d258cbc98f0867a8dc"
+
+"@emotion/weak-memoize@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.1.3.tgz#b700d97385fa91affed60c71dfd51c67e9dad762"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -715,7 +804,7 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
-"@storybook/addon-actions@3.4.11", "@storybook/addon-actions@^3.4.11":
+"@storybook/addon-actions@3.4.11":
   version "3.4.11"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-3.4.11.tgz#a51418c5b684fd3df2788c19ef266845d6068baf"
   dependencies:
@@ -730,7 +819,43 @@
     react-inspector "^2.2.2"
     uuid "^3.2.1"
 
-"@storybook/addon-links@3.4.11", "@storybook/addon-links@^3.4.11":
+"@storybook/addon-actions@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-4.0.0.tgz#7dfd5f2c2d180d38faa29d111ed3ed31ce1e84e0"
+  dependencies:
+    "@emotion/core" "^0.13.1"
+    "@emotion/provider" "^0.11.2"
+    "@emotion/styled" "^0.10.6"
+    "@storybook/addons" "4.0.0"
+    "@storybook/components" "4.0.0"
+    "@storybook/core-events" "4.0.0"
+    deep-equal "^1.0.1"
+    global "^4.3.2"
+    lodash "^4.17.11"
+    make-error "^1.3.5"
+    prop-types "^15.6.2"
+    react-inspector "^2.3.0"
+    uuid "^3.3.2"
+
+"@storybook/addon-knobs@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-knobs/-/addon-knobs-4.0.0.tgz#0012a4ac39abd2fd72eb7eef1ff7641ec9af0c6c"
+  dependencies:
+    "@emotion/styled" "^0.10.6"
+    "@storybook/addons" "4.0.0"
+    "@storybook/components" "4.0.0"
+    "@storybook/core-events" "4.0.0"
+    copy-to-clipboard "^3.0.8"
+    escape-html "^1.0.3"
+    fast-deep-equal "^2.0.1"
+    global "^4.3.2"
+    prop-types "^15.6.2"
+    qs "^6.5.2"
+    react-color "^2.14.1"
+    react-lifecycles-compat "^3.0.4"
+    util-deprecate "^1.0.2"
+
+"@storybook/addon-links@3.4.11":
   version "3.4.11"
   resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-3.4.11.tgz#097b4fcf4b3af3903762ac0d7e65c5d37d14af88"
   dependencies:
@@ -739,9 +864,37 @@
     global "^4.3.2"
     prop-types "^15.6.1"
 
-"@storybook/addons@3.4.11", "@storybook/addons@^3.4.11":
+"@storybook/addon-links@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-4.0.0.tgz#8b25148b2a3e30f0188070809c052a33abfb1617"
+  dependencies:
+    "@storybook/addons" "4.0.0"
+    "@storybook/components" "4.0.0"
+    "@storybook/core-events" "4.0.0"
+    global "^4.3.2"
+    prop-types "^15.6.2"
+
+"@storybook/addon-notes@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-notes/-/addon-notes-4.0.0.tgz#6ac9f8eade41293773ba8d231cf9ec8129e930cd"
+  dependencies:
+    "@emotion/styled" "^0.10.6"
+    "@storybook/addons" "4.0.0"
+    marked "^0.5.1"
+    prop-types "^15.6.2"
+
+"@storybook/addons@3.4.11":
   version "3.4.11"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-3.4.11.tgz#f3e27c46d80ad1f171888c4aad0a19a8a032d072"
+
+"@storybook/addons@4.0.0", "@storybook/addons@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-4.0.0.tgz#b71b545a735b902fa62934ac98fd262b65c924f7"
+  dependencies:
+    "@storybook/channels" "4.0.0"
+    "@storybook/components" "4.0.0"
+    global "^4.3.2"
+    util-deprecate "^1.0.2"
 
 "@storybook/channel-postmessage@3.4.11":
   version "3.4.11"
@@ -755,6 +908,10 @@
   version "3.4.11"
   resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-3.4.11.tgz#853ec40fdfa6c3ae8cff23f0cd86b77a719823f5"
 
+"@storybook/channels@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@storybook/channels/-/channels-4.0.0.tgz#b712d711f67966028dbff5c57e6ddc6f53d5cbac"
+
 "@storybook/client-logger@3.4.11":
   version "3.4.11"
   resolved "https://registry.yarnpkg.com/@storybook/client-logger/-/client-logger-3.4.11.tgz#b592ea227f9f330f50925f7c1c266cc658cbc704"
@@ -766,6 +923,25 @@
     glamor "^2.20.40"
     glamorous "^4.12.1"
     prop-types "^15.6.1"
+
+"@storybook/components@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@storybook/components/-/components-4.0.0.tgz#5006f5b423eb1ae8b97fc82710b532c0e1b45805"
+  dependencies:
+    "@emotion/core" "^0.13.1"
+    "@emotion/provider" "^0.11.2"
+    "@emotion/styled" "^0.10.6"
+    global "^4.3.2"
+    lodash "^4.17.11"
+    prop-types "^15.6.2"
+    react-inspector "^2.3.0"
+    react-split-pane "^0.1.84"
+    react-textarea-autosize "^7.0.4"
+    render-fragment "^0.1.1"
+
+"@storybook/core-events@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-4.0.0.tgz#9fc5e094044f161e4484139833c4cc2e743ec34c"
 
 "@storybook/core@3.4.11":
   version "3.4.11"
@@ -3708,6 +3884,12 @@ copy-descriptor@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
 
+copy-to-clipboard@^3.0.8:
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/copy-to-clipboard/-/copy-to-clipboard-3.0.8.tgz#f4e82f4a8830dce4666b7eb8ded0c9bcc313aba9"
+  dependencies:
+    toggle-selection "^1.0.3"
+
 copyfiles@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/copyfiles/-/copyfiles-1.2.0.tgz#a8da3ac41aa2220ae29bd3c58b6984294f2c593c"
@@ -4998,7 +5180,7 @@ es6-weak-map@^2.0.1:
     es6-iterator "^2.0.1"
     es6-symbol "^3.1.1"
 
-escape-html@~1.0.3:
+escape-html@^1.0.3, escape-html@~1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/escape-html/-/escape-html-1.0.3.tgz#0258eae4d3d0c0974de1c169188ef0051d1d1988"
 
@@ -8535,7 +8717,7 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-lodash@^4.0.0, lodash@^4.1.0, lodash@^4.11.1, lodash@^4.15.0, lodash@^4.17.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@~4.17.10:
+lodash@^4.0.0, lodash@^4.0.1, lodash@^4.1.0, lodash@^4.11.1, lodash@^4.15.0, lodash@^4.17.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@~4.17.10:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
 
@@ -8623,7 +8805,7 @@ make-dir@^1.0.0:
   dependencies:
     pify "^3.0.0"
 
-make-error@^1.3.4:
+make-error@^1.3.4, make-error@^1.3.5:
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/make-error/-/make-error-1.3.5.tgz#efe4e81f6db28cadd605c70f29c831b58ef776c8"
 
@@ -8683,6 +8865,14 @@ markdown-table@^1.1.0:
 marked@^0.3.9:
   version "0.3.19"
   resolved "http://registry.npmjs.org/marked/-/marked-0.3.19.tgz#5d47f709c4c9fc3c216b6d46127280f40b39d790"
+
+marked@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-0.5.1.tgz#062f43b88b02ee80901e8e8d8e6a620ddb3aa752"
+
+material-colors@^1.2.1:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/material-colors/-/material-colors-1.2.6.tgz#6d1958871126992ceecc72f4bcc4d8f010865f46"
 
 math-expression-evaluator@^1.2.14:
   version "1.2.17"
@@ -10941,7 +11131,7 @@ qs@6.5.1:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.1.tgz#349cdf6eef89ec45c12d7d5eb3fc0c870343a6d8"
 
-qs@^6.5.1, qs@~6.5.1, qs@~6.5.2:
+qs@^6.5.1, qs@^6.5.2, qs@~6.5.1, qs@~6.5.2:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
 
@@ -11032,6 +11222,16 @@ rc@^1.0.1, rc@^1.1.0, rc@^1.1.2, rc@^1.1.6, rc@^1.2.7:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
+
+react-color@^2.14.1:
+  version "2.14.1"
+  resolved "https://registry.yarnpkg.com/react-color/-/react-color-2.14.1.tgz#db8ad4f45d81e74896fc2e1c99508927c6d084e0"
+  dependencies:
+    lodash "^4.0.1"
+    material-colors "^1.2.1"
+    prop-types "^15.5.10"
+    reactcss "^1.2.0"
+    tinycolor2 "^1.4.1"
 
 react-dev-utils@^4.2.1:
   version "4.2.2"
@@ -11163,7 +11363,7 @@ react-image-webp@^0.2.2:
   dependencies:
     react "^15.5.4"
 
-react-inspector@^2.2.2:
+react-inspector@^2.2.2, react-inspector@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/react-inspector/-/react-inspector-2.3.0.tgz#fc9c1d38ab687fc0d190dcaf133ae40158968fc8"
   dependencies:
@@ -11203,7 +11403,7 @@ react-side-effect@^1.1.0:
     exenv "^1.2.1"
     shallowequal "^1.0.1"
 
-react-split-pane@^0.1.77:
+react-split-pane@^0.1.77, react-split-pane@^0.1.84:
   version "0.1.84"
   resolved "https://registry.yarnpkg.com/react-split-pane/-/react-split-pane-0.1.84.tgz#b9c1499cbc40b09cf29953ee6f5ff1039d31906e"
   dependencies:
@@ -11224,6 +11424,12 @@ react-testing-library@^4.1.7:
   dependencies:
     dom-testing-library "^3.1.0"
     wait-for-expect "^1.0.0"
+
+react-textarea-autosize@^7.0.4:
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/react-textarea-autosize/-/react-textarea-autosize-7.0.4.tgz#4e4be649b544a88713e7b5043f76950f35d3d503"
+  dependencies:
+    prop-types "^15.6.0"
 
 react-transition-group@^2.0.0:
   version "2.5.0"
@@ -11272,6 +11478,12 @@ react@^16.4.1:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     schedule "^0.4.0"
+
+reactcss@^1.2.0:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/reactcss/-/reactcss-1.2.3.tgz#c00013875e557b1cf0dfd9a368a1c3dab3b548dd"
+  dependencies:
+    lodash "^4.0.1"
 
 read-all-stream@^3.0.0:
   version "3.1.0"
@@ -11839,6 +12051,10 @@ remark@^9.0.0:
 remove-trailing-separator@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/remove-trailing-separator/-/remove-trailing-separator-1.1.0.tgz#c24bce2a283adad5bc3f58e0d48249b92379d8ef"
+
+render-fragment@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/render-fragment/-/render-fragment-0.1.1.tgz#b231f259b7eee333d34256aee0ef3169be7bef30"
 
 renderkid@^2.0.1:
   version "2.0.1"
@@ -13462,7 +13678,7 @@ tiny-emitter@^2.0.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-2.0.2.tgz#82d27468aca5ade8e5fd1e6d22b57dd43ebdfb7c"
 
-tinycolor2@^1.1.2:
+tinycolor2@^1.1.2, tinycolor2@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/tinycolor2/-/tinycolor2-1.4.1.tgz#f4fad333447bc0b07d4dc8e9209d8f39a8ac77e8"
 
@@ -13533,6 +13749,10 @@ to-vfile@^2.0.0:
     is-buffer "^1.1.4"
     vfile "^2.0.0"
     x-is-function "^1.0.4"
+
+toggle-selection@^1.0.3:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/toggle-selection/-/toggle-selection-1.0.6.tgz#6e45b1263f2017fa0acc7d89d78b15b8bf77da32"
 
 toidentifier@1.0.0:
   version "1.0.0"

@@ -52,7 +52,11 @@ class Button extends Component {
 
 	render() {
 		return (
-			<Btn className={this.props.type} onClick={e => this.handleClick(e)}>
+			<Btn
+				className={this.props.type}
+				onClick={e => this.handleClick(e)}
+				disabled={this.props.disabled}
+			>
 				{this.props.text}
 			</Btn>
 		);
