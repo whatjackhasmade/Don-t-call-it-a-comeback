@@ -53,6 +53,24 @@ const monthNames = [
 
 const d = new Date();
 
+var myCodepens = fetch("https://cpv2api.com/pens/popular/jackpritchard")
+	.then(function(response) {
+		if (response.status !== 200) {
+			console.log(
+				"Looks like there was a problem. Status Code: " + response.status
+			);
+			return;
+		}
+
+		// Examine the text in the response
+		response.json().then(function(data) {
+			console.log(data);
+		});
+	})
+	.catch(function(err) {
+		console.log("Fetch Error :-S", err);
+	});
+
 var myTimeline = [
 	{
 		title: "Freelance Front-end Developer",
@@ -142,8 +160,8 @@ var myTimeline = [
 		dateTimeline: new Date("December 17, 1995 03:24:00"),
 		description: "somewhere@gmail.com",
 		event: "Solent",
-		image: "",
-		imageWebP: "",
+		image: pwablendingJPG,
+		imageWebP: pwablendingJPG,
 		type: "talks",
 		url: ""
 	},
@@ -167,8 +185,8 @@ var myTimeline = [
 		description:
 			"With the rise in the use of mobile devices, there has been a clear divide between native mobile applications and online websites. In this presentation, Jack will demonstrate how both industries can be implemented in an all-in-one solution. What benefits there are to blending the industries and how you can get started today.",
 		event: "Developer Southcoast",
-		image: "",
-		imageWebP: "",
+		image: pwablendingJPG,
+		imageWebP: pwablendingJPG,
 		type: "talks",
 		url: "https://www.meetup.com/DeveloperSouthCoast/events/255169865/"
 	},
@@ -300,6 +318,7 @@ const CVAbout = styled.section`
 const Events = styled.div`
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: space-between;
 	position: relative;
 	margin: 128px;
 	margin-left: auto;
@@ -309,11 +328,13 @@ const Events = styled.div`
 `;
 
 const EventItem = styled.div`
-	position: relative;
+	margin-bottom: 24px;
 	max-width: 100%;
+	position: relative;
 
 	@media screen and (min-width: 576px) {
 		max-width: 33.333%;
+		max-width: calc(33.333% - 16px);
 	}
 
 	a,
@@ -486,6 +507,8 @@ class CVPage extends Component {
 								</EventItem>
 							))}
 						</Events>
+
+						<h2>My Most Popular Codepens</h2>
 					</Wrapper>
 				</div>
 			</Layout>
