@@ -20,6 +20,9 @@ module.exports = {
 	},
 	plugins: [
 		"gatsby-plugin-react-helmet",
+		{
+			resolve: "gatsby-source-wordpress"
+		},
 		"gatsby-plugin-lodash",
 		"gatsby-plugin-sass",
 		{

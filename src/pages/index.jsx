@@ -1,6 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
-import { graphql } from "gatsby";
+import { StaticQuery, graphql } from "gatsby";
 import Hero from "../components/organisms/Hero";
 import Layout from "../layout";
 import SEO from "../components/SEO/SEO";
@@ -11,6 +11,7 @@ import Image from "react-image-webp";
 
 import Button from "../components/atoms/button";
 
+import BlogTease from "../components/molecules/BlogTease";
 import Navigation from "../components/molecules/Navigation";
 
 import Services from "../components/organisms/Services";
@@ -142,17 +143,6 @@ var myTimeline = [
 		imageWebP: offonWebP,
 		type: "talks",
 		url: "https://twitter.com/fullstackhants/status/1009499162742837273"
-	},
-	{
-		title: "Getting Into The Industry",
-		date: "Sam",
-		dateTimeline: new Date("December 17, 1995 03:24:00"),
-		description: "somewhere@gmail.com",
-		event: "Solent",
-		image: pwablendingJPG,
-		imageWebP: pwablendingJPG,
-		type: "talks",
-		url: ""
 	},
 	{
 		title: "Progressive Web Applications: Blending Industries",
@@ -378,92 +368,108 @@ const Wrapper = styled.section`
 	}
 `;
 
-class Index extends React.Component {
-	render() {
-		return (
-			<Layout>
-				<div className="index-container">
-					<Helmet title={config.siteTitle} />
-					<SEO />
-					<Hero />
-				</div>
-				<div className="cv-container">
-					<Navigation />
-					<Wrapper>
-						<CVAbout>
-							<div>
-								<img src={aboutPhoto} alt="" />
-								<div>
-									<h2>New CV, Who dis?</h2>
-									<p>
-										Good {greeting}, I'm Jack Pritchard, a passionate front-end
-										website developer.
-									</p>
-									<p>
-										I want to improve how businesses present themselves in the
-										form of brand development and design.
-									</p>
-									<p>
-										Born and raise in Swansea, I came to the South of England to
-										complete studies in Website Design and Development where I
-										graduated with a 1:1 on my undergraduate course.
-									</p>
-									<p>
-										I’ve now continued my studies with a focus on growing my
-										business, by continuning my studies on a post-graduate MA
-										Creative Enterprise course.
-									</p>
-									<p>
-										My primary focus is website development, specifically
-										front-end web technologies and implementing the latest
-										frameworks to create bespoke solutions to solve business
-										problems.
-									</p>
-									<p>
-										I have experience in HTML, CSS, SCSS, JavaScript, jQuery,
-										React, PHP, WordPress, Gatsby. Although I have experience
-										creating bespoke backend systems, my true passion lies in
-										the front-end development of websites. Turning designs into
-										functional pages that represent brands or enable users to
-										make use of web applications.
-									</p>
-									<h3>Qualifications</h3>
-									<ul>
-										<li>✅ Grade C+ - English and Mathematics GCSE</li>
-										<li>✅ D*D*D* - BTEC Extended Diploma Level 3 in ICT</li>
-										<li>✅ 1:1 - BSc Website Design and Development</li>
-										<li>🎯 1:1 - MA Creative Enterprise </li>
-										{/* <li>🎯 1:1 - PhD Applied Computing </li> */}
-									</ul>
-								</div>
-							</div>
-						</CVAbout>
+export default ({ data }) => (
+	<Layout>
+		<div className="index-container">
+			<Helmet title={config.siteTitle} />
+			<SEO />
+			<Hero />
+		</div>
+		<div className="cv-container">
+			<Navigation />
+			<Wrapper>
+				<CVAbout>
+					<div>
+						<img src={aboutPhoto} alt="" />
+						<div>
+							<h2>New CV, Who dis?</h2>
+							<p>
+								Good {greeting}, I'm Jack Pritchard, a passionate front-end
+								website developer.
+							</p>
+							<p>
+								I want to improve how businesses present themselves in the form
+								of brand development and design.
+							</p>
+							<p>
+								Born and raise in Swansea, I came to the South of England to
+								complete studies in Website Design and Development where I
+								graduated with a 1:1 on my undergraduate course.
+							</p>
+							<p>
+								I’ve now continued my studies with a focus on growing my
+								business, by continuning my studies on a post-graduate MA
+								Creative Enterprise course.
+							</p>
+							<p>
+								My primary focus is website development, specifically front-end
+								web technologies and implementing the latest frameworks to
+								create bespoke solutions to solve business problems.
+							</p>
+							<p>
+								I have experience in HTML, CSS, SCSS, JavaScript, jQuery, React,
+								PHP, WordPress, Gatsby. Although I have experience creating
+								bespoke backend systems, my true passion lies in the front-end
+								development of websites. Turning designs into functional pages
+								that represent brands or enable users to make use of web
+								applications.
+							</p>
+							<h3>Qualifications</h3>
+							<ul>
+								<li>✅ Grade C+ - English and Mathematics GCSE</li>
+								<li>✅ D*D*D* - BTEC Extended Diploma Level 3 in ICT</li>
+								<li>✅ 1:1 - BSc Website Design and Development</li>
+								<li>🎯 1:1 - MA Creative Enterprise </li>
+								{/* <li>🎯 1:1 - PhD Applied Computing </li> */}
+							</ul>
+						</div>
+					</div>
+				</CVAbout>
 
-						<Services title="My Skills and Services" />
+				<Services title="My Skills and Services" />
 
-						<Events>
-							<h2>What I Get Up To</h2>
-							{myTimeline.map(chapter => (
-								<EventItem key={chapter.dateTimeline}>
-									<a href={chapter.url} target="_blank">
-										<Image
-											src={chapter.image}
-											webp={chapter.imageWebP}
-											alt=""
-										/>
-									</a>
-								</EventItem>
-							))}
-						</Events>
+				<Events>
+					<h2>What I Get Up To</h2>
+					{myTimeline.map(chapter => (
+						<EventItem key={chapter.dateTimeline}>
+							<a href={chapter.url} target="_blank">
+								<Image src={chapter.image} webp={chapter.imageWebP} alt="" />
+							</a>
+						</EventItem>
+					))}
+				</Events>
 
-						<Events>
-							<h2>My Most Popular Codepens</h2>
-						</Events>
-					</Wrapper>
-				</div>
-			</Layout>
-		);
+				{data.allPixabayPhoto.edges.map(node => (
+					<BlogTease
+						excerpt={node.node.excerpt.rendered}
+						link={node.node.link}
+						title={node.node.title.rendered}
+					/>
+				))}
+
+				<Events>
+					<h2>My Most Popular Codepens</h2>
+				</Events>
+			</Wrapper>
+		</div>
+	</Layout>
+);
+
+export const query = graphql`
+	query {
+		allPixabayPhoto(limit: 10) {
+			edges {
+				node {
+					title {
+						rendered
+					}
+					link
+					excerpt {
+						rendered
+						protected
+					}
+				}
+			}
+		}
 	}
-}
-
-export default Index;
+`;
