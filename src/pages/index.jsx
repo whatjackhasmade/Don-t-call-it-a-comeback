@@ -296,7 +296,6 @@ const CVAbout = styled.section`
 
 	img {
 		height: 500px;
-		min-width: 400px;
 		margin-right: 64px;
 		width: 400px;
 
@@ -389,7 +388,6 @@ class Index extends React.Component {
 					<Hero />
 				</div>
 				<div className="cv-container">
-					<Helmet title={`CV | ${config.siteTitle}`} />
 					<Navigation />
 					<Wrapper>
 						<CVAbout>
@@ -435,7 +433,7 @@ class Index extends React.Component {
 										<li>✅ D*D*D* - BTEC Extended Diploma Level 3 in ICT</li>
 										<li>✅ 1:1 - BSc Website Design and Development</li>
 										<li>🎯 1:1 - MA Creative Enterprise </li>
-										<li>🎯 1:1 - PhD Applied Computing </li>
+										{/* <li>🎯 1:1 - PhD Applied Computing </li> */}
 									</ul>
 								</div>
 							</div>
@@ -469,30 +467,3 @@ class Index extends React.Component {
 }
 
 export default Index;
-
-/* eslint no-undef: "off" */
-export const pageQuery = graphql`
-	query IndexQuery {
-		allMarkdownRemark(
-			limit: 2000
-			sort: { fields: [fields___date], order: DESC }
-		) {
-			edges {
-				node {
-					fields {
-						slug
-						date
-					}
-					excerpt
-					timeToRead
-					frontmatter {
-						title
-						tags
-						cover
-						date
-					}
-				}
-			}
-		}
-	}
-`;

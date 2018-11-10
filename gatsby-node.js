@@ -1,51 +1,11 @@
+const axios = require("axios");
 const path = require("path");
 const _ = require("lodash");
 const moment = require("moment");
 const siteConfig = require("./data/SiteConfig");
+const createNodeHelpers = require("gatsby-node-helpers").default;
 
 const postNodes = [];
-
-function addSiblingNodes(createNodeField) {
-	postNodes.sort(
-		({ frontmatter: { date: date1 } }, { frontmatter: { date: date2 } }) => {
-			const dateA = moment(date1, siteConfig.dateFromFormat);
-			const dateB = moment(date2, siteConfig.dateFromFormat);
-
-			if (dateA.isBefore(dateB)) return 1;
-
-			if (dateB.isBefore(dateA)) return -1;
-
-			return 0;
-		}
-	);
-	for (let i = 0; i < postNodes.length; i += 1) {
-		const nextID = i + 1 < postNodes.length ? i + 1 : 0;
-		const prevID = i - 1 > 0 ? i - 1 : postNodes.length - 1;
-		const currNode = postNodes[i];
-		const nextNode = postNodes[nextID];
-		const prevNode = postNodes[prevID];
-		createNodeField({
-			node: currNode,
-			name: "nextTitle",
-			value: nextNode.frontmatter.title
-		});
-		createNodeField({
-			node: currNode,
-			name: "nextSlug",
-			value: nextNode.fields.slug
-		});
-		createNodeField({
-			node: currNode,
-			name: "prevTitle",
-			value: prevNode.frontmatter.title
-		});
-		createNodeField({
-			node: currNode,
-			name: "prevSlug",
-			value: prevNode.fields.slug
-		});
-	}
-}
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
 	const { createNodeField } = actions;
@@ -86,71 +46,32 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 	}
 };
 
-exports.setFieldsOnGraphQLNodeType = ({ type, actions }) => {
-	const { name } = type;
-	const { createNodeField } = actions;
-	if (name === "MarkdownRemark") {
-		addSiblingNodes(createNodeField);
-	}
-};
+const { createNodeFactory, generateNodeId } = createNodeHelpers({
+	typePrefix: `Blog`
+});
 
-exports.createPages = ({ graphql, actions }) => {
-	const { createPage } = actions;
+const Post = createNodeFactory(`Posts`);
 
-	return new Promise((resolve, reject) => {
-		const postPage = path.resolve("src/templates/post.jsx");
-		const categoryPage = path.resolve("src/templates/category.jsx");
-		resolve(
-			graphql(
-				`
-					{
-						allMarkdownRemark {
-							edges {
-								node {
-									frontmatter {
-										category
-									}
-									fields {
-										slug
-									}
-								}
-							}
-						}
-					}
-				`
-			).then(result => {
-				if (result.errors) {
-					/* eslint no-console: "off" */
-					console.log(result.errors);
-					reject(result.errors);
-				}
-
-				const categorySet = new Set();
-				result.data.allMarkdownRemark.edges.forEach(edge => {
-					if (edge.node.frontmatter.category) {
-						categorySet.add(edge.node.frontmatter.category);
-					}
-
-					createPage({
-						path: edge.node.fields.slug,
-						component: postPage,
+exports.createPages = async ({ actions: { createPage } }) => {
+	await axios
+		.get(`https://noface.co.uk/wp-json/wp/v2/posts/`)
+		.then(function(response) {
+			if (response.data) {
+				response.data.forEach(e => {
+					const post = Post(e, {
+						id: generateNodeId(`Post`, e.id),
+						component: path.resolve(`./src/templates/blog-post.jsx`),
+						path: e.slug,
 						context: {
-							slug: edge.node.fields.slug
+							id: `123456`,
+							slug: e.slug
 						}
 					});
-				});
 
-				const categoryList = Array.from(categorySet);
-				categoryList.forEach(category => {
-					createPage({
-						path: `/categories/${_.kebabCase(category)}/`,
-						component: categoryPage,
-						context: {
-							category
-						}
-					});
+					createPage(post);
+					return post;
 				});
-			})
-		);
-	});
+			}
+		});
+	return;
 };

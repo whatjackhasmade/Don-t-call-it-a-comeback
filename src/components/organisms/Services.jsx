@@ -21,7 +21,7 @@ const ServicesContainer = styled.section`
 
 	div {
 		margin-bottom: 16px;
-		padding: 64px;
+		padding: 32px;
 		position: relative;
 		width: 100%;
 
@@ -34,6 +34,7 @@ const ServicesContainer = styled.section`
 		}
 
 		@media screen and (min-width: 576px) {
+			padding: 64px;
 			width: calc(50% - 8px);
 
 			&:nth-child(odd) {

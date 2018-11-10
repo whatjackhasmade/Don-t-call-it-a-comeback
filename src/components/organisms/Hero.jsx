@@ -8,6 +8,11 @@ import YouTube from "../../assets/images/youtube.svg";
 
 const HeroContainer = styled.div`
 	display: flex;
+	flex-direction: column;
+
+	@media screen and (min-width: 768px) {
+		flex-direction: row;
+	}
 
 	& > * {
 		align-items: center;
@@ -45,14 +50,17 @@ const HeroContainer = styled.div`
 `;
 
 const HeroIntro = styled.div`
-	height: 70vh;
-	width: 80%;
+	height: 40vh;
+
+	@media screen and (min-width: 768px) {
+		height: 70vh;
+		width: 80%;
+	}
 `;
 
 const HeroDescription = styled.div`
-	background-color: blue;
-	color: white;
-	width: 20%;
+	background-color: rgba(245, 245, 245, 1);
+	color: black;
 
 	.emoji {
 		display: inline-block;
@@ -70,6 +78,10 @@ const HeroDescription = styled.div`
 		padding: 0;
 
 		list-style: none;
+	}
+
+	@media screen and (min-width: 768px) {
+		width: 20%;
 	}
 `;
 
