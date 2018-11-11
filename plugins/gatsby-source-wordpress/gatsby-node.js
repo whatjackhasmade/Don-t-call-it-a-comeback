@@ -3,7 +3,7 @@ const queryString = require("query-string");
 const crypto = require("crypto");
 
 exports.sourceNodes = async (
-	{ boundActionCreators: { createNode }, createNodeId },
+	{ actions: { createNode }, createNodeId },
 	{ plugins, ...options }
 ) => {
 	const nofaceInsightsURL = `https://noface.co.uk/wp-json/insights/v2/all`;
