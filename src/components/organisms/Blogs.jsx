@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
+import { decodeHTML } from "../helpers";
+
 import BlogTease from "../molecules/BlogTease";
 
 const BlogContainer = styled.section`
@@ -26,7 +28,7 @@ class Blogs extends Component {
 						excerpt={node.node.excerpt}
 						image={node.node.image}
 						link={node.node.link}
-						title={node.node.title}
+						title={decodeHTML(node.node.title)}
 					/>
 				))}
 			</BlogContainer>

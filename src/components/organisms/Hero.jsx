@@ -6,6 +6,8 @@ import heroImage from "../../assets/images/jack-pritchard.jpg";
 import Twitter from "../../assets/images/twitter.svg";
 import YouTube from "../../assets/images/youtube.svg";
 
+import Button from "../atoms/button";
+
 const HeroContainer = styled.div`
 	align-items: center;
 	display: flex;
@@ -79,6 +81,7 @@ const Hero = () => (
 			<div>
 				<h2>Award Winning Web Developer</h2>
 				<h1>Jack Pritchard</h1>
+				<Button type="primary" text="Email Me" />
 			</div>
 			<div class="videoWrapper">
 				<iframe

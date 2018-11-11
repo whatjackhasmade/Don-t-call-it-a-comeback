@@ -24,8 +24,8 @@ class CodepenTease extends Component {
 			<Codepen>
 				<a href={this.props.url} target="_blank">
 					<h3>{this.props.title}</h3>
-					<p>👀 by {this.props.views} Humans</p>
-					<p>❤ by {this.props.loves}</p>
+					<p>👀 Viewed by {this.props.views} Humans</p>
+					<p>❤ Loved by {this.props.loves} Humans</p>
 				</a>
 			</Codepen>
 		);

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
+import { decodeHTML } from "../helpers";
+
 import CodepenTease from "../molecules/CodepenTease";
 
 const CodepenContainer = styled.section`
@@ -20,10 +22,10 @@ class Codepens extends Component {
 				{this.props.queryData.map(node => (
 					<CodepenTease
 						key={node.node.id}
-						loves={node.node.loves}
-						title={node.node.title}
+						loves={node.node.loves.slice(0, -6)}
+						title={decodeHTML(node.node.title)}
 						url={node.node.link}
-						views={node.node.views}
+						views={node.node.views.slice(0, -6)}
 					/>
 				))}
 			</CodepenContainer>

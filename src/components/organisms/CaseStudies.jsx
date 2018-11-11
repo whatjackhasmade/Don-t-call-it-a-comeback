@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
+import { decodeHTML } from "../helpers";
+
 import CaseTease from "../molecules/CaseTease";
 
 const CaseContainer = styled.section`
@@ -23,7 +25,7 @@ class Cases extends Component {
 						excerpt={node.node.excerpt}
 						image={node.node.image}
 						link={node.node.link}
-						title={node.node.title}
+						title={decodeHTML(node.node.title)}
 					/>
 				))}
 			</CaseContainer>

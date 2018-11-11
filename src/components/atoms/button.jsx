@@ -5,18 +5,15 @@ const Btn = styled.button`
 	border-radius: 3px;
 	padding: 8px 16px;
 
-	background: none;
+	background: var(--primary);
 	border: 1px solid var(--primary);
-	color: var(--primary);
+	color: white;
 	cursor: pointer;
+	font-size: 2rem;
+	font-weight: 700;
+	letter-spacing: 1px;
 	transition: 0.2s all ease;
-
-	&:active,
-	&:hover,
-	&:focus {
-		background: var(--primary);
-		color: white;
-	}
+	text-transform: uppercase;
 
 	&.secondary {
 		border: 1px solid var(--secondary);
