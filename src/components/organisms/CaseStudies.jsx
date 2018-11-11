@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-import CodepenTease from "../molecules/CodepenTease";
+import CaseTease from "../molecules/CaseTease";
 
-const CodepenContainer = styled.section`
+const CaseContainer = styled.section`
 	display: flex;
 	flex-wrap: wrap;
 	margin: 0 auto;
@@ -12,23 +12,23 @@ const CodepenContainer = styled.section`
 	width: 90%;
 `;
 
-class Codepens extends Component {
+class Cases extends Component {
 	render() {
 		return (
-			<CodepenContainer>
-				<h2>My Most Popular Codepens</h2>
+			<CaseContainer>
+				<h2>My Portfolio of Work 👨‍🎨</h2>
 				{this.props.queryData.map(node => (
-					<CodepenTease
+					<CaseTease
 						key={node.node.id}
-						loves={node.node.loves}
+						excerpt={node.node.excerpt}
+						image={node.node.image}
+						link={node.node.link}
 						title={node.node.title}
-						url={node.node.link}
-						views={node.node.views}
 					/>
 				))}
-			</CodepenContainer>
+			</CaseContainer>
 		);
 	}
 }
 
-export default Codepens;
+export default Cases;

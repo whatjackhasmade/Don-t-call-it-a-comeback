@@ -428,6 +428,8 @@ textarea {
 /* ------------------------------------------------- */
 /* ------------------------------------------------- */
 
+@import url("https://fonts.googleapis.com/css?family=Montserrat:800");
+
 /* this is the "root" in "root em." */
 html {
 	font-size: 62.5%; /* Now 10px = 1rem! */
@@ -469,6 +471,34 @@ a {
 
 	color: inherit;
 	text-decoration: none;
+}
+
+h1 {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 800;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: 0;
+	margin-top: 0;
+
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+h1 + *,
+h2 + *,
+h3 + *,
+h4 + *,
+h5 + *,
+h6 + * {
+	margin-top: 16px;
 }
 
 img {

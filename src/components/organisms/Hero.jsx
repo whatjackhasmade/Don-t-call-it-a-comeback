@@ -7,123 +7,82 @@ import Twitter from "../../assets/images/twitter.svg";
 import YouTube from "../../assets/images/youtube.svg";
 
 const HeroContainer = styled.div`
+	align-items: center;
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
+	min-height: 70vh;
+	overflow: hidden;
+	position: relative;
 
-	@media screen and (min-width: 768px) {
-		flex-direction: row;
+	text-align: center;
+	background: green;
+
+	&:before {
+		content: "";
+		display: block;
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 1;
+
+		background: rgba(255, 255, 255, 0.9);
 	}
 
 	& > * {
-		align-items: center;
-		display: flex;
-		justify-content: center;
-		min-height: 300px;
 		position: relative;
+		z-index: 2;
+	}
 
-		@media screen and (min-width: 768px) {
-			min-height: auto;
-		}
-
-		& > div {
-			padding: 32px;
-		}
+	h1 {
+		font-size: 64px;
+		font-weight: 700;
+		letter-spacing: 4px;
+		text-transform: uppercase;
 	}
 
 	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		margin-top: 0;
+	h2 {
+		background: blue;
+		color: white;
+
+		padding: 0 24px;
 	}
 
-	img {
-		position: absolute;
+	iframe {
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
-		object-fit: cover;
-	}
-`;
-
-const HeroIntro = styled.div`
-	height: 40vh;
-
-	@media screen and (min-width: 768px) {
-		height: 70vh;
-		width: 80%;
-	}
-`;
-
-const HeroDescription = styled.div`
-	background-color: rgba(245, 245, 245, 1);
-	color: black;
-
-	.emoji {
-		display: inline-block;
-		margin-right: 8px;
-		width: 44px;
-		text-align: center;
+		position: absolute;
 	}
 
-	li {
-		font-size: 3rem;
-	}
-
-	ul {
-		margin: 32px auto;
-		padding: 0;
-
-		list-style: none;
-	}
-
-	@media screen and (min-width: 768px) {
-		width: 20%;
+	.videoWrapper {
+		position: absolute;
+		padding-bottom: 56.25%; /* 16:9 */
+		padding-top: 25px;
+		height: 0;
+		width: 100%;
+		z-index: 0;
 	}
 `;
 
 const Hero = () => (
 	<div>
 		<HeroContainer>
-			<HeroIntro>
-				<figure>
-					<img src={heroImage} alt="Jack Pritchard" />
-				</figure>
-			</HeroIntro>
-			<HeroDescription>
-				<div>
-					<div>
-						<h1>Jack Pritchard</h1>
-						<h2>Award Winning Web Developer</h2>
-					</div>
-					<div>
-						<h2>Developer Languages</h2>
-						<ul>
-							<li>
-								<span className="emoji">🔨</span> HTML
-							</li>
-							<li>
-								<span className="emoji">👓</span> SCSS/CSS
-							</li>
-							<li>
-								<span className="emoji">💻</span> JavaScript
-							</li>
-							<li>
-								<span className="emoji">⚛</span> React
-							</li>
-							<li>
-								<span className="emoji">🐘</span> PHP
-							</li>
-							<li>
-								<span className="emoji">🗃</span> MYSQL
-							</li>
-						</ul>
-					</div>
-				</div>
-			</HeroDescription>
+			<div>
+				<h2>Award Winning Web Developer</h2>
+				<h1>Jack Pritchard</h1>
+			</div>
+			<div class="videoWrapper">
+				<iframe
+					src="https://www.youtube.com/embed/xMp7qZgeFgo?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&HD=1&frameborder=0&playlist=xMp7qZgeFgo"
+					frameborder="0"
+					allowfullscreen
+				/>
+			</div>
 		</HeroContainer>
 	</div>
 );

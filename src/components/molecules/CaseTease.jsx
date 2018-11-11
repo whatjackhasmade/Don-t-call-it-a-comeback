@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-const Codepen = styled.div`
+const Case = styled.div`
 	width: 100%;
 
 	@media screen and (min-width: 768px) {
@@ -16,18 +16,21 @@ const Codepen = styled.div`
 	}
 `;
 
-class CodepenTease extends Component {
+class CaseTease extends Component {
 	render() {
 		return (
-			<Codepen>
-				<a href={this.props.url} target="_blank">
+			<Case className="blog--single">
+				<a href={this.props.link} target="_blank">
+					<img src={this.props.image} />
 					<h3>{this.props.title}</h3>
-					<p>👀 by {this.props.views} Humans</p>
-					<p>❤ by {this.props.loves}</p>
+					<p>
+						{this.props.excerpt}
+						...
+					</p>
 				</a>
-			</Codepen>
+			</Case>
 		);
 	}
 }
 
-export default CodepenTease;
+export default CaseTease;

@@ -26,7 +26,7 @@ const ServicesContainer = styled.section`
 	color: black;
 
 	.service {
-		margin-bottom: 16px;
+		margin-top: 16px;
 		padding: 32px;
 		position: relative;
 		width: 100%;

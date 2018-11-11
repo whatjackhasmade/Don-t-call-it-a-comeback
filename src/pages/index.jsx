@@ -11,9 +11,8 @@ import Image from "react-image-webp";
 
 import Button from "../components/atoms/button";
 
-import Navigation from "../components/molecules/Navigation";
-
 import Blogs from "../components/organisms/Blogs";
+import CaseStudies from "../components/organisms/CaseStudies";
 import Codepens from "../components/organisms/Codepens";
 import Services from "../components/organisms/Services";
 
@@ -105,8 +104,8 @@ var myTimeline = [
 		dateTimeline: new Date("June 6, 2017 03:24:00"),
 		description: "somewhere@gmail.com",
 		event: "Winchester Creatives",
-		image: "",
-		imageWebP: "",
+		image: winchesterJPG,
+		imageWebP: winchesterWebP,
 		type: "talks",
 		url: "https://twitter.com/studiorepublic/status/872154777928564737"
 	},
@@ -199,77 +198,6 @@ if (curHr < 12) {
 	greeting = "Evening";
 }
 
-const CVIntro = styled.div`
-	a {
-		border-radius: 3px;
-		padding: 8px 16px;
-
-		border: 1px solid blue;
-		color: blue;
-		transition: 0.2s all ease;
-
-		&:active,
-		&:hover,
-		&:focus {
-			background: blue;
-			color: white;
-		}
-	}
-
-	div {
-		padding: 32px;
-		position: relative;
-		width: 100%;
-
-		~ div {
-			padding: 0;
-		}
-	}
-
-	h1 {
-		color: blue;
-	}
-
-	img {
-		display: none;
-	}
-
-	@media screen and (min-width: 576px) {
-		display: flex;
-		margin: 0 auto 32px;
-
-		div {
-			align-items: flex-start;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			min-height: 600px;
-
-			width: 60%;
-
-			*:not(img) {
-				margin-left: 20%;
-				margin-right: 164px;
-			}
-
-			~ div {
-				padding: 32px;
-				width: 40%;
-
-				background: blue;
-			}
-		}
-
-		img {
-			bottom: 0;
-			display: block;
-			position: absolute;
-			right: -202px;
-			z-index: 1;
-		}
-	}
-`;
-
 const CVAbout = styled.section`
 	margin: 64px auto;
 	max-width: 1300px;
@@ -299,7 +227,6 @@ const CVAbout = styled.section`
 	}
 
 	ul {
-		margin: 0;
 		padding: 0;
 
 		list-style: none;
@@ -323,7 +250,7 @@ const Events = styled.div`
 `;
 
 const EventItem = styled.div`
-	margin-bottom: 24px;
+	margin-top: 24px;
 	max-width: 100%;
 	position: relative;
 
@@ -362,9 +289,8 @@ const Wrapper = styled.section`
 	background: #fff;
 	color: black;
 
-	h2 {
-		margin-bottom: 32px;
-		margin-top: 0;
+	h2,
+	h3 {
 		width: 100%;
 	}
 `;
@@ -377,7 +303,6 @@ export default ({ data }) => (
 			<Hero />
 		</div>
 		<div className="cv-container">
-			<Navigation />
 			<Wrapper>
 				<CVAbout>
 					<div>
@@ -415,7 +340,28 @@ export default ({ data }) => (
 								that represent brands or enable users to make use of web
 								applications.
 							</p>
-							<h3>Qualifications</h3>
+							<h2>Developer Languages</h2>
+							<ul>
+								<li>
+									<span className="emoji">🔨</span> HTML
+								</li>
+								<li>
+									<span className="emoji">👓</span> SCSS/CSS
+								</li>
+								<li>
+									<span className="emoji">💻</span> JavaScript
+								</li>
+								<li>
+									<span className="emoji">⚛</span> React
+								</li>
+								<li>
+									<span className="emoji">🐘</span> PHP
+								</li>
+								<li>
+									<span className="emoji">🗃</span> MYSQL
+								</li>
+							</ul>
+							<h2>Qualifications</h2>
 							<ul>
 								<li>✅ Grade C+ - English and Mathematics GCSE</li>
 								<li>✅ D*D*D* - BTEC Extended Diploma Level 3 in ICT</li>
@@ -440,15 +386,11 @@ export default ({ data }) => (
 					))}
 				</Events>
 
-				<h2>My Portfolio of Work 👨‍🎨</h2>
+				<CaseStudies queryData={data.allNoFaceCase.edges} />
 
 				<Blogs queryData={data.allNoFaceInsight.edges} />
 
 				<Codepens queryData={data.allCodepen.edges} />
-
-				<Events>
-					<h2>My Most Popular Codepens</h2>
-				</Events>
 			</Wrapper>
 		</div>
 	</Layout>
@@ -457,6 +399,16 @@ export default ({ data }) => (
 export const query = graphql`
 	query {
 		allNoFaceInsight {
+			edges {
+				node {
+					excerpt
+					image
+					link
+					title
+				}
+			}
+		}
+		allNoFaceCase {
 			edges {
 				node {
 					excerpt
