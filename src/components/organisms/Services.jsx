@@ -58,7 +58,9 @@ const ServicesContainer = styled.section`
 			width: 100%;
 			z-index: 1;
 
-			background: rgba(0, 0, 255, 0.7);
+			background-color: blue;
+			background-color: var(--primary);
+			opacity: 0.7;
 		}
 	}
 

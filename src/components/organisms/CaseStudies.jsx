@@ -22,7 +22,7 @@ class Cases extends Component {
 				{this.props.queryData.map(node => (
 					<CaseTease
 						key={node.node.id}
-						excerpt={node.node.excerpt}
+						excerpt={decodeHTML(node.node.excerpt)}
 						image={node.node.image}
 						link={node.node.link}
 						title={decodeHTML(node.node.title)}

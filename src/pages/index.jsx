@@ -9,7 +9,7 @@ import config from "../../data/SiteConfig";
 import styled from "styled-components";
 import Image from "react-image-webp";
 
-import Button from "../components/atoms/button";
+import Button from "../components/atoms/Button";
 
 import Blogs from "../components/organisms/Blogs";
 import CaseStudies from "../components/organisms/CaseStudies";
@@ -95,7 +95,7 @@ export default ({ data }) => (
 				<CVAbout>
 					<div>
 						<img src={aboutPhoto} alt="" />
-						<div>
+						<div className="sm-text">
 							<h2>New CV, Who dis?</h2>
 							<p>
 								Good {greeting}, I'm Jack Pritchard, a passionate front-end
@@ -149,6 +149,60 @@ export default ({ data }) => (
 									<span className="emoji">🗃</span> MYSQL
 								</li>
 							</ul>
+
+							<h2>Work Experience</h2>
+							<h3>Junior Web Designer - CloudTen</h3>
+							<h4>April 2016 - June 2016</h4>
+							<p>
+								As the only website designer and developer of the team, I have
+								been tasked with creating designs for clients and following a
+								structured creative process when generating ideas and solutions.
+								As well as the initial designs, I was also responsible for
+								creating the website applications and interfaces that will be
+								used as an end product, often utilising CMS technologies such as
+								WordPress.
+							</p>
+							<h3>Web Developer - Moov2</h3>
+							<h4>June 2016 - November 2017</h4>
+							<p>
+								During my studies at Solent University I undertook work
+								placement at Moov2 for a ful year of placement. Working as a web
+								designer and developer, I assisted with both the front end
+								designs of websites and helped using web technologies, front end
+								and back end languages such as PHP, HTML, CSS, Javascript and
+								SCSS. I have learnt how to use Git, Bitbucket, Github as part of
+								my source control training and know how to work in the context
+								of a large team.
+							</p>
+							<h3>Freelance Fullstack Developer - NoFace Work</h3>
+							<h4>September 2015 - Present</h4>
+							<p>
+								I have been working as a website designer, developer and founder
+								of my business NoFace. NoFace have received some clients that
+								have included projects covering Brand Design, Brand Development,
+								Website Design, Website Development, Website Hosting, Website
+								Backups, Website Optimisation, the list goes on! As part of a
+								one-man business, I deal with client services, communications
+								and website design/development.
+							</p>
+
+							<h2>Awards</h2>
+							<h3>1st Place WorldSkills UK</h3>
+							<h4>Website Design and Development - 2013</h4>
+							<p>
+								Amongst competitors from both south and north Wales, I placed
+								1st in the first and final rounds of the 2013 WorldSkills UK
+								competition and won the title of 1st place for website design
+								and development in Wales. Read about it at the official
+								WorldSkills website -
+								<a
+									href="https://uwtsdcomputing.blog/2013/03/25/applied-computing-judges-prestigious-worldskills-competition/"
+									target="_blank"
+								>
+									https://uwtsdcomputing.blog/2013/03/25/applied-computing-judges-prestigious-worldskills-competition/
+								</a>
+							</p>
+
 							<h2>Qualifications</h2>
 							<ul>
 								<li>✅ Grade C+ - English and Mathematics GCSE</li>

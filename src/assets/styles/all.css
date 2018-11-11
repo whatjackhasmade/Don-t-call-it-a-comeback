@@ -504,3 +504,42 @@ h6 + * {
 img {
 	max-width: 100%;
 }
+
+.sm-text > h2,
+.sm-text > h3,
+.sm-text > h4,
+.sm-text > h5 {
+	margin-bottom: 16px;
+}
+.sm-text > * + * {
+	margin-top: 16px;
+}
+.sm-text > h2 + * {
+	margin-top: 24px;
+}
+.sm-text > figure + *,
+.sm-text > img + * {
+	margin-top: 32px;
+}
+.sm-text > * + h2 {
+	margin-top: 64px;
+}
+.sm-text > * + h3 {
+	margin-top: 48px;
+}
+.sm-text > * + img {
+	margin-top: 32px;
+}
+.sm-text > * + h4 {
+	margin-top: 48px;
+}
+.sm-text > figure + figure,
+.sm-text > img + img {
+	margin-top: 32px;
+}
+.sm-text > h2 + h3 {
+	margin-top: 32px;
+}
+.sm-text > h3 + h4 {
+	margin-top: 32px;
+}

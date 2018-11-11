@@ -15,6 +15,18 @@ const Btn = styled.button`
 	transition: 0.2s all ease;
 	text-transform: uppercase;
 
+	&:active,
+	&:hover,
+	&:focus {
+		background: #9d00ff;
+		color: white;
+	}
+
+	&.active {
+		background: var(--primary);
+		color: white;
+	}
+
 	&.secondary {
 		border: 1px solid var(--secondary);
 		color: var(--secondary);
@@ -31,11 +43,6 @@ const Btn = styled.button`
 			color: white;
 		}
 	}
-
-	&.active {
-		background: var(--primary);
-		color: white;
-	}
 `;
 
 class Button extends Component {
@@ -43,7 +50,7 @@ class Button extends Component {
 		super(props);
 	}
 
-	handleClick(e) {
+	handleClick() {
 		console.log("clicked");
 	}
 
@@ -51,7 +58,7 @@ class Button extends Component {
 		return (
 			<Btn
 				className={this.props.type}
-				onClick={e => this.handleClick(e)}
+				onClick={this.props.onClick || this.handleClick()}
 				disabled={this.props.disabled}
 			>
 				{this.props.text}
