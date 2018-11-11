@@ -11,9 +11,9 @@ import Image from "react-image-webp";
 
 import Button from "../components/atoms/button";
 
-import BlogTease from "../components/molecules/BlogTease";
 import Navigation from "../components/molecules/Navigation";
 
+import Blogs from "../components/organisms/Blogs";
 import Services from "../components/organisms/Services";
 
 import avatar1PNG from "../assets/images/cv/1.png";
@@ -439,13 +439,9 @@ export default ({ data }) => (
 					))}
 				</Events>
 
-				{data.allPixabayPhoto.edges.map(node => (
-					<BlogTease
-						excerpt={node.node.excerpt.rendered}
-						link={node.node.link}
-						title={node.node.title.rendered}
-					/>
-				))}
+				<h2>My Portfolio of Work 👨‍🎨</h2>
+
+				<Blogs queryData={data.allNoFaceInsight.edges} />
 
 				<Events>
 					<h2>My Most Popular Codepens</h2>
@@ -457,17 +453,13 @@ export default ({ data }) => (
 
 export const query = graphql`
 	query {
-		allPixabayPhoto(limit: 10) {
+		allNoFaceInsight {
 			edges {
 				node {
-					title {
-						rendered
-					}
+					excerpt
+					image
 					link
-					excerpt {
-						rendered
-						protected
-					}
+					title
 				}
 			}
 		}
