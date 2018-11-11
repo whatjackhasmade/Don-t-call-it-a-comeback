@@ -6,13 +6,11 @@ exports.sourceNodes = async (
 	{ boundActionCreators: { createNode }, createNodeId },
 	{ plugins, ...options }
 ) => {
-	const apiUrl = `https://noface.co.uk/wp-json/insights/v2/all`;
-	const response = await fetch(apiUrl);
-	const data = await response.json();
+	const nofaceInsightsURL = `https://noface.co.uk/wp-json/insights/v2/all`;
+	const nofaceInsightsResponse = await fetch(nofaceInsightsURL);
+	const nofaceData = await nofaceInsightsResponse.json();
 
-	console.log(data);
-
-	data.forEach(insight => {
+	nofaceData.forEach(insight => {
 		createNode({
 			...insight,
 			id: createNodeId(`noface-insight-${insight.id}`),
@@ -24,6 +22,27 @@ exports.sourceNodes = async (
 				contentDigest: crypto
 					.createHash("md5")
 					.update(JSON.stringify(insight))
+					.digest("hex")
+			}
+		});
+	});
+
+	const codepenURL = `https://cpv2api.com/pens/popular/jackpritchard`;
+	const codepenResponse = await fetch(codepenURL);
+	const codepenData = await codepenResponse.json();
+
+	codepenData.data.forEach(pen => {
+		createNode({
+			...pen,
+			id: createNodeId(`codepen-${pen.id}`),
+			parent: null,
+			children: [],
+			internal: {
+				type: "Codepen",
+				content: JSON.stringify(pen),
+				contentDigest: crypto
+					.createHash("md5")
+					.update(JSON.stringify(pen))
 					.digest("hex")
 			}
 		});

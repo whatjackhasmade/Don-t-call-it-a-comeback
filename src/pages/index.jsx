@@ -14,6 +14,7 @@ import Button from "../components/atoms/button";
 import Navigation from "../components/molecules/Navigation";
 
 import Blogs from "../components/organisms/Blogs";
+import Codepens from "../components/organisms/Codepens";
 import Services from "../components/organisms/Services";
 
 import avatar1PNG from "../assets/images/cv/1.png";
@@ -443,6 +444,8 @@ export default ({ data }) => (
 
 				<Blogs queryData={data.allNoFaceInsight.edges} />
 
+				<Codepens queryData={data.allCodepen.edges} />
+
 				<Events>
 					<h2>My Most Popular Codepens</h2>
 				</Events>
@@ -460,6 +463,16 @@ export const query = graphql`
 					image
 					link
 					title
+				}
+			}
+		}
+		allCodepen {
+			edges {
+				node {
+					id
+					loves
+					title
+					views
 				}
 			}
 		}

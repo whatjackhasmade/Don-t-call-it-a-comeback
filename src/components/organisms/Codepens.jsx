@@ -2,36 +2,33 @@ import React, { Component } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-import BlogTease from "../molecules/BlogTease";
+import CodepenTease from "../molecules/CodepenTease";
 
-const BlogContainer = styled.section`
+const CodepenContainer = styled.section`
 	display: flex;
 	flex-wrap: wrap;
 	margin: 0 auto;
 	max-width: 1300px;
 	width: 90%;
-
-	.blog--single {
-	}
 `;
 
-class Blogs extends Component {
+class Codepens extends Component {
 	render() {
 		return (
-			<BlogContainer>
-				<h2>My Insights and Thoughts</h2>
+			<CodepenContainer>
+				<h2>My Codepen Experiments</h2>
 				{this.props.queryData.map(node => (
-					<BlogTease
+					<CodepenTease
 						key={node.node.id}
-						excerpt={node.node.excerpt}
-						image={node.node.image}
-						link={node.node.link}
+						loves={node.node.loves}
 						title={node.node.title}
+						url={node.node.link}
+						views={node.node.views}
 					/>
 				))}
-			</BlogContainer>
+			</CodepenContainer>
 		);
 	}
 }
 
-export default Blogs;
+export default Codepens;
