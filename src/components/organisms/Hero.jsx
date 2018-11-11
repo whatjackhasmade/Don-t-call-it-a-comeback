@@ -152,7 +152,9 @@ class Hero extends Component {
 		} else if (this.state.count === 4) {
 			this.setState({ text: "I guess you think you're funny huh?" });
 		} else if (this.state.count === 5) {
-			this.setState({ text: "" });
+			this.setState({ text: "😶" });
+		} else {
+			this.setState({ text: "📩 - Jack@noface.co.uk" });
 		}
 
 		var input = document.createElement("input");
@@ -172,8 +174,8 @@ class Hero extends Component {
 						<h2>Award Winning Web Developer</h2>
 						<h1>Jack Pritchard</h1>
 						<Button
-							type="primary"
 							text={this.state.text}
+							type="primary"
 							onClick={this.copyClipboard}
 						/>
 					</div>

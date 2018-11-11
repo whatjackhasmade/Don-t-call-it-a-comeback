@@ -111,10 +111,11 @@ export default ({ data }) => (
 								graduated with a 1:1 on my undergraduate course.
 							</p>
 							<p>
-								I’ve now continued my studies with a focus on growing my
-								business, by continuning my studies on a post-graduate MA
-								Creative Enterprise course.
+								I’ve now returned to my studies with a focus on growing my
+								business, continuning my studies on a post-graduate MA Creative
+								Enterprise course.
 							</p>
+							<p> It's a fancy way of saying advanced business studies.</p>
 							<p>
 								My primary focus is website development, specifically front-end
 								web technologies and implementing the latest frameworks to
@@ -122,11 +123,14 @@ export default ({ data }) => (
 							</p>
 							<p>
 								I have experience in HTML, CSS, SCSS, JavaScript, jQuery, React,
-								PHP, WordPress, Gatsby. Although I have experience creating
-								bespoke backend systems, my true passion lies in the front-end
-								development of websites. Turning designs into functional pages
-								that represent brands or enable users to make use of web
-								applications.
+								PHP, WordPress, Gatsby.
+							</p>
+							<p>Heck this site is built with most of those!</p>
+							<p>
+								Although I have experience creating bespoke backend systems, my
+								true passion lies in the front-end development. Turning designs
+								into functional pages that represent brands or enable users to
+								make use of web applications.
 							</p>
 							<h2>Developer Languages</h2>
 							<ul>
@@ -174,7 +178,7 @@ export default ({ data }) => (
 								my source control training and know how to work in the context
 								of a large team.
 							</p>
-							<h3>Freelance Fullstack Developer - NoFace Work</h3>
+							<h3>Freelance Fullstack Developer - NoFace</h3>
 							<h4>September 2015 - Present</h4>
 							<p>
 								I have been working as a website designer, developer and founder
