@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 
 const Case = styled.div`
+	margin-top: 32px;
 	width: 100%;
 
 	@media screen and (min-width: 768px) {
@@ -13,13 +14,14 @@ const Case = styled.div`
 
 	h3 {
 		margin-bottom: 0;
+		margin-top: 16px;
 	}
 `;
 
 class CaseTease extends Component {
 	render() {
 		return (
-			<Case className="blog--single">
+			<Case className="case--single">
 				<a href={this.props.link} target="_blank">
 					<img src={this.props.image} />
 					<h3>{this.props.title}</h3>

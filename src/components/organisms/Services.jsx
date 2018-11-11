@@ -75,6 +75,7 @@ const ServicesContainer = styled.section`
 	}
 
 	svg {
+		margin-bottom: 32px;
 		max-width: 64px;
 
 		color: white;

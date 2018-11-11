@@ -7,7 +7,7 @@ import BlogTease from "../molecules/BlogTease";
 const BlogContainer = styled.section`
 	display: flex;
 	flex-wrap: wrap;
-	margin: 0 auto;
+	margin: 64px auto 0;
 	max-width: 1300px;
 	width: 90%;
 

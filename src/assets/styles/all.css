@@ -443,7 +443,7 @@ html {
 }
 
 body {
-	font-family: SuisseIntl-Regular, Arial, Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 16px; /* px fallback */
 	font-size: 1.6rem; /* default font-size for document */
 	line-height: 1.5; /* a nice line-height */

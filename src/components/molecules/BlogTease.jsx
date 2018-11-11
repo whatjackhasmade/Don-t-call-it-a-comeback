@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 
 const Blog = styled.div`
+	margin-top: 32px;
 	width: 100%;
 
 	@media screen and (min-width: 768px) {
@@ -13,6 +14,7 @@ const Blog = styled.div`
 
 	h3 {
 		margin-bottom: 0;
+		margin-top: 16px;
 	}
 `;
 
