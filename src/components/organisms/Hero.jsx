@@ -28,12 +28,20 @@ const HeroContainer = styled.div`
 		width: 100%;
 		z-index: 1;
 
-		background: rgba(255, 255, 255, 0.9);
+		background: rgba(0, 0, 255, 0.5);
 	}
 
 	& > * {
 		position: relative;
 		z-index: 2;
+	}
+
+	h1,
+	h2 {
+		background: blue;
+		color: white;
+
+		padding: 0 24px;
 	}
 
 	h1 {
@@ -43,12 +51,8 @@ const HeroContainer = styled.div`
 		text-transform: uppercase;
 	}
 
-	h1,
 	h2 {
-		background: blue;
-		color: white;
-
-		padding: 0 24px;
+		padding: 8px 24px;
 	}
 
 	iframe {
@@ -78,7 +82,7 @@ const Hero = () => (
 			</div>
 			<div class="videoWrapper">
 				<iframe
-					src="https://www.youtube.com/embed/xMp7qZgeFgo?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&HD=1&frameborder=0&playlist=xMp7qZgeFgo"
+					src="https://www.youtube.com/embed/_674lrm30sY?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&HD=1&frameborder=0&playlist=_674lrm30sY"
 					frameborder="0"
 					allowfullscreen
 				/>
