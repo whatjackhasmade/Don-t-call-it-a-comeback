@@ -6,7 +6,7 @@ import heroImage from "../../assets/images/jack-pritchard.jpg";
 import Twitter from "../../assets/images/twitter.svg";
 import YouTube from "../../assets/images/youtube.svg";
 
-import Button from "../atoms/Button";
+// import Button from "../../components/atoms/Button";
 
 var today = new Date();
 var curHr = today.getHours();
@@ -173,11 +173,9 @@ class Hero extends Component {
 					<div>
 						<h2>Award Winning Web Developer</h2>
 						<h1>Jack Pritchard</h1>
-						<Button
-							text={this.state.text}
-							type="primary"
-							onClick={this.copyClipboard}
-						/>
+						<button class="primary" onClick={this.copyClipboard}>
+							{this.state.text}
+						</button>
 					</div>
 					<div class="videoWrapper">
 						<iframe
