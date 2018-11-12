@@ -60,6 +60,12 @@ module.exports = {
 				]
 			}
 		},
+		{
+			resolve: "gatsby-plugin-favicon",
+			options: {
+				logo: "./src/assets/images/favicon.png"
+			}
+		},
 		"gatsby-plugin-offline"
 	]
 };
