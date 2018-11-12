@@ -201,11 +201,8 @@ export default ({ data }) => (
 								competition and won the title of 1st place for website design
 								and development in Wales. Read about it at the official
 								WorldSkills website -
-								<a
-									href="https://uwtsdcomputing.blog/2013/03/25/applied-computing-judges-prestigious-worldskills-competition/"
-									target="_blank"
-								>
-									https://uwtsdcomputing.blog/2013/03/25/applied-computing-judges-prestigious-worldskills-competition/
+								<a href="https://goo.gl/QuTrRq" target="_blank">
+									https://goo.gl/QuTrRq
 								</a>
 							</p>
 
