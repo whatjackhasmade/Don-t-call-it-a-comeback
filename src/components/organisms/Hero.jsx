@@ -27,6 +27,7 @@ const HeroContainer = styled.div`
 	min-height: 50vh;
 	overflow: hidden;
 	position: relative;
+	width: 100%;
 
 	background-color: blue;
 	background-color: var(--primary);
