@@ -9,8 +9,6 @@ import config from "../../data/SiteConfig";
 import styled from "styled-components";
 import Image from "react-image-webp";
 
-import Button from "../components/atoms/Button";
-
 import Blogs from "../components/organisms/Blogs";
 import CaseStudies from "../components/organisms/CaseStudies";
 import Codepens from "../components/organisms/Codepens";
@@ -89,8 +87,6 @@ export default ({ data }) => (
 			<Helmet title={config.siteTitle} />
 			<SEO />
 			<Hero />
-		</div>
-		<div className="cv-container">
 			<Wrapper>
 				<CVAbout>
 					<div>
