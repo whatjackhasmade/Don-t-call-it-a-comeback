@@ -4,20 +4,10 @@ module.exports = {
 	siteTitleAlt: "WhatJackHasMade, Jack Pritchard", // Alternative site title for SEO.
 	siteLogo: "/logos/logo-1024.png", // Logo used for SEO and manifest.
 	siteUrl: "https://whatjackhasmade.co.uk", // Domain of your website without pathPrefix.
-	pathPrefix: "/gatsby-advanced-starter", // Prefixes all links. For cases when deployed to example.github.io/gatsby-advanced-starter/.
-	siteDescription: "Jack Pritchard, an Award Winning Front-End Developer", // Website description used for RSS feeds/meta description tag.
-	siteRss: "/rss.xml", // Path to the RSS file.
-	siteFBAppID: "1825356251115265", // FB Application ID for using app insights
+	siteDescription: "Jack Pritchard, Award Winning Front-End Developer", // Website description used for RSS feeds/meta description tag.
 	googleAnalyticsID: "UA-47311644-5", // GA tracking ID.
-	postDefaultCategoryID: "Tech", // Default category for posts.
-	dateFromFormat: "YYYY-MM-DD", // Date format used in the frontmatter.
-	dateFormat: "DD/MM/YYYY", // Date format for display.
-	userName: "JackPritchard", // Username to display in the author segment.
+	userName: "Jack Pritchard", // Username to display in the author segment.
 	userTwitter: "whatjackhasmade", // Optionally renders "Follow Me" in the UserInfo segment.
-	userLocation: "North Pole, Earth", // User location to display in the author segment.
-	userAvatar: "https://api.adorable.io/avatars/150/test.png", // User avatar to display in the author segment.
-	userDescription: "Yeah.", // User description to display in the author segment.
-	copyright: "Copyright © 2017. Advanced User", // Copyright string for the footer of the website and RSS feed.
-	themeColor: "#c62828", // Used for setting manifest and progress theme colors.
-	backgroundColor: "#e0e0e0" // Used for setting manifest background color.
+	themeColor: "#0000ff", // Used for setting manifest and progress theme colors.
+	backgroundColor: "#0000ff" // Used for setting manifest background color.
 };
