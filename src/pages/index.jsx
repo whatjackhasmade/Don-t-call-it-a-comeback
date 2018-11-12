@@ -45,12 +45,18 @@ const CVAbout = styled.section`
 	}
 
 	img {
-		height: 500px;
+		height: 200px;
+		margin-bottom: 32px;
 		margin-right: 64px;
 		width: 400px;
 
 		object-fit: cover;
 		object-position: left center;
+
+		@media screen and (min-width: 576px) {
+			height: 500px;
+			margin-bottom: 0;
+		}
 	}
 
 	li {

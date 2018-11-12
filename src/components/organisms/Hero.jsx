@@ -24,12 +24,17 @@ const HeroContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	min-height: 90vh;
+	min-height: 50vh;
 	overflow: hidden;
 	position: relative;
 
+	background-color: blue;
+	background-color: var(--primary);
 	text-align: center;
-	background: green;
+
+	@media screen and (min-width: 768px) {
+		min-height: 90vh;
+	}
 
 	&:before {
 		content: "";
@@ -61,10 +66,14 @@ const HeroContainer = styled.div`
 	}
 
 	h1 {
-		font-size: 64px;
+		font-size: 32px;
 		font-weight: 700;
 		letter-spacing: 4px;
 		text-transform: uppercase;
+
+		@media screen and (min-width: 768px) {
+			font-size: 64px;
+		}
 	}
 
 	h2 {
@@ -80,12 +89,17 @@ const HeroContainer = styled.div`
 	}
 
 	.videoWrapper {
+		display: none;
 		position: absolute;
 		padding-bottom: 56.25%; /* 16:9 */
 		padding-top: 25px;
 		height: 0;
 		width: 100%;
 		z-index: 0;
+
+		@media screen and (min-width: 768px) {
+			display: block;
+		}
 	}
 `;
 
