@@ -35,6 +35,10 @@ const CVAbout = styled.section`
 	position: relative;
 	width: 90%;
 
+	@media screen and (min-width: 576px) {
+		margin: 128px auto;
+	}
+
 	> div {
 		display: flex;
 		flex-direction: column;
@@ -69,8 +73,14 @@ const CVAbout = styled.section`
 		list-style: none;
 	}
 
-	@media screen and (min-width: 576px) {
-		margin: 128px auto;
+	.emoji {
+		display: inline-block;
+		margin: 4px auto;
+		margin-right: 8px;
+		width: 44px;
+
+		font-size: 3rem;
+		text-align: center;
 	}
 `;
 
@@ -108,7 +118,7 @@ export default ({ data }) => (
 								of brand development and design.
 							</p>
 							<p>
-								Born and raise in Swansea, I came to the South of England to
+								Born and raised in Swansea, I came to the South of England to
 								complete studies in Website Design and Development where I
 								graduated with a 1:1 on my undergraduate course.
 							</p>
@@ -117,7 +127,7 @@ export default ({ data }) => (
 								business, continuning my studies on a post-graduate MA Creative
 								Enterprise course.
 							</p>
-							<p> It's a fancy way of saying advanced business studies.</p>
+							<p>It's a fancy way of saying advanced business studies.</p>
 							<p>
 								My primary focus is website development, specifically front-end
 								web technologies and implementing the latest frameworks to
@@ -161,24 +171,38 @@ export default ({ data }) => (
 							<h4>September 2015 - Present</h4>
 							<p>
 								I have been working as a website designer, developer and founder
-								of my business NoFace. NoFace have received some clients that
-								have included projects covering Brand Design, Brand Development,
-								Website Design, Website Development, Website Hosting, Website
-								Backups, Website Optimisation, the list goes on! As part of a
-								one-man business, I deal with client services, communications
-								and website design/development.
+								of my business NoFace.
+							</p>
+
+							<p>
+								NoFace has received clients that have included working on
+								projects covering Brand Design, Brand Development, Website
+								Design, Website Development, Website Hosting, Website Backups,
+								Website Optimisation, the list goes on!
+							</p>
+
+							<p>
+								As part of a one-man business, I deal with client services,
+								communications and website design/development.
 							</p>
 							<h3>Web Developer - Moov2</h3>
 							<h4>June 2016 - November 2017</h4>
 							<p>
 								During my studies at Solent University I undertook work
-								placement at Moov2 for a ful year of placement. Working as a web
-								designer and developer, I assisted with both the front end
-								designs of websites and helped using web technologies, front end
-								and back end languages such as PHP, HTML, CSS, Javascript and
-								SCSS. I have learnt how to use Git, Bitbucket, Github as part of
-								my source control training and know how to work in the context
-								of a large team.
+								placement at Moov2 for a full year of placement.
+							</p>
+
+							<p>
+								Working as a web designer and developer, I assisted with both
+								the front-end designs of websites and assited in developing with
+								web technologies, front-end and back-end languages such as PHP,
+								HTML, CSS, JavaScript and SCSS.
+							</p>
+
+							<p>
+								I have learnt how to use Git, Bitbucket, Github as part of my
+								source control training and know how to work in the context of a
+								large team.
 							</p>
 							<h3>Junior Web Designer - CloudTen</h3>
 							<h4>April 2016 - June 2016</h4>
@@ -186,6 +210,8 @@ export default ({ data }) => (
 								As the only website designer and developer of the team, I have
 								been tasked with creating designs for clients and following a
 								structured creative process when generating ideas and solutions.
+							</p>
+							<p>
 								As well as the initial designs, I was also responsible for
 								creating the website applications and interfaces that will be
 								used as an end product, often utilising CMS technologies such as
