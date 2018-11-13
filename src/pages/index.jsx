@@ -258,6 +258,10 @@ export const query = graphql`
 			edges {
 				node {
 					id
+					images {
+						small
+						large
+					}
 					link
 					loves
 					title
