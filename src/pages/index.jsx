@@ -157,16 +157,16 @@ export default ({ data }) => (
 							</ul>
 
 							<h2>Work Experience</h2>
-							<h3>Junior Web Designer - CloudTen</h3>
-							<h4>April 2016 - June 2016</h4>
+							<h3>Freelance Fullstack Developer - NoFace</h3>
+							<h4>September 2015 - Present</h4>
 							<p>
-								As the only website designer and developer of the team, I have
-								been tasked with creating designs for clients and following a
-								structured creative process when generating ideas and solutions.
-								As well as the initial designs, I was also responsible for
-								creating the website applications and interfaces that will be
-								used as an end product, often utilising CMS technologies such as
-								WordPress.
+								I have been working as a website designer, developer and founder
+								of my business NoFace. NoFace have received some clients that
+								have included projects covering Brand Design, Brand Development,
+								Website Design, Website Development, Website Hosting, Website
+								Backups, Website Optimisation, the list goes on! As part of a
+								one-man business, I deal with client services, communications
+								and website design/development.
 							</p>
 							<h3>Web Developer - Moov2</h3>
 							<h4>June 2016 - November 2017</h4>
@@ -180,16 +180,16 @@ export default ({ data }) => (
 								my source control training and know how to work in the context
 								of a large team.
 							</p>
-							<h3>Freelance Fullstack Developer - NoFace</h3>
-							<h4>September 2015 - Present</h4>
+							<h3>Junior Web Designer - CloudTen</h3>
+							<h4>April 2016 - June 2016</h4>
 							<p>
-								I have been working as a website designer, developer and founder
-								of my business NoFace. NoFace have received some clients that
-								have included projects covering Brand Design, Brand Development,
-								Website Design, Website Development, Website Hosting, Website
-								Backups, Website Optimisation, the list goes on! As part of a
-								one-man business, I deal with client services, communications
-								and website design/development.
+								As the only website designer and developer of the team, I have
+								been tasked with creating designs for clients and following a
+								structured creative process when generating ideas and solutions.
+								As well as the initial designs, I was also responsible for
+								creating the website applications and interfaces that will be
+								used as an end product, often utilising CMS technologies such as
+								WordPress.
 							</p>
 
 							<h2>Awards</h2>
