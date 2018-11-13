@@ -7,11 +7,16 @@ module.exports = {
 		siteUrl: urljoin(config.siteUrl)
 	},
 	plugins: [
+		"gatsby-plugin-catch-links",
+		"gatsby-plugin-lodash",
+		"gatsby-plugin-offline",
+		"gatsby-plugin-sharp",
+		"gatsby-plugin-styled-components",
+		"gatsby-plugin-twitter",
 		"gatsby-plugin-react-helmet",
 		{
 			resolve: "gatsby-source-wordpress"
 		},
-		"gatsby-plugin-lodash",
 		"gatsby-plugin-sass",
 		{
 			resolve: "gatsby-source-filesystem",
@@ -32,9 +37,6 @@ module.exports = {
 				color: config.themeColor
 			}
 		},
-		"gatsby-plugin-sharp",
-		"gatsby-plugin-catch-links",
-		"gatsby-plugin-twitter",
 		"gatsby-plugin-sitemap",
 		{
 			resolve: "gatsby-plugin-manifest",
@@ -65,7 +67,6 @@ module.exports = {
 			options: {
 				logo: "./src/assets/images/favicon.png"
 			}
-		},
-		"gatsby-plugin-offline"
+		}
 	]
 };
