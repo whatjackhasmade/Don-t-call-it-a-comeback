@@ -26,7 +26,7 @@ class CodepenTease extends Component {
 					<img src={this.props.image} />
 					<h3>{this.props.title}</h3>
 					<p>👀 Viewed by {this.props.views} Humans</p>
-					<p>❤ Loved by {this.props.loves} Humans</p>
+					<p>💟 Loved by {this.props.loves} Humans</p>
 				</a>
 			</Codepen>
 		);
