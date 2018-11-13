@@ -57,6 +57,10 @@ const HeroContainer = styled.div`
 		z-index: 2;
 	}
 
+	button {
+		margin-top: 24px;
+	}
+
 	h1,
 	h2 {
 		background: blue;
@@ -146,6 +150,15 @@ class Hero extends Component {
 		}
 	}
 
+	buttonAnimation = e => {
+		var rect = e.target.getBoundingClientRect();
+		var x = e.clientX - rect.left; //x position within the element.
+		var y = e.clientY - rect.top; //y position within the element.
+
+		e.target.style.setProperty("--x", x + "px");
+		e.target.style.setProperty("--y", y + "px");
+	};
+
 	// This method will be sent to the child component
 	copyClipboard() {
 		this.setState({
@@ -188,15 +201,19 @@ class Hero extends Component {
 					<div>
 						<h2>Award Winning Web Developer</h2>
 						<h1>Jack Pritchard</h1>
-						<button class="primary" onClick={this.copyClipboard}>
+						<button
+							className="button primary"
+							onClick={this.copyClipboard}
+							onMouseMove={e => this.buttonAnimation(e)}
+						>
 							{this.state.text}
 						</button>
 					</div>
-					<div class="videoWrapper">
+					<div className="videoWrapper">
 						<iframe
 							src="https://www.youtube.com/embed/_674lrm30sY?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&HD=1&frameborder=0&playlist=_674lrm30sY"
-							frameborder="0"
-							allowfullscreen
+							frameBorder="0"
+							allowFullScreen
 						/>
 					</div>
 				</HeroContainer>

@@ -543,3 +543,54 @@ img {
 .sm-text > h3 + h4 {
 	margin-top: 32px;
 }
+
+button,
+.button {
+	overflow: hidden;
+	padding: 1em 2em;
+	position: relative;
+
+	appearance: none;
+	background: #f72359;
+	border: none;
+	border-radius: 100px;
+	color: white;
+	cursor: pointer;
+	font-size: 1.2em;
+	outline: none;
+
+	--x: 0;
+	--y: 0;
+}
+
+button span,
+.button span {
+	pointer-events: none;
+	position: relative;
+}
+
+button::before,
+.button::before {
+	--size: 0;
+
+	content: "";
+	display: block;
+	height: var(--size);
+	position: absolute;
+	left: var(--x);
+	top: var(--y);
+	width: var(--size);
+
+	background: radial-gradient(
+		circle closest-side,
+		rgba(255, 255, 255, 0.2),
+		transparent
+	);
+	transform: translate(-50%, -50%);
+	transition: width 0.2s ease, height 0.2s ease;
+}
+
+button:hover::before,
+.button:hover::before {
+	--size: 400px;
+}
