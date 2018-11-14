@@ -6,8 +6,9 @@ import Layout from "../layout";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
 
-import styled from "styled-components";
 import Image from "react-image-webp";
+import LazyLoad from "react-lazyload";
+import styled from "styled-components";
 
 import Blogs from "../components/organisms/Blogs";
 import CaseStudies from "../components/organisms/CaseStudies";
@@ -243,15 +244,25 @@ export default ({ data }) => (
 					</div>
 				</CVAbout>
 
-				<Services title="My Skills and Services" />
+				<LazyLoad height={1920}>
+					<Services title="My Skills and Services" />
+				</LazyLoad>
 
-				<Events />
+				<LazyLoad height={1920}>
+					<Events />
+				</LazyLoad>
 
-				<CaseStudies queryData={data.allNoFaceCase.edges} />
+				<LazyLoad height={1920}>
+					<CaseStudies queryData={data.allNoFaceCase.edges} />
+				</LazyLoad>
 
-				<Blogs queryData={data.allNoFaceInsight.edges} />
+				<LazyLoad height={1920}>
+					<Blogs queryData={data.allNoFaceInsight.edges} />
+				</LazyLoad>
 
-				<Codepens queryData={data.allCodepen.edges} />
+				<LazyLoad height={1920}>
+					<Codepens queryData={data.allCodepen.edges} />
+				</LazyLoad>
 			</Wrapper>
 		</div>
 	</Layout>
