@@ -17,6 +17,12 @@ module.exports = {
 		{
 			resolve: "gatsby-source-wordpress"
 		},
+		{
+			resolve: "gatsby-plugin-html-attributes",
+			options: {
+				lang: "en"
+			}
+		},
 		"gatsby-plugin-sass",
 		{
 			resolve: "gatsby-source-filesystem",

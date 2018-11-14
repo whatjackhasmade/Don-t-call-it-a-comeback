@@ -6673,6 +6673,12 @@ gatsby-plugin-google-analytics@2.0.5:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
+gatsby-plugin-html-attributes@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-html-attributes/-/gatsby-plugin-html-attributes-1.0.5.tgz#811613bdeff119aa4fa61ed33b5147d52d5a7017"
+  dependencies:
+    babel-runtime "^6.26.0"
+
 gatsby-plugin-lodash@3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-lodash/-/gatsby-plugin-lodash-3.0.1.tgz#906c9d6f5666bb690680d475af8f9b8867628c8c"
