@@ -214,6 +214,7 @@ class Hero extends Component {
 							src="https://www.youtube.com/embed/_674lrm30sY?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&HD=1&frameborder=0&playlist=_674lrm30sY"
 							frameBorder="0"
 							allowFullScreen
+							title="Return of Jack, Going Freelance and New Videos"
 						/>
 					</div>
 				</HeroContainer>
