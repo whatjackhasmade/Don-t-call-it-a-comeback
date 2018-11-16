@@ -15,6 +15,7 @@ import CaseStudies from "../components/organisms/CaseStudies";
 import Codepens from "../components/organisms/Codepens";
 import Events from "../components/organisms/Events";
 import Services from "../components/organisms/Services";
+import UXMotion from "../components/organisms/UXMotion";
 
 import aboutPhoto from "../assets/images/jack-pritchard.jpg";
 
@@ -254,6 +255,10 @@ export default ({ data }) => (
 
 				<LazyLoad height={1920}>
 					<CaseStudies queryData={data.allNoFaceCase.edges} />
+				</LazyLoad>
+
+				<LazyLoad height={1920}>
+					<UXMotion />
 				</LazyLoad>
 
 				<LazyLoad height={1920}>
