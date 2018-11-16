@@ -6,6 +6,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-plugin-styled-components": "^1.8.0",
+    "caniuse-api": "^3.0.0",
     "gatsby": "2.0.0",
     "gatsby-image": "2.0.0",
     "gatsby-node-helpers": "^0.3.0",
