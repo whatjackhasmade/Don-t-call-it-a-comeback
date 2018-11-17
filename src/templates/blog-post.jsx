@@ -77,6 +77,7 @@ const Article = styled.article`
 export default class BlogPostTemplate extends React.Component {
 	createMarkup() {
 		let articleHTML = this.props.pageContext.content;
+		articleHTML = httpTohttps(articleHTML);
 		articleHTML = autoParagraph(articleHTML);
 		articleHTML = removeDimensions(articleHTML);
 		return { __html: articleHTML };

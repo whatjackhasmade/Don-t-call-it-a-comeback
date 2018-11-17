@@ -1,3 +1,7 @@
+export function autoParagraph(html) {
+	return "<p>" + html.split(/\n/).join("</p>\n<p>") + "</p>";
+}
+
 export function decodeHTML(html) {
 	html = html.replace("amp;", "");
 	return html.replace(/&#(\d+);/g, function(match, dec) {
@@ -5,8 +9,8 @@ export function decodeHTML(html) {
 	});
 }
 
-export function autoParagraph(html) {
-	return "<p>" + html.split(/\n/).join("</p>\n<p>") + "</p>";
+export function httpTohttps(html) {
+	return html.replace("http://", "https://");
 }
 
 export function removeDimensions(html) {
