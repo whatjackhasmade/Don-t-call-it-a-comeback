@@ -262,6 +262,10 @@ export default ({ data }) => (
 				</LazyLoad>
 
 				<LazyLoad height={1920}>
+					<Blogs queryData={data.allWjhmPost.edges} />
+				</LazyLoad>
+
+				<LazyLoad height={1920}>
 					<Blogs queryData={data.allNoFaceInsight.edges} />
 				</LazyLoad>
 
@@ -286,6 +290,16 @@ export const query = graphql`
 			}
 		}
 		allNoFaceCase {
+			edges {
+				node {
+					excerpt
+					image
+					link
+					title
+				}
+			}
+		}
+		allWjhmPost {
 			edges {
 				node {
 					excerpt

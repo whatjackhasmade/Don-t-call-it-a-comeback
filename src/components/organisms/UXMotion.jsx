@@ -19,7 +19,7 @@ import eleventh from "../../assets/videos/ux-motion/11.mp4";
 import twelth from "../../assets/videos/ux-motion/12.mp4";
 
 const UXMotionContainer = styled.section`
-	margin: 128px 0;
+	padding: 128px 0 0;
 
 	.intro {
 		margin-left: auto;

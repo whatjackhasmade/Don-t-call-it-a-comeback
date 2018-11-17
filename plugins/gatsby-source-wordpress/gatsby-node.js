@@ -68,4 +68,25 @@ exports.sourceNodes = async (
 			}
 		});
 	});
+
+	const wjhmURL = `https://wjhm.noface.app/wp-json/bloggies/v2/all`;
+	const wjhmResponse = await fetch(wjhmURL);
+	const wjhmData = await wjhmResponse.json();
+
+	wjhmData.forEach(e => {
+		createNode({
+			...e,
+			id: createNodeId(`wjhm-post-${e.id}`),
+			parent: null,
+			children: [],
+			internal: {
+				type: "WJHMPost",
+				content: JSON.stringify(e),
+				contentDigest: crypto
+					.createHash("md5")
+					.update(JSON.stringify(e))
+					.digest("hex")
+			}
+		});
+	});
 };

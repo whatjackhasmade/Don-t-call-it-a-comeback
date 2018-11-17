@@ -3,18 +3,16 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 
 const Blog = styled.div`
-	margin-top: 32px;
-	width: 100%;
-
-	@media screen and (min-width: 768px) {
-		margin-right: 30px;
-		width: 30%;
-		width: calc(33% - 30px);
-	}
-
 	h3 {
 		margin-bottom: 0;
 		margin-top: 16px;
+	}
+
+	img {
+		height: 220px;
+		width: 100%;
+
+		object-fit: cover;
 	}
 `;
 
