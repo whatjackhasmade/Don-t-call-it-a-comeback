@@ -282,10 +282,11 @@ export default ({ data }) => (
 					<Banner overlay image={aboutPhoto}>
 						<h2>I get pretty creative in numerous ways!</h2>
 						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut
-							nobis cum nisi soluta, explicabo distinctio accusantium dolorum,
-							ab quo dicta? Possimus voluptates vitae, doloremque harum
-							aspernatur aliquid hic nobis.
+							With over 200 blog posts, in 14 different categories, it's safe to
+							say I can get carried away with my posts. I am passionate about my
+							industry and want to share and discuss topics from user interface
+							design to photography! Feel free to browse through my thoughts and
+							let me know what you think.
 						</p>
 					</Banner>
 				</LazyLoad>
