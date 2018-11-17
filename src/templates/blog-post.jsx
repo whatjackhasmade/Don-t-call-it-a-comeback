@@ -6,6 +6,7 @@ import styled from "styled-components";
 import {
 	autoParagraph,
 	decodeHTML,
+	httpTohttps,
 	removeDimensions
 } from "../components/helpers";
 
