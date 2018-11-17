@@ -23,7 +23,6 @@ class CodepenTease extends Component {
 		return (
 			<Codepen>
 				<a href={this.props.url} target="_blank">
-					<img src={this.props.image} />
 					<h3>{this.props.title}</h3>
 					<p>👀 Viewed by {this.props.views} Humans</p>
 					<p>💟 Loved by {this.props.loves} Humans</p>

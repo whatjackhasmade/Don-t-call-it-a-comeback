@@ -9,7 +9,7 @@ import CaseTease from "../molecules/CaseTease";
 const CaseContainer = styled.section`
 	display: flex;
 	flex-wrap: wrap;
-	margin: 0 auto;
+	margin: 0 auto 128px;
 	max-width: 1300px;
 	width: 90%;
 `;

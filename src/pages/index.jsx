@@ -10,6 +10,7 @@ import Image from "react-image-webp";
 import LazyLoad from "react-lazyload";
 import styled from "styled-components";
 
+import Banner from "../components/organisms/Banner";
 import Blogs from "../components/organisms/Blogs";
 import CaseStudies from "../components/organisms/CaseStudies";
 import Codepens from "../components/organisms/Codepens";
@@ -18,6 +19,7 @@ import Services from "../components/organisms/Services";
 import UXMotion from "../components/organisms/UXMotion";
 
 import aboutPhoto from "../assets/images/jack-pritchard.jpg";
+import magnifyPhoto from "../assets/images/banner/magnify.jpg";
 
 var today = new Date();
 var curHr = today.getHours();
@@ -258,7 +260,34 @@ export default ({ data }) => (
 				</LazyLoad>
 
 				<LazyLoad height={1920}>
+					<Banner overlay image={magnifyPhoto}>
+						<h2>The 12 Principles of UX in Motion</h2>
+						<p>
+							Codepen animations inspired by the 12 principles of UX in motion,
+							found in the medium article
+							<a
+								href="https://medium.com/ux-in-motion/creating-usability-with-motion-the-ux-in-motion-manifesto-a87a4584ddc"
+								target="_blank"
+							>
+								"Creating Usability with Motion: The UX in Motion Manifesto"
+							</a>
+							by Issara Willenskomer.
+						</p>
+					</Banner>
+
 					<UXMotion />
+				</LazyLoad>
+
+				<LazyLoad height={1920}>
+					<Banner overlay image={aboutPhoto}>
+						<h2>I get pretty creative in numerous ways!</h2>
+						<p>
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut
+							nobis cum nisi soluta, explicabo distinctio accusantium dolorum,
+							ab quo dicta? Possimus voluptates vitae, doloremque harum
+							aspernatur aliquid hic nobis.
+						</p>
+					</Banner>
 				</LazyLoad>
 
 				<LazyLoad height={1920}>
@@ -313,10 +342,6 @@ export const query = graphql`
 			edges {
 				node {
 					id
-					images {
-						small
-						large
-					}
 					link
 					loves
 					title

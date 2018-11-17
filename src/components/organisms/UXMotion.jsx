@@ -19,19 +19,6 @@ import eleventh from "../../assets/videos/ux-motion/11.mp4";
 import twelth from "../../assets/videos/ux-motion/12.mp4";
 
 const UXMotionContainer = styled.section`
-	padding: 128px 0 0;
-
-	.intro {
-		margin-left: auto;
-		margin-right: auto;
-		max-width: 1300px;
-		width: 90%;
-
-		p {
-			max-width: 650px;
-		}
-	}
-
 	.videos {
 		display: flex;
 		flex-wrap: wrap;
@@ -79,20 +66,6 @@ class UXMotion extends Component {
 	render() {
 		return (
 			<UXMotionContainer>
-				<div className="intro">
-					<h2>The 12 Principles of UX in Motion</h2>
-					<p>
-						Codepen animations inspired by the 12 principles of UX in motion,
-						found in the medium article
-						<a
-							href="https://medium.com/ux-in-motion/creating-usability-with-motion-the-ux-in-motion-manifesto-a87a4584ddc"
-							target="_blank"
-						>
-							"Creating Usability with Motion: The UX in Motion Manifesto"
-						</a>
-						by Issara Willenskomer .
-					</p>
-				</div>
 				<div className="videos">
 					<VideoTease key="" video={first} codepenID="rGvpgy" />
 					<VideoTease key="" video={second} codepenID="LzmQPm" />
