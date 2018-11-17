@@ -21,6 +21,7 @@ import UXMotion from "../components/organisms/UXMotion";
 
 import aboutPhoto from "../assets/images/jack-pritchard.jpg";
 import magnifyPhoto from "../assets/images/banner/magnify.jpg";
+import nofacePhoto from "../assets/images/banner/noface.jpg";
 
 var today = new Date();
 var curHr = today.getHours();
@@ -290,13 +291,18 @@ export default ({ data }) => (
 							let me know what you think.
 						</p>
 					</Banner>
-				</LazyLoad>
-
-				<LazyLoad height={1920}>
 					<BlogsInternal queryData={data.allWjhmPost.edges} />
 				</LazyLoad>
 
 				<LazyLoad height={1920}>
+					<Banner overlay image={nofacePhoto}>
+						<h2>I've also been a busy bee 🐝, posting on my company site!</h2>
+						<p>
+							It is our archived collection of discussions on current events and
+							topics related to our industry. Join in the conversation and let
+							us know what you think.
+						</p>
+					</Banner>
 					<Blogs queryData={data.allNoFaceInsight.edges} />
 				</LazyLoad>
 
