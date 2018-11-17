@@ -12,6 +12,7 @@ import styled from "styled-components";
 
 import Banner from "../components/organisms/Banner";
 import Blogs from "../components/organisms/Blogs";
+import BlogsInternal from "../components/organisms/BlogsInternal";
 import CaseStudies from "../components/organisms/CaseStudies";
 import Codepens from "../components/organisms/Codepens";
 import Events from "../components/organisms/Events";
@@ -292,7 +293,7 @@ export default ({ data }) => (
 				</LazyLoad>
 
 				<LazyLoad height={1920}>
-					<Blogs queryData={data.allWjhmPost.edges} />
+					<BlogsInternal queryData={data.allWjhmPost.edges} />
 				</LazyLoad>
 
 				<LazyLoad height={1920}>
@@ -334,8 +335,8 @@ export const query = graphql`
 				node {
 					excerpt
 					image
-					link
 					title
+					slug
 				}
 			}
 		}

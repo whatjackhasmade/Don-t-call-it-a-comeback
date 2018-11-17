@@ -1,6 +1,7 @@
 const fetch = require("node-fetch");
 const queryString = require("query-string");
 const crypto = require("crypto");
+const path = require("path");
 
 exports.sourceNodes = async (
 	{ actions: { createNode }, createNodeId },
@@ -87,6 +88,40 @@ exports.sourceNodes = async (
 					.update(JSON.stringify(e))
 					.digest("hex")
 			}
+		});
+	});
+};
+
+exports.createPages = ({ graphql, actions }) => {
+	const { createPage } = actions;
+	return new Promise((resolve, reject) => {
+		graphql(`
+			{
+				allWjhmPost {
+					edges {
+						node {
+							slug
+							title
+							image
+							content
+						}
+					}
+				}
+			}
+		`).then(result => {
+			result.data.allWjhmPost.edges.forEach(({ node }) => {
+				createPage({
+					path: node.slug,
+					component: path.resolve(`./src/templates/blog-post.jsx`),
+					context: {
+						slug: node.slug,
+						title: node.title,
+						image: node.image,
+						content: node.content
+					}
+				});
+			});
+			resolve();
 		});
 	});
 };
