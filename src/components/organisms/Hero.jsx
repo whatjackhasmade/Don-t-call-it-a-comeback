@@ -23,8 +23,10 @@ const HeroContainer = styled.div`
 	align-items: center;
 	display: flex;
 	flex-direction: column;
+	height: 100vw;
 	justify-content: center;
-	min-height: 50vh;
+	max-height: 90vh;
+	min-height: 400px;
 	overflow: hidden;
 	position: relative;
 	width: 100%;
@@ -33,11 +35,8 @@ const HeroContainer = styled.div`
 	background-color: var(--primary);
 	text-align: center;
 
-	@media screen and (min-width: 768px) {
-		min-height: 90vh;
-	}
-
-	&:before {
+	&:before,
+	&:after {
 		content: "";
 		display: block;
 		height: 100%;
@@ -49,7 +48,11 @@ const HeroContainer = styled.div`
 
 		background-color: blue;
 		background-color: var(--primary);
-		opacity: 0.5;
+		opacity: 0.35;
+	}
+
+	&:before {
+		mix-blend-mode: lighten;
 	}
 
 	& > * {
@@ -96,14 +99,18 @@ const HeroContainer = styled.div`
 	.videoWrapper {
 		display: none;
 		position: absolute;
-		padding-bottom: 56.25%; /* 16:9 */
+		padding-bottom: 100%; /* 16:9 */
 		padding-top: 25px;
 		height: 0;
-		width: 100%;
+		width: 200%;
 		z-index: 0;
 
-		@media screen and (min-width: 768px) {
+		@media screen and (min-width: 1024px) {
 			display: block;
+		}
+		@media screen and (min-width: 1366px) {
+			padding-bottom: 56.25%; /* 16:9 */
+			width: 100%;
 		}
 	}
 `;

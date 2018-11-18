@@ -13,14 +13,6 @@ const BlogContainer = styled.section`
 
 	background-color: #fafafa;
 
-	h2 {
-		margin-left: 16px;
-
-		@media (min-width: 960px) {
-			margin-left: 32px;
-		}
-	}
-
 	.blog--single {
 		margin-top: 0;
 		padding: 16px;
@@ -50,7 +42,6 @@ class Blogs extends Component {
 	render() {
 		return (
 			<BlogContainer>
-				<h2>My Insights and Thoughts</h2>
 				{this.props.queryData.map(node => (
 					<BlogTease
 						key={node.node.id}

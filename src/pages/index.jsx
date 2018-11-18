@@ -20,6 +20,7 @@ import Services from "../components/organisms/Services";
 import UXMotion from "../components/organisms/UXMotion";
 
 import aboutPhoto from "../assets/images/jack-pritchard.jpg";
+import casesPhoto from "../assets/images/banner/cases.jpg";
 import magnifyPhoto from "../assets/images/banner/magnify.jpg";
 import nofacePhoto from "../assets/images/banner/noface.jpg";
 
@@ -109,6 +110,7 @@ export default ({ data }) => (
 			<Helmet title={config.siteTitle} />
 			<SEO />
 			<Hero />
+			<Services />
 			<Wrapper>
 				<CVAbout>
 					<div>
@@ -250,15 +252,22 @@ export default ({ data }) => (
 				</CVAbout>
 
 				<LazyLoad height={1920}>
-					<Services title="My Skills and Services" />
-				</LazyLoad>
-
-				<LazyLoad height={1920}>
+					<Banner overlay image={aboutPhoto}>
+						<h2>What I get up to</h2>
+					</Banner>
 					<Events />
 				</LazyLoad>
 
 				<LazyLoad height={1920}>
-					<CaseStudies queryData={data.allNoFaceCase.edges} />
+					<Banner overlay image={casesPhoto}>
+						<h2>My Portfolio of Work 👨‍🎨</h2>
+						<p>
+							We work for our customers, and help create their visions. Our work
+							is a reflection of our skills and so we let our work speak for
+							itself. Take a look.
+						</p>
+					</Banner>
+					<Blogs queryData={data.allNoFaceCase.edges} />
 				</LazyLoad>
 
 				<LazyLoad height={1920}>

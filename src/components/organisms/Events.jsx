@@ -170,18 +170,12 @@ const EventContainer = styled.section`
 	flex-wrap: wrap;
 	justify-content: space-between;
 	position: relative;
-	margin: 128px;
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 1300px;
-	width: 90%;
 `;
 
 class Events extends Component {
 	render() {
 		return (
 			<EventContainer>
-				<h2>What I Get Up To</h2>
 				{myTimeline.map(chapter => (
 					<EventTease
 						key={chapter.dateTimeline}

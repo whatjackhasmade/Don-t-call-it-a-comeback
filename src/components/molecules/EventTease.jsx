@@ -5,13 +5,15 @@ import styled from "styled-components";
 import Image from "react-image-webp";
 
 const Event = styled.div`
-	margin-top: 24px;
 	max-width: 100%;
 	position: relative;
 
 	@media screen and (min-width: 576px) {
-		max-width: 33.333%;
-		max-width: calc(33.333% - 16px);
+		max-width: 50%;
+	}
+
+	@media screen and (min-width: 1152px) {
+		max-width: 20%;
 	}
 
 	a,
