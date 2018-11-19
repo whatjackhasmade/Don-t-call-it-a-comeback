@@ -9,13 +9,10 @@ import BlogTease from "../molecules/BlogTease";
 const BlogContainer = styled.section`
 	display: flex;
 	flex-wrap: wrap;
-	padding: 64px 0px;
 
 	background-color: #fafafa;
 
 	.blog--single {
-		margin-top: 0;
-		padding: 16px;
 		position: relative;
 		width: 100%;
 
@@ -24,7 +21,6 @@ const BlogContainer = styled.section`
 		}
 
 		@media (min-width: 960px) {
-			padding: 32px;
 			width: 33.3333%;
 		}
 

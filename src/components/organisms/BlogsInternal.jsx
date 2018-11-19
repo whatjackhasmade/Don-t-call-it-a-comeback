@@ -9,21 +9,11 @@ import BlogTeaseInternal from "../molecules/BlogTeaseInternal";
 const BlogContainer = styled.section`
 	display: flex;
 	flex-wrap: wrap;
-	padding: 64px 0px;
 
 	background-color: #fafafa;
 
-	h2 {
-		margin-left: 16px;
-
-		@media (min-width: 960px) {
-			margin-left: 32px;
-		}
-	}
-
 	.blog--single {
 		margin-top: 0;
-		padding: 16px;
 		position: relative;
 		width: 100%;
 
@@ -32,7 +22,6 @@ const BlogContainer = styled.section`
 		}
 
 		@media (min-width: 960px) {
-			padding: 32px;
 			width: 33.3333%;
 		}
 
@@ -50,7 +39,6 @@ class Blogs extends Component {
 	render() {
 		return (
 			<BlogContainer>
-				<h2>My Insights and Thoughts</h2>
 				{this.props.queryData.map(node => (
 					<BlogTeaseInternal
 						key={node.node.id}

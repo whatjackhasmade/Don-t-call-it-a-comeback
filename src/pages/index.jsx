@@ -93,7 +93,6 @@ const CVAbout = styled.section`
 
 const Wrapper = styled.section`
 	min-height: 100vh;
-	padding-bottom: 128px;
 
 	background: #fff;
 	color: black;
@@ -314,10 +313,6 @@ export default ({ data }) => (
 					</Banner>
 					<Blogs queryData={data.allNoFaceInsight.edges} />
 				</LazyLoad>
-
-				<LazyLoad height={1920}>
-					<Codepens queryData={data.allCodepen.edges} />
-				</LazyLoad>
 			</Wrapper>
 		</div>
 	</Layout>
@@ -325,7 +320,7 @@ export default ({ data }) => (
 
 export const query = graphql`
 	query {
-		allNoFaceInsight {
+		allNoFaceInsight(limit: 20) {
 			edges {
 				node {
 					excerpt
@@ -345,24 +340,13 @@ export const query = graphql`
 				}
 			}
 		}
-		allWjhmPost {
+		allWjhmPost(limit: 25) {
 			edges {
 				node {
 					excerpt
 					image
 					title
 					slug
-				}
-			}
-		}
-		allCodepen {
-			edges {
-				node {
-					id
-					link
-					loves
-					title
-					views
 				}
 			}
 		}
