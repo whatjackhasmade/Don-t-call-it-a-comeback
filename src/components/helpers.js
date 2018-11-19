@@ -18,3 +18,7 @@ export function removeDimensions(html) {
 	html = html.replace(/height="[^"]*"/g, "");
 	return html;
 }
+
+export function removeOrphans(html) {
+	return html.replace(/ ([^ ]*)$/, " $1");
+}

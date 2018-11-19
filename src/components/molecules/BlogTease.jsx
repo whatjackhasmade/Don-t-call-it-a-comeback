@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
+import { removeOrphans, decodeHTML } from "../helpers";
+
 const Blog = styled.div`
 	height: 260px;
 	overflow: hidden;
@@ -76,10 +78,7 @@ class BlogTease extends Component {
 				<a href={this.props.link} target="_blank">
 					<div className="content">
 						<h3>{this.props.title}</h3>
-						<p>
-							{this.props.excerpt}
-							...
-						</p>
+						<p>{removeOrphans(this.props.excerpt)}</p>
 					</div>
 					<div className="overlay" />
 					<img src={this.props.image} />

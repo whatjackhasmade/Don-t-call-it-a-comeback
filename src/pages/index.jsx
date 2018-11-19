@@ -281,7 +281,7 @@ export default ({ data }) => (
 							>
 								"Creating Usability with Motion: The UX in Motion Manifesto"
 							</a>
-							by Issara Willenskomer.
+							by Issara Willenskomer.
 						</p>
 					</Banner>
 
