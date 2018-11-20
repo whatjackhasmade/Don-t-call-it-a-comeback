@@ -11,6 +11,7 @@ import {
 } from "../components/helpers";
 
 import Banner from "../components/organisms/Banner";
+import Header from "../components/organisms/Header";
 
 const Article = styled.article`
 	padding: 32px 16px;
@@ -87,7 +88,8 @@ export default class BlogPostTemplate extends React.Component {
 	render() {
 		return (
 			<div>
-				<Banner image={this.props.pageContext.image}>
+				<Header />
+				<Banner image={this.props.pageContext.imageFull}>
 					<nav>
 						<Link to="/">Homepage</Link> //
 					</nav>

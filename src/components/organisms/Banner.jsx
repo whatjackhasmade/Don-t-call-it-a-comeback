@@ -28,6 +28,8 @@ const BannerContainer = styled.section`
 		margin: 0 auto;
 		max-width: 600px;
 		position: relative;
+		width: 90%;
+		width: calc(100% - 30px);
 		z-index: 2;
 
 		color: white;

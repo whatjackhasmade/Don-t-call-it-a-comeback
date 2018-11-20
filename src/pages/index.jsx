@@ -16,6 +16,7 @@ import BlogsInternal from "../components/organisms/BlogsInternal";
 import CaseStudies from "../components/organisms/CaseStudies";
 import Codepens from "../components/organisms/Codepens";
 import Events from "../components/organisms/Events";
+import Header from "../components/organisms/Header";
 import Services from "../components/organisms/Services";
 import UXMotion from "../components/organisms/UXMotion";
 
@@ -108,7 +109,9 @@ export default ({ data }) => (
 		<div className="index-container">
 			<Helmet title={config.siteTitle} />
 			<SEO />
-			<Hero />
+			<Hero>
+				<Header />
+			</Hero>
 			<Services />
 			<Wrapper>
 				<CVAbout>

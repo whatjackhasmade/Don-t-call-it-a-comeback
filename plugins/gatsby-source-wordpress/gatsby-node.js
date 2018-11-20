@@ -103,6 +103,7 @@ exports.createPages = ({ graphql, actions }) => {
 							slug
 							title
 							image
+							imageFull
 							content
 						}
 					}
@@ -117,6 +118,7 @@ exports.createPages = ({ graphql, actions }) => {
 						slug: node.slug,
 						title: node.title,
 						image: node.image,
+						imageFull: node.imageFull,
 						content: node.content
 					}
 				});

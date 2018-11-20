@@ -205,6 +205,7 @@ class Hero extends Component {
 		return (
 			<div>
 				<HeroContainer>
+					{this.props.children}
 					<div>
 						<h2>Award Winning Web Developer</h2>
 						<h1>Jack Pritchard</h1>
