@@ -100,11 +100,12 @@ exports.createPages = ({ graphql, actions }) => {
 				allWjhmPost {
 					edges {
 						node {
-							slug
-							title
+							category
+							content
 							image
 							imageFull
-							content
+							slug
+							title
 						}
 					}
 				}
@@ -119,6 +120,7 @@ exports.createPages = ({ graphql, actions }) => {
 						title: node.title,
 						image: node.image,
 						imageFull: node.imageFull,
+						category: node.category,
 						content: node.content
 					}
 				});
