@@ -364,7 +364,7 @@ export default ({ data }) => (
 							let me know what you think.
 						</p>
 					</Banner>
-					<Blogs queryData={data.allWjhmPost.edges} internal={false} />
+					<Blogs queryData={data.allWjhmPost.edges} internal={true} />
 				</LazyLoad>
 
 				<LazyLoad height={1920}>

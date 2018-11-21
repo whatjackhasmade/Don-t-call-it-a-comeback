@@ -75,7 +75,7 @@ class BlogTease extends Component {
 	render() {
 		return (
 			<Blog className="blog--single">
-				<a href={this.props.link} target="_blank">
+				<a href={this.props.link} target={this.props.internal ? `` : `_blank`}>
 					<div className="content">
 						<h3>{this.props.title}</h3>
 						<p>{removeOrphans(this.props.excerpt)}</p>

@@ -12,13 +12,7 @@ import styled from "styled-components";
 
 import Banner from "../components/organisms/Banner";
 import Blogs from "../components/organisms/Blogs";
-import BlogsInternal from "../components/organisms/BlogsInternal";
-import CaseStudies from "../components/organisms/CaseStudies";
-import Codepens from "../components/organisms/Codepens";
-import Events from "../components/organisms/Events";
 import Header from "../components/organisms/Header";
-import Services from "../components/organisms/Services";
-import UXMotion from "../components/organisms/UXMotion";
 
 import aboutPhoto from "../assets/images/jack-pritchard.jpg";
 import casesPhoto from "../assets/images/banner/cases.jpg";
@@ -57,7 +51,7 @@ export default ({ data }) => (
 			</Banner>
 			<Wrapper>
 				<LazyLoad height={1920}>
-					<BlogsInternal queryData={data.allWjhmPost.edges} />
+					<Blogs queryData={data.allWjhmPost.edges} internal={true} />
 				</LazyLoad>
 			</Wrapper>
 		</div>
