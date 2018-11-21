@@ -166,7 +166,7 @@ html {
 	font-size: 62.5%;
 	--primary: #0000FF;
 	--secondary: #0d1321;
-	--black: #black;
+	--black: black;
 	--white: #eae8ff;
 	--off-white: #eae8ff;
 }

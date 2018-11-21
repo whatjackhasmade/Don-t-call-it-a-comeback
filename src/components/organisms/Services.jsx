@@ -17,9 +17,6 @@ const ServicesContainer = styled.section`
 	display: flex;
 	flex-wrap: wrap;
 
-	background: #fff;
-	color: black;
-
 	.service {
 		padding: 32px;
 		position: relative;
@@ -52,8 +49,8 @@ const ServicesContainer = styled.section`
 			width: 100%;
 			z-index: 1;
 
-			background-color: blue;
-			background-color: var(--primary);
+			background-color: black;
+			background-color: var(--black);
 			opacity: 0.7;
 		}
 	}
