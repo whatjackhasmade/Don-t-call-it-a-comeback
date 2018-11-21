@@ -43,7 +43,7 @@ class Blogs extends Component {
 						key={node.node.id}
 						excerpt={decodeHTML(node.node.excerpt)}
 						image={node.node.image}
-						link={node.node.link}
+						link={this.props.internal ? `/${node.node.slug}` : node.node.link}
 						title={decodeHTML(node.node.title)}
 					/>
 				))}

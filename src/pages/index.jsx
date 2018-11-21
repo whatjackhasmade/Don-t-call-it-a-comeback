@@ -12,8 +12,6 @@ import styled from "styled-components";
 
 import Banner from "../components/organisms/Banner";
 import Blogs from "../components/organisms/Blogs";
-import BlogsInternal from "../components/organisms/BlogsInternal";
-import CaseStudies from "../components/organisms/CaseStudies";
 import Codepens from "../components/organisms/Codepens";
 import Events from "../components/organisms/Events";
 import Services from "../components/organisms/Services";
@@ -266,7 +264,7 @@ export default ({ data }) => (
 							itself. Take a look.
 						</p>
 					</Banner>
-					<Blogs queryData={data.allNoFaceCase.edges} />
+					<Blogs queryData={data.allNoFaceCase.edges} internal={false} />
 				</LazyLoad>
 
 				<LazyLoad height={1920}>
@@ -299,7 +297,7 @@ export default ({ data }) => (
 							let me know what you think.
 						</p>
 					</Banner>
-					<BlogsInternal queryData={data.allWjhmPost.edges} />
+					<Blogs queryData={data.allWjhmPost.edges} internal={false} />
 				</LazyLoad>
 
 				<LazyLoad height={1920}>
@@ -311,7 +309,7 @@ export default ({ data }) => (
 							us know what you think.
 						</p>
 					</Banner>
-					<Blogs queryData={data.allNoFaceInsight.edges} />
+					<Blogs queryData={data.allNoFaceInsight.edges} internal={false} />
 				</LazyLoad>
 			</Wrapper>
 		</div>
