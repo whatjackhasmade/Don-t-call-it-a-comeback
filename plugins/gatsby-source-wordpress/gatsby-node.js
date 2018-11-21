@@ -90,6 +90,29 @@ exports.sourceNodes = async (
 			}
 		});
 	});
+
+	const wjhmCategoriesURL = `https://wjhm.noface.app/wp-json/wp/v2/categories?count=99`;
+	const wjhmCategoriesResponse = await fetch(wjhmCategoriesURL);
+	const wjhmCategoriesData = await wjhmCategoriesResponse.json();
+
+	wjhmCategoriesData.forEach(e => {
+		if (e.parent === 0) {
+			createNode({
+				...e,
+				id: createNodeId(`wjhm-category-${e.id}`),
+				parent: null,
+				children: [],
+				internal: {
+					type: "WJHMCategory",
+					content: JSON.stringify(e),
+					contentDigest: crypto
+						.createHash("md5")
+						.update(JSON.stringify(e))
+						.digest("hex")
+				}
+			});
+		}
+	});
 };
 
 exports.createPages = ({ graphql, actions }) => {

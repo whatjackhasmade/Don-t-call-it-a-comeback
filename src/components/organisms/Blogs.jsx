@@ -41,6 +41,7 @@ class Blogs extends Component {
 				{this.props.queryData.map(node => (
 					<BlogTease
 						key={node.node.id}
+						category={node.node.category}
 						excerpt={decodeHTML(node.node.excerpt)}
 						image={node.node.image}
 						internal={this.props.internal}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
 import Hero from "../components/organisms/Hero";
@@ -15,9 +15,10 @@ import Blogs from "../components/organisms/Blogs";
 import Header from "../components/organisms/Header";
 
 import aboutPhoto from "../assets/images/jack-pritchard.jpg";
-import casesPhoto from "../assets/images/banner/cases.jpg";
-import magnifyPhoto from "../assets/images/banner/magnify.jpg";
-import nofacePhoto from "../assets/images/banner/noface.jpg";
+
+import { slugTitle } from "../components/helpers";
+
+let Categories = [];
 
 const Wrapper = styled.section`
 	min-height: 100vh;
@@ -31,41 +32,93 @@ const Wrapper = styled.section`
 	}
 `;
 
-export default ({ data }) => (
-	<Layout>
-		<div className="index-container">
-			<Helmet title={config.siteTitle} />
-			<SEO />
-			<div>
-				<Header />
-			</div>
-			<Banner overlay image={aboutPhoto}>
-				<h2>I get pretty creative in numerous ways!</h2>
-				<p>
-					With over 200 blog posts, in 14 different categories, it's safe to say
-					I can get carried away with my posts. I am passionate about my
-					industry and want to share and discuss topics from user interface
-					design to photography! Feel free to browse through my thoughts and let
-					me know what you think.
-				</p>
-			</Banner>
-			<Wrapper>
-				<LazyLoad height={1920}>
-					<Blogs queryData={data.allWjhmPost.edges} internal={true} />
-				</LazyLoad>
-			</Wrapper>
-		</div>
-	</Layout>
-);
+const Filters = styled.section`
+	display: flex;
+	justify-content: space-between;
+
+	button {
+		overflow: hidden;
+		padding: 16px;
+		position: relative;
+		width: 100%;
+
+		appearance: none;
+		background: black;
+		border-radius: 0px;
+		color: white;
+		text-align: center;
+
+		&:before {
+			display: none;
+		}
+	}
+
+	.active {
+		background: grey;
+	}
+`;
+class Posts extends Component {
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+		const categoryData = this.props.data.allWjhmCategory;
+		const postData = this.props.data.allWjhmPost;
+
+		return (
+			<Layout>
+				<div className="index-container">
+					<Helmet title={config.siteTitle} />
+					<SEO />
+					<div>
+						<Header />
+					</div>
+					<Banner overlay image={aboutPhoto}>
+						<h2>I get pretty creative in numerous ways!</h2>
+						<p>
+							With over 200 blog posts, in 14 different categories, it's safe to
+							say I can get carried away with my posts. I am passionate about my
+							industry and want to share and discuss topics from user interface
+							design to photography! Feel free to browse through my thoughts and
+							let me know what you think.
+						</p>
+					</Banner>
+					<Wrapper>
+						<Filters>
+							<button className="active">All</button>
+							{categoryData.edges.map(node => (
+								<button key={node.node.id}>{slugTitle(node.node.slug)}</button>
+							))}
+						</Filters>
+
+						<Blogs queryData={postData.edges} internal={true} />
+					</Wrapper>
+				</div>
+			</Layout>
+		);
+	}
+}
+// export the class so you can call it elsewhere
+export default Posts;
 
 export const query = graphql`
 	query {
 		allWjhmPost {
 			edges {
 				node {
+					category
 					excerpt
 					image
 					title
+					slug
+				}
+			}
+		}
+
+		allWjhmCategory {
+			edges {
+				node {
 					slug
 				}
 			}
