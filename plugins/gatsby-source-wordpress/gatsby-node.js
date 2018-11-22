@@ -91,7 +91,7 @@ exports.sourceNodes = async (
 		});
 	});
 
-	const wjhmCategoriesURL = `https://wjhm.noface.app/wp-json/wp/v2/categories?count=99`;
+	const wjhmCategoriesURL = `https://wjhm.noface.app/wp-json/wp/v2/categories?count=-1`;
 	const wjhmCategoriesResponse = await fetch(wjhmCategoriesURL);
 	const wjhmCategoriesData = await wjhmCategoriesResponse.json();
 
