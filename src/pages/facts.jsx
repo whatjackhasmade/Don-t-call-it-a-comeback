@@ -44,7 +44,7 @@ export default ({ data }) => (
 					<li>I can solve a rubiks cube in under 2 minutes</li>
 					<li>I love to ride my bicycle</li>
 					<li>I want to have six dogs</li>
-					<li>I want to a farm</li>
+					<li>I want to own a farm</li>
 				</ul>
 			</Banner>
 		</div>

@@ -7,71 +7,90 @@ import {
 	autoParagraph,
 	decodeHTML,
 	httpTohttps,
-	removeDimensions
+	removeDimensions,
+	removeOrphans,
+	slugTitle
 } from "../components/helpers";
 
+import Article from "../components/organisms/Article";
 import Banner from "../components/organisms/Banner";
 import Header from "../components/organisms/Header";
 
-const Article = styled.article`
-	padding: 32px 16px;
-	> h2,
-	> h3,
-	> h4,
-	> h5 {
-		margin-bottom: 16px;
-		font-weight: 700;
+const Related = styled.section`
+	display: flex;
+	flex-wrap: wrap;
+	margin: 32px auto;
+	max-width: 900px;
+
+	h2 {
+		width: 100%;
 	}
-	> * + * {
+`;
+
+const Blog = styled.div`
+	height: 260px;
+	margin-top: 16px;
+	overflow: hidden;
+	position: relative;
+	width: 33.33%;
+
+	color: white;
+
+	.content,
+	.overlay,
+	img {
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 3;
+	}
+
+	h3 {
+		margin-bottom: 0;
 		margin-top: 16px;
 	}
-	> h2 + * {
-		margin-top: 24px;
+
+	img {
+		z-index: 1;
+
+		object-fit: cover;
 	}
-	> figure + *,
-	> img + * {
-		margin-top: 32px;
+
+	.content {
+		padding: 16px;
+		top: 100%;
+		transition: 0.2s all ease;
 	}
-	> * + h2 {
-		margin-top: 64px;
+
+	.overlay {
+		z-index: 2;
+
+		&:before {
+			content: "";
+			display: block;
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			z-index: -1;
+
+			background-color: rgba(0, 0, 0, 0);
+			transition: 0.2s all ease;
+		}
 	}
-	> * + h3 {
-		margin-top: 48px;
-	}
-	> * + img {
-		margin-top: 32px;
-	}
-	> * + h4 {
-		margin-top: 48px;
-	}
-	> figure + figure,
-	> img + img {
-		margin-top: 32px;
-	}
-	> h2 + h3 {
-		margin-top: 32px;
-	}
-	> h3 + h4 {
-		margin-top: 32px;
-	}
-	> :not(figure):not(img):not(picture):not(.ignore) {
-		margin-left: auto;
-		margin-right: auto;
-		max-width: 900px;
-	}
-	> .ignore,
-	> figure,
-	> img,
-	> picture {
-		display: block;
-		margin: 32px auto;
-		max-width: 1100px;
-		width: 100%;
-		text-align: center;
-	}
-	@media all and (min-width: 1400px) {
-		 {
-			padding: 64px 32px;
+
+	&:hover {
+		.content {
+			top: 0;
+		}
+
+		.overlay {
+			&:before {
+				background-color: rgba(0, 0, 0, 0.6);
+			}
 		}
 	}
 `;
@@ -85,6 +104,25 @@ export default class BlogPostTemplate extends React.Component {
 		return { __html: articleHTML };
 	}
 
+	createRelated() {
+		if (this.props.pageContext.related) {
+			let htmlRelated;
+			htmlRelated = this.props.pageContext.related.map((e, i) => (
+				<Blog className="blog--single">
+					<Link to={e.slug}>
+						<div className="content">
+							<h3>{slugTitle(e.slug)}</h3>
+							<p>{removeOrphans(e.excerpt)}</p>
+						</div>
+						<div className="overlay" />
+						<img src={e.image} />
+					</Link>
+				</Blog>
+			));
+			return htmlRelated;
+		}
+	}
+
 	render() {
 		return (
 			<div>
@@ -95,7 +133,11 @@ export default class BlogPostTemplate extends React.Component {
 					</nav>
 					<h1>{decodeHTML(this.props.pageContext.title)}</h1>
 				</Banner>
-				<Article dangerouslySetInnerHTML={this.createMarkup()} />
+				<Article markup={this.createMarkup()} />
+				<Related>
+					<h2>Related Blog Posts</h2>
+					{this.createRelated()}
+				</Related>
 			</div>
 		);
 	}

@@ -129,6 +129,12 @@ exports.createPages = ({ graphql, actions }) => {
 							imageFull
 							slug
 							title
+							related {
+								excerpt
+								id
+								image
+								slug
+							}
 						}
 					}
 				}
@@ -144,7 +150,8 @@ exports.createPages = ({ graphql, actions }) => {
 						image: node.image,
 						imageFull: node.imageFull,
 						category: node.category,
-						content: node.content
+						content: node.content,
+						related: node.related
 					}
 				});
 			});

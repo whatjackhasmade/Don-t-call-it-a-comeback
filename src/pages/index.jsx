@@ -25,6 +25,7 @@ import nofacePhoto from "../assets/images/banner/noface.jpg";
 
 var today = new Date();
 var curHr = today.getHours();
+var curYr = today.getFullYear();
 var greeting;
 
 if (curHr < 12) {
@@ -37,39 +38,37 @@ if (curHr < 12) {
 
 const CVAbout = styled.section`
 	margin: 64px auto;
-	max-width: 1800px;
+	max-width: 1600px;
 	position: relative;
-	width: 90%;
-
-	.row {
-		display: flex;
-		width: 100%;
-
-		+ .row {
-			margin-top: 32px;
-			padding-top: 32px;
-
-			border-top: 1px solid rgba(225, 225, 225, 1);
-		}
-	}
-
-	.col-left {
-		width: 33.333%;
-	}
-
-	.col-right {
-		width: 66.666%;
-	}
+	width: 95%;
 
 	@media screen and (min-width: 576px) {
 		margin: 128px auto;
 	}
 
+	@media screen and (min-width: 992px) {
+		.row {
+			display: flex;
+		}
+
+		.col-left {
+			width: 33.333%;
+		}
+
+		.col-right {
+			width: 66.666%;
+
+			p {
+				max-width: 80ch;
+			}
+		}
+	}
+
 	img {
-		height: 400px;
+		height: 200px;
 		margin-bottom: 32px;
 		margin-right: 64px;
-		width: 400px;
+		width: 200px;
 
 		border-radius: 50%;
 		object-fit: cover;
@@ -77,6 +76,11 @@ const CVAbout = styled.section`
 
 		@media screen and (min-width: 576px) {
 			margin-bottom: 0;
+		}
+
+		@media screen and (min-width: 1400px) {
+			height: 400px;
+			width: 400px;
 		}
 	}
 
@@ -98,6 +102,17 @@ const CVAbout = styled.section`
 
 		font-size: 3rem;
 		text-align: center;
+	}
+
+	.row {
+		width: 100%;
+
+		+ .row {
+			margin-top: 32px;
+			padding-top: 32px;
+
+			border-top: 1px solid rgba(225, 225, 225, 1);
+		}
 	}
 `;
 
@@ -213,13 +228,15 @@ export default ({ data }) => (
 						</div>
 						<div className="row">
 							<div className="col-left">
-								<h2>Work Experience</h2>
+								<h2>Jack's Career</h2>
+								<h3>{curYr - 2015} Years of Experience</h3>
 							</div>
 							<div className="col-right" />
 						</div>
 						<div className="row">
 							<div className="col-left">
-								<h3>NoFace - Freelance Fullstack Developer</h3>
+								<h3>Freelance Fullstack Developer</h3>
+								<h4>NoFace</h4>
 								<h4>September 2015 - Present</h4>
 							</div>
 							<div className="col-right">
@@ -247,7 +264,8 @@ export default ({ data }) => (
 						</div>
 						<div className="row">
 							<div className="col-left">
-								<h3>Moov2 - Web Developer</h3>
+								<h3>Web Developer</h3>
+								<h4>Moov2</h4>
 								<h4>June 2016 - November 2017</h4>
 							</div>
 							<div className="col-right">
@@ -270,7 +288,8 @@ export default ({ data }) => (
 						</div>
 						<div className="row">
 							<div className="col-left">
-								<h3>CloudTen - Web Developer</h3>
+								<h3>Web Developer</h3>
+								<h4>CloudTen</h4>
 								<h4>April 2016 - June 2016</h4>
 							</div>
 							<div className="col-right">
@@ -290,7 +309,7 @@ export default ({ data }) => (
 						</div>
 						<div className="row">
 							<div className="col-left">
-								<h2>Awards</h2>
+								<h2>Awards 🥇</h2>
 							</div>
 							<div className="col-right" />
 						</div>
