@@ -6,6 +6,8 @@ import heroImage from "../../assets/images/jack-pritchard.jpg";
 import Twitter from "../../assets/images/twitter.svg";
 import YouTube from "../../assets/images/youtube.svg";
 
+import HeroVideo from "../../assets/videos/hero.mp4";
+
 // import Button from "../../components/atoms/Button";
 
 var today = new Date();
@@ -96,21 +98,17 @@ const HeroContainer = styled.div`
 		position: absolute;
 	}
 
-	.videoWrapper {
+	video {
 		display: none;
 		position: absolute;
-		padding-bottom: 100%; /* 16:9 */
-		padding-top: 25px;
-		height: 0;
-		width: 200%;
+		height: 100%;
+		width: 100%;
 		z-index: 0;
+
+		object-fit: cover;
 
 		@media screen and (min-width: 1024px) {
 			display: block;
-		}
-		@media screen and (min-width: 1366px) {
-			padding-bottom: 56.25%; /* 16:9 */
-			width: 100%;
 		}
 	}
 `;
@@ -217,14 +215,7 @@ class Hero extends Component {
 							{this.state.text}
 						</button>
 					</div>
-					<div className="videoWrapper">
-						<iframe
-							src="https://www.youtube.com/embed/_674lrm30sY?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&HD=1&frameborder=0&playlist=_674lrm30sY"
-							frameBorder="0"
-							allowFullScreen
-							title="Return of Jack, Going Freelance and New Videos"
-						/>
-					</div>
+					<video autoplay="" loop="true" src={HeroVideo} />
 				</HeroContainer>
 			</div>
 		);
