@@ -27,7 +27,7 @@ const HeroContainer = styled.div`
 	flex-direction: column;
 	height: 100vw;
 	justify-content: center;
-	max-height: 90vh;
+	height: 90vh;
 	min-height: 400px;
 	overflow: hidden;
 	position: relative;

@@ -32,7 +32,12 @@ const HeaderContainer = styled.header`
 	}
 
 	nav {
+		display: none;
 		margin-left: auto;
+
+		@media screen and (min-width: 768px) {
+			display: block;
+		}
 	}
 
 	ul {
