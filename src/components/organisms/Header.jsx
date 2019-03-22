@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-const HeaderComponent = styled.footer`
+const HeaderComponent = styled.header`
 	background: white;
 
 	.header__contents {
@@ -14,7 +14,7 @@ const HeaderComponent = styled.footer`
 
 	nav {
 		a {
-			color: #595959;
+			color: ${props => props.theme.grey600};
 			letter-spacing: 1px;
 			text-decoration: none;
 			text-transform: uppercase;
@@ -38,12 +38,12 @@ export default class Header extends Component {
 					<img src="https://dummyimage.com/32x32.png" alt="" />
 					<nav>
 						<a href="#">Homepage</a>
-						<a href="#">Homepage</a>
-						<a href="#">Homepage</a>
-						<a href="#">Homepage</a>
-						<a href="#">Homepage</a>
+						<a href="#">Work</a>
+						<a href="#">Insights</a>
+						<a href="#">About</a>
+						<a href="#">Services</a>
 					</nav>
-					<a>Homepage</a>
+					<a>Hire Me</a>
 					<button>
 						Menu
 						<span> Navigation</span>

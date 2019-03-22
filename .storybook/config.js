@@ -1,6 +1,8 @@
 import React from "react";
 import { configure, addDecorator } from "@storybook/react";
+import { withThemes } from "storybook-styled-components";
 
+// Import global styles (My version of normalize.css)
 import { GlobalStyle } from "../src/components/templates/Base";
 
 const Decorator = storyFn => (
