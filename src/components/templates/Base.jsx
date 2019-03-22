@@ -24,6 +24,7 @@ const GlobalStyle = createGlobalStyle`
 	html {
 		box-sizing: border-box;
 
+		font-family: 'SuisseIntl', Arial, Helvetica, sans-serif;
 		font-size: 62.5%;
 		/* BETTER FONT SMOOTHING - https://gist.github.com/hsleonis/55712b0eafc9b25f1944 */
 		font-variant-ligatures: none;
@@ -144,12 +145,14 @@ export default class Base extends React.Component {
 	render() {
 		return (
 			<ThemeProvider theme={theme}>
+				<GlobalStyle />
 				<Helmet title={config.siteTitle} />
 				<SEO />
-				<GlobalStyle />
 				<Header />
 				{this.props.children}
 			</ThemeProvider>
 		);
 	}
 }
+
+export { GlobalStyle };
