@@ -60,3 +60,4 @@ bundle-stats.json
 
 # My Ignored Files
 .lock
+package-lock.json

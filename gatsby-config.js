@@ -15,6 +15,14 @@ module.exports = {
 		"gatsby-plugin-twitter",
 		"gatsby-plugin-react-helmet",
 		{
+			resolve: "gatsby-plugin-react-svg",
+			options: {
+				rule: {
+					include: /assets/
+				}
+			}
+		},
+		{
 			resolve: "gatsby-source-wordpress"
 		},
 		{
