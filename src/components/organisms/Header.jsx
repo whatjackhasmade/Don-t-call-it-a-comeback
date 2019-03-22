@@ -1,93 +1,55 @@
 import React, { Component } from "react";
-import { Link } from "gatsby";
 import styled from "styled-components";
 
-import logoImage from "../../assets/images/icons/logo-48.png";
+const HeaderComponent = styled.footer`
+	background: white;
 
-const HeaderContainer = styled.header`
-	align-items: center;
-	display: flex;
-	left: 0;
-	padding: 16px 32px;
-	position: absolute;
-	top: 0;
-	width: 100%;
-	z-index: 9999;
-
-	color: white;
-
-	img {
-		filter: invert(100%);
-	}
-
-	li {
-		display: inline-block;
-		margin-left: 16px;
-
-		font-size: 16px;
-		font-weight: 700;
-		letter-spacing: 1px;
-		text-transform: uppercase;
-		transition: 0.2s font-size ease;
+	.header__contents {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		margin: 0 auto;
+		max-width: 1536px;
 	}
 
 	nav {
-		display: none;
-		margin-left: auto;
+		a {
+			color: #595959;
+			letter-spacing: 1px;
+			text-decoration: none;
+			text-transform: uppercase;
 
-		@media screen and (min-width: 768px) {
-			display: block;
+			+ a {
+				margin-left: 32px;
+			}
 		}
 	}
 
-	ul {
-		margin: 0;
-		padding: 0;
-
-		list-style: none;
+	nav + a {
+		display: none;
 	}
 `;
 
-class Header extends Component {
-	constructor(props) {
-		super(props);
-	}
-
+export default class Header extends Component {
 	render() {
 		return (
-			<React.Fragment>
-				<HeaderContainer>
-					<Link to="/">
-						<img src={logoImage} alt="" />
-					</Link>
+			<HeaderComponent>
+				<div className="header__contents">
+					<img src="https://dummyimage.com/32x32.png" alt="" />
 					<nav>
-						<ul>
-							<li>
-								<Link to="/">Homepage</Link>
-							</li>
-							<li>
-								<Link to="/posts">Posts</Link>
-							</li>
-							<li>
-								<Link to="/facts">Facts</Link>
-							</li>
-							<li>
-								<a
-									href="https://www.youtube.com/channel/UCIOm-HME4V_STS9yWM5aXIg"
-									target="_blank"
-								>
-									YouTube
-								</a>
-							</li>
-							<li>
-								<a href="/">Hire Me</a>
-							</li>
-						</ul>
+						<a href="#">Homepage</a>
+						<a href="#">Homepage</a>
+						<a href="#">Homepage</a>
+						<a href="#">Homepage</a>
+						<a href="#">Homepage</a>
 					</nav>
-				</HeaderContainer>
-			</React.Fragment>
+					<a>Homepage</a>
+					<button>
+						Menu
+						<span> Navigation</span>
+					</button>
+				</div>
+			</HeaderComponent>
 		);
 	}
 }
-
-export default Header;

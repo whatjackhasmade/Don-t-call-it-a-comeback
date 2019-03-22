@@ -45,26 +45,14 @@ const Btn = styled.button`
 	}
 `;
 
-class Button extends Component {
-	constructor(props) {
-		super(props);
-	}
-
-	handleClick() {
-		console.log("clicked");
-	}
-
+export default class Button extends Component {
 	render() {
+		const { disabled, onClick, text, type } = this.props;
+
 		return (
-			<Btn
-				className={this.props.type}
-				onClick={this.props.onClick || this.handleClick()}
-				disabled={this.props.disabled}
-			>
-				{this.props.text}
+			<Btn className={type} onClick={onClick} disabled={disabled}>
+				{this.props.children}
 			</Btn>
 		);
 	}
 }
-
-export default Button;
