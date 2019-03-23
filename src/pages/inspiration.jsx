@@ -24,13 +24,17 @@ export default ({ data }) => (
 	<Base>
 		<Hero>
 			<h1>Get Inspired</h1>
+			<p>You are only limited by your imagination.</p>
 			<p>
-				You are only limited by your imagination. Let all these little things
-				happen. Don't fight them. Learn to use them. You can't make a mistake.
-				Anything that happens you can learn to use - and make something
-				beautiful out of it. This is your world, whatever makes you happy you
-				can put in it. Go crazy.
+				Let all these little things happen. Don't fight them. Learn to use them.
+				You can't make a mistake.
 			</p>
+			<p>
+				Anything that happens you can learn to use - and make something
+				beautiful out of it.
+			</p>
+			<p>This is your world, whatever makes you happy you can put in it.</p>
+			<p>Go crazy.</p>
 		</Hero>
 		<Grid items={data.allInspiration.edges} type="images" />
 	</Base>
