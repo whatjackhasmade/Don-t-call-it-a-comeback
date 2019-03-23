@@ -1,7 +1,7 @@
 const ThemeDefault = {
 	/* COLOURS */
 	white: "#ffffff",
-	offWhite: "#EDEDED",
+	offWhite: "#F0F0F0",
 	grey: "#a6a6a6",
 	grey100: "#d9d9d9",
 	grey200: "#bfbfbf",

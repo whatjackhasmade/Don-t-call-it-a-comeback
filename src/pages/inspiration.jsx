@@ -24,7 +24,6 @@ export const query = graphql`
 `;
 
 export default ({ data }) => {
-	console.log(data);
 	return (
 		<Base>
 			<Hero>
