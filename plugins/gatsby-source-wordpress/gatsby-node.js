@@ -49,6 +49,27 @@ exports.sourceNodes = async (
 		});
 	});
 
+	const inspirationURL = `https://wjhm.noface.app/wp-json/inspiration/v2/all`;
+	const inspirationResponse = await fetch(inspirationURL);
+	const inspirationData = await inspirationResponse.json();
+
+	inspirationData.forEach(inspo => {
+		createNode({
+			...inspo,
+			id: createNodeId(`inspiration-${inspo.id}`),
+			parent: null,
+			children: [],
+			internal: {
+				type: "Inspiration",
+				content: JSON.stringify(inspo),
+				contentDigest: crypto
+					.createHash("md5")
+					.update(JSON.stringify(inspo))
+					.digest("hex")
+			}
+		});
+	});
+
 	// const nofaceCasesURL = `https://noface.co.uk/wp-json/cases/v2/all`;
 	// const nofaceCasesResponse = await fetch(nofaceCasesURL);
 	// const nofaceCasesData = await nofaceCasesResponse.json();

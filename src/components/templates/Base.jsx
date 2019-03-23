@@ -92,6 +92,7 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	body {
+		background: #fff;
 		font-size: 1.6rem;
 		line-height: 1.5;
 	}
@@ -111,6 +112,11 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	/* Common base styles for the site */
+	img, svg, video {
+		max-width: 100%;
+	}
+
+
 	h1, h2, h3, h4, h5, h6 {
 		line-height: 1.25;
 		margin: 16px 0;

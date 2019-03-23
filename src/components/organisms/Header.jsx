@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "gatsby";
 import styled from "styled-components";
 import { device } from "../particles/MediaQueries";
 
@@ -108,17 +109,17 @@ export default class Header extends Component {
 		return (
 			<HeaderComponent>
 				<div className="header__contents">
-					<a href="#">
+					<Link to="/">
 						<Logo className="header__logo" />
-					</a>
+					</Link>
 					<nav>
-						<a href="#">Homepage</a>
-						<a href="#">Work</a>
-						<a href="#">Insights</a>
-						<a href="#">About</a>
-						<a href="#">Services</a>
+						<Link to="/">Homepage</Link>
+						<Link to="/work">Work</Link>
+						<Link to="/insights">Insights</Link>
+						<Link to="/about">About</Link>
+						<Link to="/services">Services</Link>
 					</nav>
-					<a href="#">Hire Me</a>
+					<a href="mailto:jack@noface.co.uk">Hire Me</a>
 					<button>
 						<span>Menu</span>
 						<span> Navigation</span>
