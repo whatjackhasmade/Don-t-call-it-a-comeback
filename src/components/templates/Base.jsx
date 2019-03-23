@@ -124,6 +124,8 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	body {
+		overflow-x: hidden;
+
 		background: #fff;
 		font-size: 1.6rem;
 		line-height: 1.5;
