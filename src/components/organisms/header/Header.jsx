@@ -13,7 +13,7 @@ const HeaderComponent = styled.header`
 	a,
 	button {
 		color: ${props => props.theme.grey600};
-		font-weight: 700;
+		font-weight: 500;
 		letter-spacing: 1px;
 		text-decoration: none;
 		text-transform: uppercase;

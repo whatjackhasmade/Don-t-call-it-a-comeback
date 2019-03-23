@@ -7,27 +7,6 @@ exports.sourceNodes = async (
 	{ actions: { createNode }, createNodeId },
 	{ plugins, ...options }
 ) => {
-	// const nofaceInsightsURL = `https://noface.co.uk/wp-json/insights/v2/all`;
-	// const nofaceInsightsResponse = await fetch(nofaceInsightsURL);
-	// const nofaceInsightsData = await nofaceInsightsResponse.json();
-
-	// nofaceInsightsData.forEach(insight => {
-	// 	createNode({
-	// 		...insight,
-	// 		id: createNodeId(`noface-insight-${insight.id}`),
-	// 		parent: null,
-	// 		children: [],
-	// 		internal: {
-	// 			type: "NoFaceInsight",
-	// 			content: JSON.stringify(insight),
-	// 			contentDigest: crypto
-	// 				.createHash("md5")
-	// 				.update(JSON.stringify(insight))
-	// 				.digest("hex")
-	// 		}
-	// 	});
-	// });
-
 	const codepenURL = `https://cpv2api.com/pens/popular/jackpritchard`;
 	const codepenResponse = await fetch(codepenURL);
 	const codepenData = await codepenResponse.json();
@@ -70,113 +49,97 @@ exports.sourceNodes = async (
 		});
 	});
 
-	// const nofaceCasesURL = `https://noface.co.uk/wp-json/cases/v2/all`;
-	// const nofaceCasesResponse = await fetch(nofaceCasesURL);
-	// const nofaceCasesData = await nofaceCasesResponse.json();
+	const nofaceCasesURL = `https://wp.noface.app/wp-json/cases/v2/all`;
+	const nofaceCasesResponse = await fetch(nofaceCasesURL);
+	const nofaceCasesData = await nofaceCasesResponse.json();
 
-	// nofaceCasesData.forEach(e => {
-	// 	createNode({
-	// 		...e,
-	// 		id: createNodeId(`noface-case-${e.id}`),
-	// 		parent: null,
-	// 		children: [],
-	// 		internal: {
-	// 			type: "NoFaceCase",
-	// 			content: JSON.stringify(e),
-	// 			contentDigest: crypto
-	// 				.createHash("md5")
-	// 				.update(JSON.stringify(e))
-	// 				.digest("hex")
-	// 		}
-	// 	});
-	// });
+	nofaceCasesData.forEach(e => {
+		createNode({
+			...e,
+			id: createNodeId(`case-${e.id}`),
+			parent: null,
+			children: [],
+			internal: {
+				type: "Case",
+				content: JSON.stringify(e),
+				contentDigest: crypto
+					.createHash("md5")
+					.update(JSON.stringify(e))
+					.digest("hex")
+			}
+		});
+	});
 
-	// const wjhmURL = `https://wjhm.noface.app/wp-json/bloggies/v2/all`;
-	// const wjhmResponse = await fetch(wjhmURL);
-	// const wjhmData = await wjhmResponse.json();
+	const pagesURL = `https://wjhm.noface.app/wp-json/pages/v2/all`;
+	const pagesResponse = await fetch(pagesURL);
+	const pagesData = await pagesResponse.json();
 
-	// wjhmData.forEach(e => {
-	// 	createNode({
-	// 		...e,
-	// 		id: createNodeId(`wjhm-post-${e.id}`),
-	// 		parent: null,
-	// 		children: [],
-	// 		internal: {
-	// 			type: "WJHMPost",
-	// 			content: JSON.stringify(e),
-	// 			contentDigest: crypto
-	// 				.createHash("md5")
-	// 				.update(JSON.stringify(e))
-	// 				.digest("hex")
-	// 		}
-	// 	});
-	// });
+	pagesData.forEach(e => {
+		createNode({
+			...e,
+			id: createNodeId(`page-${e.id}`),
+			parent: null,
+			children: [],
+			internal: {
+				type: "Page",
+				content: JSON.stringify(e),
+				contentDigest: crypto
+					.createHash("md5")
+					.update(JSON.stringify(e))
+					.digest("hex")
+			}
+		});
+	});
 
-	// const wjhmCategoriesURL = `https://wjhm.noface.app/wp-json/wp/v2/categories?count=-1`;
-	// const wjhmCategoriesResponse = await fetch(wjhmCategoriesURL);
-	// const wjhmCategoriesData = await wjhmCategoriesResponse.json();
+	const postsURL = `https://wjhm.noface.app/wp-json/posts/v2/all`;
+	const postsResponse = await fetch(postsURL);
+	const postsData = await postsResponse.json();
 
-	// wjhmCategoriesData.forEach(e => {
-	// 	if (e.parent === 0) {
-	// 		createNode({
-	// 			...e,
-	// 			id: createNodeId(`wjhm-category-${e.id}`),
-	// 			parent: null,
-	// 			children: [],
-	// 			internal: {
-	// 				type: "WJHMCategory",
-	// 				content: JSON.stringify(e),
-	// 				contentDigest: crypto
-	// 					.createHash("md5")
-	// 					.update(JSON.stringify(e))
-	// 					.digest("hex")
-	// 			}
-	// 		});
-	// 	}
-	// });
+	postsData.forEach(e => {
+		createNode({
+			...e,
+			id: createNodeId(`post-${e.id}`),
+			parent: null,
+			children: [],
+			internal: {
+				type: "Post",
+				content: JSON.stringify(e),
+				contentDigest: crypto
+					.createHash("md5")
+					.update(JSON.stringify(e))
+					.digest("hex")
+			}
+		});
+	});
 };
 
-// exports.createPages = ({ graphql, actions }) => {
-// 	const { createPage } = actions;
-// 	return new Promise((resolve, reject) => {
-// 		graphql(`
-// 			{
-// 				allWjhmPost {
-// 					edges {
-// 						node {
-// 							category
-// 							content
-// 							image
-// 							imageFull
-// 							slug
-// 							title
-// 							related {
-// 								excerpt
-// 								id
-// 								image
-// 								slug
-// 							}
-// 						}
-// 					}
-// 				}
-// 			}
-// 		`).then(result => {
-// 			result.data.allWjhmPost.edges.forEach(({ node }) => {
-// 				createPage({
-// 					path: node.slug,
-// 					component: path.resolve(`./src/templates/blog-post.jsx`),
-// 					context: {
-// 						slug: node.slug,
-// 						title: node.title,
-// 						image: node.image,
-// 						imageFull: node.imageFull,
-// 						category: node.category,
-// 						content: node.content,
-// 						related: node.related
-// 					}
-// 				});
-// 			});
-// 			resolve();
-// 		});
-// 	});
-// };
+exports.createPages = ({ graphql, actions }) => {
+	const { createPage } = actions;
+	return new Promise((resolve, reject) => {
+		graphql(`
+			{
+				allPage {
+					edges {
+						node {
+							slug
+							title
+						}
+					}
+				}
+			}
+		`).then(result => {
+			result.data.allPage.edges.forEach(({ node }) => {
+				console.log(node);
+				createPage({
+					path: node.slug,
+					component: path.resolve(`./src/components/templates/Page.jsx`),
+					context: {
+						slug: node.slug,
+						title: node.title
+					}
+				});
+			});
+			resolve();
+		});
+	});
+};
