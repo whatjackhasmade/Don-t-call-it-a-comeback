@@ -29,9 +29,11 @@ export default ({ data }) => {
 			<Hero>
 				<h1>Get Inspired</h1>
 				<p>
-					Our archived collection of discussions on current events and topics
-					related to our industry. Join in the conversation and let us know what
-					you think.
+					You are only limited by your imagination. Let all these little things
+					happen. Don't fight them. Learn to use them. You can't make a mistake.
+					Anything that happens you can learn to use - and make something
+					beautiful out of it. This is your world, whatever makes you happy you
+					can put in it. Go crazy.
 				</p>
 			</Hero>
 			<Grid items={data.allInspiration.edges} type="images" />

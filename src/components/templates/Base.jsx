@@ -8,8 +8,8 @@ import config from "../../../data/SiteConfig";
 import SEO from "../particles/SEO";
 import { ThemeDefault } from "../particles/ThemeDefault";
 
-import Header from "../organisms/Header";
-import Footer from "../organisms/Footer";
+import Footer from "../organisms/footer/Footer";
+import Header from "../organisms/header/Header";
 
 const GlobalStyle = createGlobalStyle`
 	@font-face {

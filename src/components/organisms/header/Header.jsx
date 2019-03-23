@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
-import { device } from "../particles/MediaQueries";
+import { device } from "../../particles/MediaQueries";
 
-import Logo from "../../assets/images/logo/logo.svg";
-import IconBars from "../../assets/images/icons/solid/bars.svg";
+import Logo from "../../../assets/images/logo/logo.svg";
+import IconBars from "../../../assets/images/icons/solid/bars.svg";
 
 const HeaderComponent = styled.header`
 	background: white;

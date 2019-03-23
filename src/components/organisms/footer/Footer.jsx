@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
+import { device } from "../../particles/MediaQueries";
 
-import IconGithub from "../../assets/images/icons/brands/github.svg";
-import IconLinkedIn from "../../assets/images/icons/brands/linkedin.svg";
-import IconTwitter from "../../assets/images/icons/brands/twitter.svg";
-import IconYouTube from "../../assets/images/icons/brands/youtube.svg";
+import IconGithub from "../../../assets/images/icons/brands/github.svg";
+import IconLinkedIn from "../../../assets/images/icons/brands/linkedin.svg";
+import IconTwitter from "../../../assets/images/icons/brands/twitter.svg";
+import IconYouTube from "../../../assets/images/icons/brands/youtube.svg";
 
 const FooterComponent = styled.footer`
 	background: ${props => props.theme.offWhite};
@@ -14,11 +15,17 @@ const FooterComponent = styled.footer`
 	.footer__contents {
 		align-items: center;
 		display: flex;
+		flex-direction: column;
 		justify-content: space-between;
 		margin: 0 auto;
 		max-width: 1506px;
-		padding: 90px 30px;
+		padding: 30px;
 		width: 100%;
+
+		@media ${device.md} {
+			flex-direction: row;
+			padding: 90px 30px;
+		}
 	}
 
 	a {
@@ -56,6 +63,7 @@ const FooterComponent = styled.footer`
 	}
 
 	.footer__arrow {
+		display: none;
 		height: 2px;
 		position: relative;
 		width: 60px;
@@ -77,15 +85,26 @@ const FooterComponent = styled.footer`
 			border-left: none;
 			transform: rotate(45deg);
 		}
+
+		@media ${device.lg} {
+			display: block;
+		}
 	}
 
 	.footer__contact {
 		align-items: flex-start;
 		display: flex;
 		flex-direction: column;
-		margin-left: 16px;
+		margin-top: 24px;
+		width: 100%;
 
 		font-size: 12px;
+
+		@media ${device.md} {
+			margin-left: 16px;
+			margin-top: 0;
+			width: auto;
+		}
 
 		* + * {
 			margin-top: 8px;
@@ -98,6 +117,9 @@ const FooterComponent = styled.footer`
 	}
 
 	.footer__cta {
+		justify-content: flex-start;
+		width: 100%;
+
 		&:active,
 		&:focus,
 		&:hover {
@@ -105,22 +127,44 @@ const FooterComponent = styled.footer`
 				transform: translateX(32px);
 			}
 		}
+
+		@media ${device.md} {
+			justify-content: center;
+			width: auto;
+		}
 	}
 
 	.footer__cta__content {
 		display: flex;
 		flex-direction: column;
-		margin-left: 64px;
+
+		@media ${device.lg} {
+			margin-left: 64px;
+		}
 	}
 
 	.footer__name {
-		font-size: 36px;
+		font-size: 24px;
 		font-weight: 900;
 		text-transform: uppercase;
+
+		@media ${device.md} {
+			font-size: 36px;
+		}
 	}
 
 	.footer__social {
+		justify-content: flex-start;
 		font-size: 0px;
+
+		margin-top: 32px;
+		width: 100%;
+
+		@media ${device.md} {
+			justify-content: center;
+			margin-top: 0;
+			width: auto;
+		}
 
 		a {
 			+ a {
@@ -131,9 +175,12 @@ const FooterComponent = styled.footer`
 
 	.footer__tagline {
 		font-style: italic;
-		font-size: 24px;
-		line-height: 32px;
+		font-size: 18px;
 		font-family: "Baskerville", "Times New Roman", Times, serif;
+
+		@media ${device.md} {
+			font-size: 24px;
+		}
 	}
 `;
 
@@ -154,7 +201,6 @@ export default class Footer extends Component {
 						</a>
 					</nav>
 					<nav className="footer__contact">
-						<span>Southampton, United Kingdom</span>
 						<a href="tel:07393 357520">07393 357520</a>
 						<a href="mailto:jack@noface.co.uk">jack@noface.co.uk</a>
 					</nav>
