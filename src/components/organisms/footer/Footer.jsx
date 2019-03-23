@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "gatsby";
 import styled from "styled-components";
 import { device } from "../../particles/MediaQueries";
 
@@ -176,7 +175,8 @@ const FooterComponent = styled.footer`
 	.footer__tagline {
 		font-style: italic;
 		font-size: 18px;
-		font-family: "Baskerville", "Times New Roman", Times, serif;
+		font-family: "Baskerville", "Baskerville Old Face", Garamond,
+			"Times New Roman", serif;
 
 		@media ${device.md} {
 			font-size: 24px;
@@ -205,16 +205,16 @@ export default class Footer extends Component {
 						<a href="mailto:jack@noface.co.uk">jack@noface.co.uk</a>
 					</nav>
 					<nav className="footer__social">
-						<a href="#">
+						<a href="https://twitter.com/whatjackhasmade">
 							<IconTwitter /> Twitter
 						</a>
-						<a href="#">
+						<a href="https://github.com/whatjackhasmade">
 							<IconGithub /> Github
 						</a>
-						<a href="#">
+						<a href="https://linkedin.com/in/whatjackhasmade">
 							<IconLinkedIn /> LinkedIn
 						</a>
-						<a href="#">
+						<a href="https://youtube.com/whatjackhasmade">
 							<IconYouTube /> YouTube
 						</a>
 					</nav>

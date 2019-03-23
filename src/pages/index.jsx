@@ -7,7 +7,6 @@ import Heading from "../components/atoms/Heading";
 import Hero from "../components/molecules/hero/Hero";
 
 import Carousel from "../components/organisms/carousel/Carousel";
-import Row from "../components/organisms/row/Row";
 
 export default ({ data }) => (
 	<Base>
@@ -23,8 +22,5 @@ export default ({ data }) => (
 			heading={`I’ve helped my clients achieve their goals and improve their businesses`}
 		/>
 		<Heading level={2}>What Goes In To Building Exceptional Products?</Heading>
-		<Row />
-		<Row />
-		<Row />
 	</Base>
 );

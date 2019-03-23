@@ -8,11 +8,19 @@ const GridComponent = styled.section`
 	margin: 64px 0;
 
 	.grid__item {
-		max-width: 33%;
+		max-width: 100%;
 		position: relative;
 
 		cursor: pointer;
 		transition: 0.2s all ease;
+
+		@media ${device.xs} {
+			max-width: 48%;
+		}
+
+		@media ${device.lg} {
+			max-width: 33%;
+		}
 
 		img {
 			min-height: 200px;
