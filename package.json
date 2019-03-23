@@ -54,6 +54,7 @@
 		"react-dom": "^16.4.1",
 		"react-helmet": "^5.2.0",
 		"react-image-webp": "^0.2.2",
+		"react-intersection-observer": "^8.22.3",
 		"react-lazyload": "^2.3.0",
 		"react-share": "^2.0.0",
 		"react-twitter-widgets": "^1.7.1",

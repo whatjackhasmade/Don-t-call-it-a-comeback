@@ -7,11 +7,12 @@ import IconBars from "../../assets/images/icons/solid/bars.svg";
 
 const HeaderComponent = styled.header`
 	background: white;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 
 	a,
 	button {
 		color: ${props => props.theme.grey600};
-		font-weight: 500;
+		font-weight: 700;
 		letter-spacing: 1px;
 		text-decoration: none;
 		text-transform: uppercase;
@@ -93,6 +94,7 @@ const HeaderComponent = styled.header`
 	}
 
 	.header__logo {
+		display: block;
 		width: 32px;
 
 		@media ${device.sm} {
@@ -106,7 +108,9 @@ export default class Header extends Component {
 		return (
 			<HeaderComponent>
 				<div className="header__contents">
-					<Logo className="header__logo" />
+					<a href="#">
+						<Logo className="header__logo" />
+					</a>
 					<nav>
 						<a href="#">Homepage</a>
 						<a href="#">Work</a>

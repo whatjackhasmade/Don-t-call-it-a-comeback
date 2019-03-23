@@ -2,26 +2,27 @@ import React, { Component } from "react";
 import styled from "styled-components";
 
 const FooterComponent = styled.footer`
-	background: white;
+	background: ${props => props.theme.offWhite};
 
 	.footer__contents {
 		align-items: center;
 		display: flex;
 		justify-content: space-between;
 		margin: 0 auto;
-		max-width: 1536px;
+		max-width: 1506px;
+		padding: 45px 30px;
 	}
 
-	nav {
-		a {
-			color: ${props => props.theme.grey600};
-			letter-spacing: 1px;
-			text-decoration: none;
-			text-transform: uppercase;
+	a {
+		color: ${props => props.theme.grey600};
+		font-weight: 700;
+		letter-spacing: 1px;
+		text-decoration: none;
+		text-transform: uppercase;
+		transition: 0.2s alle ease;
 
-			+ a {
-				margin-left: 32px;
-			}
+		+ a {
+			margin-left: 32px;
 		}
 	}
 `;

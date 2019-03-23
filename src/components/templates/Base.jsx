@@ -24,6 +24,42 @@ const GlobalStyle = createGlobalStyle`
 		font-weight: normal;
 	}
 
+		@font-face {
+		font-family: 'SuisseIntl';
+		src: url('/static/fonts/SuisseIntl-Regular-Italic.eot'); /* IE9 Compat Modes */
+		src: url('/static/fonts/SuisseIntl-Regular-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+			url('/static/fonts/SuisseIntl-Regular-Italic.woff2') format('woff2'), /* Super Modern Browsers */
+			url('/static/fonts/SuisseIntl-Regular-Italic.woff') format('woff'), /* Pretty Modern Browsers */
+			url('/static/fonts/SuisseIntl-Regular-Italic.ttf')  format('truetype'), /* Safari, Android, iOS */
+			url('/static/fonts/SuisseIntl-Regular-Italic.svg#SuisseIntl-Regular-Italic') format('svg'); /* Legacy iOS */
+		font-style: italic;
+		font-weight: normal;
+	}
+
+	@font-face {
+		font-family: 'SuisseIntl';
+		src: url('/static/fonts/SuisseIntl-Medium.eot'); /* IE9 Compat Modes */
+		src: url('/static/fonts/SuisseIntl-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+			url('/static/fonts/SuisseIntl-Medium.woff2') format('woff2'), /* Super Modern Browsers */
+			url('/static/fonts/SuisseIntl-Medium.woff') format('woff'), /* Pretty Modern Browsers */
+			url('/static/fonts/SuisseIntl-Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
+			url('/static/fonts/SuisseIntl-Medium.svg#SuisseIntl-Medium') format('svg'); /* Legacy iOS */
+		font-style: normal;
+		font-weight: 500;
+	}
+
+	@font-face {
+		font-family: 'SuisseIntl';
+		src: url('/static/fonts/SuisseIntl-Bold.eot'); /* IE9 Compat Modes */
+		src: url('/static/fonts/SuisseIntl-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+			url('/static/fonts/SuisseIntl-Bold.woff2') format('woff2'), /* Super Modern Browsers */
+			url('/static/fonts/SuisseIntl-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+			url('/static/fonts/SuisseIntl-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+			url('/static/fonts/SuisseIntl-Bold.svg#SuisseIntl-Bold') format('svg'); /* Legacy iOS */
+		font-style: normal;
+		font-weight: bold;
+	}
+
 	html {
 		box-sizing: border-box;
 
@@ -63,13 +99,104 @@ const GlobalStyle = createGlobalStyle`
 	main {
 		flex: 1;
 		margin: 0 auto;
-		max-width: 1566px;
+		max-width: 1506px;
+		padding: 0 30px;
+		width: 100%;
 	}
 
 	.wrapper {
 		display: flex;
 		flex-direction: column;
 		min-height: 100vh;
+	}
+
+	/* Common base styles for the site */
+	h1, h2, h3, h4, h5, h6 {
+		line-height: 1.25;
+		margin: 16px 0;
+
+		font-weight: 700;
+		text-transform: capitalize;
+	}
+
+	h1,
+	.h1 {
+		margin-bottom: 24px;
+		margin-top: 24px;
+
+		font-size: 72px;
+		font-weight: 700;
+	}
+
+	h2,
+	.h2 {
+		font-size: 48px;
+		font-weight: 700;
+	}
+
+	h3,
+	.h3 {
+		font-size: 30px;
+	}
+
+	h4,
+	.h4 {
+		font-size: 24px;
+	}
+
+	h5,
+	.h5 {
+		font-size: 20px;
+	}
+
+	h6,
+	.h6 {
+		font-size: 18px;
+	}
+
+	/* Advanced vertical rhythym based off of https://medium.com/@sebastian.eberlein/advanced-vertical-margins-4ac69f032f79 */
+	article {
+		> * + * {
+			margin-top: 16px;
+		}
+
+		> h2 + * {
+			margin-top: 24px;
+		}
+
+		> img + *,
+		> figure + * {
+			margin-top: 32px;
+		}
+
+		> * + h2 {
+			margin-top: 64px;
+		}
+
+		> * + h3 {
+			margin-top: 48px;
+		}
+
+		> * + img {
+			margin-top: 32px;
+		}
+
+		> * + h4 {
+			margin-top: 48px;
+		}
+
+		> img + img,
+		> figure + figure {
+			margin-top: 32px;
+		}
+
+		> h2 + h3 {
+			margin-top: 32px;
+		}
+
+		> h3 + h4 {
+			margin-top: 32px;
+		}
 	}
 `;
 
