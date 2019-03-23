@@ -121,21 +121,41 @@ exports.createPages = ({ graphql, actions }) => {
 				allPage {
 					edges {
 						node {
+							id
+							imageXS
+							imageSM
+							imageMD
+							imageLG
+							imageXL
+							imageFull
 							slug
 							title
+							yoast {
+								description
+								image
+								slug
+								title
+							}
 						}
 					}
 				}
 			}
 		`).then(result => {
 			result.data.allPage.edges.forEach(({ node }) => {
-				console.log(node);
 				createPage({
 					path: node.slug,
 					component: path.resolve(`./src/components/templates/Page.jsx`),
 					context: {
+						id: node.id,
+						imageXS: node.imageXS,
+						imageSM: node.imageSM,
+						imageMD: node.imageMD,
+						imageLG: node.imageLG,
+						imageXL: node.imageXL,
+						imageFull: node.imageFull,
 						slug: node.slug,
-						title: node.title
+						title: node.title,
+						yoast: node.yoast
 					}
 				});
 			});

@@ -6,8 +6,7 @@ import Hero from "../molecules/hero/Hero";
 
 export default class PageTemplate extends React.Component {
 	render() {
-		console.log(this.props);
-		const { title, slug } = this.props.pageContext;
+		const { content, title, slug } = this.props.pageContext;
 
 		return (
 			<Base>
