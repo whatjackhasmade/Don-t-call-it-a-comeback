@@ -28,6 +28,10 @@ const DribbbleComponent = styled.section`
 		margin: 64px 0;
 	}
 
+	@media ${device.lg} {
+		margin: 96px 0;
+	}
+
 	h3 {
 		margin-top: 0;
 

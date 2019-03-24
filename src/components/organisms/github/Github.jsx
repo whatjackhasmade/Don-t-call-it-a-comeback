@@ -12,6 +12,10 @@ const GithubComponent = styled.section`
 		margin: 64px 0;
 	}
 
+	@media ${device.lg} {
+		margin: 96px 0;
+	}
+
 	.github__calendar {
 		margin-left: 144px;
 	}
