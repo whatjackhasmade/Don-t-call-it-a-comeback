@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { StaticQuery, graphql } from "gatsby";
+import { Link, StaticQuery, graphql } from "gatsby";
 import moment from "moment";
 
 import Base from "../components/templates/Base";
@@ -77,6 +77,7 @@ export default props => (
 							id
 							content
 							date
+							slug
 							title
 						}
 					}
@@ -139,11 +140,11 @@ class Collection extends Component {
 							id={`${moment(date).format("YYYY-MM")}`}
 						>{`${moment(date).format("MMMM YYYY")}`}</h2>
 					) : null}
-					<a href="test">
+					<Link to={post.node.slug}>
 						<h3 className="h5" key={post.node.id}>
 							{post.node.title}
 						</h3>
-					</a>
+					</Link>
 				</>
 			));
 		}

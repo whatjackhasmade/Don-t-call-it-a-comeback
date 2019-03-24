@@ -12,6 +12,12 @@ import Fonts from "../particles/Fonts";
 import Footer from "../organisms/footer/Footer";
 import Header from "../organisms/header/Header";
 
+if (typeof window !== "undefined") {
+	// Make scroll behavior of internal links smooth
+	// eslint-disable-next-line global-require
+	require("smooth-scroll")('a[href*="#"]');
+}
+
 const GlobalStyle = createGlobalStyle`
 	@font-face {
 		font-family: 'SuisseIntl';
@@ -123,8 +129,21 @@ const GlobalStyle = createGlobalStyle`
 		border: 2px solid #262626;
 	}
 
+	a {
+
+	}
+
+	/* Fix anchor scroll positioning */
+  [id]::before {
+    display: block;
+    content: '';
+    margin-top: -4rem;
+    height: 4rem;
+  }
+
 	body {
 		overflow-x: hidden;
+		scroll-behavior: smooth;
 
 		background: #fff;
 		font-size: 1.6rem;
