@@ -1,8 +1,23 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { device } from "../../particles/MediaQueries";
 
 import LogoDribbble from "../../../assets/images/icons/brands/dribbble.svg";
+
+// Create the keyframes
+const bounce = keyframes`
+  from {
+    transform: translateY(0px);
+  }
+
+	50% {
+    transform: translateY(-50px);
+	}
+
+  to {
+    transform: translateY(0px);
+  }
+`;
 
 const DribbbleComponent = styled.section`
 	display: flex;
@@ -56,11 +71,19 @@ const DribbbleComponent = styled.section`
 		}
 	}
 
+	.dribbble__shot--animate {
+		.dribbble__shot__logo {
+			animation: ${bounce} 0.3s ease infinite;
+			animation-iteration-count: 1;
+		}
+	}
+
 	.dribbble__shot__meta {
 		padding: 16px;
 	}
 
 	.dribbble__shot__thumbnail {
+		border-radius: 3px 3px 0 0;
 		position: relative;
 	}
 
@@ -77,11 +100,19 @@ const DribbbleComponent = styled.section`
 	}
 
 	.dribbble__shot {
+		border-radius: 0 0 3px 3px;
 		width: 250px;
 
 		background: ${props => props.white};
 		box-shadow: 0px 2px 6px rgba(20, 18, 19, 0.1);
 		opacity: 0;
+		transition: 0.2s all ease;
+
+		&:active,
+		&:focus,
+		&:hover {
+			box-shadow: 0px 2px 10px rgba(20, 18, 19, 0.3);
+		}
 
 		+ .dribbble__shot {
 			margin-left: 32px;
@@ -159,21 +190,40 @@ export default class Dribbble extends Component {
 }
 
 class Shot extends Component {
+	state = {
+		mouseOver: false
+	};
+
+	handleHover = e => {
+		this.setState({ mouseOver: !this.state.mouseOver });
+	};
+
 	render() {
 		const { index, shot } = this.props;
 
 		return (
-			<div className="dribbble__shot" index={index} data-index={index}>
+			<div
+				className={
+					this.state.mouseOver
+						? `dribbble__shot dribbble__shot--animate`
+						: `dribbble__shot`
+				}
+				index={index}
+				data-index={index}
+				onMouseEnter={this.handleHover}
+				onMouseLeave={this.handleHover}
+			>
 				<a
 					className="dribbble__shot__thumbnail"
 					href={shot.html_url}
+					rel="noopener noreferrer"
 					target="_blank"
 				>
 					<LogoDribbble className="dribbble__shot__logo" />
 					<img src={shot.images.teaser} alt={shot.title} />
 				</a>
 				<div className="dribbble__shot__meta">
-					<a href={shot.html_url} target="_blank">
+					<a href={shot.html_url} rel="noopener noreferrer" target="_blank">
 						<h3>{shot.title}</h3>
 					</a>
 					<div

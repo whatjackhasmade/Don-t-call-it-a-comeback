@@ -28,6 +28,27 @@ exports.sourceNodes = async (
 		});
 	});
 
+	const eventURL = `https://wjhm.noface.app/wp-json/event/v2/all`;
+	const eventResponse = await fetch(eventURL);
+	const eventData = await eventResponse.json();
+
+	eventData.forEach(inspo => {
+		createNode({
+			...inspo,
+			id: createNodeId(`event-${inspo.id}`),
+			parent: null,
+			children: [],
+			internal: {
+				type: "Event",
+				content: JSON.stringify(inspo),
+				contentDigest: crypto
+					.createHash("md5")
+					.update(JSON.stringify(inspo))
+					.digest("hex")
+			}
+		});
+	});
+
 	const inspirationURL = `https://wjhm.noface.app/wp-json/inspiration/v2/all`;
 	const inspirationResponse = await fetch(inspirationURL);
 	const inspirationData = await inspirationResponse.json();
