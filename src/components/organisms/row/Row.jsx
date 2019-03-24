@@ -9,7 +9,7 @@ const RowComponent = styled.section`
 	margin: 48px 0;
 
 	opacity: 0;
-	transform: translateX(-100px);
+	transform: translateX(-50px);
 	transition: 0.6s all ease;
 
 	@media ${device.sm} {
@@ -26,7 +26,16 @@ const RowComponent = styled.section`
 	}
 
 	&.row--right {
-		transform: translateX(100px);
+		flex-direction: row-reverse;
+
+		transform: translateX(50px);
+
+		.row__column {
+			+ .row__column {
+				margin-left: 0;
+				margin-right: auto;
+			}
+		}
 	}
 
 	&.row--show {
@@ -54,10 +63,12 @@ const RowComponent = styled.section`
 	}
 
 	img {
+		display: block;
 		margin-top: 32px;
-		max-height: 400px;
+		height: 400px;
 		width: 100%;
 
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 		object-fit: cover;
 
 		@media ${device.md} {
@@ -69,19 +80,9 @@ const RowComponent = styled.section`
 		margin-bottom: 0;
 	}
 
-	+ .row {
-		flex-direction: row-reverse;
-
-		.row__column {
-			+ .row__column {
-				margin-left: 0;
-				margin-right: auto;
-			}
-		}
-	}
-
 	.row__column {
 		max-width: 40%;
+		width: 100%;
 
 		+ .row__column {
 			margin-left: auto;
@@ -91,47 +92,38 @@ const RowComponent = styled.section`
 `;
 
 export default class Row extends Component {
+	prepareContent = content => {
+		return content.replace(
+			`/wp-content/uploads/`,
+			`https://wjhm.noface.app/wp-content/uploads/`
+		);
+	};
+
 	render() {
-		const { index, name, rows } = this.props;
+		const { id, index, name, rows } = this.props;
+
+		const alignment = index % 2 === 0 ? `left` : `right`;
 
 		return (
 			<InView threshold={0.25} triggerOnce={true}>
 				{({ inView, ref }) => (
-					<RowComponent className={inView ? `row row--show` : `row`} ref={ref}>
-						<div className="row__column">
-							<h2>User Experience Design</h2>
-							<p>
-								Our archived collection of discussions on current events and
-								topics related to our industry. Join in the conversation and let
-								us know what you think.
-							</p>
-							<p>
-								Our archived collection of discussions on current events and
-								topics related to our industry. Join in the conversation and let
-								us know what you think.
-							</p>
-							<p>
-								Our archived collection of discussions on current events and
-								topics related to our industry. Join in the conversation and let
-								us know what you think.
-							</p>
-							<p>
-								Our archived collection of discussions on current events and
-								topics related to our industry. Join in the conversation and let
-								us know what you think.
-							</p>
-						</div>
-						<div className="row__column">
-							<img src="https://placehold.it/1000x1000" alt="" />
-						</div>
-						{/* {Object.keys(rows).map(column => (
+					<RowComponent
+						className={
+							inView
+								? `row row--${alignment} row--show`
+								: `row row--${alignment}`
+						}
+						ref={ref}
+					>
+						{Object.keys(rows).map((column, columnIndex) => (
 							<div
 								className="row__column"
 								dangerouslySetInnerHTML={{
-									__html: rows[column].content
+									__html: this.prepareContent(rows[column].column)
 								}}
+								key={`row-${id}-${columnIndex}`}
 							/>
-						))} */}
+						))}
 					</RowComponent>
 				)}
 			</InView>

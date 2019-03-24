@@ -121,6 +121,18 @@ exports.createPages = ({ graphql, actions }) => {
 				allPage {
 					edges {
 						node {
+							content {
+								id
+								align
+								data {
+									rows {
+										column
+									}
+								}
+								mode
+								name
+								status
+							}
 							id
 							imageXS
 							imageSM
@@ -146,6 +158,7 @@ exports.createPages = ({ graphql, actions }) => {
 					path: node.slug,
 					component: path.resolve(`./src/components/templates/Page.jsx`),
 					context: {
+						content: node.content,
 						id: node.id,
 						imageXS: node.imageXS,
 						imageSM: node.imageSM,

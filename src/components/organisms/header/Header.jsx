@@ -12,6 +12,9 @@ const HeaderComponent = styled.header`
 
 	a,
 	button {
+		padding: 8px;
+		position: relative;
+
 		color: ${props => props.theme.grey600};
 		font-weight: 500;
 		letter-spacing: 1px;
@@ -19,14 +22,33 @@ const HeaderComponent = styled.header`
 		text-transform: uppercase;
 		transition: 0.2s alle ease;
 
+		&[aria-current="page"],
 		&:active,
 		&:focus,
 		&:hover {
 			color: ${props => props.theme.black};
+
+			&:after {
+				transform: scaleX(1);
+			}
+		}
+
+		&:after {
+			bottom: -4px;
+			content: "";
+			display: block;
+			height: 1px;
+			left: 0;
+			position: absolute;
+			width: 100%;
+
+			background: ${props => props.theme.grey600};
+			transform: scaleX(0);
+			transition: 0.2s all ease;
 		}
 
 		+ a {
-			margin-left: 32px;
+			margin-left: 16px;
 		}
 	}
 
@@ -34,7 +56,6 @@ const HeaderComponent = styled.header`
 		align-items: center;
 		display: flex;
 		justify-content: center;
-		padding: 8px;
 
 		background: none;
 		border: none;
@@ -75,6 +96,7 @@ const HeaderComponent = styled.header`
 		display: none;
 
 		color: ${props => props.theme.black};
+		font-weight: 900;
 
 		@media ${device.sm} {
 			display: block;
@@ -87,19 +109,25 @@ const HeaderComponent = styled.header`
 		justify-content: space-between;
 		margin: 0 auto;
 		max-width: 1506px;
-		padding: 15px 30px;
+		padding: 7px 30px;
 
 		@media ${device.sm} {
-			padding: 23px 30px;
+			padding: 15px 30px;
 		}
 	}
 
 	.header__logo {
-		display: block;
-		width: 32px;
+		&:after {
+			display: none;
+		}
 
-		@media ${device.sm} {
-			width: 48px;
+		svg {
+			display: block;
+			width: 32px;
+
+			@media ${device.sm} {
+				width: 48px;
+			}
 		}
 	}
 `;
@@ -109,8 +137,8 @@ export default class Header extends Component {
 		return (
 			<HeaderComponent>
 				<div className="header__contents">
-					<Link to="/">
-						<Logo className="header__logo" />
+					<Link to="/" className="header__logo">
+						<Logo />
 					</Link>
 					<nav>
 						<Link to="/">Homepage</Link>
