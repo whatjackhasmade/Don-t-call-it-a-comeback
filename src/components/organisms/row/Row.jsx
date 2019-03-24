@@ -100,7 +100,7 @@ export default class Row extends Component {
 	};
 
 	render() {
-		const { id, index, name, rows } = this.props;
+		const { id, index, rows } = this.props;
 
 		const alignment = index % 2 === 0 ? `left` : `right`;
 

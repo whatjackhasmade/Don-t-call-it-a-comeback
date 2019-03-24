@@ -3,8 +3,7 @@ import { graphql } from "gatsby";
 
 import Base from "../components/templates/Base";
 
-import Hero from "../components/molecules/hero/Hero";
-
+import Hero from "../components/organisms/hero/Hero";
 import Grid from "../components/organisms/grid/Grid";
 
 export const query = graphql`

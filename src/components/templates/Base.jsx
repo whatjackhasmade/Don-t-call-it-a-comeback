@@ -131,6 +131,10 @@ const GlobalStyle = createGlobalStyle`
 		line-height: 1.5;
 	}
 
+	html {
+		overflow-y: scroll;
+	}
+
 	main {
 		flex: 1;
 		margin: 0 auto;

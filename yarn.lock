@@ -2,6 +2,12 @@
 # yarn lockfile v1
 
 
+"@axetroy/react-github-calendar@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@axetroy/react-github-calendar/-/react-github-calendar-2.0.0.tgz#25e91096d4897d068d7176640590012c181e981d"
+  dependencies:
+    github-calendar "^1.2.0"
+
 "@babel/code-frame@7.0.0", "@babel/code-frame@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.0.0.tgz#06e2ab19bdb535385559aabb5ba59729482800f8"
@@ -2484,6 +2490,10 @@ acorn@^5.0.0, acorn@^5.6.2:
 acorn@^6.0.5, acorn@^6.0.7:
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.1.1.tgz#7d25ae05bb8ad1f9b699108e1094ecd7884adc1f"
+
+add-subtract-date@^1.0.5:
+  version "1.0.14"
+  resolved "https://registry.yarnpkg.com/add-subtract-date/-/add-subtract-date-1.0.14.tgz#c2c2e707fa93c77ba3f70a010a6085eb13063d6f"
 
 address@1.0.3, address@^1.0.1:
   version "1.0.3"
@@ -5051,6 +5061,10 @@ dateformat@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/dateformat/-/dateformat-2.2.0.tgz#4065e2013cf9fb916ddfd82efb506ad4c6769062"
 
+days@^1.0.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/days/-/days-1.1.1.tgz#b039d1e5ad5335ca689401855546f02d4cfcb362"
+
 debug@2, debug@2.6.9, debug@^2.1.2, debug@^2.1.3, debug@^2.2.0, debug@^2.3.3, debug@^2.6.0, debug@^2.6.3, debug@^2.6.6, debug@^2.6.8, debug@^2.6.9:
   version "2.6.9"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
@@ -5677,6 +5691,13 @@ elliptic@^6.0.0:
     inherits "^2.0.1"
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
+
+elly@^1.0.0:
+  version "1.1.10"
+  resolved "https://registry.yarnpkg.com/elly/-/elly-1.1.10.tgz#15f3e43c81327ea927802a09508e60c712b81c9b"
+  dependencies:
+    iterate-object "^1.3.2"
+    sliced "^1.0.1"
 
 "emoji-regex@>=6.0.0 <=6.1.1":
   version "6.1.1"
@@ -6366,9 +6387,9 @@ fault@^1.0.2:
   dependencies:
     format "^0.2.2"
 
-"favicons-webpack-plugin@git+https://github.com/Creatiwity/favicons-webpack-plugin.git#f262255febeeca348bf7ae5cc140e0386c074e2c":
+"favicons-webpack-plugin@https://github.com/Creatiwity/favicons-webpack-plugin.git#f262255febeeca348bf7ae5cc140e0386c074e2c":
   version "0.0.9"
-  resolved "git+https://github.com/Creatiwity/favicons-webpack-plugin.git#f262255febeeca348bf7ae5cc140e0386c074e2c"
+  resolved "https://github.com/Creatiwity/favicons-webpack-plugin.git#f262255febeeca348bf7ae5cc140e0386c074e2c"
   dependencies:
     core-js "^2.5.7"
     favicons "^5.1.1"
@@ -6591,6 +6612,10 @@ fill-range@^4.0.0:
     repeat-string "^1.6.1"
     to-regex-range "^2.1.0"
 
+fillo@^1.0.0:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/fillo/-/fillo-1.0.12.tgz#27a0f2793fcbb08dbd6ddb6568deb53896511aea"
+
 finalhandler@1.1.1:
   version "1.1.1"
   resolved "http://registry.npmjs.org/finalhandler/-/finalhandler-1.1.1.tgz#eebf4ed840079c83f4249038c9d703008301b105"
@@ -6738,6 +6763,15 @@ form-data@~2.3.2:
 format@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/format/-/format-0.2.2.tgz#d6170107e9efdc4ed30c9dc39016df942b5cb58b"
+
+formatoid@^1.0.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/formatoid/-/formatoid-1.2.3.tgz#f9c1628fecbdfb56e422e5000cd2e81c1710589f"
+  dependencies:
+    days "^1.0.1"
+    fillo "^1.0.0"
+    months "^1.0.0"
+    parse-it "^1.0.0"
 
 forwarded@~0.1.2:
   version "0.1.2"
@@ -7396,6 +7430,25 @@ getpass@^0.1.1:
   resolved "https://registry.yarnpkg.com/getpass/-/getpass-0.1.7.tgz#5eff8e3e684d569ae4cb2b1282604e8ba62149fa"
   dependencies:
     assert-plus "^1.0.0"
+
+github-calendar-legend@^1.0.0:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/github-calendar-legend/-/github-calendar-legend-1.0.10.tgz#bbfad7332f155ad482abb61d4c6122b0cd13e986"
+
+github-calendar-parser@^1.1.3:
+  version "1.1.10"
+  resolved "https://registry.yarnpkg.com/github-calendar-parser/-/github-calendar-parser-1.1.10.tgz#25285db5dd8e15a1f23e2fd71c3f809d240ccb21"
+  dependencies:
+    github-calendar-legend "^1.0.0"
+
+github-calendar@^1.2.0, github-calendar@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/github-calendar/-/github-calendar-1.3.1.tgz#a746a4fc3d1cdf0dae970b1c8e6fc8b70c547264"
+  dependencies:
+    add-subtract-date "^1.0.5"
+    elly "^1.0.0"
+    formatoid "^1.0.3"
+    github-calendar-parser "^1.1.3"
 
 github-from-package@0.0.0:
   version "0.0.0"
@@ -9042,6 +9095,10 @@ iterall@^1.1.3, iterall@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.2.2.tgz#92d70deb8028e0c39ff3164fdbf4d8b088130cd7"
 
+iterate-object@^1.3.2:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/iterate-object/-/iterate-object-1.3.3.tgz#c58e60f7f0caefa2d382027a484b215988a7a296"
+
 jest-worker@^23.2.0:
   version "23.2.0"
   resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-23.2.0.tgz#faf706a8da36fae60eb26957257fa7b5d8ea02b9"
@@ -10181,6 +10238,10 @@ moment@^2.24.0:
   version "2.24.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
 
+months@^1.0.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/months/-/months-1.2.0.tgz#beef54873960334abe0b03f6b38db8adb44a13ac"
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -11041,6 +11102,12 @@ parse-headers@^2.0.0:
   dependencies:
     for-each "^0.3.2"
     trim "0.0.1"
+
+parse-it@^1.0.0:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/parse-it/-/parse-it-1.0.9.tgz#09c9f52734de2cba309d0e083de305c912f294f3"
+  dependencies:
+    regex-escape "^3.4.0"
 
 parse-json@^2.1.0, parse-json@^2.2.0:
   version "2.2.0"
@@ -12562,6 +12629,10 @@ regex-cache@^0.4.2:
   dependencies:
     is-equal-shallow "^0.1.3"
 
+regex-escape@^3.4.0:
+  version "3.4.9"
+  resolved "https://registry.yarnpkg.com/regex-escape/-/regex-escape-3.4.9.tgz#407b413562e2373d56994ff213e693658ea4f8f7"
+
 regex-not@^1.0.0, regex-not@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/regex-not/-/regex-not-1.0.2.tgz#1f4ece27e00b0b65e0247a6810e6a85d83a5752c"
@@ -13347,6 +13418,10 @@ slice-ansi@^2.1.0:
     ansi-styles "^3.2.0"
     astral-regex "^1.0.0"
     is-fullwidth-code-point "^2.0.0"
+
+sliced@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/sliced/-/sliced-1.0.1.tgz#0b3a662b5d04c3177b1926bea82b03f837a2ef41"
 
 snapdragon-node@^2.0.1:
   version "2.1.1"

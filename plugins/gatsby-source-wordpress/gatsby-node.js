@@ -125,13 +125,14 @@ exports.createPages = ({ graphql, actions }) => {
 								id
 								align
 								data {
+									background_colour
+									content
 									rows {
 										column
 									}
 								}
 								mode
 								name
-								status
 							}
 							id
 							imageXS
@@ -154,8 +155,10 @@ exports.createPages = ({ graphql, actions }) => {
 			}
 		`).then(result => {
 			result.data.allPage.edges.forEach(({ node }) => {
+				const slug =
+					node.slug === "home" || node.slug === "homepage" ? `/` : node.slug;
 				createPage({
-					path: node.slug,
+					path: slug,
 					component: path.resolve(`./src/components/templates/Page.jsx`),
 					context: {
 						content: node.content,

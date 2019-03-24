@@ -13,11 +13,20 @@ const HeroComponent = styled.section`
 	position: relative;
 	width: 100vw;
 
-	background: ${props => props.theme.primary};
+	background: ${props =>
+		props.background ? props.background : props.theme.primary};
 	color: ${props => props.theme.white};
 
 	@media ${device.xs} {
 		min-height: 50vh;
+	}
+
+	h4 {
+		font-size: 18px;
+		font-weight: 500;
+		line-height: 28px;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
 	}
 
 	.hero__contents {
@@ -36,10 +45,19 @@ const HeroComponent = styled.section`
 
 export default class Hero extends Component {
 	render() {
+		const { data } = this.props;
+
 		return (
-			<HeroComponent>
+			<HeroComponent background={data.background_colour}>
 				<div className="hero__wrapper">
-					<div className="hero__contents">{this.props.children}</div>
+					{data.content ? (
+						<div
+							className="hero__contents"
+							dangerouslySetInnerHTML={{ __html: data.content }}
+						/>
+					) : (
+						<div className="hero__contents">{this.props.children}</div>
+					)}
 				</div>
 			</HeroComponent>
 		);
