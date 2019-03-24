@@ -13,11 +13,12 @@ const GithubComponent = styled.section`
 	}
 
 	.github__calendar {
-		margin-left: auto;
+		margin-left: 144px;
 	}
 
 	.github__contents {
 		max-width: 600px;
+		width: 100%;
 	}
 `;
 
