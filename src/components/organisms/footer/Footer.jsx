@@ -8,6 +8,9 @@ import IconTwitter from "../../../assets/images/icons/brands/twitter.svg";
 import IconYouTube from "../../../assets/images/icons/brands/youtube.svg";
 
 const FooterComponent = styled.footer`
+	position: relative;
+	z-index: 10;
+
 	background: ${props => props.theme.offWhite};
 	color: ${props => props.theme.black};
 
@@ -173,10 +176,9 @@ const FooterComponent = styled.footer`
 	}
 
 	.footer__tagline {
-		font-style: italic;
+		font-family: ${props => props.theme.fontSecondary};
 		font-size: 18px;
-		font-family: "Baskerville", "Baskerville Old Face", Garamond,
-			"Times New Roman", serif;
+		font-style: italic;
 
 		@media ${device.md} {
 			font-size: 24px;

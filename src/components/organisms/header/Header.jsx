@@ -7,6 +7,9 @@ import Logo from "../../../assets/images/logo/logo.svg";
 import IconBars from "../../../assets/images/icons/solid/bars.svg";
 
 const HeaderComponent = styled.header`
+	position: relative;
+	z-index: 10;
+
 	background: white;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 

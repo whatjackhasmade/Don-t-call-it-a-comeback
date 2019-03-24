@@ -16,7 +16,9 @@ const ThemeDefault = {
 	blackAbsolute: "#000",
 	blue500: "#0652DD",
 	primary: "#0652DD",
-	bs: "0 12px 24px 0 rgba(0, 0, 0, 0.09)"
+	bs: "0 12px 24px 0 rgba(0, 0, 0, 0.09)",
+	fontSecondary:
+		"'Baskerville', 'Baskerville Old Face', Garamond, 'Times New Roman', serif"
 };
 
 export { ThemeDefault };

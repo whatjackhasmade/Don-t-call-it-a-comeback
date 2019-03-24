@@ -12,6 +12,7 @@ const HeroComponent = styled.section`
 	min-height: ${props => props.height};
 	position: relative;
 	width: 100vw;
+	z-index: 9;
 
 	background: ${props =>
 		props.background ? props.background : props.theme.primary};
@@ -47,10 +48,13 @@ export default class Hero extends Component {
 	render() {
 		const { data } = this.props;
 
+		const background =
+			data && data.background_colour ? data.background_colour : `#0652DD`;
+
 		return (
-			<HeroComponent background={data.background_colour}>
+			<HeroComponent background={background}>
 				<div className="hero__wrapper">
-					{data.content ? (
+					{data && data.content ? (
 						<div
 							className="hero__contents"
 							dangerouslySetInnerHTML={{ __html: data.content }}
