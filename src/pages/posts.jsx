@@ -39,6 +39,7 @@ const CollectionMenu = styled.nav`
 `;
 
 const CollectionWrapper = styled.section`
+	margin-bottom: 96px;
 	position: relative;
 	z-index: 1;
 
@@ -114,7 +115,7 @@ class Archive extends Component {
 		return (
 			<Base>
 				<Hero>
-					<h1>Archive</h1>
+					<h1>Insights</h1>
 				</Hero>
 				<CollectionNavigation ids={datesArray} />
 				<CollectionWrapper>

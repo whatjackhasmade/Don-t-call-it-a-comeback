@@ -219,6 +219,7 @@ const GlobalStyle = createGlobalStyle`
 
 	/* Advanced vertical rhythym based off of https://medium.com/@sebastian.eberlein/advanced-vertical-margins-4ac69f032f79 */
 	article {
+		max-width: 1000px;
 		margin: 64px 0;
 
 		> * + * {

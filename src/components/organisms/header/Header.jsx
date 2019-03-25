@@ -146,7 +146,7 @@ export default class Header extends Component {
 					<nav>
 						<Link to="/">Homepage</Link>
 						<Link to="/work">Work</Link>
-						<Link to="/insights">Insights</Link>
+						<Link to="/posts">Insights</Link>
 						<Link to="/about">About</Link>
 						<Link to="/services">Services</Link>
 					</nav>
