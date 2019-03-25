@@ -130,7 +130,7 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	a {
-
+		color: ${props => props.theme.primary};
 	}
 
 	/* Fix anchor scroll positioning */
@@ -189,6 +189,7 @@ const GlobalStyle = createGlobalStyle`
 
 		font-size: 72px;
 		font-weight: 700;
+		line-height: 1.1;
 	}
 
 	h2,
