@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 
 import Dribbble from "../organisms/dribbble/Dribbble";
-import Hero from "../organisms/hero/Hero";
 import Github from "../organisms/github/Github";
+import Hero from "../organisms/hero/Hero";
+import Intro from "../organisms/intro/Intro";
 import Presentations from "../organisms/presentations/Presentations";
 import Row from "../organisms/row/Row";
 
@@ -58,6 +59,17 @@ export default class CreateMarkup extends Component {
 						/>
 					);
 				}
+				if (component.name === `acf/intro`) {
+					return (
+						<Intro
+							id={component.id}
+							index={index}
+							key={component.id}
+							name={component.name}
+							data={component.data}
+						/>
+					);
+				}
 				if (component.name === `acf/presentations`) {
 					return (
 						<Presentations
@@ -76,7 +88,7 @@ export default class CreateMarkup extends Component {
 							index={index}
 							key={component.id}
 							name={component.name}
-							rows={component.data.rows}
+							group={component.data.group}
 						/>
 					);
 				}

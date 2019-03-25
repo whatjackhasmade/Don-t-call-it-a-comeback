@@ -36,11 +36,24 @@ const RowComponent = styled.section`
 				margin-right: auto;
 			}
 		}
+
+		.row__image {
+			img {
+				transform: translateX(-100%);
+			}
+		}
 	}
 
 	&.row--show {
 		opacity: 1;
 		transform: translateX(0px);
+
+		.row__image {
+			img {
+				opacity: 1;
+				transform: translateX(0%);
+			}
+		}
 	}
 
 	h1 {
@@ -81,12 +94,23 @@ const RowComponent = styled.section`
 	}
 
 	.row__column {
-		max-width: 40%;
+		max-width: 50%;
 		width: 100%;
 
 		+ .row__column {
 			margin-left: auto;
-			max-width: 50%;
+			max-width: 40%;
+		}
+	}
+
+	.row__image {
+		overflow: hidden;
+
+		img {
+			opacity: 0;
+			transform: translateX(100%);
+			transition: 0.6s all ease;
+			transition-delay: 0.4s;
 		}
 	}
 `;
@@ -100,7 +124,7 @@ export default class Row extends Component {
 	};
 
 	render() {
-		const { id, index, rows } = this.props;
+		const { id, index, group } = this.props;
 
 		const alignment = index % 2 === 0 ? `left` : `right`;
 
@@ -115,15 +139,17 @@ export default class Row extends Component {
 						}
 						ref={ref}
 					>
-						{Object.keys(rows).map((column, columnIndex) => (
-							<div
-								className="row__column"
-								dangerouslySetInnerHTML={{
-									__html: this.prepareContent(rows[column].column)
-								}}
-								key={`row-${id}-${columnIndex}`}
-							/>
-						))}
+						<div className="row__column">
+							<div className="row__image">
+								<img src={group.media} />
+							</div>
+						</div>
+						<div
+							className="row__column"
+							dangerouslySetInnerHTML={{
+								__html: this.prepareContent(group.content)
+							}}
+						/>
 					</RowComponent>
 				)}
 			</InView>

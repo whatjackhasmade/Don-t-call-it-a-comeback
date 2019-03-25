@@ -144,15 +144,16 @@ exports.createPages = ({ graphql, actions }) => {
 						node {
 							content {
 								id
-								align
 								data {
 									background_colour
 									content
-									rows {
-										column
+									heading
+									group {
+										content
+										media
 									}
+									subheading
 								}
-								mode
 								name
 							}
 							id
