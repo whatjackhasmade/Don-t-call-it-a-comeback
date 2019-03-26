@@ -112,12 +112,21 @@ class Archive extends Component {
 			return null;
 		});
 
-		console.log(datesArray);
-
 		return (
 			<Base>
 				<Intro heading={`Insights`} subheading={`Insights`}>
-					<p>Welcome one and all!</p>
+					<p>
+						Welcome one and all! With over 200 blog posts, in 14 different
+						categories, it's safe to say I can get carried away with my posts.
+					</p>
+					<p>
+						I am passionate about my industry and want to share and discuss
+						topics from user interface design to photography!
+					</p>
+					<p>
+						Feel free to browse through my thoughts and let me know what you
+						think.
+					</p>
 				</Intro>
 				<CollectionNavigation ids={datesArray} />
 				<CollectionWrapper>
