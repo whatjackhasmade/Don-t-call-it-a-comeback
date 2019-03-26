@@ -4,11 +4,10 @@ import styled from "styled-components";
 import { device } from "../../particles/MediaQueries";
 
 const PresentationsComponent = styled.section`
-	align-items: center;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	margin: 32px 0;
+	min-height: 400px;
 
 	@media ${device.xs} {
 		margin: 64px 0;
@@ -20,6 +19,10 @@ const PresentationsComponent = styled.section`
 
 	@media ${device.lg} {
 		margin: 96px 0;
+	}
+
+	a {
+		color: inherit;
 	}
 
 	h3 {
@@ -35,11 +38,8 @@ const PresentationsComponent = styled.section`
 	}
 
 	.presentations__contents {
+		max-width: 600px;
 		width: 100%;
-
-		@media ${device.md} {
-			max-width: 600px;
-		}
 	}
 
 	.presentations__overflow {
@@ -62,7 +62,7 @@ const PresentationsComponent = styled.section`
 		display: flex;
 		flex: 1;
 		height: 100%;
-		position: absolute;
+		position: relative;
 		left: 0;
 		top: 0;
 		width: 1000%;
@@ -74,6 +74,10 @@ const PresentationsComponent = styled.section`
 
 		p {
 			margin: 0;
+		}
+
+		@media ${device.md} {
+			position: absolute;
 		}
 	}
 
@@ -170,10 +174,9 @@ class Presentations extends Component {
 					}}
 				/>
 				<div className="presentations__overflow">
-					<Events
-						className="presentations__events"
-						events={query.allEvent.edges}
-					/>
+					<div className="presentations__events">
+						<Events events={query.allEvent.edges} />
+					</div>
 				</div>
 			</PresentationsComponent>
 		);
