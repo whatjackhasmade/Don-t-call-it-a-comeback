@@ -124,7 +124,7 @@ export default class Row extends Component {
 	};
 
 	render() {
-		const { id, index, group } = this.props;
+		const { index, group } = this.props;
 
 		const alignment = index % 2 === 0 ? `left` : `right`;
 
@@ -141,7 +141,7 @@ export default class Row extends Component {
 					>
 						<div className="row__column">
 							<div className="row__image">
-								<img src={group.media} />
+								<img src={group.media} alt={`Decorative`} />
 							</div>
 						</div>
 						<div

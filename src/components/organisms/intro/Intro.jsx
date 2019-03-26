@@ -3,9 +3,17 @@ import styled from "styled-components";
 import { device } from "../../particles/MediaQueries";
 
 const IntroComponent = styled.section`
-	margin: 96px 0;
+	margin: 32px 0;
 
 	color: ${props => props.theme.black};
+
+	@media ${device.xs} {
+		margin: 64px 0;
+	}
+
+	@media ${device.lg} {
+		margin: 96px 0;
+	}
 
 	h1 {
 		margin: 0 0 24px;

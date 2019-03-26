@@ -5,7 +5,6 @@ import moment from "moment";
 
 import Base from "../components/templates/Base";
 
-import Hero from "../components/organisms/hero/Hero";
 import Intro from "../components/organisms/intro/Intro";
 
 const CollectionMenu = styled.nav`
@@ -110,6 +109,7 @@ class Archive extends Component {
 
 		Object.keys(sortedByWeek).map((key, index) => {
 			if (sortedByWeek[key] !== undefined) datesArray.push(key);
+			return null;
 		});
 
 		console.log(datesArray);
