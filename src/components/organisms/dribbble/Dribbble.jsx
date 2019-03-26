@@ -21,11 +21,16 @@ const bounce = keyframes`
 
 const DribbbleComponent = styled.section`
 	display: flex;
+	flex-direction: column;
 	margin: 32px 0;
 	min-height: 400px;
 
 	@media ${device.xs} {
 		margin: 64px 0;
+	}
+
+	@media ${device.md} {
+		flex-direction: row;
 	}
 
 	@media ${device.lg} {
@@ -54,9 +59,18 @@ const DribbbleComponent = styled.section`
 	}
 
 	.dribbble__overflow {
-		margin-left: 144px;
+		margin-top: 32px;
 		position: relative;
 		width: 100%;
+
+		@media ${device.md} {
+			margin-left: 72px;
+			margin-top: 0;
+		}
+
+		@media ${device.lg} {
+			margin-left: 144px;
+		}
 	}
 
 	.dribbble__shots {
@@ -64,7 +78,7 @@ const DribbbleComponent = styled.section`
 		display: flex;
 		flex: 1;
 		height: 100%;
-		position: absolute;
+		position: relative;
 		left: 0;
 		top: 0;
 		width: 1000%;
@@ -77,12 +91,18 @@ const DribbbleComponent = styled.section`
 		p {
 			margin: 0;
 		}
+
+		@media ${device.md} {
+			position: absolute;
+		}
 	}
 
-	.dribbble__shot--animate {
-		.dribbble__shot__logo {
-			animation: ${bounce} 0.3s ease infinite;
-			animation-iteration-count: 1;
+	@media ${device.md} {
+		.dribbble__shot--animate {
+			.dribbble__shot__logo {
+				animation: ${bounce} 0.3s ease infinite;
+				animation-iteration-count: 1;
+			}
 		}
 	}
 

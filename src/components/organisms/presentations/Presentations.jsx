@@ -4,12 +4,18 @@ import styled from "styled-components";
 import { device } from "../../particles/MediaQueries";
 
 const PresentationsComponent = styled.section`
+	align-items: center;
 	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	margin: 32px 0;
-	min-height: 400px;
 
 	@media ${device.xs} {
 		margin: 64px 0;
+	}
+
+	@media ${device.md} {
+		flex-direction: row;
 	}
 
 	@media ${device.lg} {
@@ -29,14 +35,26 @@ const PresentationsComponent = styled.section`
 	}
 
 	.presentations__contents {
-		max-width: 600px;
 		width: 100%;
+
+		@media ${device.md} {
+			max-width: 600px;
+		}
 	}
 
 	.presentations__overflow {
-		margin-left: 144px;
+		margin-top: 32px;
 		position: relative;
 		width: 100%;
+
+		@media ${device.md} {
+			margin-left: 72px;
+			margin-top: 0;
+		}
+
+		@media ${device.lg} {
+			margin-left: 144px;
+		}
 	}
 
 	.presentations__events {
