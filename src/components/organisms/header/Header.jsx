@@ -5,13 +5,30 @@ import { device } from "../../particles/MediaQueries";
 
 import Logo from "../../../assets/images/logo/logo.svg";
 import IconBars from "../../../assets/images/icons/solid/bars.svg";
+import IconTimes from "../../../assets/images/icons/solid/times.svg";
 
 const HeaderComponent = styled.header`
 	position: relative;
-	z-index: 10;
+	z-index: 11;
 
 	background: white;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+
+	a {
+		font-size: 20px;
+
+		@media ${device.sm} {
+			font-size: 16px;
+		}
+	}
+
+	button {
+		span {
+			@media ${device.MXsm} {
+				font-weight: 700;
+			}
+		}
+	}
 
 	a,
 	button {
@@ -36,22 +53,28 @@ const HeaderComponent = styled.header`
 			}
 		}
 
-		&:after {
-			bottom: -4px;
-			content: "";
-			display: block;
-			height: 1px;
-			left: 0;
-			position: absolute;
-			width: 100%;
+		@media ${device.sm} {
+			&:after {
+				bottom: -4px;
+				content: "";
+				display: block;
+				height: 1px;
+				left: 0;
+				position: absolute;
+				width: 100%;
 
-			background: ${props => props.theme.grey600};
-			transform: scaleX(0);
-			transition: 0.2s all ease;
+				background: ${props => props.theme.grey600};
+				transform: scaleX(0);
+				transition: 0.2s all ease;
+			}
 		}
 
 		+ a {
-			margin-left: 16px;
+			margin-left: 0;
+
+			@media ${device.sm} {
+				margin-left: 16px;
+			}
 		}
 	}
 
@@ -64,7 +87,6 @@ const HeaderComponent = styled.header`
 		border: none;
 		color: inherit;
 		cursor: pointer;
-		font: inherit;
 		outline: none;
 		transform: translateX(8px);
 
@@ -79,19 +101,11 @@ const HeaderComponent = styled.header`
 
 		svg {
 			margin-left: 8px;
-			width: 24px;
+			height: 20px;
 		}
 
 		@media ${device.sm} {
 			display: none;
-		}
-	}
-
-	nav {
-		display: none;
-
-		@media ${device.sm} {
-			display: block;
 		}
 	}
 
@@ -133,9 +147,48 @@ const HeaderComponent = styled.header`
 			}
 		}
 	}
+
+	@media ${device.MXsm} {
+		nav {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			justify-content: center;
+			left: 100%;
+			padding: 32px;
+			position: fixed;
+			top: 0;
+			width: 100%;
+
+			background: white;
+			box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+			transition: 0.4s left ease;
+
+			@media ${device.sm} {
+				flex-direction: row;
+				position: relative;
+			}
+		}
+
+		.header__menu--show {
+			left: 0;
+		}
+	}
 `;
 
 export default class Header extends Component {
+	state = {
+		menuOpen: false
+	};
+
+	toggleMenu = e => {
+		e.preventDefault();
+		this.setState({ menuOpen: !this.state.menuOpen });
+
+		const root = document.documentElement;
+		root.classList.toggle(`scroll--fixed`);
+	};
+
 	render() {
 		return (
 			<HeaderComponent>
@@ -143,7 +196,7 @@ export default class Header extends Component {
 					<Link to="/" className="header__logo">
 						<Logo />
 					</Link>
-					<nav>
+					<nav className={this.state.menuOpen ? `header__menu--show` : null}>
 						<Link to="/">Homepage</Link>
 						<Link to="/work">Work</Link>
 						<Link to="/posts">Insights</Link>
@@ -151,10 +204,10 @@ export default class Header extends Component {
 						<Link to="/services">Services</Link>
 					</nav>
 					<a href="mailto:jack@noface.co.uk">Hire Me</a>
-					<button>
-						<span>Menu</span>
+					<button onClick={this.toggleMenu}>
+						<span>{this.state.menuOpen ? `Close` : `Open`} Menu</span>
 						<span> Navigation</span>
-						<IconBars />
+						{this.state.menuOpen ? <IconTimes /> : <IconBars />}
 					</button>
 				</div>
 			</HeaderComponent>

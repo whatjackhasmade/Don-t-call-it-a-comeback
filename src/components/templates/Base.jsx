@@ -101,6 +101,7 @@ const GlobalStyle = createGlobalStyle`
 
 	html {
 		box-sizing: border-box;
+		overflow-y: scroll;
 
 		font-family: 'SuisseIntl', Arial, Helvetica, sans-serif;
 		font-size: 62.5%;
@@ -112,6 +113,12 @@ const GlobalStyle = createGlobalStyle`
 		font-smoothing: antialiased;
 		-webkit-font-smoothing: antialiased;
 		text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+
+		@media ${device.MXsm} {
+			&.scroll--fixed {
+				overflow: hidden;
+			}
+		}
 	}
 
 	*, *:before, *:after {
@@ -149,10 +156,6 @@ const GlobalStyle = createGlobalStyle`
 		background: #fff;
 		font-size: 1.6rem;
 		line-height: 1.5;
-	}
-
-	html {
-		overflow-y: scroll;
 	}
 
 	main {

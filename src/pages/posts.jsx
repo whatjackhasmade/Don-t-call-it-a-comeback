@@ -3,12 +3,14 @@ import styled from "styled-components";
 import { Link, StaticQuery, graphql } from "gatsby";
 import moment from "moment";
 
+import { device } from "../components/particles/MediaQueries";
+
 import Base from "../components/templates/Base";
 
 import Intro from "../components/organisms/intro/Intro";
 
 const CollectionMenu = styled.nav`
-	display: flex;
+	display: none;
 	flex-direction: column;
 	position: fixed;
 	left: 0;
@@ -21,6 +23,10 @@ const CollectionMenu = styled.nav`
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	transform: translateY(-50%);
+
+	@media ${device.xl} {
+		display: flex;
+	}
 
 	a {
 		color: ${props => props.theme.grey100};

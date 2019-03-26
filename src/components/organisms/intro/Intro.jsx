@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { device } from "../../particles/MediaQueries";
 
 const IntroComponent = styled.section`
-	margin: 32px 0;
+	margin: 64px 0 32px;
 
 	color: ${props => props.theme.black};
 
@@ -42,8 +42,12 @@ const IntroComponent = styled.section`
 	h2 {
 		margin: 0 0 24px;
 
-		font-size: 64px;
+		font-size: 48px;
 		line-height: 1;
+
+		@media ${device.lg} {
+			font-size: 64px;
+		}
 	}
 
 	.intro__contents {
