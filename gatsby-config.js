@@ -18,7 +18,7 @@ module.exports = {
 	plugins: [
 		"gatsby-plugin-catch-links",
 		"gatsby-plugin-lodash",
-		"gatsby-plugin-offline",
+		// "gatsby-plugin-offline",
 		"gatsby-plugin-sharp",
 		"gatsby-plugin-styled-components",
 		"gatsby-plugin-twitter",
@@ -40,24 +40,10 @@ module.exports = {
 				lang: "en"
 			}
 		},
-		"gatsby-plugin-sass",
-		{
-			resolve: "gatsby-source-filesystem",
-			options: {
-				name: "assets",
-				path: `${__dirname}/static/`
-			}
-		},
 		{
 			resolve: "gatsby-plugin-google-analytics",
 			options: {
 				trackingId: config.googleAnalyticsID
-			}
-		},
-		{
-			resolve: "gatsby-plugin-nprogress",
-			options: {
-				color: config.themeColor
 			}
 		},
 		"gatsby-plugin-sitemap",
