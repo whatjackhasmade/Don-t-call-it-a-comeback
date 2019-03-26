@@ -5,9 +5,10 @@ import "normalize.css/normalize.css";
 
 import config from "../../../data/SiteConfig";
 
-import SEO from "../particles/SEO";
+import { device } from "../particles/MediaQueries";
 import { ThemeDefault } from "../particles/ThemeDefault";
 import Fonts from "../particles/Fonts";
+import SEO from "../particles/SEO";
 
 import Footer from "../organisms/footer/Footer";
 import Header from "../organisms/header/Header";
@@ -187,35 +188,58 @@ const GlobalStyle = createGlobalStyle`
 		margin-bottom: 24px;
 		margin-top: 24px;
 
-		font-size: 72px;
+		font-size: 48px;
 		font-weight: 700;
 		line-height: 1.1;
+
+		@media ${device.lg} {
+			font-size: 72px;
+		}
 	}
 
 	h2,
 	.h2 {
-		font-size: 48px;
-		font-weight: 700;
+		font-size: 30px;
+
+		@media ${device.lg} {
+			font-size: 48px;
+		}
 	}
 
 	h3,
 	.h3 {
-		font-size: 30px;
+		font-size: 24px;
+
+		@media ${device.lg} {
+			font-size: 30px;
+		}
 	}
 
 	h4,
 	.h4 {
-		font-size: 24px;
+		font-size: 20px;
+
+		@media ${device.lg} {
+			font-size: 24px;
+		}
 	}
 
 	h5,
 	.h5 {
-		font-size: 20px;
+		font-size: 18px;
+
+		@media ${device.lg} {
+			font-size: 20px;
+		}
 	}
 
 	h6,
 	.h6 {
-		font-size: 18px;
+		font-size: 16px;
+
+		@media ${device.lg} {
+			font-size: 18px;
+		}
 	}
 
 	/* Advanced vertical rhythym based off of https://medium.com/@sebastian.eberlein/advanced-vertical-margins-4ac69f032f79 */
