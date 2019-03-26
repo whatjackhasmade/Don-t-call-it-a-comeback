@@ -155,10 +155,7 @@ export default class Dribbble extends Component {
 	};
 
 	async componentDidMount() {
-		const accessToken =
-			`${process.env.DRIBBBLE_TOKEN}` !== undefined
-				? `${process.env.DRIBBBLE_TOKEN}`
-				: `9422ed733294915d402ad516d509f33f618c1ddde539c9fddd94415530e127e3`;
+		const accessToken = `9422ed733294915d402ad516d509f33f618c1ddde539c9fddd94415530e127e3`;
 		const dribbbleData = await fetch(
 			`https://api.dribbble.com/v2/user/shots?access_token=${accessToken}`
 		).then(res => {
