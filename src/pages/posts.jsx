@@ -24,7 +24,7 @@ const CollectionMenu = styled.nav`
 	text-transform: uppercase;
 	transform: translateY(-50%);
 
-	@media ${device.xl} {
+	@media ${device.xxl} {
 		display: flex;
 	}
 
