@@ -32,6 +32,10 @@ const DribbbleComponent = styled.section`
 		margin: 96px 0;
 	}
 
+	a {
+		color: inherit;
+	}
+
 	h3 {
 		margin-top: 0;
 

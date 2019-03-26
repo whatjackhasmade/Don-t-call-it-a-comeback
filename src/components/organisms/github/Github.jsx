@@ -41,7 +41,7 @@ export default class Github extends Component {
 				<div className="github__calendar" target="_blank">
 					<a href="https://github.com/whatjackhasmade">
 						<img
-							src="http://ghchart.rshah.org/whatjackhasmade"
+							src="https://ghchart.rshah.org/whatjackhasmade"
 							alt="2016rshah's Github chart"
 						/>
 					</a>

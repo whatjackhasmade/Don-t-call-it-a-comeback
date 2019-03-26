@@ -6,6 +6,7 @@ import moment from "moment";
 import Base from "../components/templates/Base";
 
 import Hero from "../components/organisms/hero/Hero";
+import Intro from "../components/organisms/intro/Intro";
 
 const CollectionMenu = styled.nav`
 	display: flex;
@@ -13,13 +14,14 @@ const CollectionMenu = styled.nav`
 	position: fixed;
 	left: 0;
 	padding: 8px;
-	top: 0;
+	top: 50%;
 	z-index: 2;
 
 	font-size: 12px;
 	font-weight: 400;
 	letter-spacing: 1px;
 	text-transform: uppercase;
+	transform: translateY(-50%);
 
 	a {
 		color: ${props => props.theme.grey100};
@@ -114,9 +116,9 @@ class Archive extends Component {
 
 		return (
 			<Base>
-				<Hero>
-					<h1>Insights</h1>
-				</Hero>
+				<Intro heading={`Insights`} subheading={`Insights`}>
+					<p>Welcome one and all!</p>
+				</Intro>
 				<CollectionNavigation ids={datesArray} />
 				<CollectionWrapper>
 					{Object.keys(sortedByWeek).map((key, index) => (

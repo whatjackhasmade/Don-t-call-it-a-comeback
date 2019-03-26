@@ -109,7 +109,7 @@ const RowComponent = styled.section`
 		img {
 			opacity: 0;
 			transform: translateX(100%);
-			transition: 0.6s all ease;
+			transition: 1s all ease;
 			transition-delay: 0.4s;
 		}
 	}
