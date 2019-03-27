@@ -152,6 +152,7 @@ exports.createPages = ({ graphql, actions }) => {
 										content
 										media
 									}
+									media
 									subheading
 								}
 								name

@@ -56,6 +56,7 @@ export default class CreateMarkup extends Component {
 							key={component.id}
 							name={component.name}
 							data={component.data}
+							media={component.data.media}
 						/>
 					);
 				}

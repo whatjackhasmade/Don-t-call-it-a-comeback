@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { device } from "../../particles/MediaQueries";
 
+import Duotone from "./Duotone";
+
 const HeroComponent = styled.section`
 	align-items: center;
 	display: flex;
@@ -10,6 +12,7 @@ const HeroComponent = styled.section`
 	margin-left: -50vw;
 	min-height: 80vh;
 	min-height: ${props => props.height};
+	overflow: hidden;
 	position: relative;
 	width: 100vw;
 	z-index: 9;
@@ -17,6 +20,7 @@ const HeroComponent = styled.section`
 	background: ${props =>
 		props.background ? props.background : props.theme.primary};
 	color: ${props => props.theme.white};
+	text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 
 	@media ${device.xs} {
 		min-height: 50vh;
@@ -33,7 +37,40 @@ const HeroComponent = styled.section`
 	.hero__contents {
 		margin: 0 auto 0 0;
 		max-width: 806px;
+		position: relative;
 		width: 100%;
+		z-index: 3;
+	}
+
+	.hero__media,
+	.hero__media img {
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 1;
+
+		object-fit: cover;
+
+		&:before {
+			content: "";
+			display: block;
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			z-index: 2;
+
+			background: ${props =>
+				props.background ? props.background : props.theme.primary};
+			opacity: 0.8;
+		}
+
+		img {
+			filter: url(#duotone-filter);
+		}
 	}
 
 	.hero__wrapper {
@@ -46,7 +83,7 @@ const HeroComponent = styled.section`
 
 export default class Hero extends Component {
 	render() {
-		const { data } = this.props;
+		const { data, media } = this.props;
 
 		const background =
 			data && data.background_colour ? data.background_colour : `#0652DD`;
@@ -61,6 +98,12 @@ export default class Hero extends Component {
 						/>
 					) : (
 						<div className="hero__contents">{this.props.children}</div>
+					)}
+					{media && (
+						<picture className="hero__media">
+							<Duotone />
+							<img src={media} />
+						</picture>
 					)}
 				</div>
 			</HeroComponent>
