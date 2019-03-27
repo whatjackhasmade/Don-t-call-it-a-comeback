@@ -3,6 +3,8 @@ import { InView } from "react-intersection-observer";
 import styled from "styled-components";
 import { device } from "../../particles/MediaQueries";
 
+import ImageLoader from "../../molecules/imageloader/ImageLoader";
+
 const RowComponent = styled.section`
 	align-items: center;
 	display: flex;
@@ -167,7 +169,7 @@ export default class Row extends Component {
 					>
 						<div className="row__column">
 							<div className="row__image">
-								<img src={group.media} alt={`Decorative`} />
+								<ImageLoader src={group.media} alt={`Decorative`} />
 							</div>
 						</div>
 						<div

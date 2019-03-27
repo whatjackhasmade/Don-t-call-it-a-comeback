@@ -56,6 +56,7 @@
 		"react-helmet": "^5.2.0",
 		"react-image-webp": "^0.2.2",
 		"react-intersection-observer": "^8.22.3",
+		"react-lazy-load": "^3.0.13",
 		"react-lazyload": "^2.5.0",
 		"react-share": "^2.4.0",
 		"react-slick": "^0.23.2",

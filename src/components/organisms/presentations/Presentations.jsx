@@ -3,6 +3,8 @@ import { StaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import { device } from "../../particles/MediaQueries";
 
+import ImageLoader from "../../molecules/imageloader/ImageLoader";
+
 const PresentationsComponent = styled.section`
 	display: flex;
 	flex-direction: column;
@@ -196,10 +198,11 @@ class Events extends Component {
 					index={index}
 					key={event.node.title}
 				>
-					<img
+					<ImageLoader
 						alt={event.node.title}
 						className="presentations__event__thumbnail"
 						src={event.node.imageFull}
+						width={250}
 					/>
 					<div className="presentations__event__meta">
 						<h3>{event.node.title}</h3>

@@ -4,6 +4,8 @@ import { device } from "../../particles/MediaQueries";
 
 import LogoDribbble from "../../../assets/images/icons/brands/dribbble.svg";
 
+import ImageLoader from "../../molecules/imageloader/ImageLoader";
+
 // Create the keyframes
 const bounce = keyframes`
   from {
@@ -248,7 +250,7 @@ class Shot extends Component {
 					target="_blank"
 				>
 					<LogoDribbble className="dribbble__shot__logo" />
-					<img src={shot.images.teaser} alt={shot.title} />
+					<ImageLoader alt={shot.title} src={shot.images.teaser} width={250} />
 				</a>
 				<div className="dribbble__shot__meta">
 					<a href={shot.html_url} rel="noopener noreferrer" target="_blank">
