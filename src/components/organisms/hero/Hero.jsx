@@ -102,7 +102,7 @@ export default class Hero extends Component {
 					{media && (
 						<picture className="hero__media">
 							<Duotone />
-							<img src={media} />
+							<img src={media} alt="" />
 						</picture>
 					)}
 				</div>

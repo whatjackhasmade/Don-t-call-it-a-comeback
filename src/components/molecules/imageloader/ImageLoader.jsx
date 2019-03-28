@@ -22,7 +22,7 @@ export default class ImageLoader extends Component {
 	};
 
 	render() {
-		let { className, loadedClassName, loadingClassName, ...props } = this.props;
+		let { className, loadedClassName, loadingClassName } = this.props;
 		const { alt, height, offset, width } = this.props;
 
 		className = `${className} ${
