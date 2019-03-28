@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 
 import Base from "../components/templates/Base";
 
+import Contact from "../components/organisms/contact/Contact";
 import Hero from "../components/organisms/hero/Hero";
 import Grid from "../components/organisms/grid/Grid";
 
@@ -36,5 +37,6 @@ export default ({ data }) => (
 			<p>Go crazy.</p>
 		</Hero>
 		<Grid items={data.allInspiration.edges} type="images" />
+		<Contact />
 	</Base>
 );
