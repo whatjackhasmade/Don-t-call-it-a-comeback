@@ -86,24 +86,70 @@ const ContactComponent = styled.form`
 	}
 `;
 
+const encode = data => {
+	return Object.keys(data)
+		.map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+		.join("&");
+};
+
 export default class Contact extends Component {
+	state = { bot: "", name: "", email: "", message: "" };
+
+	/* Here’s the juicy bit for posting the form submission */
+
+	handleSubmit = e => {
+		if (this.state.bot !== "") alert("You've entered the bot field with data");
+
+		fetch("/", {
+			method: "POST",
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			body: encode({ "form-name": "contact", ...this.state })
+		})
+			.then(() => alert("Success!"))
+			.catch(error => alert(error));
+
+		e.preventDefault();
+	};
+
+	handleChange = e => this.setState({ [e.target.name]: e.target.value });
+
 	render() {
 		return (
 			<ContactComponent
 				name="contact"
 				method="post"
 				data-netlify="true"
-				data-netlify-honeypot="bot-field"
+				data-netlify-honeypot="bot"
 			>
 				<div className="contact__wrapper">
 					<h2>Got a Project In Mind?</h2>
-					<input type="hidden" name="bot-field" />
+					<input
+						type="hidden"
+						name="bot"
+						id="bot"
+						onChange={this.handleChange}
+					/>
 					<label htmlFor="name">Name</label>
-					<input type="text" name="name" id="name" />
+					<input
+						type="text"
+						name="name"
+						id="name"
+						onChange={this.handleChange}
+					/>
 					<label htmlFor="email">Email</label>
-					<input type="text" name="email" id="email" />
+					<input
+						type="text"
+						name="email"
+						id="email"
+						onChange={this.handleChange}
+					/>
 					<label htmlFor="message">Message</label>
-					<textarea name="message" id="message" rows="6" />
+					<textarea
+						name="message"
+						id="message"
+						rows="6"
+						onChange={this.handleChange}
+					/>
 					<button type="submit" value="Send Message">
 						Send Message
 					</button>
