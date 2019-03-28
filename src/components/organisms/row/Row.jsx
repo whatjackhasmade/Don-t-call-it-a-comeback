@@ -24,6 +24,32 @@ const RowComponent = styled.section`
 		margin: 160px 0;
 	}
 
+	a {
+		display: inline-flex;
+		margin: 24px 0 16px;
+		padding: 16px 24px;
+
+		background-color: ${props => props.theme.primary};
+		border: none;
+		box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+		color: ${props => props.theme.white};
+		cursor: pointer;
+		font-weight: 700;
+		line-height: 1;
+		outline: none;
+		text-decoration: none;
+		transition: all 0.15s ease;
+		white-space: nowrap;
+
+		&:active,
+		&:focus,
+		&:hover {
+			transform: translateY(-1px);
+			box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1),
+				0 3px 6px rgba(0, 0, 0, 0.08);
+		}
+	}
+
 	h1 {
 		margin-top: 0;
 	}
