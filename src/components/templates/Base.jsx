@@ -140,6 +140,13 @@ const GlobalStyle = createGlobalStyle`
 
 	a {
 		color: ${props => props.theme.primary};
+		text-decoration: none;
+
+		&:active,
+		&:focus,
+		&:hover {
+			text-decoration: underline;
+		}
 	}
 
 	/* Fix anchor scroll positioning */
@@ -243,54 +250,6 @@ const GlobalStyle = createGlobalStyle`
 
 		@media ${device.lg} {
 			font-size: 18px;
-		}
-	}
-
-	/* Advanced vertical rhythym based off of https://medium.com/@sebastian.eberlein/advanced-vertical-margins-4ac69f032f79 */
-	article {
-		max-width: 1000px;
-		margin: 64px 0;
-
-		> * + * {
-			margin-top: 16px;
-		}
-
-		> h2 + * {
-			margin-top: 24px;
-		}
-
-		> img + *,
-		> figure + * {
-			margin-top: 32px;
-		}
-
-		> * + h2 {
-			margin-top: 64px;
-		}
-
-		> * + h3 {
-			margin-top: 48px;
-		}
-
-		> * + img {
-			margin-top: 32px;
-		}
-
-		> * + h4 {
-			margin-top: 48px;
-		}
-
-		> img + img,
-		> figure + figure {
-			margin-top: 32px;
-		}
-
-		> h2 + h3 {
-			margin-top: 32px;
-		}
-
-		> h3 + h4 {
-			margin-top: 32px;
 		}
 	}
 `;

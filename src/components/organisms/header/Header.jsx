@@ -47,6 +47,7 @@ const HeaderComponent = styled.header`
 		&:focus,
 		&:hover {
 			color: ${props => props.theme.black};
+			text-decoration: none;
 
 			&:after {
 				transform: scaleX(1);

@@ -130,6 +130,14 @@ const FooterComponent = styled.footer`
 			}
 		}
 
+		a {
+			&:active,
+			&:focus,
+			&:hover {
+				text-decoration: none;
+			}
+		}
+
 		@media ${device.md} {
 			justify-content: center;
 			width: auto;

@@ -30,6 +30,8 @@ const TestimonialsComponent = styled.section`
 
 	.slick-slider {
 		width: 100%;
+
+		cursor: grab;
 	}
 
 	.slick-list {

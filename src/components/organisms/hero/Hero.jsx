@@ -26,6 +26,17 @@ const HeroComponent = styled.section`
 		min-height: 50vh;
 	}
 
+	a {
+		color: ${props => props.theme.white};
+		text-decoration: none;
+
+		&:active,
+		&:focus,
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
 	h4 {
 		font-size: 18px;
 		font-weight: 500;
