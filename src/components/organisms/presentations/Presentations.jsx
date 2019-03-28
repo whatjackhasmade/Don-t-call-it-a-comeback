@@ -196,7 +196,7 @@ class Events extends Component {
 					className="presentations__event"
 					data-index={index}
 					index={index}
-					key={event.node.title}
+					key={`${event.node.title}-${index}`}
 				>
 					<ImageLoader
 						alt={event.node.title}

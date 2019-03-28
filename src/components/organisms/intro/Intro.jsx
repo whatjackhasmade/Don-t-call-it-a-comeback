@@ -37,6 +37,10 @@ const IntroComponent = styled.section`
 			width: 2px;
 			background: ${props => props.theme.primary};
 		}
+
+		@media ${device.sm} {
+			padding-left: 12px;
+		}
 	}
 
 	h2 {
@@ -69,7 +73,7 @@ export default class Intro extends Component {
 
 		if (data) {
 			return (
-				<IntroComponent>
+				<IntroComponent className="intro">
 					<div className="intro__wrapper">
 						<h1 className="h4">{data.subheading}</h1>
 						<h2 className="h1">{data.heading}</h2>
@@ -82,7 +86,7 @@ export default class Intro extends Component {
 			);
 		} else {
 			return (
-				<IntroComponent>
+				<IntroComponent className="intro">
 					<div className="intro__wrapper">
 						<h1 className="h4">{subheading}</h1>
 						<h2 className="h1">{heading}</h2>

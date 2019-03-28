@@ -6,6 +6,7 @@ import Hero from "../organisms/hero/Hero";
 import Intro from "../organisms/intro/Intro";
 import Presentations from "../organisms/presentations/Presentations";
 import Row from "../organisms/row/Row";
+import Testimonials from "../organisms/testimonials/Testimonials";
 
 export default class CreateMarkup extends Component {
 	render() {
@@ -90,6 +91,17 @@ export default class CreateMarkup extends Component {
 							key={component.id}
 							name={component.name}
 							group={component.data.group}
+						/>
+					);
+				}
+				if (component.name === `acf/testimonials`) {
+					return (
+						<Testimonials
+							id={component.id}
+							index={index}
+							key={component.id}
+							name={component.name}
+							testimonials={component.data.testimonials}
 						/>
 					);
 				}

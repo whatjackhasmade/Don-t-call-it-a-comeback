@@ -42,7 +42,7 @@ const HeaderComponent = styled.header`
 		text-transform: uppercase;
 		transition: 0.2s alle ease;
 
-		&[aria-current="page"],
+		& + a[aria-current="page"],
 		&:active,
 		&:focus,
 		&:hover {
@@ -184,9 +184,6 @@ export default class Header extends Component {
 	toggleMenu = e => {
 		e.preventDefault();
 		this.setState({ menuOpen: !this.state.menuOpen });
-
-		const root = document.documentElement;
-		root.classList.toggle(`scroll--fixed`);
 	};
 
 	render() {
