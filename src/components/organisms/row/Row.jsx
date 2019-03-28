@@ -96,6 +96,10 @@ const RowComponent = styled.section`
 		@media ${device.md} {
 			max-width: 100%;
 		}
+
+		& > a {
+			margin: 0;
+		}
 	}
 
 	p:last-of-type {
