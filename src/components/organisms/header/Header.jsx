@@ -195,10 +195,10 @@ export default class Header extends Component {
 					</Link>
 					<nav className={this.state.menuOpen ? `header__menu--show` : null}>
 						<Link to="/">Homepage</Link>
-						<Link to="/work">Work</Link>
+						{/* <Link to="/work">Work</Link> */}
 						<Link to="/posts">Insights</Link>
 						<Link to="/about">About</Link>
-						<Link to="/services">Services</Link>
+						{/* <Link to="/services">Services</Link> */}
 					</nav>
 					<a href="mailto:jack@noface.co.uk">Hire Me</a>
 					<button onClick={this.toggleMenu}>
