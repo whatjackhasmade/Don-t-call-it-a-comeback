@@ -37,6 +37,8 @@ const TestimonialsComponent = styled.section`
 	}
 
 	.slick-slide {
+		padding: 0 32px;
+
 		@media ${device.md} {
 			padding: 32px;
 		}
@@ -69,7 +71,18 @@ const settings = {
 	prevArrow: false,
 	speed: 500,
 	slidesToShow: 2,
-	slidesToScroll: 1
+	slidesToScroll: 1,
+	responsive: [
+		{
+			breakpoint: 992,
+			settings: {
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				infinite: true,
+				dots: true
+			}
+		}
+	]
 };
 
 export default class Testimonials extends Component {
