@@ -169,7 +169,7 @@ export default class Row extends Component {
 					>
 						<div className="row__column">
 							<div className="row__image">
-								<ImageLoader src={group.media} alt={`Decorative`} />
+								<ImageLoader src={group.media} alt="" />
 							</div>
 						</div>
 						<div
