@@ -7,6 +7,7 @@ const ContactComponent = styled.form`
 	margin-left: -50vw;
 	position: relative;
 	width: 100vw;
+	z-index: 9;
 
 	background-color: ${props => props.theme.primary};
 	color: ${props => props.theme.white};

@@ -10,6 +10,7 @@ import { ThemeDefault } from "../particles/ThemeDefault";
 import Fonts from "../particles/Fonts";
 import SEO from "../particles/SEO";
 
+import Contact from "../organisms/contact/Contact";
 import Footer from "../organisms/footer/Footer";
 import Header from "../organisms/header/Header";
 
@@ -305,6 +306,7 @@ export default class Base extends React.Component {
 					<div className="wrapper">
 						<Header />
 						<main>{this.props.children}</main>
+						<Contact />
 						<Footer />
 					</div>
 				</React.Fragment>
