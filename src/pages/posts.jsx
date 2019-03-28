@@ -66,13 +66,6 @@ const CollectionWrapper = styled.section`
 		letter-spacing: 1px;
 		text-transform: uppercase;
 	}
-
-	h3 {
-		font-family: ${props => props.theme.fontSecondary};
-		font-size: 32px;
-		font-style: italic;
-		font-weight: 400;
-	}
 `;
 
 export default props => (
