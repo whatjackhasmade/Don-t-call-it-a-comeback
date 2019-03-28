@@ -65,6 +65,8 @@ const settings = {
 	autoplaySpeed: 5000,
 	dots: true,
 	infinite: true,
+	nextArrow: false,
+	prevArrow: false,
 	speed: 500,
 	slidesToShow: 2,
 	slidesToScroll: 1
