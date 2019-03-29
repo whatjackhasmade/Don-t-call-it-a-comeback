@@ -10,6 +10,7 @@ const GridComponent = styled.section`
 	.grid__item {
 		max-width: 100%;
 		position: relative;
+		width: 100%;
 
 		cursor: pointer;
 		transition: 0.2s all ease;
@@ -22,7 +23,8 @@ const GridComponent = styled.section`
 			max-width: 33%;
 		}
 
-		img {
+		img,
+		video {
 			min-height: 200px;
 			object-fit: cover;
 			width: 100%;
@@ -34,6 +36,15 @@ const GridComponent = styled.section`
 			.grid__item__title {
 				opacity: 0.8;
 			}
+		}
+	}
+
+	.grid__item--inactive {
+		width: 0px;
+
+		img,
+		video {
+			min-height: 0px;
 		}
 	}
 
@@ -58,17 +69,31 @@ const GridComponent = styled.section`
 
 export default class Grid extends Component {
 	render() {
-		const { items, type } = this.props;
+		const { filter, items, type } = this.props;
 
 		if (type === "images") {
 			return (
 				<GridComponent>
-					{items.map(item => (
-						<GridItem>
-							<img src={item.node.imageFull} alt="test" />
-							<span className="grid__item__title">{item.node.title}</span>
-						</GridItem>
-					))}
+					{items.map(item => {
+						const media = item.node.media;
+						const ext = media.substr(media.lastIndexOf(".") + 1);
+
+						if (ext === `mp4`) {
+							return (
+								<GridItem category={item.node.category[0].name} filter={filter}>
+									<video src={item.node.media} alt="" />
+									<span className="grid__item__title">{item.node.title}</span>
+								</GridItem>
+							);
+						}
+
+						return (
+							<GridItem category={item.node.category[0].name} filter={filter}>
+								<img src={item.node.media} alt="" />
+								<span className="grid__item__title">{item.node.title}</span>
+							</GridItem>
+						);
+					})}
 				</GridComponent>
 			);
 		}
@@ -93,15 +118,18 @@ class GridItem extends Component {
 	};
 
 	render() {
+		const { category, filter } = this.props;
+
+		let classList = `grid__item`;
+		if (this.state.fullScreen) classList += ` grid__item--fullscreen`;
+
+		if (filter !== ``) {
+			if (category === filter) classList += ` grid__item--active`;
+			if (category !== filter) classList += ` grid__item--inactive`;
+		}
+
 		return (
-			<div
-				className={
-					!this.state.fullScreen
-						? `grid__item`
-						: `grid__item grid__item--fullscreen`
-				}
-				onClick={this.toggleFullscreen}
-			>
+			<div className={classList} onClick={this.toggleFullscreen}>
 				{this.props.children}
 			</div>
 		);

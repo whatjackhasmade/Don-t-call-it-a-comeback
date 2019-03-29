@@ -66,7 +66,7 @@ const TestimonialsComponent = styled.section`
 
 const settings = {
 	autoplay: true,
-	autoplaySpeed: 5000,
+	autoplaySpeed: 15000,
 	dots: true,
 	infinite: true,
 	nextArrow: false,
