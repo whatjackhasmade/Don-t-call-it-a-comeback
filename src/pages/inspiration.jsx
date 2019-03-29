@@ -4,8 +4,6 @@ import styled from "styled-components";
 
 import Base from "../components/templates/Base";
 
-import Button from "../components/atoms/Button";
-
 import Hero from "../components/organisms/hero/Hero";
 import Grid from "../components/organisms/grid/Grid";
 
