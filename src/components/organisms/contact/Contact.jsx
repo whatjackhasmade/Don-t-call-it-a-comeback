@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { device } from "../../particles/MediaQueries";
 
 import ContactForm from "./Fields";
 

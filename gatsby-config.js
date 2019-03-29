@@ -1,12 +1,12 @@
-const config = require("./data/SiteConfig");
-const urljoin = require("url-join");
+const config = require(`./data/SiteConfig`);
+const urljoin = require(`url-join`);
 
 const activeEnv =
-	process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development";
+	process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || `development`;
 
 console.log(`Using environment config: '${activeEnv}'`);
 
-require("dotenv").config({
+require(`dotenv`).config({
 	path: `.env.${activeEnv}`
 });
 
@@ -16,15 +16,18 @@ module.exports = {
 		siteUrl: urljoin(config.siteUrl)
 	},
 	plugins: [
-		"gatsby-plugin-catch-links",
-		"gatsby-plugin-lodash",
-		// "gatsby-plugin-offline",
-		"gatsby-plugin-sharp",
-		"gatsby-plugin-styled-components",
-		"gatsby-plugin-twitter",
-		"gatsby-plugin-react-helmet",
+		`gatsby-plugin-catch-links`,
+		`gatsby-plugin-lodash`,
+		// `gatsby-plugin-offline`,
+		`gatsby-plugin-sharp`,
+		`gatsby-plugin-styled-components`,
+		`gatsby-plugin-twitter`,
+		`gatsby-plugin-react-helmet`,
 		{
-			resolve: "gatsby-plugin-react-svg",
+			resolve: `gatsby-source-wordpress`
+		},
+		{
+			resolve: `gatsby-plugin-react-svg`,
 			options: {
 				rule: {
 					include: /assets/
@@ -32,23 +35,27 @@ module.exports = {
 			}
 		},
 		{
-			resolve: "gatsby-source-wordpress"
-		},
-		{
-			resolve: "gatsby-plugin-html-attributes",
+			resolve: `gatsby-plugin-hotjar`,
 			options: {
-				lang: "en"
+				id: `1261093`,
+				sv: `6`
 			}
 		},
 		{
-			resolve: "gatsby-plugin-google-analytics",
+			resolve: `gatsby-plugin-html-attributes`,
+			options: {
+				lang: `en`
+			}
+		},
+		{
+			resolve: `gatsby-plugin-google-analytics`,
 			options: {
 				trackingId: config.googleAnalyticsID
 			}
 		},
-		"gatsby-plugin-sitemap",
+		`gatsby-plugin-sitemap`,
 		{
-			resolve: "gatsby-plugin-manifest",
+			resolve: `gatsby-plugin-manifest`,
 			options: {
 				name: config.siteTitle,
 				short_name: config.siteTitleShort,
@@ -56,25 +63,25 @@ module.exports = {
 				start_url: config.pathPrefix,
 				background_color: config.backgroundColor,
 				theme_color: config.themeColor,
-				display: "minimal-ui",
+				display: `minimal-ui`,
 				icons: [
 					{
-						src: "/logos/logo-192x192.png",
-						sizes: "192x192",
-						type: "image/png"
+						src: `/logos/logo-192x192.png`,
+						sizes: `192x192`,
+						type: `image/png`
 					},
 					{
-						src: "/logos/logo-512x512.png",
-						sizes: "512x512",
-						type: "image/png"
+						src: `/logos/logo-512x512.png`,
+						sizes: `512x512`,
+						type: `image/png`
 					}
 				]
 			}
 		},
 		{
-			resolve: "gatsby-plugin-favicon",
+			resolve: `gatsby-plugin-favicon`,
 			options: {
-				logo: "./src/assets/images/favicon.png"
+				logo: `./src/assets/images/favicon.png`
 			}
 		}
 	]
