@@ -1,22 +1,18 @@
 import React, { Component } from "react";
 import { StaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { device } from "../../particles/MediaQueries";
 
-import ImageLoader from "../../molecules/imageloader/ImageLoader";
+import Intro from "../intro/Intro";
 
 const PresentationsComponent = styled.section`
-	display: flex;
-	flex-direction: column;
 	margin: 32px 0;
-	min-height: 400px;
 
 	@media ${device.xs} {
 		margin: 64px 0;
-	}
-
-	@media ${device.md} {
-		flex-direction: row;
 	}
 
 	@media ${device.lg} {
@@ -39,26 +35,6 @@ const PresentationsComponent = styled.section`
 		width: 100%;
 	}
 
-	.presentations__contents {
-		max-width: 600px;
-		width: 100%;
-	}
-
-	.presentations__overflow {
-		margin-top: 32px;
-		position: relative;
-		width: 100%;
-
-		@media ${device.md} {
-			margin-left: 72px;
-			margin-top: 0;
-		}
-
-		@media ${device.lg} {
-			margin-left: 144px;
-		}
-	}
-
 	.presentations__events {
 		align-items: flex-start;
 		display: flex;
@@ -67,7 +43,6 @@ const PresentationsComponent = styled.section`
 		position: relative;
 		left: 0;
 		top: 0;
-		width: 1000%;
 
 		a {
 			display: block;
@@ -76,10 +51,6 @@ const PresentationsComponent = styled.section`
 
 		p {
 			margin: 0;
-		}
-
-		@media ${device.md} {
-			position: absolute;
 		}
 	}
 
@@ -106,11 +77,9 @@ const PresentationsComponent = styled.section`
 
 	.presentations__event {
 		border-radius: 0 0 3px 3px;
-		width: 250px;
 
 		background: ${props => props.white};
 		box-shadow: 0px 2px 6px rgba(20, 18, 19, 0.1);
-		opacity: 0;
 		transition: 0.2s all ease;
 
 		&:active,
@@ -122,25 +91,24 @@ const PresentationsComponent = styled.section`
 		+ .presentations__event {
 			margin-left: 32px;
 		}
+	}
 
-		&[data-index="0"] {
-			opacity: 1;
-		}
+	.slick-slider {
+		padding: 0 0 16px;
+		width: 100%;
 
-		&[data-index="1"] {
-			opacity: 1;
-		}
+		cursor: grab;
+	}
 
-		&[data-index="2"] {
-			opacity: 0.8;
-		}
+	.slick-list {
+		margin: 0 -32px;
+	}
 
-		&[data-index="3"] {
-			opacity: 0.5;
-		}
+	.slick-slide {
+		padding: 0 32px;
 
-		&[data-index="4"] {
-			opacity: 0.2;
+		@media ${device.md} {
+			padding: 32px;
 		}
 	}
 `;
@@ -152,6 +120,7 @@ export default props => (
 				allEvent {
 					edges {
 						node {
+							id
 							imageFull
 							title
 						}
@@ -163,52 +132,92 @@ export default props => (
 	/>
 );
 
+const settings = {
+	autoplay: true,
+	autoplaySpeed: 5000,
+	dots: true,
+	infinite: true,
+	nextArrow: false,
+	prevArrow: false,
+	speed: 500,
+	slidesToShow: 5,
+	slidesToScroll: 1,
+	responsive: [
+		{
+			breakpoint: 1440,
+			settings: {
+				slidesToShow: 4,
+				slidesToScroll: 1
+			}
+		},
+		{
+			breakpoint: 1200,
+			settings: {
+				slidesToShow: 3,
+				slidesToScroll: 1
+			}
+		},
+		{
+			breakpoint: 750,
+			settings: {
+				slidesToShow: 2,
+				slidesToScroll: 1
+			}
+		},
+		{
+			breakpoint: 500,
+			settings: {
+				slidesToShow: 1,
+				slidesToScroll: 1
+			}
+		}
+	]
+};
+
 class Presentations extends Component {
 	render() {
 		const { data, query } = this.props;
 
 		return (
 			<PresentationsComponent>
-				<div
-					className="presentations__contents"
-					dangerouslySetInnerHTML={{
-						__html: data.content
-					}}
-				/>
-				<div className="presentations__overflow">
-					<div className="presentations__events">
-						<Events events={query.allEvent.edges} />
-					</div>
-				</div>
+				<Intro
+					heading={`Event Presentations`}
+					subheading={`Touring the south coast`}
+					marginReduced
+				>
+					<div dangerouslySetInnerHTML={{ __html: data.content }} />
+				</Intro>
+				<Slider {...settings}>
+					{query.allEvent.edges !== [] &&
+						query.allEvent.edges.map((event, index) => (
+							<Event index={index} key={event.id} event={event} />
+						))}
+				</Slider>
 			</PresentationsComponent>
 		);
 	}
 }
 
-class Events extends Component {
+class Event extends Component {
 	render() {
-		const { events } = this.props;
+		const { index, event } = this.props;
 
 		return (
-			events &&
-			events.map((event, index) => (
-				<div
-					className="presentations__event"
-					data-index={index}
-					index={index}
-					key={`${event.node.title}-${index}`}
-				>
-					<ImageLoader
-						alt={event.node.title}
-						className="presentations__event__thumbnail"
-						src={event.node.imageFull}
-						width={250}
-					/>
-					<div className="presentations__event__meta">
-						<h3>{event.node.title}</h3>
-					</div>
+			<div
+				className="presentations__event"
+				data-index={index}
+				index={index}
+				key={`${event.node.title}-${index}`}
+			>
+				<img
+					alt={event.node.title}
+					className="presentations__event__thumbnail"
+					src={event.node.imageFull}
+				/>
+				<div className="presentations__event__meta">
+					<h3>{event.node.title}</h3>
 				</div>
-			))
+			</div>
 		);
 	}
 }

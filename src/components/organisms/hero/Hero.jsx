@@ -57,6 +57,7 @@ const HeroComponent = styled.section`
 	.duotone img,
 	.hero__media,
 	.hero__media img {
+		display: none;
 		height: 100%;
 		left: 0;
 		position: absolute;
@@ -65,6 +66,10 @@ const HeroComponent = styled.section`
 		z-index: 1;
 
 		object-fit: cover;
+
+		@media ${device.md} {
+			display: block;
+		}
 	}
 
 	.hero__wrapper {

@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import styled, { keyframes } from "styled-components";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { device } from "../../particles/MediaQueries";
 
 import LogoDribbble from "../../../assets/images/icons/brands/dribbble.svg";
 
-import ImageLoader from "../../molecules/imageloader/ImageLoader";
+import Intro from "../intro/Intro";
 
 // Create the keyframes
 const bounce = keyframes`
@@ -22,17 +25,10 @@ const bounce = keyframes`
 `;
 
 const DribbbleComponent = styled.section`
-	display: flex;
-	flex-direction: column;
 	margin: 32px 0;
-	min-height: 400px;
 
 	@media ${device.xs} {
 		margin: 64px 0;
-	}
-
-	@media ${device.md} {
-		flex-direction: row;
 	}
 
 	@media ${device.lg} {
@@ -55,26 +51,6 @@ const DribbbleComponent = styled.section`
 		width: 100%;
 	}
 
-	.dribbble__contents {
-		max-width: 600px;
-		width: 100%;
-	}
-
-	.dribbble__overflow {
-		margin-top: 32px;
-		position: relative;
-		width: 100%;
-
-		@media ${device.md} {
-			margin-left: 72px;
-			margin-top: 0;
-		}
-
-		@media ${device.lg} {
-			margin-left: 144px;
-		}
-	}
-
 	.dribbble__shots {
 		align-items: flex-start;
 		display: flex;
@@ -83,7 +59,6 @@ const DribbbleComponent = styled.section`
 		position: relative;
 		left: 0;
 		top: 0;
-		width: 1000%;
 
 		a {
 			display: block;
@@ -92,10 +67,6 @@ const DribbbleComponent = styled.section`
 
 		p {
 			margin: 0;
-		}
-
-		@media ${device.md} {
-			position: absolute;
 		}
 	}
 
@@ -131,11 +102,9 @@ const DribbbleComponent = styled.section`
 
 	.dribbble__shot {
 		border-radius: 0 0 3px 3px;
-		width: 250px;
 
 		background: ${props => props.white};
 		box-shadow: 0px 2px 6px rgba(20, 18, 19, 0.1);
-		opacity: 0;
 		transition: 0.2s all ease;
 
 		&:active,
@@ -147,28 +116,69 @@ const DribbbleComponent = styled.section`
 		+ .dribbble__shot {
 			margin-left: 32px;
 		}
+	}
 
-		&[data-index="0"] {
-			opacity: 1;
-		}
+	.slick-slider {
+		padding: 0 0 16px;
+		width: 100%;
 
-		&[data-index="1"] {
-			opacity: 1;
-		}
+		cursor: grab;
+	}
 
-		&[data-index="2"] {
-			opacity: 0.8;
-		}
+	.slick-list {
+		margin: 0 -32px;
+	}
 
-		&[data-index="3"] {
-			opacity: 0.5;
-		}
+	.slick-slide {
+		padding: 0 32px;
 
-		&[data-index="4"] {
-			opacity: 0.2;
+		@media ${device.md} {
+			padding: 32px;
 		}
 	}
 `;
+
+const settings = {
+	autoplay: true,
+	autoplaySpeed: 5000,
+	dots: true,
+	infinite: true,
+	nextArrow: false,
+	prevArrow: false,
+	speed: 500,
+	slidesToShow: 5,
+	slidesToScroll: 1,
+	responsive: [
+		{
+			breakpoint: 1440,
+			settings: {
+				slidesToShow: 4,
+				slidesToScroll: 1
+			}
+		},
+		{
+			breakpoint: 1200,
+			settings: {
+				slidesToShow: 3,
+				slidesToScroll: 1
+			}
+		},
+		{
+			breakpoint: 750,
+			settings: {
+				slidesToShow: 2,
+				slidesToScroll: 1
+			}
+		},
+		{
+			breakpoint: 500,
+			settings: {
+				slidesToShow: 1,
+				slidesToScroll: 1
+			}
+		}
+	]
+};
 
 export default class Dribbble extends Component {
 	state = {
@@ -200,20 +210,19 @@ export default class Dribbble extends Component {
 
 		return (
 			<DribbbleComponent>
-				<div
-					className="dribbble__contents"
-					dangerouslySetInnerHTML={{
-						__html: data.content
-					}}
-				/>
-				<div className="dribbble__overflow">
-					<div className="dribbble__shots">
-						{this.state.shots !== [] &&
-							this.state.shots.map((shot, index) => (
-								<Shot index={index} key={shot.id} shot={shot} />
-							))}
-					</div>
-				</div>
+				<Intro
+					heading={`Interface Designs`}
+					subheading={`My Dribbble Shots`}
+					marginReduced
+				>
+					<div dangerouslySetInnerHTML={{ __html: data.content }} />
+				</Intro>
+				<Slider {...settings}>
+					{this.state.shots !== [] &&
+						this.state.shots.map((shot, index) => (
+							<Shot index={index} key={shot.id} shot={shot} />
+						))}
+				</Slider>
 			</DribbbleComponent>
 		);
 	}
@@ -250,7 +259,7 @@ class Shot extends Component {
 					target="_blank"
 				>
 					<LogoDribbble className="dribbble__shot__logo" />
-					<ImageLoader alt={shot.title} src={shot.images.teaser} width={250} />
+					<img alt={shot.title} src={shot.images.teaser} />
 				</a>
 				<div className="dribbble__shot__meta">
 					<a href={shot.html_url} rel="noopener noreferrer" target="_blank">

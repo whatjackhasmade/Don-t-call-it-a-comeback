@@ -252,6 +252,11 @@ const GlobalStyle = createGlobalStyle`
 			font-size: 18px;
 		}
 	}
+
+	/* Slick Slider */
+	.slick-arrow {
+		display: none !important;
+	}
 `;
 
 export default class Base extends React.Component {

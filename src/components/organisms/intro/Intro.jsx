@@ -3,16 +3,17 @@ import styled from "styled-components";
 import { device } from "../../particles/MediaQueries";
 
 const IntroComponent = styled.section`
-	margin: 64px 0 32px;
+	margin: ${props =>
+		props.marginReduced === true ? `64px 0 32px 0` : `32px 0 16px`};
 
 	color: ${props => props.theme.black};
 
 	@media ${device.xs} {
-		margin: 64px 0;
+		margin: ${props => (props.marginReduced === true ? `64px 0` : `32px 0`)};
 	}
 
 	@media ${device.lg} {
-		margin: 96px 0;
+		margin: ${props => (props.marginReduced === true ? `96px 0` : `48px 0`)};
 	}
 
 	h1 {
@@ -69,11 +70,14 @@ const IntroComponent = styled.section`
 
 export default class Intro extends Component {
 	render() {
-		const { data, heading, subheading } = this.props;
+		const { data, heading, marginReduced, subheading } = this.props;
 
 		if (data) {
 			return (
-				<IntroComponent className="intro">
+				<IntroComponent
+					className="intro"
+					marginReduced={marginReduced ? false : true}
+				>
 					<div className="intro__wrapper">
 						<h1 className="h4">{data.subheading}</h1>
 						<h2 className="h1">{data.heading}</h2>
@@ -86,7 +90,10 @@ export default class Intro extends Component {
 			);
 		} else {
 			return (
-				<IntroComponent className="intro">
+				<IntroComponent
+					className="intro"
+					marginReduced={marginReduced ? false : true}
+				>
 					<div className="intro__wrapper">
 						<h1 className="h4">{subheading}</h1>
 						<h2 className="h1">{heading}</h2>
