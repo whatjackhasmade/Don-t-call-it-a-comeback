@@ -18,7 +18,6 @@ module.exports = {
 	plugins: [
 		`gatsby-plugin-catch-links`,
 		`gatsby-plugin-lodash`,
-		// `gatsby-plugin-offline`,
 		`gatsby-plugin-sharp`,
 		`gatsby-plugin-styled-components`,
 		`gatsby-plugin-twitter`,
@@ -27,11 +26,12 @@ module.exports = {
 			resolve: `gatsby-source-wordpress`
 		},
 		{
-			resolve: `gatsby-plugin-react-svg`,
+			resolve: `gatsby-plugin-sentry`,
 			options: {
-				rule: {
-					include: /assets/
-				}
+				dsn: `https://a74b475c5020437d8aee47dae5b785d8@sentry.io/1427220`,
+				// Optional settings, see https://docs.sentry.io/clients/node/config/#optional-settings
+				environment: activeEnv,
+				enabled: (() => [`production`, `stage`].indexOf(activeEnv) !== -1)()
 			}
 		},
 		{
@@ -39,12 +39,6 @@ module.exports = {
 			options: {
 				id: `1261093`,
 				sv: `6`
-			}
-		},
-		{
-			resolve: `gatsby-plugin-html-attributes`,
-			options: {
-				lang: `en`
 			}
 		},
 		{
@@ -82,6 +76,20 @@ module.exports = {
 			resolve: `gatsby-plugin-favicon`,
 			options: {
 				logo: `./src/assets/images/favicon.png`
+			}
+		},
+		{
+			resolve: `gatsby-plugin-react-svg`,
+			options: {
+				rule: {
+					include: `/assets/`
+				}
+			}
+		},
+		{
+			resolve: `gatsby-plugin-html-attributes`,
+			options: {
+				lang: `en`
 			}
 		}
 	]
