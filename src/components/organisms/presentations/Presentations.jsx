@@ -203,7 +203,7 @@ class Presentations extends Component {
 						query.allEvent.edges.map((event, index) => (
 							<Event
 								index={index}
-								key={event.id}
+								key={`event-${index}`}
 								event={event}
 								venue={event.node.venue}
 							/>

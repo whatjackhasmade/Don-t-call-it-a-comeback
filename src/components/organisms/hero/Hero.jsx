@@ -165,8 +165,6 @@ class HeroMedia extends Component {
 	render() {
 		const { duotone, media, overlay } = this.props;
 
-		console.log(overlay);
-
 		if (duotone) {
 			return (
 				<HeroMediaComponent overlay={overlay}>

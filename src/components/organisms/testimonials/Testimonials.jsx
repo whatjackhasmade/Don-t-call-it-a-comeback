@@ -97,7 +97,10 @@ export default class Testimonials extends Component {
 				<TestimonialsComponent>
 					<Slider {...settings}>
 						{JSONArray.map(testimonial => (
-							<div className="testimonial">
+							<div
+								className="testimonial"
+								key={`testimonial-${testimonial.author}`}
+							>
 								<span className="testimonial__content">
 									"{testimonial.testimonial}"
 								</span>
