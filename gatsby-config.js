@@ -26,15 +26,6 @@ module.exports = {
 			resolve: `gatsby-source-wordpress`
 		},
 		{
-			resolve: `gatsby-plugin-sentry`,
-			options: {
-				dsn: `https://a74b475c5020437d8aee47dae5b785d8@sentry.io/1427220`,
-				// Optional settings, see https://docs.sentry.io/clients/node/config/#optional-settings
-				environment: activeEnv,
-				enabled: (() => [`production`, `stage`].indexOf(activeEnv) !== -1)()
-			}
-		},
-		{
 			resolve: `gatsby-plugin-hotjar`,
 			options: {
 				id: `1261093`,

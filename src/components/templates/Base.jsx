@@ -291,49 +291,22 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default class Base extends React.Component {
-	state = { error: null };
-
-	componentDidCatch(error, errorInfo) {
-		this.setState({ error });
-		Sentry.configureScope(scope => {
-			Object.keys(errorInfo).forEach(key => {
-				scope.setExtra(key, errorInfo[key]);
-			});
-		});
-		Sentry.captureException(error);
-	}
-
 	render() {
-		if (this.state.error) {
-			return (
-				<ThemeProvider theme={ThemeDefault}>
-					<React.Fragment>
-						<GlobalStyle />
-						<Helmet title={config.siteTitle} />
-						<SEO />
-						<div className="wrapper">
-							<h1>Something went wrong!</h1>
-						</div>
-					</React.Fragment>
-				</ThemeProvider>
-			);
-		} else {
-			return (
-				<ThemeProvider theme={ThemeDefault}>
-					<React.Fragment>
-						<GlobalStyle />
-						<Helmet title={config.siteTitle} />
-						<SEO />
-						<div className="wrapper">
-							<Header />
-							<main>{this.props.children}</main>
-							<Contact />
-							<Footer />
-						</div>
-					</React.Fragment>
-				</ThemeProvider>
-			);
-		}
+		return (
+			<ThemeProvider theme={ThemeDefault}>
+				<React.Fragment>
+					<GlobalStyle />
+					<Helmet title={config.siteTitle} />
+					<SEO />
+					<div className="wrapper">
+						<Header />
+						<main>{this.props.children}</main>
+						<Contact />
+						<Footer />
+					</div>
+				</React.Fragment>
+			</ThemeProvider>
+		);
 	}
 }
 
