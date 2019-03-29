@@ -43,6 +43,10 @@ const CollectionMenu = styled.nav`
 		+ a {
 			margin-top: 4px;
 		}
+
+		&[data-current="true"] {
+			color: ${props => props.theme.black};
+		}
 	}
 `;
 
@@ -100,7 +104,11 @@ function datesGroupByComponent(dates, token) {
 
 class Archive extends Component {
 	state = {
-		dateInView: "MARCH"
+		date: "MARCH"
+	};
+
+	setDate = date => {
+		this.setState({ date });
 	};
 
 	render() {
@@ -132,16 +140,14 @@ class Archive extends Component {
 						think.
 					</p>
 				</Intro>
-				<CollectionNavigation
-					dateInView={this.state.dateInView}
-					ids={datesArray}
-				/>
+				<CollectionNavigation date={this.state.date} ids={datesArray} />
 				<CollectionWrapper>
 					{Object.keys(sortedByWeek).map((key, index) => (
 						<Collection
 							posts={sortedByWeek[key]}
 							date={key}
 							key={`Collection-${index}`}
+							setDate={this.setDate}
 						/>
 					))}
 				</CollectionWrapper>
@@ -152,19 +158,24 @@ class Archive extends Component {
 
 class Collection extends Component {
 	render() {
-		const { date, posts } = this.props;
+		const { date, posts, setDate } = this.props;
+
+		const navDate = moment(date).format("MMM YYYY");
+		const prettyDate = moment(date).format("MMMM YYYY");
 
 		if (posts) {
 			return posts.map((post, index) => (
 				<React.Fragment key={post.node.id}>
 					{index === 0 ? (
-						<InView threshold={0.25} triggerOnce={true}>
+						<InView threshold={0} triggerOnce={false}>
 							{({ inView, ref }) => (
 								<h2
 									className={inView ? `h3 inview` : `h3`}
 									id={`${moment(date).format("YYYY-MM")}`}
 									ref={ref}
-								>{`${moment(date).format("MMMM YYYY")}`}</h2>
+								>
+									{prettyDate}
+								</h2>
 							)}
 						</InView>
 					) : null}
@@ -183,16 +194,19 @@ class Collection extends Component {
 
 class CollectionNavigation extends Component {
 	render() {
-		const { dateInView, ids } = this.props;
+		const { date, ids } = this.props;
 
 		return (
 			<CollectionMenu>
-				{dateInView}
-				{ids.map(id => (
-					<a href={`#${id}`} key={id}>
-						{moment(id, "YYYY-MM").format("MMM YYYY")}
-					</a>
-				))}
+				{ids.map(id => {
+					const prettyDate = moment(id, "YYYY-MM").format("MMM YYYY");
+
+					return (
+						<a href={`#${id}`} key={id} data-current={date === prettyDate}>
+							{prettyDate}
+						</a>
+					);
+				})}
 			</CollectionMenu>
 		);
 	}
