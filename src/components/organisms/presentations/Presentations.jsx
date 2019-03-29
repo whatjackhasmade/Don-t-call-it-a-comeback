@@ -32,7 +32,10 @@ const PresentationsComponent = styled.section`
 
 	img {
 		display: block;
+		max-height: 175px;
 		width: 100%;
+
+		object-fit: cover;
 	}
 
 	.presentations__events {
@@ -87,28 +90,35 @@ const PresentationsComponent = styled.section`
 		&:hover {
 			box-shadow: 0px 2px 10px rgba(20, 18, 19, 0.3);
 		}
+	}
 
-		+ .presentations__event {
-			margin-left: 32px;
-		}
+	.subheading {
+		margin: 0 0 8px;
+
+		color: ${props => props.theme.primary};
+		font-size: 10px;
+		font-weight: 500;
+		letter-spacing: 0.1em;
+		line-height: 1.2;
+		text-transform: uppercase;
 	}
 
 	.slick-slider {
-		padding: 0 0 16px;
+		padding: 0 0 8px;
 		width: 100%;
 
 		cursor: grab;
 	}
 
 	.slick-list {
-		margin: 0 -32px;
+		margin: 0 -16px;
 	}
 
 	.slick-slide {
-		padding: 0 32px;
+		padding: 0 16px;
 
 		@media ${device.md} {
-			padding: 32px;
+			padding: 16px;
 		}
 	}
 `;
@@ -123,6 +133,7 @@ export default props => (
 							id
 							imageFull
 							title
+							venue
 						}
 					}
 				}
@@ -190,7 +201,12 @@ class Presentations extends Component {
 				<Slider {...settings}>
 					{query.allEvent.edges !== [] &&
 						query.allEvent.edges.map((event, index) => (
-							<Event index={index} key={event.id} event={event} />
+							<Event
+								index={index}
+								key={event.id}
+								event={event}
+								venue={event.node.venue}
+							/>
 						))}
 				</Slider>
 			</PresentationsComponent>
@@ -200,7 +216,7 @@ class Presentations extends Component {
 
 class Event extends Component {
 	render() {
-		const { index, event } = this.props;
+		const { index, event, venue } = this.props;
 
 		return (
 			<div
@@ -215,6 +231,7 @@ class Event extends Component {
 					src={event.node.imageFull}
 				/>
 				<div className="presentations__event__meta">
+					<h5 className="subheading">{venue}</h5>
 					<h3>{event.node.title}</h3>
 				</div>
 			</div>

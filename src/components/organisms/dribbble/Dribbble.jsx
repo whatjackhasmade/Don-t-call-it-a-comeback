@@ -118,22 +118,22 @@ const DribbbleComponent = styled.section`
 		}
 	}
 
-	.slick-slider {
-		padding: 0 0 16px;
+	slick-slider {
+		padding: 0 0 8px;
 		width: 100%;
 
 		cursor: grab;
 	}
 
 	.slick-list {
-		margin: 0 -32px;
+		margin: 0 -16px;
 	}
 
 	.slick-slide {
-		padding: 0 32px;
+		padding: 0 16px;
 
 		@media ${device.md} {
-			padding: 32px;
+			padding: 16px;
 		}
 	}
 `;

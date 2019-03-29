@@ -16,7 +16,8 @@ const IntroComponent = styled.section`
 		margin: ${props => (props.marginReduced === true ? `96px 0` : `48px 0`)};
 	}
 
-	h1 {
+	h1,
+	.intro__subheading {
 		margin: 0 0 24px;
 		padding-left: 8px;
 		position: relative;
@@ -44,7 +45,7 @@ const IntroComponent = styled.section`
 		}
 	}
 
-	h2 {
+	.intro__heading {
 		margin: 0 0 24px;
 
 		font-size: 48px;
@@ -70,7 +71,10 @@ const IntroComponent = styled.section`
 
 export default class Intro extends Component {
 	render() {
-		const { data, heading, marginReduced, subheading } = this.props;
+		const { data, heading, index, marginReduced, subheading } = this.props;
+
+		const Subheading = index === 0 ? `h1` : `h2`;
+		const Heading = index === 0 ? `h2` : `h3`;
 
 		if (data) {
 			return (
@@ -79,8 +83,10 @@ export default class Intro extends Component {
 					marginReduced={marginReduced ? false : true}
 				>
 					<div className="intro__wrapper">
-						<h1 className="h4">{data.subheading}</h1>
-						<h2 className="h1">{data.heading}</h2>
+						<Subheading className="h4 intro__subheading">
+							{data.subheading}
+						</Subheading>
+						<Heading className="h1 intro__heading">{data.heading}</Heading>
 						<div
 							className="intro__contents"
 							dangerouslySetInnerHTML={{ __html: data.content }}
@@ -95,8 +101,10 @@ export default class Intro extends Component {
 					marginReduced={marginReduced ? false : true}
 				>
 					<div className="intro__wrapper">
-						<h1 className="h4">{subheading}</h1>
-						<h2 className="h1">{heading}</h2>
+						<Subheading className="h4 intro__subheading">
+							{subheading}
+						</Subheading>
+						<Heading className="h1 intro__heading">{heading}</Heading>
 						<div className="intro__contents">{this.props.children}</div>
 					</div>
 				</IntroComponent>
