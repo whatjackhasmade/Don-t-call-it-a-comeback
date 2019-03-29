@@ -57,7 +57,9 @@ export default class CreateMarkup extends Component {
 							key={component.id}
 							name={component.name}
 							data={component.data}
+							duotone={component.data.duotone}
 							media={component.data.media}
+							overlay={component.data.overlay}
 						/>
 					);
 				}

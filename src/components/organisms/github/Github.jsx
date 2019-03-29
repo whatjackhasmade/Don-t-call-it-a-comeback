@@ -42,6 +42,7 @@ export default class Github extends Component {
 				<a
 					className="github__calendar"
 					href="https://github.com/whatjackhasmade"
+					rel="noopener noreferrer"
 					target="_blank"
 				>
 					<img
