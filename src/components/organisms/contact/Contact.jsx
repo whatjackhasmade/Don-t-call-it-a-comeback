@@ -45,8 +45,9 @@ export default class Contact extends Component {
 		company: "",
 		elementHeight: 0,
 		email: "",
+		firstname: "",
+		lastname: "",
 		message: "",
-		name: "",
 		submitted: false
 	};
 
@@ -61,14 +62,22 @@ export default class Contact extends Component {
 
 		fetch("/", {
 			method: "POST",
-			headers: { "Content-Type": "application/x-www-form-urlencoded" },
-			body: encode({ "form-name": "contact", ...this.state })
+			headers: {
+				"Content-Type": "application/x-www-form-urlencoded"
+			},
+			body: encode({
+				"form-name": "contact",
+				...this.state
+			})
 		})
 			.then(() => this.setState({ submitted: true }))
 			.catch(error => alert(error));
 	};
 
-	handleChange = e => this.setState({ [e.target.name]: e.target.value });
+	handleChange = e =>
+		this.setState({
+			[e.target.name]: e.target.value
+		});
 
 	render() {
 		return (
@@ -91,8 +100,9 @@ export default class Contact extends Component {
 						handleChange={this.handleChange}
 						handleSubmit={this.handleSubmit}
 						email={this.state.email}
+						firstname={this.state.firstname}
+						lastname={this.state.lastname}
 						message={this.state.message}
-						name={this.state.name}
 						submitted={this.state.submitted}
 					/>
 				</div>

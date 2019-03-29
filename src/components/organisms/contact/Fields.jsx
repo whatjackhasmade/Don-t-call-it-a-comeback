@@ -5,7 +5,6 @@ import { device } from "../../particles/MediaQueries";
 const ContactFormComponent = styled.form`
 	max-height: 100%;
 	overflow: hidden;
-	transition: all 1s ease;
 
 	&.contact__form--hidden {
 		max-height: 0;
@@ -45,6 +44,18 @@ const ContactFormComponent = styled.form`
 		}
 	}
 
+	.col {
+		width: 100%;
+	}
+
+	.col + .col {
+		margin-left: 16px;
+	}
+
+	.row {
+		display: flex;
+	}
+
 	button,
 	input,
 	label,
@@ -80,10 +91,11 @@ export default class ContactForm extends Component {
 		const {
 			bot,
 			company,
+			email,
+			firstname,
 			handleChange,
 			handleSubmit,
-			name,
-			email,
+			lastname,
 			message,
 			submitted
 		} = this.props;
@@ -106,30 +118,50 @@ export default class ContactForm extends Component {
 					onChange={handleChange}
 					value={bot}
 				/>
-				<label htmlFor="name">Name</label>
-				<input
-					type="text"
-					name="name"
-					id="name"
-					onChange={handleChange}
-					value={name}
-				/>
-				<label htmlFor="email">Email</label>
-				<input
-					type="text"
-					name="email"
-					id="email"
-					onChange={handleChange}
-					value={email}
-				/>
-				<label htmlFor="company">Company</label>
-				<input
-					type="text"
-					name="company"
-					id="company"
-					onChange={handleChange}
-					value={company}
-				/>
+				<div className="row">
+					<div className="col">
+						<label htmlFor="firstname">First Name</label>
+						<input
+							type="text"
+							name="firstname"
+							id="firstname"
+							onChange={handleChange}
+							value={firstname}
+						/>
+					</div>
+					<div className="col">
+						<label htmlFor="lastname">Last Name</label>
+						<input
+							type="text"
+							name="lastname"
+							id="lastname"
+							onChange={handleChange}
+							value={lastname}
+						/>
+					</div>
+				</div>
+				<div className="row">
+					<div className="col">
+						<label htmlFor="email">Email</label>
+						<input
+							type="text"
+							name="email"
+							id="email"
+							onChange={handleChange}
+							value={email}
+						/>
+					</div>
+					<div className="col">
+						<label htmlFor="company">Company</label>
+						<input
+							type="text"
+							name="company"
+							id="company"
+							onChange={handleChange}
+							value={company}
+						/>
+					</div>
+				</div>
 				<label htmlFor="message">Tell Me About Your Project</label>
 				<textarea
 					name="message"
