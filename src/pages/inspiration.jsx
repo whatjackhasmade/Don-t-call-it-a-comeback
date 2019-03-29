@@ -90,14 +90,18 @@ class Inspiration extends Component {
 				</Hero>
 				<InspiratioNavigation>
 					{categories.map(cat => (
-						<Button
-							className={this.state.category === cat && `focused`}
+						<button
+							className={
+								this.state.category
+									? this.state.category === cat && `focused`
+									: `focused`
+							}
 							onClick={e => {
 								this.setCategory(e, cat);
 							}}
 						>
 							{cat}
-						</Button>
+						</button>
 					))}
 				</InspiratioNavigation>
 

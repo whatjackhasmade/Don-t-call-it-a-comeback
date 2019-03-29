@@ -185,6 +185,33 @@ const GlobalStyle = createGlobalStyle`
 		max-width: 100%;
 	}
 
+	button,
+	input[type="submit"] {
+		display: inline-flex;
+		padding: 16px 24px;
+
+		background-color: ${props => props.theme.primary};
+		border: none;
+		box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+		color: ${props => props.theme.white};
+		cursor: pointer;
+		font-weight: 700;
+		line-height: 1;
+		outline: none;
+		text-decoration: none;
+		transition: all 0.15s ease;
+		white-space: nowrap;
+
+		&:hover {
+			transform: translateY(-1px);
+		}
+
+		&:focus,
+		&:hover {
+			box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+		}
+	}
+
 
 	h1, h2, h3, h4, h5, h6 {
 		line-height: 1.25;
