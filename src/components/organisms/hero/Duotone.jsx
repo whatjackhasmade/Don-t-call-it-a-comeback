@@ -1,42 +1,48 @@
 import React, { Component } from "react";
+import styled from "styled-components";
+
+const DuotoneElement = styled.picture`
+	--highlight: ${props => (props.highlight ? props.highlight : `#ff3ebf`)};
+	--shadow: ${props => (props.shadow ? props.shadow : `#4000ff`)};
+
+	width: 100%;
+	height: 100%;
+	position: relative;
+	z-index: 2;
+
+	&::before,
+	&::after {
+		content: "";
+		display: block;
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 1;
+
+		opacity: 1;
+	}
+
+	&::before {
+		background-color: var(--highlight);
+		mix-blend-mode: darken;
+	}
+
+	&::after {
+		background-color: var(--shadow);
+		mix-blend-mode: lighten;
+	}
+`;
 
 export default class Duotone extends Component {
 	render() {
+		const { highlight, shadow } = this.props;
+
 		return (
-			<svg>
-				<filter
-					id="duotone-filter"
-					x="-10%"
-					y="-10%"
-					width="120%"
-					height="120%"
-					filterUnits="objectBoundingBox"
-					primitiveUnits="userSpaceOnUse"
-					color-interpolation-filters="linearRGB"
-				>
-					<feColorMatrix
-						type="matrix"
-						values="1 0 0 0 0
-1 0 0 0 0
-1 0 0 0 0
-0 0 0 1 0"
-						in="SourceGraphic"
-						result="colormatrix"
-					/>
-					<feComponentTransfer in="colormatrix" result="componentTransfer">
-						<feFuncR type="table" tableValues="0.02 1" />
-						<feFuncG type="table" tableValues="0.35 1" />
-						<feFuncB type="table" tableValues="0.87 1" />
-						<feFuncA type="table" tableValues="0 1" />
-					</feComponentTransfer>
-					<feBlend
-						mode="normal"
-						in="componentTransfer"
-						in2="SourceGraphic"
-						result="blend"
-					/>
-				</filter>
-			</svg>
+			<DuotoneElement className="duotone" highlight={highlight} shadow={shadow}>
+				{this.props.children}
+			</DuotoneElement>
 		);
 	}
 }

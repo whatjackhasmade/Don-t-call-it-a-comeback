@@ -53,6 +53,8 @@ const HeroComponent = styled.section`
 		z-index: 3;
 	}
 
+	.duotone,
+	.duotone img,
 	.hero__media,
 	.hero__media img {
 		height: 100%;
@@ -63,25 +65,6 @@ const HeroComponent = styled.section`
 		z-index: 1;
 
 		object-fit: cover;
-
-		&:before {
-			content: "";
-			display: block;
-			height: 100%;
-			left: 0;
-			position: absolute;
-			top: 0;
-			width: 100%;
-			z-index: 2;
-
-			background: ${props =>
-				props.background ? props.background : props.theme.primary};
-			opacity: 0.8;
-		}
-
-		img {
-			filter: url(#duotone-filter);
-		}
 	}
 
 	.hero__wrapper {
@@ -111,10 +94,13 @@ export default class Hero extends Component {
 						<div className="hero__contents">{this.props.children}</div>
 					)}
 					{media && (
-						<picture className="hero__media">
-							<Duotone />
+						<Duotone
+							className="hero__media"
+							highlight={props => props.theme.primary}
+							shadow={`#000`}
+						>
 							<img src={media} alt="" />
-						</picture>
+						</Duotone>
 					)}
 				</div>
 			</HeroComponent>
