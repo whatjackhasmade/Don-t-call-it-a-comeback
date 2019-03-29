@@ -48,12 +48,14 @@ const ContactFormComponent = styled.form`
 		width: 100%;
 	}
 
-	.col + .col {
-		margin-left: 16px;
-	}
+	@media ${device.xs} {
+		.col + .col {
+			margin-left: 16px;
+		}
 
-	.row {
-		display: flex;
+		.row {
+			display: flex;
+		}
 	}
 
 	button,
