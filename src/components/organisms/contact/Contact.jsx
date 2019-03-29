@@ -25,8 +25,6 @@ const ContactComponent = styled.section`
 		justify-content: flex-start;
 		margin: 0 auto;
 		max-width: 806px;
-		min-height: ${props =>
-			props.elementHeight ? `${props.elementHeight}px` : `auto`};
 		padding: 45px 30px;
 		position: relative;
 	}
