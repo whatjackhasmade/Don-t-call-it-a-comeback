@@ -16,7 +16,7 @@ const ContactComponent = styled.section`
 	color: ${props => props.theme.white};
 
 	button {
-		@media ${device.MXsm} {
+		@media ${device.MXxs} {
 			justify-content: center;
 		}
 	}
