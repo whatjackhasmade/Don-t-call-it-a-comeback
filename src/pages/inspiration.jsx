@@ -29,9 +29,11 @@ export default props => (
 );
 
 const InspiratioNavigation = styled.nav`
-	margin: 64px 0 0;
+	margin: 56px 0 0;
 
 	button {
+		margin-top: 8px;
+
 		opacity: 0.5;
 
 		&:active,
