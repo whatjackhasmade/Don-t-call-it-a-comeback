@@ -291,6 +291,19 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default class Base extends React.Component {
+	componentDidMount() {
+		navigator.serviceWorker
+			.getRegistrations()
+			.then(registrations => {
+				for (let registration of registrations) {
+					registration.unregister();
+				}
+			})
+			.catch(function(err) {
+				console.log("Service Worker registration failed: ", err);
+			});
+	}
+
 	render() {
 		return (
 			<ThemeProvider theme={ThemeDefault}>
