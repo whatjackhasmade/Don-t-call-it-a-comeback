@@ -68,7 +68,12 @@ class Inspiration extends Component {
 	render() {
 		const { query } = this.props;
 		const nodes = query.allInspiration.edges;
-		const categories = nodes.map(node => node.node.category[0].name);
+		let categories = nodes.map(node => node.node.category[0].name);
+		categories = categories.reduce(
+			(x, y) => (x.includes(y) ? x : [...x, y]),
+			[]
+		);
+		categories = categories.sort();
 
 		return (
 			<Base>
