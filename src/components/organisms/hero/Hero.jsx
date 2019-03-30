@@ -55,7 +55,14 @@ const HeroComponent = styled.section`
 		}
 
 		+ a {
-			margin-left: 8px;
+			@media ${device.xs} {
+				margin-left: 8px;
+			}
+		}
+
+		@media ${device.MXxs} {
+			justify-content: center;
+			width: 100%;
 		}
 	}
 
