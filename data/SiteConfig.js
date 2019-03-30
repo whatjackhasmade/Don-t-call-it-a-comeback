@@ -5,9 +5,9 @@ module.exports = {
 	siteLogo: "/logos/logo-1024.png", // Logo used for SEO and manifest.
 	siteUrl: "https://whatjackhasmade.co.uk", // Domain of your website without pathPrefix.
 	siteDescription: "Jack Pritchard, Award Winning Front-End Developer", // Website description used for RSS feeds/meta description tag.
-	googleAnalyticsID: "UA-47311644-5", // GA tracking ID.
+	googleAnalyticsID: "UA-97368586-2", // GA tracking ID.
 	userName: "Jack Pritchard", // Username to display in the author segment.
 	userTwitter: "whatjackhasmade", // Optionally renders "Follow Me" in the UserInfo segment.
-	themeColor: "#0000ff", // Used for setting manifest and progress theme colors.
-	backgroundColor: "#0000ff" // Used for setting manifest background color.
+	themeColor: "#0652DD", // Used for setting manifest and progress theme colors.
+	backgroundColor: "#0652DD" // Used for setting manifest background color.
 };
