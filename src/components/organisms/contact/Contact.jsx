@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { device } from "../../particles/MediaQueries";
 
 import ContactForm from "./Fields";
 
@@ -13,6 +14,12 @@ const ContactComponent = styled.section`
 
 	background-color: ${props => props.theme.primary};
 	color: ${props => props.theme.white};
+
+	button {
+		@media ${device.MXsm} {
+			justify-content: center;
+		}
+	}
 
 	h2,
 	p {
