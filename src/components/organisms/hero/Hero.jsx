@@ -40,6 +40,7 @@ const HeroComponent = styled.section`
 		line-height: 1;
 		outline: none;
 		text-decoration: none;
+		text-shadow: none;
 		transition: all 0.15s ease;
 		white-space: nowrap;
 
