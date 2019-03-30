@@ -28,6 +28,8 @@ const HeaderComponent = styled.header`
 				font-weight: 700;
 			}
 		}
+
+		box-shadow: none;
 	}
 
 	a,
