@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "gatsby";
 
+import HeaderComponent from "./HeaderStyles";
+
 import Logo from "../../../assets/images/logo/logo.svg";
 import IconBars from "../../../assets/images/icons/solid/bars.svg";
 import IconTimes from "../../../assets/images/icons/solid/times.svg";
-
-import HeaderComponent from "./HeaderStyles";
 
 export default class Header extends Component {
 	state = {

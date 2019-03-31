@@ -23,8 +23,6 @@ export default class Row extends Component {
 		const media = group.media;
 		const ext = media.substr(media.lastIndexOf(".") + 1);
 
-		console.log(link);
-
 		return (
 			<InView threshold={0.25} triggerOnce={true}>
 				{({ inView, ref }) => (
