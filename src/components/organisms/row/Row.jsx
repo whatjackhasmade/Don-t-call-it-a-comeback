@@ -72,7 +72,8 @@ const RowComponent = styled.section`
 		}
 	}
 
-	img {
+	img,
+	video {
 		display: block;
 		margin-bottom: 24px;
 		margin-top: 32px;
@@ -135,8 +136,9 @@ const RowComponent = styled.section`
 				}
 			}
 
-			.row__image {
-				img {
+			.row__media {
+				img,
+				video {
 					transform: translateX(-100%);
 				}
 			}
@@ -146,8 +148,9 @@ const RowComponent = styled.section`
 			opacity: 1;
 			transform: translateX(0px);
 
-			.row__image {
-				img {
+			.row__media {
+				img,
+				video {
 					opacity: 1;
 					transform: translateX(0%);
 				}
@@ -163,10 +166,11 @@ const RowComponent = styled.section`
 			}
 		}
 
-		.row__image {
+		.row__media {
 			overflow: hidden;
 
-			img {
+			img,
+			video {
 				opacity: 0;
 				transform: translateX(100%);
 				transition: 1s all ease;
@@ -189,6 +193,9 @@ export default class Row extends Component {
 
 		const alignment = index % 2 === 0 ? `left` : `right`;
 
+		const media = group.media;
+		const ext = media.substr(media.lastIndexOf(".") + 1);
+
 		return (
 			<InView threshold={0.25} triggerOnce={true}>
 				{({ inView, ref }) => (
@@ -201,8 +208,12 @@ export default class Row extends Component {
 						ref={ref}
 					>
 						<div className="row__column">
-							<div className="row__image">
-								<ImageLoader src={group.media} alt="" />
+							<div className="row__media">
+								{ext !== `mp4` ? (
+									<ImageLoader src={media} alt="" />
+								) : (
+									<video src={media} muted autoPlay loop />
+								)}
 							</div>
 						</div>
 						<div
