@@ -103,14 +103,6 @@ function datesGroupByComponent(dates, token) {
 }
 
 class Archive extends Component {
-	state = {
-		date: "MARCH"
-	};
-
-	setDate = date => {
-		this.setState({ date });
-	};
-
 	render() {
 		const { query } = this.props;
 		const posts = query.allPost.edges;
@@ -140,14 +132,13 @@ class Archive extends Component {
 						think.
 					</p>
 				</Intro>
-				<CollectionNavigation date={this.state.date} ids={datesArray} />
+				<CollectionNavigation ids={datesArray} />
 				<CollectionWrapper>
 					{Object.keys(sortedByWeek).map((key, index) => (
 						<Collection
 							posts={sortedByWeek[key]}
 							date={key}
 							key={`Collection-${index}`}
-							setDate={this.setDate}
 						/>
 					))}
 				</CollectionWrapper>
@@ -158,9 +149,8 @@ class Archive extends Component {
 
 class Collection extends Component {
 	render() {
-		const { date, posts, setDate } = this.props;
+		const { date, posts } = this.props;
 
-		const navDate = moment(date).format("MMM YYYY");
 		const prettyDate = moment(date).format("MMMM YYYY");
 
 		if (posts) {
@@ -194,7 +184,7 @@ class Collection extends Component {
 
 class CollectionNavigation extends Component {
 	render() {
-		const { date, ids } = this.props;
+		const { ids } = this.props;
 
 		return (
 			<CollectionMenu>
@@ -202,7 +192,7 @@ class CollectionNavigation extends Component {
 					const prettyDate = moment(id, "YYYY-MM").format("MMM YYYY");
 
 					return (
-						<a href={`#${id}`} key={id} data-current={date === prettyDate}>
+						<a href={`#${id}`} key={id}>
 							{prettyDate}
 						</a>
 					);
