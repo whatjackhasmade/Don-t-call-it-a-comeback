@@ -68,42 +68,53 @@ const GridComponent = styled.section`
 `;
 
 export default class Grid extends Component {
+	state = {
+		count: 9
+	};
+
+	addItems = () => {
+		this.setState({ count: this.state.count + 9 });
+	};
+
 	render() {
 		const { filter, items, type } = this.props;
 
-		if (type === "images") {
-			return (
-				<GridComponent>
-					{items.map(item => {
-						const media = item.node.media;
-						const ext = media.substr(media.lastIndexOf(".") + 1);
+		var rows = [];
+		for (var i = 0; i < this.state.count; i++) {
+			const item = items[i];
 
-						if (ext === `mp4`) {
-							return (
-								<GridItem category={item.node.category[0].name} filter={filter}>
-									<video src={item.node.media} alt="" />
-									<span className="grid__item__title">{item.node.title}</span>
-								</GridItem>
-							);
-						}
+			if (typeof item === "undefined") break;
 
-						return (
-							<GridItem category={item.node.category[0].name} filter={filter}>
-								<img src={item.node.media} alt="" />
-								<span className="grid__item__title">{item.node.title}</span>
-							</GridItem>
-						);
-					})}
-				</GridComponent>
-			);
+			const media = item.node.media;
+			const ext = media.substr(media.lastIndexOf(".") + 1);
+
+			if (ext === `mp4`) {
+				rows.push(
+					<GridItem category={item.node.category[0].name} filter={filter}>
+						<video src={item.node.media} alt="" autoPlay muted loop />
+						<span className="grid__item__title">{item.node.title}</span>
+					</GridItem>
+				);
+			} else {
+				rows.push(
+					<GridItem category={item.node.category[0].name} filter={filter}>
+						<img src={item.node.media} alt="" />
+						<span className="grid__item__title">{item.node.title}</span>
+					</GridItem>
+				);
+			}
 		}
 
 		return (
-			<GridComponent>
-				{items.map(item => (
-					<div className="grid__item">{item}</div>
-				))}
-			</GridComponent>
+			<>
+				<GridComponent>{rows}</GridComponent>
+				<button
+					disabled={this.state.count > this.props.items.length}
+					onClick={this.addItems}
+				>
+					Load More
+				</button>
+			</>
 		);
 	}
 }
