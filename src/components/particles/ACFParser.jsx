@@ -92,6 +92,7 @@ export default class CreateMarkup extends Component {
 							index={index}
 							key={component.id}
 							name={component.name}
+							data={component.data}
 							group={component.data.group}
 						/>
 					);

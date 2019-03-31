@@ -153,6 +153,7 @@ exports.createPages = ({ graphql, actions }) => {
 										content
 										media
 									}
+									link
 									media
 									overlay
 									subheading
