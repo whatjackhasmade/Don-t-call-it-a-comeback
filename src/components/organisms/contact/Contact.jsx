@@ -95,7 +95,10 @@ export default class Contact extends Component {
 					{this.state.submitted && (
 						<p>
 							I'll send you an email in the next few hours and we can go from
-							there 😊
+							there{" "}
+							<span role="img" aria-label="smiling face">
+								😊
+							</span>
 						</p>
 					)}
 					<ContactForm

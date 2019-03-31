@@ -77,7 +77,7 @@ export default class Grid extends Component {
 	};
 
 	render() {
-		const { filter, items, type } = this.props;
+		const { filter, items } = this.props;
 
 		var rows = [];
 		for (var i = 0; i < this.state.count; i++) {
