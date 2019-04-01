@@ -1,5 +1,20 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { device } from "../../particles/MediaQueries";
+
+// Create the keyframes
+const bounce = keyframes`
+  from {
+    transform: translateY(0px);
+  }
+
+	50% {
+    transform: translateY(-50px);
+	}
+
+  to {
+    transform: translateY(0px);
+  }
+`;
 
 const DribbbleComponent = styled.section`
 	margin: 32px 0;

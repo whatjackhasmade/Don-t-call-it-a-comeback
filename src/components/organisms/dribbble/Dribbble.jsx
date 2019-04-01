@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import { keyframes } from "styled-components";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -9,21 +8,6 @@ import LogoDribbble from "../../../assets/images/icons/brands/dribbble.svg";
 import Intro from "../intro/Intro";
 
 import DribbbleComponent from "./DribbbleStyles";
-
-// Create the keyframes
-const bounce = keyframes`
-  from {
-    transform: translateY(0px);
-  }
-
-	50% {
-    transform: translateY(-50px);
-	}
-
-  to {
-    transform: translateY(0px);
-  }
-`;
 
 const settings = {
 	autoplay: true,
