@@ -7,9 +7,9 @@ import HeroMediaComponent from "./HeroMediaStyles";
 export default class Hero extends Component {
 	render() {
 		const { data } = this.props;
-		const { background_colour, content, duotone, media, overlay } = data;
+		const { content, duotone, media, overlay } = data;
 
-		const background = background_colour ? background_colour : `#0652DD`;
+		const background = `#0652DD`;
 
 		const overlayBoolean = overlay === "1";
 
