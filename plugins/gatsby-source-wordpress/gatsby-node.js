@@ -3,32 +3,13 @@ const queryString = require("query-string");
 const crypto = require("crypto");
 const path = require("path");
 
+const WordPressDomain = `http://local-whatjackhasmade.co.uk`;
+
 exports.sourceNodes = async (
 	{ actions: { createNode }, createNodeId },
 	{ plugins, ...options }
 ) => {
-	const codepenURL = `https://cpv2api.com/pens/popular/jackpritchard`;
-	const codepenResponse = await fetch(codepenURL);
-	const codepenData = await codepenResponse.json();
-
-	codepenData.data.forEach(pen => {
-		createNode({
-			...pen,
-			id: createNodeId(`codepen-${pen.id}`),
-			parent: null,
-			children: [],
-			internal: {
-				type: "Codepen",
-				content: JSON.stringify(pen),
-				contentDigest: crypto
-					.createHash("md5")
-					.update(JSON.stringify(pen))
-					.digest("hex")
-			}
-		});
-	});
-
-	const eventURL = `https://wjhm.noface.app/wp-json/event/v2/all`;
+	const eventURL = `${WordPressDomain}/wp-json/event/v2/all`;
 	const eventResponse = await fetch(eventURL);
 	const eventData = await eventResponse.json();
 
@@ -49,7 +30,7 @@ exports.sourceNodes = async (
 		});
 	});
 
-	const inspirationURL = `https://wjhm.noface.app/wp-json/inspiration/v2/all`;
+	const inspirationURL = `${WordPressDomain}/wp-json/inspiration/v2/all`;
 	const inspirationResponse = await fetch(inspirationURL);
 	const inspirationData = await inspirationResponse.json();
 
@@ -70,28 +51,7 @@ exports.sourceNodes = async (
 		});
 	});
 
-	const nofaceCasesURL = `https://wp.noface.app/wp-json/cases/v2/all`;
-	const nofaceCasesResponse = await fetch(nofaceCasesURL);
-	const nofaceCasesData = await nofaceCasesResponse.json();
-
-	nofaceCasesData.forEach(e => {
-		createNode({
-			...e,
-			id: createNodeId(`case-${e.id}`),
-			parent: null,
-			children: [],
-			internal: {
-				type: "Case",
-				content: JSON.stringify(e),
-				contentDigest: crypto
-					.createHash("md5")
-					.update(JSON.stringify(e))
-					.digest("hex")
-			}
-		});
-	});
-
-	const pagesURL = `https://wjhm.noface.app/wp-json/pages/v2/all`;
+	const pagesURL = `${WordPressDomain}/wp-json/pages/v2/all`;
 	const pagesResponse = await fetch(pagesURL);
 	const pagesData = await pagesResponse.json();
 
@@ -112,7 +72,7 @@ exports.sourceNodes = async (
 		});
 	});
 
-	const postsURL = `https://wjhm.noface.app/wp-json/posts/v2/all`;
+	const postsURL = `${WordPressDomain}/wp-json/posts/v2/all`;
 	const postsResponse = await fetch(postsURL);
 	const postsData = await postsResponse.json();
 
@@ -143,22 +103,24 @@ exports.createPages = ({ graphql, actions }) => {
 					edges {
 						node {
 							content {
-								id
-								data {
-									background_colour
-									content
-									duotone
-									heading
-									group {
+								blockName
+								attrs {
+									id
+									data {
+										background_colour
 										content
+										duotone
+										heading
+										group {
+											content
+											media
+										}
+										link
 										media
+										overlay
+										subheading
 									}
-									link
-									media
-									overlay
-									subheading
 								}
-								name
 							}
 							id
 							imageXS

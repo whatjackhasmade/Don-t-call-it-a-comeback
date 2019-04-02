@@ -15,8 +15,8 @@ export default class Row extends Component {
 	};
 
 	render() {
-		const { data, index, group } = this.props;
-		const { link } = data;
+		const { data, index } = this.props;
+		const { link, group } = data;
 
 		const alignment = index % 2 === 0 ? `left` : `right`;
 
