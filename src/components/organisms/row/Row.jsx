@@ -16,12 +16,12 @@ export default class Row extends Component {
 
 	render() {
 		const { data, index } = this.props;
-		const { link, group } = data;
+		const { content, link, media } = data;
 
 		const alignment = index % 2 === 0 ? `left` : `right`;
 
-		const media = group.media;
-		const ext = media.substr(media.lastIndexOf(".") + 1);
+		const mediaFull = media.full;
+		const ext = mediaFull.substr(mediaFull.lastIndexOf(".") + 1);
 
 		return (
 			<InView threshold={0.25} triggerOnce={true}>
@@ -35,30 +35,30 @@ export default class Row extends Component {
 						ref={ref}
 					>
 						<div className="row__column">
-							{link !== null ? (
-								<Link to={`/${link}`}>
+							{link !== "" ? (
+								<a href={`${link}`} target="_blank">
 									<div className="row__media">
 										{ext !== `mp4` ? (
-											<ImageLoader src={media} alt="" />
+											<ImageLoader src={mediaFull} alt="" />
 										) : (
-											<video src={media} muted autoPlay loop />
+											<video src={mediaFull} muted autoPlay loop />
 										)}
 									</div>
-								</Link>
+								</a>
 							) : (
 								<div className="row__media">
 									{ext !== `mp4` ? (
-										<ImageLoader src={media} alt="" />
+										<ImageLoader src={mediaFull} alt="" />
 									) : (
-										<video src={media} muted autoPlay loop />
+										<video src={mediaFull} muted autoPlay loop />
 									)}
 								</div>
 							)}
 						</div>
 						<div
-							className="row__column"
+							className="row__column row__content"
 							dangerouslySetInnerHTML={{
-								__html: this.prepareContent(group.content)
+								__html: this.prepareContent(content)
 							}}
 						/>
 					</RowComponent>

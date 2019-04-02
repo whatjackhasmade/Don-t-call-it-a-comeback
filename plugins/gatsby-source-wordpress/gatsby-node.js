@@ -109,15 +109,21 @@ exports.createPages = ({ graphql, actions }) => {
 									data {
 										background_colour
 										content
-										duotone
 										heading
-										group {
-											content
-											media
-										}
 										link
-										media
-										overlay
+										media {
+											thumbnail
+											medium
+											medium_large
+											large
+											ratio
+											featured_xs
+											featured_sm
+											featured_md
+											featured_lg
+											featured_xl
+											full
+										}
 										subheading
 									}
 								}

@@ -6,20 +6,20 @@ import HeroMediaComponent from "./HeroMediaStyles";
 
 export default class Hero extends Component {
 	render() {
-		const { data, duotone, media, overlay } = this.props;
+		const { data } = this.props;
+		const { background_colour, content, duotone, media, overlay } = data;
 
-		const background =
-			data && data.background_colour ? data.background_colour : `#0652DD`;
+		const background = background_colour ? background_colour : `#0652DD`;
 
 		const overlayBoolean = overlay === "1";
 
 		return (
 			<HeroComponent background={background} overlay={overlayBoolean}>
 				<div className="hero__wrapper">
-					{data && data.content ? (
+					{content ? (
 						<div
 							className="hero__contents"
-							dangerouslySetInnerHTML={{ __html: data.content }}
+							dangerouslySetInnerHTML={{ __html: content }}
 						/>
 					) : (
 						<div className="hero__contents">{this.props.children}</div>
@@ -27,7 +27,7 @@ export default class Hero extends Component {
 					{media && (
 						<HeroMedia
 							duotone={duotone}
-							media={media}
+							media={media.full}
 							overlay={overlayBoolean}
 						/>
 					)}
