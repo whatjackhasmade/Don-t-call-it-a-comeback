@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "gatsby";
 import { InView } from "react-intersection-observer";
 
 import RowComponent from "./RowStyles";
@@ -36,7 +35,7 @@ export default class Row extends Component {
 					>
 						<div className="row__column">
 							{link !== "" ? (
-								<a href={`${link}`} target="_blank">
+								<a href={`${link}`} target="_blank" rel="noopener noreferrer">
 									<div className="row__media">
 										{ext !== `mp4` ? (
 											<ImageLoader src={mediaFull} alt="" />
