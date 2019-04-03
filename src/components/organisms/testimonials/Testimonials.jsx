@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import IconAngleRight from "../../../assets/images/icons/solid/angle-right.svg";
 
-import ImageDan from "./images/dan.jpg";
 import TestimonialsComponent from "./TestimonialsStyles";
 import TestimonialJSON from "./testimonials.json";
 
@@ -32,36 +31,38 @@ export default class Testimonials extends Component {
 	render() {
 		const index = this.state.index;
 
+		if (!this.state.testimonialsSet) {
+			return null;
+		}
+
 		return (
 			<TestimonialsComponent>
 				<div className="testimonial__media">
-					<img src={ImageDan} alt="" />
+					<img src={this.state.testimonials[index].avatar} alt="" />
 				</div>
 				<button className="testimonial__next" onClick={this.nextTestimonial}>
 					Next <IconAngleRight />
 				</button>
-				{this.state.testimonialsSet ? (
-					<div className="testimonial__single">
-						<header className="testimonial__header">
-							<div>
-								<h3 className="testimonial__author">
-									{this.state.testimonials[index].author}
-								</h3>
-								<h4 className="testimonial__role">
-									{this.state.testimonials[index].role}
-								</h4>
-							</div>
-							<img
-								className="testimonial__logo"
-								src={this.state.testimonials[index].logo}
-								alt=""
-							/>
-						</header>
-						<p className="testimonial__quote">
-							"{this.state.testimonials[index].testimonial}"
-						</p>
-					</div>
-				) : null}
+				<div className="testimonial__single">
+					<header className="testimonial__header">
+						<div>
+							<h3 className="testimonial__author">
+								{this.state.testimonials[index].author}
+							</h3>
+							<h4 className="testimonial__role">
+								{this.state.testimonials[index].role}
+							</h4>
+						</div>
+						<img
+							className="testimonial__logo"
+							src={this.state.testimonials[index].logo}
+							alt=""
+						/>
+					</header>
+					<p className="testimonial__quote">
+						"{this.state.testimonials[index].testimonial}"
+					</p>
+				</div>
 			</TestimonialsComponent>
 		);
 	}

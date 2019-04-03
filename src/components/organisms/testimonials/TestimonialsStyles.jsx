@@ -22,7 +22,7 @@ const TestimonialsComponent = styled.section`
 
 	.testimonial__media {
 		grid-row: 1 / 3;
-		grid-column: 1 / 9;
+		grid-column: 1 / 8;
 		z-index: 1;
 
 		img {
@@ -96,6 +96,7 @@ const TestimonialsComponent = styled.section`
 
 	.testimonial__logo {
 		display: none;
+		max-height: 40px;
 
 		@media ${device.md} {
 			display: block;
