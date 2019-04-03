@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import IconAngleRight from "../../../assets/images/icons/solid/angle-right.svg";
 
@@ -6,6 +9,17 @@ import TestimonialsComponent from "./TestimonialsStyles";
 import TestimonialJSON from "./testimonials.json";
 
 import HR from "../../atoms/HR";
+
+const settings = {
+	draggable: false,
+	infinite: true,
+	lazyLoad: true,
+	nextArrow: false,
+	prevArrow: false,
+	slidesToShow: 1,
+	slidesToScroll: 1,
+	speed: 1000
+};
 
 export default class Testimonials extends Component {
 	state = {
@@ -20,12 +34,8 @@ export default class Testimonials extends Component {
 	}
 
 	nextTestimonial = () => {
-		const newIndex = this.state.index + 1;
-		if (newIndex === this.state.testimonials.length) {
-			this.setState({ index: 0 });
-		} else {
-			this.setState({ index: newIndex });
-		}
+		this.slider.slickNext();
+		this.sliderTestimonials.slickNext();
 	};
 
 	render() {
@@ -38,30 +48,42 @@ export default class Testimonials extends Component {
 		return (
 			<TestimonialsComponent>
 				<div className="testimonial__media">
-					<img src={this.state.testimonials[index].avatar} alt="" />
+					<Slider ref={c => (this.slider = c)} {...settings}>
+						{this.state.testimonials.map((testimonial, index) => (
+							<img
+								src={testimonial.avatar}
+								alt={testimonial.author}
+								key={testimonial.author}
+							/>
+						))}
+					</Slider>
 				</div>
 				<button className="testimonial__next" onClick={this.nextTestimonial}>
 					Next <IconAngleRight />
 				</button>
-				<div className="testimonial__single">
-					<header className="testimonial__header">
-						<div>
-							<h3 className="testimonial__author">
-								{this.state.testimonials[index].author}
-							</h3>
-							<h4 className="testimonial__role">
-								{this.state.testimonials[index].role}
-							</h4>
-						</div>
-						<img
-							className="testimonial__logo"
-							src={this.state.testimonials[index].logo}
-							alt=""
-						/>
-					</header>
-					<p className="testimonial__quote">
-						"{this.state.testimonials[index].testimonial}"
-					</p>
+				<div className="testimonials">
+					<Slider ref={c => (this.sliderTestimonials = c)} {...settings}>
+						{this.state.testimonials.map((testimonial, index) => (
+							<div className="testimonial">
+								<header className="testimonial__header">
+									<div>
+										<h3 className="testimonial__author">
+											{testimonial.author}
+										</h3>
+										<h4 className="testimonial__role">{testimonial.role}</h4>
+									</div>
+									<img
+										className="testimonial__logo"
+										src={testimonial.logo}
+										alt=""
+									/>
+								</header>
+								<p className="testimonial__quote">
+									"{testimonial.testimonial}"
+								</p>
+							</div>
+						))}
+					</Slider>
 				</div>
 			</TestimonialsComponent>
 		);
