@@ -6,10 +6,15 @@ import Base from "./Base";
 
 import Hero from "../organisms/hero/Hero";
 
+const ArticleIntro = styled.header`
+	max-width: 1000px;
+	margin: 64px auto;
+`;
+
 const Article = styled.article`
 	/* Advanced vertical rhythym based off of https://medium.com/@sebastian.eberlein/advanced-vertical-margins-4ac69f032f79 */
 	max-width: 1000px;
-	margin: 64px 0;
+	margin: 64px auto;
 
 	> * + * {
 		margin-top: 16px;
@@ -75,10 +80,10 @@ export default class PostTemplate extends React.Component {
 
 		return (
 			<Base>
-				<Hero>
+				<ArticleIntro>
 					<Link to="/posts">Insights</Link>
 					<h1>{title}</h1>
-				</Hero>
+				</ArticleIntro>
 				<Article dangerouslySetInnerHTML={{ __html: content }} />
 			</Base>
 		);
