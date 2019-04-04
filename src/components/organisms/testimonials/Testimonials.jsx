@@ -29,8 +29,10 @@ export default class Testimonials extends Component {
 	};
 
 	componentDidMount() {
-		const JSONArray = TestimonialJSON.testimonials;
-		this.setState({ testimonials: JSONArray, testimonialsSet: true });
+		const { data } = this.props;
+
+		const testimonials = data.testimonials;
+		this.setState({ testimonials, testimonialsSet: true });
 	}
 
 	nextTestimonial = () => {
@@ -51,7 +53,7 @@ export default class Testimonials extends Component {
 					<Slider ref={c => (this.slider = c)} {...settings}>
 						{this.state.testimonials.map((testimonial, index) => (
 							<img
-								src={testimonial.avatar}
+								src={testimonial.media.full}
 								alt={testimonial.author}
 								key={testimonial.author}
 							/>
@@ -64,7 +66,10 @@ export default class Testimonials extends Component {
 				<div className="testimonials">
 					<Slider ref={c => (this.sliderTestimonials = c)} {...settings}>
 						{this.state.testimonials.map((testimonial, index) => (
-							<div className="testimonial">
+							<div
+								className="testimonial"
+								key={`testimonial-${testimonial.author}`}
+							>
 								<header className="testimonial__header">
 									<div>
 										<h3 className="testimonial__author">
@@ -74,7 +79,7 @@ export default class Testimonials extends Component {
 									</div>
 									<img
 										className="testimonial__logo"
-										src={testimonial.logo}
+										src={testimonial.logo.full}
 										alt=""
 									/>
 								</header>

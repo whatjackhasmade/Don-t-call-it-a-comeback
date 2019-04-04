@@ -4,6 +4,7 @@ const crypto = require("crypto");
 const path = require("path");
 
 const WordPressDomain = `https://wjhm.noface.app`;
+// const WordPressDomain = `http://local-whatjackhasmade.co.uk`;
 
 exports.sourceNodes = async (
 	{ actions: { createNode }, createNodeId },
@@ -125,6 +126,24 @@ exports.createPages = ({ graphql, actions }) => {
 											full
 										}
 										subheading
+										testimonials {
+											author
+											logo {
+												full
+											}
+											media {
+												thumbnail
+												medium
+												medium_large
+												ratio
+												featured_xs
+												featured_sm
+												featured_md
+												full
+											}
+											role
+											testimonial
+										}
 									}
 								}
 							}
