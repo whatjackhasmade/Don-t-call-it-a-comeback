@@ -82,6 +82,17 @@ module.exports = {
 			options: {
 				lang: "en"
 			}
+		},
+		{
+			resolve: `gatsby-plugin-polyfill-io`,
+			options: {
+				features: [
+					`Array.prototype.map`,
+					`fetch`,
+					`IntersectionObserver`,
+					`IntersectionObserverEntry`
+				]
+			}
 		}
 	]
 };
