@@ -41,8 +41,10 @@ const HeroMediaComponent = styled.div`
 
 		object-fit: cover;
 
-		@media ${device.md} {
-			display: block;
+		@supports (object-fit: cover) {
+			@media ${device.md} {
+				display: block;
+			}
 		}
 	}
 `;

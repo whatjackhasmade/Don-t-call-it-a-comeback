@@ -137,6 +137,7 @@ const HeaderComponent = styled.header`
 
 		svg {
 			display: block;
+			max-height: 50px;
 			width: 32px;
 
 			@media ${device.sm} {

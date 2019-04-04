@@ -26,13 +26,16 @@ const TestimonialsComponent = styled.section`
 
 		img {
 			display: block !important;
-			height: 200px;
 			width: 100%;
 
-			object-fit: cover;
+			@supports (object-fit: cover) {
+				height: 200px;
 
-			@media ${device.md} {
-				height: 400px;
+				object-fit: cover;
+
+				@media ${device.md} {
+					height: 400px;
+				}
 			}
 		}
 	}
@@ -50,8 +53,13 @@ const TestimonialsComponent = styled.section`
 		svg {
 			height: 24px;
 			margin-left: 16px;
+			width: 24px;
 
 			fill: ${props => props.theme.white};
+
+			@supports (object-fit: cover) {
+				width: auto;
+			}
 		}
 	}
 

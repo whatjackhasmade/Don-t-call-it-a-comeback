@@ -175,9 +175,11 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	.wrapper {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
+		@supports (display: flex) {
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+		}
 	}
 
 	/* Common base styles for the site */

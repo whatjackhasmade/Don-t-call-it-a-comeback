@@ -4,20 +4,25 @@ import { device } from "../../particles/MediaQueries";
 const HeroComponent = styled.section`
 	align-items: center;
 	display: flex;
+	height: 500px;
 	justify-content: center;
-	left: 50%;
-	margin-left: -50vw;
-	min-height: 80vh;
 	min-height: ${props => props.height};
 	overflow: hidden;
 	position: relative;
-	width: 100vw;
 	z-index: 9;
 
 	background: ${props =>
 		props.background ? props.background : props.theme.primary};
 	color: ${props => props.theme.white};
 	text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+
+	@supports (margin-left: -50vw) {
+		height: auto;
+		left: 50%;
+		margin-left: -50vw;
+		min-height: 80vh;
+		width: 100vw;
+	}
 
 	@media ${device.xs} {
 		min-height: 50vh;
