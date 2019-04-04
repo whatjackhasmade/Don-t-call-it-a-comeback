@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import YouTube from "../molecules/embed/youtube/YouTube";
+
 import Dribbble from "../organisms/dribbble/Dribbble";
 import Github from "../organisms/github/Github";
 import Hero from "../organisms/hero/Hero";
@@ -15,7 +17,8 @@ const components = {
 	intro: Intro,
 	presentations: Presentations,
 	row: Row,
-	testimonials: Testimonials
+	testimonials: Testimonials,
+	youtube: YouTube
 };
 
 export default class CreateMarkup extends Component {
