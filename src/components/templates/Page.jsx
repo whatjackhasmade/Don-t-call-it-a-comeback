@@ -9,7 +9,7 @@ export default class PageTemplate extends React.Component {
 		const { content } = this.props.pageContext;
 
 		return (
-			<Base>
+			<Base context={this.props.pageContext}>
 				<ACFParser content={content} />
 			</Base>
 		);

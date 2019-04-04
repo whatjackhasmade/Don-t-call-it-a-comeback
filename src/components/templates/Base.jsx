@@ -310,7 +310,7 @@ export default class Base extends React.Component {
 				<React.Fragment>
 					<GlobalStyle />
 					<Helmet title={config.siteTitle} />
-					<SEO />
+					<SEO data={this.props.context} />
 					<div className="wrapper">
 						<Header />
 						<main>{this.props.children}</main>
