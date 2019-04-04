@@ -27,7 +27,6 @@ export default class CreateMarkup extends Component {
 			const pageComponents = content.map((component, index) => {
 				const Component = components[component.blockName.substr(4)];
 				return <Component index={index} data={component.attrs.data} />;
-				return null;
 			});
 			if (pageComponents) {
 				return pageComponents;

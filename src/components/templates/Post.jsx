@@ -6,8 +6,6 @@ import { device } from "../particles/MediaQueries";
 
 import Base from "./Base";
 
-import Hero from "../organisms/hero/Hero";
-
 const ArticleIntro = styled.header`
 	max-width: 800px;
 	margin: 64px auto;
@@ -39,11 +37,10 @@ const Article = styled.article`
 		padding: 8px;
 
 		background-color: ${props => props.theme.grey100};
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		font-size: 12px;
 		text-align: center;
-
-		&:before {
-			content: "⬆ Figure of ";
-		}
 	}
 
 	> * + * {

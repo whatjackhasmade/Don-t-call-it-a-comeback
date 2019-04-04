@@ -6,9 +6,6 @@ import "slick-carousel/slick/slick-theme.css";
 import IconAngleRight from "../../../assets/images/icons/solid/angle-right.svg";
 
 import TestimonialsComponent from "./TestimonialsStyles";
-import TestimonialJSON from "./testimonials.json";
-
-import HR from "../../atoms/HR";
 
 const settings = {
 	draggable: false,
@@ -23,7 +20,6 @@ const settings = {
 
 export default class Testimonials extends Component {
 	state = {
-		index: 0,
 		testimonials: [],
 		testimonialsSet: false
 	};
@@ -41,8 +37,6 @@ export default class Testimonials extends Component {
 	};
 
 	render() {
-		const index = this.state.index;
-
 		if (!this.state.testimonialsSet) {
 			return null;
 		}

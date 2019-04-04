@@ -295,6 +295,18 @@ const GlobalStyle = createGlobalStyle`
 		word-break: normal;
 		word-spacing: normal;
 		word-wrap: normal;
+
+
+		::-webkit-scrollbar
+		{
+			background-color: ${props => props.theme.grey300};
+		}
+
+		::-webkit-scrollbar-thumb
+		{
+			background-color: ${props => props.theme.grey600};
+			border: 2px solid ${props => props.theme.grey600};
+		}
 	}
 
 	@media print {
