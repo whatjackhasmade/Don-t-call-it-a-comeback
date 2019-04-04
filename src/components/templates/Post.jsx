@@ -2,19 +2,49 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
+import { device } from "../particles/MediaQueries";
+
 import Base from "./Base";
 
 import Hero from "../organisms/hero/Hero";
 
 const ArticleIntro = styled.header`
-	max-width: 1000px;
+	max-width: 800px;
 	margin: 64px auto;
 `;
 
 const Article = styled.article`
 	/* Advanced vertical rhythym based off of https://medium.com/@sebastian.eberlein/advanced-vertical-margins-4ac69f032f79 */
-	max-width: 1000px;
+	max-width: 800px;
 	margin: 64px auto;
+	line-height: 1.5;
+
+	figure {
+		margin-left: 0;
+		margin-right: 0;
+
+		img {
+			margin-bottom: 8px;
+
+			box-shadow: 0px 0px 40px 4px rgba(0, 0, 0, 0.05);
+		}
+
+		@media ${device.lg} {
+			margin-left: -64px;
+			margin-right: -64px;
+		}
+	}
+
+	figcaption {
+		padding: 8px;
+
+		background-color: ${props => props.theme.grey100};
+		text-align: center;
+
+		&:before {
+			content: "⬆ Figure of ";
+		}
+	}
 
 	> * + * {
 		margin-top: 16px;
@@ -71,6 +101,10 @@ const Article = styled.article`
 	img {
 		height: auto !important;
 		width: auto !important;
+	}
+
+	pre {
+		margin: 32px auto !important;
 	}
 `;
 
