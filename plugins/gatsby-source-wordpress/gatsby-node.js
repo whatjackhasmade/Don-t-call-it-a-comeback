@@ -173,6 +173,12 @@ exports.createPages = ({ graphql, actions }) => {
 							imageFull
 							slug
 							title
+							yoast {
+								description
+								image
+								slug
+								title
+							}
 						}
 					}
 				}
