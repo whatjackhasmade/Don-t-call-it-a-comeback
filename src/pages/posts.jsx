@@ -94,6 +94,12 @@ export default props => (
 	/>
 );
 
+function orderByDate(dates) {
+	return dates.sort(function(a, b) {
+		return new Date(b.node["date"]) - new Date(a.node["date"]);
+	});
+}
+
 function datesGroupByComponent(dates, token) {
 	return dates.reduce((val, obj) => {
 		let comp = moment(obj.node["date"]).format(token);
@@ -107,12 +113,13 @@ class Archive extends Component {
 		const { query } = this.props;
 		const posts = query.allPost.edges;
 
-		const sortedByWeek = datesGroupByComponent(posts, "YYYY-MM");
+		let postsArchive = orderByDate(posts);
+		postsArchive = datesGroupByComponent(postsArchive, "YYYY-MM");
 
 		let datesArray = [];
 
-		Object.keys(sortedByWeek).map((key, index) => {
-			if (sortedByWeek[key] !== undefined) datesArray.push(key);
+		Object.keys(postsArchive).map((key, index) => {
+			if (postsArchive[key] !== undefined) datesArray.push(key);
 			return null;
 		});
 
@@ -134,9 +141,9 @@ class Archive extends Component {
 				</Intro>
 				<CollectionNavigation ids={datesArray} />
 				<CollectionWrapper>
-					{Object.keys(sortedByWeek).map((key, index) => (
+					{Object.keys(postsArchive).map((key, index) => (
 						<Collection
-							posts={sortedByWeek[key]}
+							posts={postsArchive[key]}
 							date={key}
 							key={`Collection-${index}`}
 						/>

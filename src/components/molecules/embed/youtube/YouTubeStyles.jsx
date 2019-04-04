@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { device } from "../../../particles/MediaQueries";
 
 const YouTubeComponent = styled.div`
 	position: relative;
