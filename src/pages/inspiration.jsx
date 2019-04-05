@@ -14,9 +14,7 @@ export default props => (
 				allInspiration {
 					edges {
 						node {
-							category {
-								name
-							}
+							category
 							media
 							title
 						}
@@ -35,6 +33,7 @@ const InspiratioNavigation = styled.nav`
 		margin-top: 8px;
 
 		opacity: 0.5;
+		text-transform: capitalize;
 
 		&:active,
 		&:focus,
@@ -70,7 +69,7 @@ class Inspiration extends Component {
 	render() {
 		const { query } = this.props;
 		const nodes = query.allInspiration.edges;
-		let categories = nodes.map(node => node.node.category[0].name);
+		let categories = nodes.map(node => node.node.category);
 		categories = categories.reduce(
 			(x, y) => (x.includes(y) ? x : [...x, y]),
 			[]

@@ -8,6 +8,7 @@ const GridComponent = styled.section`
 
 	.grid__item {
 		max-width: 100%;
+		overflow: hidden;
 		position: relative;
 		width: 100%;
 
@@ -24,7 +25,7 @@ const GridComponent = styled.section`
 
 		img,
 		video {
-			min-height: 200px;
+			height: 200px;
 			object-fit: cover;
 			width: 100%;
 		}
@@ -49,6 +50,11 @@ const GridComponent = styled.section`
 
 	.grid__item--fullscreen {
 		max-width: 100%;
+
+		img,
+		video {
+			height: auto;
+		}
 	}
 
 	.grid__item__title {
