@@ -30,6 +30,7 @@ const InspiratioNavigation = styled.nav`
 	margin: 56px 0 0;
 
 	button {
+		margin-right: 8px;
 		margin-top: 8px;
 
 		opacity: 0.5;
@@ -40,10 +41,6 @@ const InspiratioNavigation = styled.nav`
 		&:hover {
 			opacity: 1;
 		}
-	}
-
-	button + button {
-		margin-left: 8px;
 	}
 
 	.focused {
@@ -95,6 +92,7 @@ class Inspiration extends Component {
 				<InspiratioNavigation>
 					{categories.map(cat => (
 						<button
+							key={cat}
 							className={
 								this.state.category
 									? this.state.category === cat && `focused`

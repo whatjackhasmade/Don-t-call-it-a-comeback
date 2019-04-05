@@ -25,14 +25,14 @@ export default class Grid extends Component {
 
 			if (ext === `mp4`) {
 				rows.push(
-					<GridItem category={item.node.category[0].name} filter={filter}>
+					<GridItem category={item.node.category} filter={filter}>
 						<video src={item.node.media} alt="" autoPlay muted loop />
 						<span className="grid__item__title">{item.node.title}</span>
 					</GridItem>
 				);
 			} else {
 				rows.push(
-					<GridItem category={item.node.category[0].name} filter={filter}>
+					<GridItem category={item.node.category} filter={filter}>
 						<img src={item.node.media} alt="" />
 						<span className="grid__item__title">{item.node.title}</span>
 					</GridItem>
