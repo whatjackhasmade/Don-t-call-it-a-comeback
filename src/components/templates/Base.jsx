@@ -378,7 +378,7 @@ export default class Base extends React.Component {
 					<div className="wrapper">
 						<Header />
 						<main>{this.props.children}</main>
-						<Contact />
+						{this.props.cta !== false && <Contact />}
 						<Footer />
 					</div>
 				</React.Fragment>
