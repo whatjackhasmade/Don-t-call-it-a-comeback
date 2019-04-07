@@ -4,7 +4,7 @@ import GridComponent from "./GridStyles";
 
 export default class Grid extends Component {
 	state = {
-		count: 9
+		count: 100
 	};
 
 	addItems = () => {
