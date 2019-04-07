@@ -1,0 +1,12 @@
+{
+	"features": [
+		{
+			"title": "User Accounts",
+			"price": 2500
+		},
+		{
+			"title": "Customer Accounts",
+			"price": 2500
+		}
+	]
+}

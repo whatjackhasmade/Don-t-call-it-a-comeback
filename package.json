@@ -58,7 +58,6 @@
 		"pretty-checkbox-react": "^1.0.6",
 		"prismjs": "^1.15.0",
 		"react": "^16.8.5",
-		"react-disqus-comments": "^1.4.0",
 		"react-dom": "^16.8.5",
 		"react-grid-system": "^4.4.3",
 		"react-helmet": "^5.2.0",
