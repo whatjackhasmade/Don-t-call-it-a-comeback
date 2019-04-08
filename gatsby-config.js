@@ -17,11 +17,12 @@ module.exports = {
 	},
 	plugins: [
 		`gatsby-plugin-catch-links`,
+		`gatsby-plugin-layout`,
 		`gatsby-plugin-lodash`,
+		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-sharp`,
 		`gatsby-plugin-styled-components`,
 		`gatsby-plugin-twitter`,
-		`gatsby-plugin-react-helmet`,
 		{
 			resolve: `gatsby-source-wordpress`
 		},
