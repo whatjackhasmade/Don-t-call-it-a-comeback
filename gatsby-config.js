@@ -99,7 +99,7 @@ module.exports = {
 							{
 								userAgent: `*`,
 								allow: `/`,
-								disallow: [`/inspiration`, `/assets`, `/client/*`]
+								disallow: [`/inspiration`, `/assets`, `/client/*`, `/twitter`]
 							}
 						]
 					}
