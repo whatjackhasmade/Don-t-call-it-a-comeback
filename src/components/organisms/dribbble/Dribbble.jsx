@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -51,97 +51,89 @@ const settings = {
 	]
 };
 
-export default class Dribbble extends Component {
-	state = {
-		index: 0,
-		shots: []
+function Dribbble(props) {
+	const { data } = props;
+	const [index, setIndex] = useState(0);
+	const [shots, setShots] = useState([]);
+
+	useEffect(() => {
+		async function fetchData() {
+			const accessToken = `9422ed733294915d402ad516d509f33f618c1ddde539c9fddd94415530e127e3`;
+			const dribbbleData = await fetch(
+				`https://api.dribbble.com/v2/user/shots?access_token=${accessToken}`
+			).then(res => {
+				return res.json();
+			});
+			return dribbbleData;
+		}
+
+		fetchData().then(data => setShots(data));
+	});
+
+	const next = () => {
+		setIndex(index + 1);
 	};
 
-	async componentDidMount() {
-		const accessToken = `9422ed733294915d402ad516d509f33f618c1ddde539c9fddd94415530e127e3`;
-		const dribbbleData = await fetch(
-			`https://api.dribbble.com/v2/user/shots?access_token=${accessToken}`
-		).then(res => {
-			return res.json();
-		});
-
-		this.setState({ shots: dribbbleData });
-	}
-
-	next() {
-		this.setState({ index: this.state.index + 1 });
-	}
-
-	prev() {
-		this.setState({ index: this.state.index - 1 });
-	}
-
-	render() {
-		const { data } = this.props;
-
-		return (
-			<DribbbleComponent>
-				<Intro
-					heading={`Interface Designs`}
-					subheading={`My Dribbble Shots`}
-					marginReduced
-				>
-					<div dangerouslySetInnerHTML={{ __html: data.content }} />
-				</Intro>
-				<Slider {...settings}>
-					{this.state.shots !== [] &&
-						this.state.shots.map((shot, index) => (
-							<Shot index={index} key={shot.id} shot={shot} />
-						))}
-				</Slider>
-			</DribbbleComponent>
-		);
-	}
-}
-
-class Shot extends Component {
-	state = {
-		mouseOver: false
+	const prev = () => {
+		setIndex(index - 1);
 	};
 
-	handleHover = e => {
-		this.setState({ mouseOver: !this.state.mouseOver });
-	};
-
-	render() {
-		const { index, shot } = this.props;
-
-		return (
-			<div
-				className={
-					this.state.mouseOver
-						? `dribbble__shot dribbble__shot--animate`
-						: `dribbble__shot`
-				}
-				index={index}
-				data-index={index}
-				onMouseEnter={this.handleHover}
-				onMouseLeave={this.handleHover}
+	return (
+		<DribbbleComponent>
+			<Intro
+				heading={`Interface Designs`}
+				subheading={`My Dribbble Shots`}
+				marginReduced
 			>
-				<a
-					className="dribbble__shot__thumbnail"
-					href={shot.html_url}
-					rel="noopener noreferrer"
-					target="_blank"
-				>
-					<LogoDribbble className="dribbble__shot__logo" />
-					<img alt={shot.title} src={shot.images.teaser} />
-				</a>
-				<div className="dribbble__shot__meta">
-					<a href={shot.html_url} rel="noopener noreferrer" target="_blank">
-						<h3>{shot.title}</h3>
-					</a>
-					<div
-						className="shot__description"
-						dangerouslySetInnerHTML={{ __html: shot.description }}
-					/>
-				</div>
-			</div>
-		);
-	}
+				<div dangerouslySetInnerHTML={{ __html: data.content }} />
+			</Intro>
+			<Slider {...settings}>
+				{shots !== [] &&
+					shots.map((shot, index) => (
+						<Shot index={index} key={shot.id} shot={shot} />
+					))}
+			</Slider>
+		</DribbbleComponent>
+	);
 }
+
+function Shot({ index, key, shot }) {
+	const [mouseOver, setMouseOver] = useState(false);
+
+	const handleHover = e => {
+		setMouseOver(!mouseOver);
+	};
+
+	return (
+		<div
+			className={
+				mouseOver ? `dribbble__shot dribbble__shot--animate` : `dribbble__shot`
+			}
+			index={index}
+			data-index={index}
+			onMouseEnter={handleHover}
+			onMouseLeave={handleHover}
+		>
+			<a
+				className="dribbble__shot__thumbnail"
+				href={shot.html_url}
+				rel="noopener noreferrer"
+				target="_blank"
+			>
+				<LogoDribbble className="dribbble__shot__logo" />
+				<img alt={shot.title} src={shot.images.teaser} />
+			</a>
+			<div className="dribbble__shot__meta">
+				<a href={shot.html_url} rel="noopener noreferrer" target="_blank">
+					<h3>{shot.title}</h3>
+				</a>
+				<div
+					className="shot__description"
+					dangerouslySetInnerHTML={{ __html: shot.description }}
+				/>
+			</div>
+		</div>
+	);
+}
+
+export default Dribbble;
