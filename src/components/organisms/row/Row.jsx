@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { InView } from "react-intersection-observer";
+import { useSpring, animated } from "react-spring";
 
 import RowComponent from "./RowStyles";
 

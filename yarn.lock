@@ -12493,6 +12493,12 @@ react-slick@^0.23.2:
     prettier "^1.14.3"
     resize-observer-polyfill "^1.5.0"
 
+react-spring@^8.0.19:
+  version "8.0.19"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-8.0.19.tgz#62f4f396b4b73fa402838200a1c80374338cb12e"
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+
 react-syntax-highlighter@^8.0.1:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/react-syntax-highlighter/-/react-syntax-highlighter-8.1.0.tgz#59103ff17a828a27ed7c8f035ae2558f09b6b78c"

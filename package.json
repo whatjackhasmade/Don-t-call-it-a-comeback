@@ -68,6 +68,7 @@
 		"react-lazyload": "^2.5.0",
 		"react-share": "^2.4.0",
 		"react-slick": "^0.23.2",
+		"react-spring": "^8.0.19",
 		"react-transition-group": "^2.9.0",
 		"react-twitter-widgets": "^1.7.1",
 		"slick-carousel": "^1.8.1",
