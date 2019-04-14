@@ -18,7 +18,6 @@ const IntroComponent = styled.section`
 	h1,
 	.intro__subheading {
 		margin: 0 0 24px;
-		padding-left: 8px;
 		position: relative;
 
 		color: ${props => props.theme.primary};
@@ -29,7 +28,6 @@ const IntroComponent = styled.section`
 		text-transform: uppercase;
 
 		&:before {
-			content: "";
 			display: block;
 			position: absolute;
 			top: 0;
@@ -37,6 +35,14 @@ const IntroComponent = styled.section`
 			height: 100%;
 			width: 2px;
 			background: ${props => props.theme.primary};
+
+			@media ${device.xs} {
+				content: "";
+			}
+		}
+
+		@media ${device.xs} {
+			padding-left: 8px;
 		}
 
 		@media ${device.sm} {
@@ -47,8 +53,12 @@ const IntroComponent = styled.section`
 	.intro__heading {
 		margin: 0 0 24px;
 
-		font-size: 48px;
+		font-size: 36px;
 		line-height: 1;
+
+		@media ${device.xs} {
+			font-size: 48px;
+		}
 
 		@media ${device.lg} {
 			font-size: 64px;

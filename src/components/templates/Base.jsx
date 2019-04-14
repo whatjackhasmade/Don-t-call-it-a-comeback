@@ -170,8 +170,12 @@ const GlobalStyle = createGlobalStyle`
 		flex: 1;
 		margin: 0 auto;
 		max-width: 1506px;
-		padding: 0 30px;
+		padding: 0 15px;
 		width: 100%;
+
+		@media ${device.xs} {
+			padding: 0 30px;
+		}
 	}
 
 	.wrapper {
@@ -228,9 +232,13 @@ const GlobalStyle = createGlobalStyle`
 		margin-bottom: 24px;
 		margin-top: 24px;
 
-		font-size: 48px;
+		font-size: 32px;
 		font-weight: 700;
 		line-height: 1.1;
+
+		@media ${device.xs} {
+			font-size: 48px;
+		}
 
 		@media ${device.lg} {
 			font-size: 72px;

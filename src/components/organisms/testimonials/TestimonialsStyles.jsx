@@ -64,9 +64,13 @@ const TestimonialsComponent = styled.section`
 	}
 
 	.testimonial {
-		padding: 16px;
+		padding: 8px;
 
 		outline: none;
+
+		@media ${device.xs} {
+			padding: 16px;
+		}
 
 		@media ${device.md} {
 			padding: 32px;
@@ -76,10 +80,14 @@ const TestimonialsComponent = styled.section`
 	.testimonials {
 		grid-row: 1 / 4;
 		grid-column: 7 / 13;
-		padding: 16px;
+		padding: 8px;
 
 		background-color: ${props => props.theme.black};
 		color: ${props => props.theme.white};
+
+		@media ${device.xs} {
+			padding: 16px;
+		}
 
 		@media ${device.md} {
 			padding: 32px;
@@ -121,12 +129,21 @@ const TestimonialsComponent = styled.section`
 	}
 
 	.testimonial__quote {
-		margin-bottom: 0;
-		margin-top: 32px;
+		margin-bottom: 4px;
+		margin-top: 12px;
 
-		font-weight: 500;
-		font-size: 18px;
-		line-height: 28px;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 21px;
+
+		@media ${device.xs} {
+			margin-bottom: 0;
+			margin-top: 32px;
+
+			font-size: 18px;
+			font-weight: 500;
+			line-height: 28px;
+		}
 	}
 
 	.testimonial__header {

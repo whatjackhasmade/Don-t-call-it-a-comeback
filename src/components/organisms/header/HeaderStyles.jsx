@@ -42,6 +42,7 @@ const HeaderComponent = styled.header`
 		&:active,
 		&:focus,
 		&:hover {
+			box-shadow: none;
 			color: ${props => props.theme.black};
 			text-decoration: none;
 

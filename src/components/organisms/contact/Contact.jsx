@@ -32,8 +32,12 @@ const ContactComponent = styled.section`
 		justify-content: flex-start;
 		margin: 0 auto;
 		max-width: 806px;
-		padding: 45px 30px;
+		padding: 45px 20px;
 		position: relative;
+
+		@media ${device.xs} {
+			padding: 45px 30px;
+		}
 	}
 `;
 

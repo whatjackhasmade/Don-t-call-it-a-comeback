@@ -88,8 +88,12 @@ const HeroComponent = styled.section`
 	.hero__wrapper {
 		margin: 0 auto;
 		max-width: 1506px;
-		padding: 30px;
+		padding: 0 20px;
 		width: 100%;
+
+		@media ${device.xs} {
+			padding: 0 30px;
+		}
 	}
 `;
 

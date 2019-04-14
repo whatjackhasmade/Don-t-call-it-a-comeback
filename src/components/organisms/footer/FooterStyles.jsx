@@ -15,8 +15,12 @@ const FooterComponent = styled.footer`
 		justify-content: space-between;
 		margin: 0 auto;
 		max-width: 1506px;
-		padding: 30px;
+		padding: 30px 15px;
 		width: 100%;
+
+		@media ${device.xs} {
+			padding: 30px;
+		}
 
 		@media ${device.md} {
 			flex-direction: row;
