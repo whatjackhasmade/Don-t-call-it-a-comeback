@@ -1,72 +1,28 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import { device } from "../../particles/MediaQueries";
+import React, { useState } from "react";
 
 import ContactForm from "./Fields";
+import ContactComponent from "./Contact-Styles";
 
-const ContactComponent = styled.section`
-	margin-top: 32px;
-	left: 50%;
-	margin-left: -50vw;
-	position: relative;
-	width: 100vw;
-	z-index: 9;
+function Contact() {
+	const [bot, setBot] = useState("");
+	const [company, setCompany] = useState("");
+	const [elementHeight, setElementHeight] = useState(0);
+	const [email, setEmail] = useState("");
+	const [firstname, setFirstname] = useState("");
+	const [lastname, setLastname] = useState("");
+	const [message, setMessage] = useState("");
+	const [submitted, setSubmitted] = useState(false);
 
-	background-color: ${props => props.theme.primary};
-	color: ${props => props.theme.white};
-
-	button {
-		@media ${device.MXxs} {
-			justify-content: center;
-		}
-	}
-
-	h2,
-	p {
-		text-align: center;
-	}
-
-	.contact__wrapper {
-		display: flex;
-		flex-direction: column;
-		justify-content: flex-start;
-		margin: 0 auto;
-		max-width: 806px;
-		padding: 45px 20px;
-		position: relative;
-
-		@media ${device.xs} {
-			padding: 45px 30px;
-		}
-	}
-`;
-
-const encode = data => {
-	return Object.keys(data)
-		.map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-		.join("&");
-};
-
-export default class Contact extends Component {
-	state = {
-		bot: "",
-		company: "",
-		elementHeight: 0,
-		email: "",
-		firstname: "",
-		lastname: "",
-		message: "",
-		submitted: false
+	const encode = data => {
+		return Object.keys(data)
+			.map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+			.join("&");
 	};
 
-	/* Here’s the juicy bit for posting the form submission */
-
-	handleSubmit = e => {
+	const handleSubmit = e => {
 		e.preventDefault();
 
-		if (this.state.bot !== "") alert("You've entered the bot field with data");
-
-		console.log("handleSubmit");
+		if (bot !== "") alert("You've entered the bot field with data");
 
 		fetch("/", {
 			method: "POST",
@@ -75,49 +31,55 @@ export default class Contact extends Component {
 			},
 			body: encode({
 				"form-name": "contact",
-				...this.state
+				company,
+				email,
+				firstname,
+				lastname,
+				message,
+				submitted
 			})
 		})
-			.then(() => this.setState({ submitted: true }))
+			.then(() => setSubmitted(true))
 			.catch(error => alert(error));
 	};
 
-	handleChange = e =>
-		this.setState({
-			[e.target.name]: e.target.value
-		});
-
-	render() {
-		return (
-			<ContactComponent>
-				<div className="contact__wrapper">
-					<h2>
-						{!this.state.submitted
-							? `Tell Me About Your Project`
-							: `Awesome, I've Got The Info`}
-					</h2>
-					{this.state.submitted && (
-						<p>
-							I'll send you an email in the next few hours and we can go from
-							there{" "}
-							<span role="img" aria-label="smiling face">
-								😊
-							</span>
-						</p>
-					)}
-					<ContactForm
-						bot={this.state.bot}
-						company={this.state.company}
-						handleChange={this.handleChange}
-						handleSubmit={this.handleSubmit}
-						email={this.state.email}
-						firstname={this.state.firstname}
-						lastname={this.state.lastname}
-						message={this.state.message}
-						submitted={this.state.submitted}
-					/>
-				</div>
-			</ContactComponent>
-		);
-	}
+	return (
+		<ContactComponent>
+			<div className="contact__wrapper">
+				<h2>
+					{!submitted
+						? `Tell Me About Your Project`
+						: `Awesome, I've Got The Info`}
+				</h2>
+				{submitted && (
+					<p>
+						I'll send you an email in the next few hours and we can go from
+						there{" "}
+						<span role="img" aria-label="smiling face">
+							😊
+						</span>
+					</p>
+				)}
+				<ContactForm
+					bot={bot}
+					company={company}
+					handleSubmit={handleSubmit}
+					email={email}
+					firstname={firstname}
+					lastname={lastname}
+					message={message}
+					submitted={submitted}
+					setBot={setBot}
+					setCompany={setCompany}
+					setEmail={setEmail}
+					setFirstname={setFirstname}
+					setLastname={setLastname}
+					setMessage={setMessage}
+					setSubmitted={setSubmitted}
+				/>
+			</div>
+		</ContactComponent>
+	);
 }
+
+export default Contact;
