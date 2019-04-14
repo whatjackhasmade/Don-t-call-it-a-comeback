@@ -1,6 +1,5 @@
 import React from "react";
 import { InView } from "react-intersection-observer";
-// import { useSpring, animated } from "react-spring";
 
 import RowComponent from "./RowStyles";
 
@@ -34,22 +33,10 @@ function Row(props) {
 					<div className="row__column">
 						{link !== "" ? (
 							<a href={`${link}`} target="_blank" rel="noopener noreferrer">
-								<div className="row__media">
-									{ext !== `mp4` ? (
-										<ImageLoader src={mediaFull} alt="" />
-									) : (
-										<video src={mediaFull} muted autoPlay loop />
-									)}
-								</div>
+								<RowMedia media={mediaFull} ext={ext} />
 							</a>
 						) : (
-							<div className="row__media">
-								{ext !== `mp4` ? (
-									<ImageLoader src={mediaFull} alt="" />
-								) : (
-									<video src={mediaFull} muted autoPlay loop />
-								)}
-							</div>
+							<RowMedia media={mediaFull} ext={ext} />
 						)}
 					</div>
 					<div
@@ -61,6 +48,18 @@ function Row(props) {
 				</RowComponent>
 			)}
 		</InView>
+	);
+}
+
+function RowMedia({ media, ext }) {
+	return (
+		<div className="row__media">
+			{ext !== `mp4` ? (
+				<ImageLoader src={media} alt="" />
+			) : (
+				<video src={media} muted autoPlay loop />
+			)}
+		</div>
 	);
 }
 
