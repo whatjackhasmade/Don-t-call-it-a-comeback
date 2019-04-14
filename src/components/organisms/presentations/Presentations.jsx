@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -70,56 +70,48 @@ const settings = {
 	]
 };
 
-class Presentations extends Component {
-	render() {
-		const { data, query } = this.props;
-
-		return (
-			<PresentationsComponent>
-				<Intro
-					heading={`Event Presentations`}
-					subheading={`Touring the south coast`}
-					marginReduced
-				>
-					<div dangerouslySetInnerHTML={{ __html: data.content }} />
-				</Intro>
-				<Slider {...settings}>
-					{query.allEvent.edges !== [] &&
-						query.allEvent.edges.map((event, index) => (
-							<Event
-								index={index}
-								key={`event-${index}`}
-								event={event}
-								venue={event.node.venue}
-							/>
-						))}
-				</Slider>
-			</PresentationsComponent>
-		);
-	}
+function Presentations({ data, query }) {
+	return (
+		<PresentationsComponent>
+			<Intro
+				heading={`Event Presentations`}
+				subheading={`Touring the south coast`}
+				marginReduced
+			>
+				<div dangerouslySetInnerHTML={{ __html: data.content }} />
+			</Intro>
+			<Slider {...settings}>
+				{query.allEvent.edges !== [] &&
+					query.allEvent.edges.map((event, index) => (
+						<Event
+							index={index}
+							key={`event-${index}`}
+							event={event}
+							venue={event.node.venue}
+						/>
+					))}
+			</Slider>
+		</PresentationsComponent>
+	);
 }
 
-class Event extends Component {
-	render() {
-		const { index, event, venue } = this.props;
-
-		return (
-			<div
-				className="presentations__event"
-				data-index={index}
-				index={index}
-				key={`${event.node.title}-${index}`}
-			>
-				<img
-					alt={event.node.title}
-					className="presentations__event__thumbnail"
-					src={event.node.imageFull}
-				/>
-				<div className="presentations__event__meta">
-					<h5 className="subheading">{venue}</h5>
-					<h3>{event.node.title}</h3>
-				</div>
+function Event({ index, event, venue }) {
+	return (
+		<div
+			className="presentations__event"
+			data-index={index}
+			index={index}
+			key={`${event.node.title}-${index}`}
+		>
+			<img
+				alt={event.node.title}
+				className="presentations__event__thumbnail"
+				src={event.node.imageFull}
+			/>
+			<div className="presentations__event__meta">
+				<h5 className="subheading">{venue}</h5>
+				<h3>{event.node.title}</h3>
 			</div>
-		);
-	}
+		</div>
+	);
 }
