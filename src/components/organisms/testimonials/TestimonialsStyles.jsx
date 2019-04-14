@@ -66,6 +66,8 @@ const TestimonialsComponent = styled.section`
 	.testimonial {
 		padding: 16px;
 
+		outline: none;
+
 		@media ${device.md} {
 			padding: 32px;
 		}

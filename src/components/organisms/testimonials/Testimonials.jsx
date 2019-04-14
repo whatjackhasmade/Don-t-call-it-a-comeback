@@ -15,7 +15,9 @@ const settings = {
 	prevArrow: false,
 	slidesToShow: 1,
 	slidesToScroll: 1,
-	speed: 1000
+	speed: 1000,
+	swipe: false,
+	swipeToSlide: false
 };
 
 export default class Testimonials extends Component {

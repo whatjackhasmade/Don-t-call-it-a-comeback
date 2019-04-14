@@ -1,7 +1,7 @@
-const fetch = require("node-fetch");
-const queryString = require("query-string");
-const crypto = require("crypto");
-const path = require("path");
+const fetch = require(`node-fetch`);
+const queryString = require(`query-string`);
+const crypto = require(`crypto`);
+const path = require(`path`);
 
 const WordPressDomain = `https://wjhm.noface.app`;
 // const WordPressDomain = `http://local-whatjackhasmade.co.uk`;
