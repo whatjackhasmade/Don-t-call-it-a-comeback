@@ -87,6 +87,12 @@ const HeaderComponent = styled.header`
 		outline: none;
 		transform: translateX(8px);
 
+		&:active,
+		&:focus,
+		&:hover {
+			transform: translateX(8px);
+		}
+
 		span + span {
 			display: none;
 			margin-left: 4px;
