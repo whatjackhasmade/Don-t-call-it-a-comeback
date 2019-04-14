@@ -1,75 +1,69 @@
-import React, { Component } from "react";
+import React from "react";
 
 import Duotone from "./Duotone";
 import HeroComponent from "./HeroStyles";
 import HeroMediaComponent from "./HeroMediaStyles";
 
-export default class Hero extends Component {
-	render() {
-		const { data } = this.props;
-
-		if (!data) {
-			return (
-				<HeroComponent>
-					<div className="hero__wrapper">
-						<div className="hero__contents">{this.props.children}</div>
-					</div>
-				</HeroComponent>
-			);
-		}
-
-		const { background_colour, content, duotone, media, overlay } = data;
-
-		const background = background_colour ? background_colour : `#0652DD`;
-
-		const overlayBoolean = overlay === "1";
-
+function Hero({ data, children }) {
+	if (!data) {
 		return (
-			<HeroComponent background={background} overlay={overlayBoolean}>
+			<HeroComponent>
 				<div className="hero__wrapper">
-					{content ? (
-						<div
-							className="hero__contents"
-							dangerouslySetInnerHTML={{ __html: content }}
-						/>
-					) : (
-						<div className="hero__contents">{this.props.children}</div>
-					)}
-					{media && (
-						<HeroMedia
-							duotone={duotone}
-							media={media.full}
-							overlay={overlayBoolean}
-						/>
-					)}
+					<div className="hero__contents">{children}</div>
 				</div>
 			</HeroComponent>
 		);
 	}
+
+	const { background_colour, content, duotone, media, overlay } = data;
+
+	const background = background_colour ? background_colour : `#0652DD`;
+
+	const overlayBoolean = overlay === "1";
+
+	return (
+		<HeroComponent background={background} overlay={overlayBoolean}>
+			<div className="hero__wrapper">
+				{content ? (
+					<div
+						className="hero__contents"
+						dangerouslySetInnerHTML={{ __html: content }}
+					/>
+				) : (
+					<div className="hero__contents">{children}</div>
+				)}
+				{media && (
+					<HeroMedia
+						duotone={duotone}
+						media={media.full}
+						overlay={overlayBoolean}
+					/>
+				)}
+			</div>
+		</HeroComponent>
+	);
 }
 
-class HeroMedia extends Component {
-	render() {
-		const { duotone, media, overlay } = this.props;
-
-		if (duotone) {
-			return (
-				<HeroMediaComponent overlay={overlay}>
-					<Duotone
-						className="hero__media"
-						highlight={props => props.theme.primary}
-						shadow={`#000`}
-					>
-						<img src={media} alt="" />
-					</Duotone>
-				</HeroMediaComponent>
-			);
-		} else {
-			return (
-				<HeroMediaComponent overlay={overlay}>
+function HeroMedia({ duotone, media, overlay }) {
+	if (duotone) {
+		return (
+			<HeroMediaComponent overlay={overlay}>
+				<Duotone
+					className="hero__media"
+					highlight={props => props.theme.primary}
+					shadow={`#000`}
+				>
 					<img src={media} alt="" />
-				</HeroMediaComponent>
-			);
-		}
+				</Duotone>
+			</HeroMediaComponent>
+		);
+	} else {
+		return (
+			<HeroMediaComponent overlay={overlay}>
+				<img src={media} alt="" />
+			</HeroMediaComponent>
+		);
 	}
 }
+
+export default Hero;
