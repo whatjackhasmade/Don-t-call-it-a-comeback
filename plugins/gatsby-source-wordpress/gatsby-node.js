@@ -3,13 +3,34 @@ const queryString = require(`query-string`);
 const crypto = require(`crypto`);
 const path = require(`path`);
 
-const WordPressDomain = `https://wjhm.noface.app`;
-// const WordPressDomain = `http://local-whatjackhasmade.co.uk`;
+// const WordPressDomain = `https://wjhm.noface.app`;
+const WordPressDomain = `http://local-whatjackhasmade.co.uk`;
 
 exports.sourceNodes = async (
 	{ actions: { createNode }, createNodeId },
 	{ plugins, ...options }
 ) => {
+	const caseURL = `${WordPressDomain}/wp-json/cases/v2/all`;
+	const caseResponse = await fetch(caseURL);
+	const caseData = await caseResponse.json();
+
+	caseData.forEach(inspo => {
+		createNode({
+			...inspo,
+			id: createNodeId(`case-${inspo.id}`),
+			parent: null,
+			children: [],
+			internal: {
+				type: "Case",
+				content: JSON.stringify(inspo),
+				contentDigest: crypto
+					.createHash("md5")
+					.update(JSON.stringify(inspo))
+					.digest("hex")
+			}
+		});
+	});
+
 	const eventURL = `${WordPressDomain}/wp-json/event/v2/all`;
 	const eventResponse = await fetch(eventURL);
 	const eventData = await eventResponse.json();
@@ -100,6 +121,46 @@ exports.createPages = ({ graphql, actions }) => {
 	return new Promise((resolve, reject) => {
 		graphql(`
 			{
+				allCase {
+					edges {
+						node {
+							id
+							slug
+							title
+							yoast {
+								description
+								image
+								slug
+								title
+							}
+							content {
+								defining {
+									title
+									column_one
+									column_two
+								}
+								devices {
+									desktop
+									mobile
+								}
+								gallery {
+									url
+								}
+								intro {
+									subtitle
+									title
+									description
+									illustration
+								}
+								solution {
+									title
+									column_one
+									column_two
+								}
+							}
+						}
+					}
+				}
 				allPage {
 					edges {
 						node {
@@ -184,6 +245,25 @@ exports.createPages = ({ graphql, actions }) => {
 				}
 			}
 		`).then(result => {
+			result.data.allCase.edges.forEach(({ node }) => {
+				createPage({
+					path: node.slug,
+					component: path.resolve(`./src/components/templates/Case.jsx`),
+					context: {
+						content: node.content,
+						id: node.id,
+						imageXS: node.imageXS,
+						imageSM: node.imageSM,
+						imageMD: node.imageMD,
+						imageLG: node.imageLG,
+						imageXL: node.imageXL,
+						imageFull: node.imageFull,
+						title: node.title,
+						slug: node.slug,
+						yoast: node.yoast
+					}
+				});
+			});
 			result.data.allPage.edges.forEach(({ node }) => {
 				const slug =
 					node.slug === "home" || node.slug === "homepage" ? `/` : node.slug;

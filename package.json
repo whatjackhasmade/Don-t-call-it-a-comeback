@@ -50,6 +50,7 @@
 		"gatsby-transformer-json": "^2.1.11",
 		"gatsby-transformer-remark": "2.3.8",
 		"gatsby-transformer-sharp": "2.1.17",
+		"html5-device-mockups": "^3.2.1",
 		"intersection-observer": "^0.5.1",
 		"lodash": "^4.17.4",
 		"moment": "^2.24.0",

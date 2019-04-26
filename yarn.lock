@@ -8285,6 +8285,10 @@ html-webpack-plugin@^4.0.0-beta.2:
     tapable "^1.1.0"
     util.promisify "1.0.0"
 
+html5-device-mockups@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/html5-device-mockups/-/html5-device-mockups-3.2.1.tgz#97e39de69e9fa86760116653d8daf5fe43be77d5"
+
 htmlparser2@3.9.1:
   version "3.9.1"
   resolved "http://registry.npmjs.org/htmlparser2/-/htmlparser2-3.9.1.tgz#621b7a58bc9acd003f7af0a2c9a00aa67c8505d2"
