@@ -410,7 +410,7 @@ function Related({ data }) {
 	return (
 		<RelatedContainer>
 			{data.map(item => (
-				<InView threshold={0} triggerOnce={true}>
+				<InView key={item.post_name} threshold={0} triggerOnce={true}>
 					{({ inView, ref }) => (
 						<RelatedItem>
 							<Link to={`/${item.post_name}`}>
