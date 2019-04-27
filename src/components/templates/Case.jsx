@@ -241,123 +241,123 @@ const RelatedItem = styled.div`
 	}
 `;
 
-export default class CaseTemplate extends React.Component {
-	render() {
-		const { content } = this.props.pageContext;
-		const { blocks, gallery, intro, related, siteURL, testimonials } = content;
+function CaseTemplate({ pageContext }) {
+	const { content } = pageContext;
+	const { blocks, gallery, intro, related, siteURL, testimonials } = content;
 
-		const introData = {};
-		introData.subheading = intro.subtitle;
-		introData.heading = intro.title;
-		introData.content = intro.description;
+	const introData = {};
+	introData.subheading = intro.subtitle;
+	introData.heading = intro.title;
+	introData.content = intro.description;
 
-		let testimonialData = {};
+	let testimonialData = {};
 
-		testimonialData.testimonials = [];
+	testimonialData.testimonials = [];
 
-		testimonials.map((testimonial, i) => {
-			const t = testimonial.testimonial;
-			testimonialData.testimonials[i] = {};
-			testimonialData.testimonials[i].author = t.author;
-			testimonialData.testimonials[i].role = t.role;
-			testimonialData.testimonials[i].testimonial = t.testimonial;
-			testimonialData.testimonials[i].media = {};
-			testimonialData.testimonials[i].logo = {};
-			testimonialData.testimonials[i].media.full =
-				testimonial.testimonial.media.url;
-			testimonialData.testimonials[i].logo.full =
-				testimonial.testimonial.logo.url;
-			return null;
-		});
+	testimonials.map((testimonial, i) => {
+		const t = testimonial.testimonial;
+		testimonialData.testimonials[i] = {};
+		testimonialData.testimonials[i].author = t.author;
+		testimonialData.testimonials[i].role = t.role;
+		testimonialData.testimonials[i].testimonial = t.testimonial;
+		testimonialData.testimonials[i].media = {};
+		testimonialData.testimonials[i].logo = {};
+		testimonialData.testimonials[i].media.full =
+			testimonial.testimonial.media.url;
+		testimonialData.testimonials[i].logo.full =
+			testimonial.testimonial.logo.url;
+		return null;
+	});
 
-		let gallery_one = [];
-		let gallery_two = [];
-		let gallery_three = [];
-		const gallery_four = gallery[7];
-		let gallery_five = [];
-		let gallery_six = [];
+	let gallery_one = [];
+	let gallery_two = [];
+	let gallery_three = [];
+	const gallery_four = gallery[7];
+	let gallery_five = [];
+	let gallery_six = [];
 
-		for (var i = 0; i < 2; i++) {
-			gallery_one.push(gallery[i]);
-		}
-
-		for (i = 2; i < 4; i++) {
-			gallery_two.push(gallery[i]);
-		}
-
-		for (i = 4; i < 6; i++) {
-			gallery_three.push(gallery[i]);
-		}
-
-		for (i = 7; i < 9; i++) {
-			gallery_five.push(gallery[i]);
-		}
-
-		for (i = 9; i < gallery.length; i++) {
-			gallery_six.push(gallery[i]);
-		}
-
-		return (
-			<Base context={this.props.pageContext}>
-				<Intro
-					data={introData}
-					illustration={intro.illustration}
-					maxWidth={`906px`}
-				/>
-				<InView threshold={0} triggerOnce={true}>
-					{({ inView, ref }) => (
-						<Devices
-							className={inView ? `devices devices--show` : `devices`}
-							ref={ref}
-						>
-							<a href={siteURL} rel="noopener noreferrer" target="_blank">
-								<div className="device-wrapper macbook">
-									<div
-										className="device"
-										data-device="Macbook2015"
-										data-orientation="portrait"
-										data-color="white"
-									>
-										<div className="screen">
-											<YouTubeEmbed url={content.devices.desktop} />
-										</div>
-									</div>
-								</div>
-								<div className="device-wrapper iphone">
-									<div
-										className="device"
-										data-device="iPhone7"
-										data-orientation="portrait"
-										data-color="white"
-									>
-										<div className="screen">
-											<YouTubeEmbed url={content.devices.mobile} />
-										</div>
-									</div>
-								</div>
-							</a>
-						</Devices>
-					)}
-				</InView>
-				<Block data={blocks[0].fields} />
-				<Gallery images={gallery_one} />
-				<Block data={blocks[1].fields} />
-				<Gallery images={gallery_two} />
-				<Block data={blocks[2].fields} />
-				<Gallery images={gallery_three} />
-				<Block data={blocks[3].fields} />
-				<Break image={gallery_four} />
-				<Block data={blocks[4].fields} />
-				<Gallery images={gallery_five} />
-				<Block data={blocks[5].fields} />
-				<Gallery images={gallery_six} small={true} />
-				<Block data={blocks[6].fields} />
-				<Testimonials data={testimonialData} />
-				<Related data={related} />
-			</Base>
-		);
+	for (var i = 0; i < 2; i++) {
+		gallery_one.push(gallery[i]);
 	}
+
+	for (i = 2; i < 4; i++) {
+		gallery_two.push(gallery[i]);
+	}
+
+	for (i = 4; i < 6; i++) {
+		gallery_three.push(gallery[i]);
+	}
+
+	for (i = 7; i < 9; i++) {
+		gallery_five.push(gallery[i]);
+	}
+
+	for (i = 9; i < gallery.length; i++) {
+		gallery_six.push(gallery[i]);
+	}
+
+	return (
+		<Base context={pageContext}>
+			<Intro
+				data={introData}
+				illustration={intro.illustration}
+				maxWidth={`906px`}
+			/>
+			<InView threshold={0} triggerOnce={true}>
+				{({ inView, ref }) => (
+					<Devices
+						className={inView ? `devices devices--show` : `devices`}
+						ref={ref}
+					>
+						<a href={siteURL} rel="noopener noreferrer" target="_blank">
+							<div className="device-wrapper macbook">
+								<div
+									className="device"
+									data-device="Macbook2015"
+									data-orientation="portrait"
+									data-color="white"
+								>
+									<div className="screen">
+										<YouTubeEmbed url={content.devices.desktop} />
+									</div>
+								</div>
+							</div>
+							<div className="device-wrapper iphone">
+								<div
+									className="device"
+									data-device="iPhone7"
+									data-orientation="portrait"
+									data-color="white"
+								>
+									<div className="screen">
+										<YouTubeEmbed url={content.devices.mobile} />
+									</div>
+								</div>
+							</div>
+						</a>
+					</Devices>
+				)}
+			</InView>
+			<Block data={blocks[0].fields} />
+			<Gallery images={gallery_one} />
+			<Block data={blocks[1].fields} />
+			<Gallery images={gallery_two} />
+			<Block data={blocks[2].fields} />
+			<Gallery images={gallery_three} />
+			<Block data={blocks[3].fields} />
+			<Break image={gallery_four} />
+			<Block data={blocks[4].fields} />
+			<Gallery images={gallery_five} />
+			<Block data={blocks[5].fields} />
+			<Gallery images={gallery_six} small={true} />
+			<Block data={blocks[6].fields} />
+			<Testimonials data={testimonialData} />
+			<Related data={related} />
+		</Base>
+	);
 }
+
+export default CaseTemplate;
 
 function Block({ data }) {
 	return (
