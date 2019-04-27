@@ -134,17 +134,31 @@ exports.createPages = ({ graphql, actions }) => {
 								title
 							}
 							content {
-								defining {
-									title
-									column_one
-									column_two
+								blocks {
+									fields {
+										title
+										column_one
+										column_two
+									}
 								}
 								devices {
 									desktop
 									mobile
 								}
 								gallery {
+									alt
 									url
+									sizes {
+										thumbnail
+										medium
+										large
+										ratio
+										featured_xs
+										featured_sm
+										featured_md
+										featured_lg
+										featured_xl
+									}
 								}
 								intro {
 									subtitle
@@ -152,10 +166,22 @@ exports.createPages = ({ graphql, actions }) => {
 									description
 									illustration
 								}
-								solution {
-									title
-									column_one
-									column_two
+								related {
+									post_name
+								}
+								siteURL
+								testimonials {
+									testimonial {
+										author
+										role
+										logo {
+											url
+										}
+										media {
+											url
+										}
+										testimonial
+									}
 								}
 							}
 						}

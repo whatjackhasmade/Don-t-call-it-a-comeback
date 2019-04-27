@@ -3,7 +3,15 @@ import React, { Component } from "react";
 import IntroComponent from "./IntroStyles";
 
 function Intro(props) {
-	const { data, heading, index, marginReduced, subheading } = props;
+	const {
+		data,
+		heading,
+		index,
+		illustration,
+		marginReduced,
+		maxWidth,
+		subheading
+	} = props;
 	const Subheading = index === 0 ? `h1` : `h2`;
 	const Heading = index === 0 ? `h2` : `h3`;
 
@@ -12,6 +20,7 @@ function Intro(props) {
 			<IntroComponent
 				className="intro"
 				marginReduced={marginReduced ? false : true}
+				maxWidth={maxWidth}
 			>
 				<div className="intro__wrapper">
 					<Subheading className="h4 intro__subheading">
@@ -23,6 +32,9 @@ function Intro(props) {
 						dangerouslySetInnerHTML={{ __html: data.content }}
 					/>
 				</div>
+				{illustration && (
+					<img className="intro__illustration" src={illustration} />
+				)}
 			</IntroComponent>
 		);
 	} else {
@@ -30,6 +42,7 @@ function Intro(props) {
 			<IntroComponent
 				className="intro"
 				marginReduced={marginReduced ? false : true}
+				maxWidth={maxWidth}
 			>
 				<div className="intro__wrapper">
 					<Subheading className="h4 intro__subheading">{subheading}</Subheading>

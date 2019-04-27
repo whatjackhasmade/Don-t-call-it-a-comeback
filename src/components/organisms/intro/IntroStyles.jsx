@@ -2,6 +2,9 @@ import styled from "styled-components";
 import { device } from "../../particles/MediaQueries";
 
 const IntroComponent = styled.section`
+	align-items: flex-start;
+	display: flex;
+	justify-content: space-between;
 	margin: ${props =>
 		props.marginReduced === true ? `64px 0 32px 0` : `32px 0 16px`};
 
@@ -73,8 +76,18 @@ const IntroComponent = styled.section`
 
 	.intro__wrapper {
 		margin: 0 auto 0 0;
-		max-width: 706px;
+		max-width: ${props => (props.maxWidth ? props.maxWidth : `706px`)};
 		width: 100%;
+	}
+
+	.intro__illustration {
+		display: none;
+		height: auto;
+		max-width: 260px;
+
+		@media ${device.lg} {
+			display: block;
+		}
 	}
 `;
 
