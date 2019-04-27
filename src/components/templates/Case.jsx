@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "gatsby";
 import { InView } from "react-intersection-observer";
 import styled from "styled-components";
 import YouTube from "react-youtube";
@@ -227,10 +228,23 @@ const GalleryContainer = styled.section`
 	}
 `;
 
+const RelatedContainer = styled.section`
+	display: flex;
+`;
+
+const RelatedItem = styled.div`
+	display: block;
+	width: calc(33.33% - 32px);
+
+	+ & {
+		margin-left: 48px;
+	}
+`;
+
 export default class CaseTemplate extends React.Component {
 	render() {
 		const { content } = this.props.pageContext;
-		const { blocks, gallery, intro, siteURL, testimonials } = content;
+		const { blocks, gallery, intro, related, siteURL, testimonials } = content;
 
 		const introData = {};
 		introData.subheading = intro.subtitle;
@@ -253,6 +267,7 @@ export default class CaseTemplate extends React.Component {
 				testimonial.testimonial.media.url;
 			testimonialData.testimonials[i].logo.full =
 				testimonial.testimonial.logo.url;
+			return null;
 		});
 
 		let gallery_one = [];
@@ -338,6 +353,7 @@ export default class CaseTemplate extends React.Component {
 				<Gallery images={gallery_six} small={true} />
 				<Block data={blocks[6].fields} />
 				<Testimonials data={testimonialData} />
+				<Related data={related} />
 			</Base>
 		);
 	}
@@ -388,6 +404,26 @@ function Break({ image }) {
 	} else {
 		return null;
 	}
+}
+
+function Related({ data }) {
+	return (
+		<RelatedContainer>
+			{data.map(item => (
+				<InView threshold={0} triggerOnce={true}>
+					{({ inView, ref }) => (
+						<RelatedItem>
+							<Link to={`/${item.post_name}`}>
+								<img ref={ref} src={``} alt="" />
+								<h2>{item.post_name}</h2>
+								<p>{item.post_name}</p>
+							</Link>
+						</RelatedItem>
+					)}
+				</InView>
+			))}
+		</RelatedContainer>
+	);
 }
 
 function Gallery({ images, small }) {
@@ -446,7 +482,7 @@ function YouTubeEmbed({ url }) {
 	};
 
 	const onStateChange = e => {
-		console.log(e.data);
+		if (e.data === 0) e.target.play();
 	};
 
 	return (
