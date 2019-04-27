@@ -143,11 +143,12 @@ const Devices = styled.section`
 		max-width: 21%;
 
 		.screen > div {
-			position: relative;
-			padding-bottom: 200%;
-			height: 0;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
 			overflow: hidden;
-			max-width: 100%;
 		}
 		.screen > div iframe,
 		.screen > div object,
@@ -156,7 +157,7 @@ const Devices = styled.section`
 			top: 0;
 			left: 0;
 			width: 100%;
-			height: 90%;
+			height: 100%;
 		}
 	}
 
@@ -288,11 +289,11 @@ function CaseTemplate({ pageContext }) {
 		gallery_three.push(gallery[i]);
 	}
 
-	for (i = 7; i < 9; i++) {
+	for (i = 8; i < 10; i++) {
 		gallery_five.push(gallery[i]);
 	}
 
-	for (i = 9; i < gallery.length; i++) {
+	for (i = 10; i < gallery.length; i++) {
 		gallery_six.push(gallery[i]);
 	}
 
@@ -338,21 +339,23 @@ function CaseTemplate({ pageContext }) {
 					</Devices>
 				)}
 			</InView>
-			<Block data={blocks[0].fields} />
-			<Gallery images={gallery_one} />
-			<Block data={blocks[1].fields} />
-			<Gallery images={gallery_two} />
-			<Block data={blocks[2].fields} />
-			<Gallery images={gallery_three} />
-			<Block data={blocks[3].fields} />
-			<Break image={gallery_four} />
-			<Block data={blocks[4].fields} />
-			<Gallery images={gallery_five} />
-			<Block data={blocks[5].fields} />
-			<Gallery images={gallery_six} small={true} />
-			<Block data={blocks[6].fields} />
-			<Testimonials data={testimonialData} />
-			<Related data={related} />
+			{blocks[0] && <Block data={blocks[0].fields} />}
+			{gallery_one[0] && <Gallery images={gallery_one} />}
+			{blocks[1] && <Block data={blocks[1].fields} />}
+			{gallery_two[0] && <Gallery images={gallery_two} />}
+			{blocks[2] && <Block data={blocks[2].fields} />}
+			{gallery_three[0] && <Gallery images={gallery_three} />}
+			{blocks[3] && <Block data={blocks[3].fields} />}
+			{gallery_four && <Break image={gallery_four} />}
+			{blocks[4] && <Block data={blocks[4].fields} />}
+			{gallery_five[0] && <Gallery images={gallery_five} />}
+			{blocks[5] && <Block data={blocks[5].fields} />}
+			{gallery_six[0] && <Gallery images={gallery_six} small={true} />}
+			{blocks[6] && <Block data={blocks[6].fields} />}
+			{testimonialData.testimonials[0] && (
+				<Testimonials data={testimonialData} />
+			)}
+			{related[0] && <Related data={related} />}
 		</Base>
 	);
 }
@@ -479,18 +482,13 @@ function YouTubeEmbed({ url }) {
 
 	const onReady = e => {
 		e.target.mute();
+		e.target.playVideo();
 	};
 
-	const onStateChange = e => {
-		if (e.data === 0) e.target.play();
+	const onEnd = e => {
+		e.target.mute();
+		e.target.playVideo();
 	};
 
-	return (
-		<YouTube
-			videoId={ID}
-			opts={opts}
-			onReady={onReady}
-			onStateChange={onStateChange}
-		/>
-	);
+	return <YouTube videoId={ID} opts={opts} onReady={onReady} onEnd={onEnd} />;
 }

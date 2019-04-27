@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 import IntroComponent from "./IntroStyles";
 
@@ -33,7 +33,11 @@ function Intro(props) {
 					/>
 				</div>
 				{illustration && (
-					<img className="intro__illustration" src={illustration} />
+					<img
+						className="intro__illustration"
+						src={illustration}
+						alt={data.heading}
+					/>
 				)}
 			</IntroComponent>
 		);

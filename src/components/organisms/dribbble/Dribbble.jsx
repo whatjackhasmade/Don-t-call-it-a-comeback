@@ -53,7 +53,6 @@ const settings = {
 
 function Dribbble(props) {
 	const { data } = props;
-	const [index, setIndex] = useState(0);
 	const [shots, setShots] = useState([]);
 
 	useEffect(() => {
@@ -69,14 +68,6 @@ function Dribbble(props) {
 
 		fetchData().then(data => setShots(data));
 	});
-
-	const next = () => {
-		setIndex(index + 1);
-	};
-
-	const prev = () => {
-		setIndex(index - 1);
-	};
 
 	return (
 		<DribbbleComponent>

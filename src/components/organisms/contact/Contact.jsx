@@ -6,7 +6,6 @@ import ContactComponent from "./Contact-Styles";
 function Contact() {
 	const [bot, setBot] = useState("");
 	const [company, setCompany] = useState("");
-	const [elementHeight, setElementHeight] = useState(0);
 	const [email, setEmail] = useState("");
 	const [firstname, setFirstname] = useState("");
 	const [lastname, setLastname] = useState("");

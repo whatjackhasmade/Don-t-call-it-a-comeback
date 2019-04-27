@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import ContactFormComponent from "./Fields-Styles";
 
@@ -17,8 +17,7 @@ function ContactForm(props) {
 		setEmail,
 		setFirstname,
 		setLastname,
-		setMessage,
-		setSubmitted
+		setMessage
 	} = props;
 
 	return (
