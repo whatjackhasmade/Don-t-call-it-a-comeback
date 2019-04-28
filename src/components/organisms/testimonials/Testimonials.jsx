@@ -56,9 +56,11 @@ export default class Testimonials extends Component {
 						))}
 					</Slider>
 				</div>
-				<button className="testimonial__next" onClick={this.nextTestimonial}>
-					Next <IconAngleRight />
-				</button>
+				{this.state.testimonials[1] && (
+					<button className="testimonial__next" onClick={this.nextTestimonial}>
+						Next <IconAngleRight />
+					</button>
+				)}
 				<div className="testimonials">
 					<Slider ref={c => (this.sliderTestimonials = c)} {...settings}>
 						{this.state.testimonials.map((testimonial, index) => (
