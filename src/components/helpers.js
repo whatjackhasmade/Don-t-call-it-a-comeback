@@ -14,7 +14,7 @@ export function httpTohttps(html) {
 }
 
 export function relativePaths(html) {
-	return html.replace("https://wjhm.noface.app", "");
+	return html.replace(`<a href="https://wjhm.noface.app`, `<a href="`);
 }
 
 export function removeDimensions(html) {
