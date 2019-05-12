@@ -15,7 +15,45 @@ const Article = styled.article`
 	/* Advanced vertical rhythym based off of https://medium.com/@sebastian.eberlein/advanced-vertical-margins-4ac69f032f79 */
 	max-width: 800px;
 	margin: 64px auto;
+
+	font-size: 1.6rem;
 	line-height: 1.5;
+
+	@media ${device.md} {
+		font-size: 2rem;
+	}
+
+	blockquote {
+		display: block;
+		padding: 16px 0;
+		position: relative;
+		margin: 8px 0 24px;
+
+		font-style: italic;
+		outline: none;
+		text-align: center;
+
+		color: ${props => props.theme.black};
+		quotes: "“" "”" "‘" "’";
+
+		p:last-of-type {
+			margin: 0;
+		}
+	}
+
+	cite {
+		bottom: 4px;
+		position: absolute;
+		right: 0;
+
+		color: ${props => props.theme.grey400};
+		font-size: 16px;
+		font-style: normal;
+
+		&:before {
+			content: "- ";
+		}
+	}
 
 	figure {
 		margin-left: 0;
