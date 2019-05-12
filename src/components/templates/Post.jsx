@@ -81,6 +81,10 @@ const Article = styled.article`
 		text-align: center;
 	}
 
+	li + li {
+		margin-top: 8px;
+	}
+
 	> * + * {
 		margin-top: 16px;
 	}
