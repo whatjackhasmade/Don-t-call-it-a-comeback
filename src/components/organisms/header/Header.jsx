@@ -21,6 +21,7 @@ function Header() {
 					{/* <Link to="/work">Work</Link> */}
 					<Link to="/posts">Insights</Link>
 					<Link to="/about">About</Link>
+					<Link to="/vostron">Latest Work</Link>
 					{/* <Link to="/services">Services</Link> */}
 				</nav>
 				<a href="mailto:jack@noface.co.uk">Hire Me</a>
