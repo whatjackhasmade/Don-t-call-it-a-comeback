@@ -215,9 +215,7 @@ exports.createPages = ({ graphql, actions }) => {
 										subheading
 										testimonials {
 											author
-											logo {
-												full
-											}
+											logo
 											media {
 												thumbnail
 												medium

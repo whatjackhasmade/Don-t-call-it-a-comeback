@@ -77,7 +77,7 @@ export default class Testimonials extends Component {
 									</div>
 									<img
 										className="testimonial__logo"
-										src={testimonial.logo.full}
+										src={testimonial.logo}
 										alt=""
 									/>
 								</header>
