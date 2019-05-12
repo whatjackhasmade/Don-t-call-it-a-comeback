@@ -57,7 +57,7 @@ const IntroComponent = styled.section`
 		margin: 0 0 24px;
 
 		font-size: 36px;
-		line-height: 1;
+		line-height: 1.1;
 
 		@media ${device.xs} {
 			font-size: 48px;

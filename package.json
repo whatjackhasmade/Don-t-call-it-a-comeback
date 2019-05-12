@@ -60,6 +60,7 @@
 		"pretty-checkbox-react": "^1.0.6",
 		"prismjs": "^1.15.0",
 		"react": "^16.8.5",
+		"react-breakpoints": "^3.0.3",
 		"react-dom": "^16.8.5",
 		"react-grid-system": "^4.4.3",
 		"react-helmet": "^5.2.0",

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import { InView } from "react-intersection-observer";
 import styled from "styled-components";
+import ReactBreakpoints, { Media } from "react-breakpoints";
 import YouTube from "react-youtube";
 import "html5-device-mockups/dist/device-mockups.min.css";
 
@@ -88,16 +89,12 @@ const BlockContainer = styled.section`
 `;
 
 const Devices = styled.section`
-	display: none;
+	display: block;
 	margin: 96px 0;
 
 	opacity: 0;
 	transform: translateY(100px);
 	transition: 1s all ease;
-
-	@media ${device.lg} {
-		display: block;
-	}
 
 	a {
 		align-items: center;
@@ -242,6 +239,15 @@ const RelatedItem = styled.div`
 	}
 `;
 
+const breakpoints = {
+	xs: 576,
+	sm: 768,
+	md: 992,
+	lg: 1200,
+	xl: 1440,
+	xxl: 1800
+};
+
 function CaseTemplate({ pageContext }) {
 	const { content } = pageContext;
 	const { blocks, gallery, intro, related, siteURL, testimonials } = content;
@@ -298,65 +304,74 @@ function CaseTemplate({ pageContext }) {
 	}
 
 	return (
-		<Base context={pageContext}>
-			<Intro
-				data={introData}
-				illustration={intro.illustration}
-				maxWidth={`906px`}
-			/>
-			<InView threshold={0} triggerOnce={true}>
-				{({ inView, ref }) => (
-					<Devices
-						className={inView ? `devices devices--show` : `devices`}
-						ref={ref}
-					>
-						<a href={siteURL} rel="noopener noreferrer" target="_blank">
-							<div className="device-wrapper macbook">
-								<div
-									className="device"
-									data-device="Macbook2015"
-									data-orientation="portrait"
-									data-color="white"
-								>
-									<div className="screen">
-										<YouTubeEmbed url={content.devices.desktop} />
-									</div>
-								</div>
-							</div>
-							<div className="device-wrapper iphone">
-								<div
-									className="device"
-									data-device="iPhone7"
-									data-orientation="portrait"
-									data-color="white"
-								>
-									<div className="screen">
-										<YouTubeEmbed url={content.devices.mobile} />
-									</div>
-								</div>
-							</div>
-						</a>
-					</Devices>
+		<ReactBreakpoints breakpoints={breakpoints}>
+			<Base context={pageContext}>
+				<Intro
+					data={introData}
+					illustration={intro.illustration}
+					maxWidth={`906px`}
+				/>
+				<Media>
+					{({ breakpoints, currentBreakpoint }) =>
+						breakpoints[currentBreakpoint] > breakpoints.lg && (
+							<InView threshold={0} triggerOnce={true}>
+								{({ inView, ref }) => (
+									<Devices
+										className={inView ? `devices devices--show` : `devices`}
+										ref={ref}
+									>
+										<a href={siteURL} rel="noopener noreferrer" target="_blank">
+											<div className="device-wrapper macbook">
+												<div
+													className="device"
+													data-device="Macbook2015"
+													data-orientation="portrait"
+													data-color="white"
+												>
+													<div className="screen">
+														<YouTubeEmbed url={content.devices.desktop} />
+													</div>
+												</div>
+											</div>
+											<div className="device-wrapper iphone">
+												<div
+													className="device"
+													data-device="iPhone7"
+													data-orientation="portrait"
+													data-color="white"
+												>
+													<div className="screen">
+														<YouTubeEmbed url={content.devices.mobile} />
+													</div>
+												</div>
+											</div>
+										</a>
+									</Devices>
+								)}
+							</InView>
+						)
+					}
+				</Media>
+
+				{blocks[0] && <Block data={blocks[0].fields} />}
+				{gallery_one[0] && <Gallery images={gallery_one} />}
+				{blocks[1] && <Block data={blocks[1].fields} />}
+				{gallery_two[0] && <Gallery images={gallery_two} />}
+				{blocks[2] && <Block data={blocks[2].fields} />}
+				{gallery_three[0] && <Gallery images={gallery_three} />}
+				{blocks[3] && <Block data={blocks[3].fields} />}
+				{gallery_four && <Break image={gallery_four} />}
+				{blocks[4] && <Block data={blocks[4].fields} />}
+				{gallery_five[0] && <Gallery images={gallery_five} />}
+				{blocks[5] && <Block data={blocks[5].fields} />}
+				{gallery_six[0] && <Gallery images={gallery_six} small={true} />}
+				{blocks[6] && <Block data={blocks[6].fields} />}
+				{testimonialData.testimonials[0] && (
+					<Testimonials data={testimonialData} />
 				)}
-			</InView>
-			{blocks[0] && <Block data={blocks[0].fields} />}
-			{gallery_one[0] && <Gallery images={gallery_one} />}
-			{blocks[1] && <Block data={blocks[1].fields} />}
-			{gallery_two[0] && <Gallery images={gallery_two} />}
-			{blocks[2] && <Block data={blocks[2].fields} />}
-			{gallery_three[0] && <Gallery images={gallery_three} />}
-			{blocks[3] && <Block data={blocks[3].fields} />}
-			{gallery_four && <Break image={gallery_four} />}
-			{blocks[4] && <Block data={blocks[4].fields} />}
-			{gallery_five[0] && <Gallery images={gallery_five} />}
-			{blocks[5] && <Block data={blocks[5].fields} />}
-			{gallery_six[0] && <Gallery images={gallery_six} small={true} />}
-			{blocks[6] && <Block data={blocks[6].fields} />}
-			{testimonialData.testimonials[0] && (
-				<Testimonials data={testimonialData} />
-			)}
-			{/* {related[0] && <Related data={related} />} */}
-		</Base>
+				{/* {related[0] && <Related data={related} />} */}
+			</Base>
+		</ReactBreakpoints>
 	);
 }
 
