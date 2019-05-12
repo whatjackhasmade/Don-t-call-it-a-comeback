@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
+import { relativePaths } from "../helpers";
 
 import { device } from "../particles/MediaQueries";
 
@@ -16,19 +17,16 @@ const Article = styled.article`
 	max-width: 800px;
 	margin: 64px auto;
 
-	font-size: 1.6rem;
+	font-size: 2rem;
 	line-height: 1.5;
-
-	@media ${device.md} {
-		font-size: 2rem;
-	}
 
 	blockquote {
 		display: block;
 		padding: 16px 0;
 		position: relative;
-		margin: 8px 0 24px;
+		margin: 24px 0 36px;
 
+		font-size: 2.25rem;
 		font-style: italic;
 		outline: none;
 		text-align: center;
@@ -39,19 +37,32 @@ const Article = styled.article`
 		p:last-of-type {
 			margin: 0;
 		}
+
+		@media ${device.md} {
+			margin: 8px 0 24px;
+
+			font-size: 3rem;
+		}
 	}
 
 	cite {
-		bottom: 4px;
-		position: absolute;
-		right: 0;
+		position: relative;
 
-		color: ${props => props.theme.grey400};
-		font-size: 16px;
+		color: ${props => props.theme.grey600};
+		font-size: 20px;
 		font-style: normal;
 
 		&:before {
 			content: "- ";
+		}
+
+		@media ${device.md} {
+			bottom: 4px;
+			position: absolute;
+			right: 0;
+
+			color: ${props => props.theme.grey400};
+			font-size: 16px;
 		}
 	}
 
@@ -150,6 +161,7 @@ const Article = styled.article`
 export default class PostTemplate extends React.Component {
 	render() {
 		const { content, title } = this.props.pageContext;
+		const sanitizedContent = relativePaths(content);
 
 		return (
 			<Base>
@@ -157,7 +169,7 @@ export default class PostTemplate extends React.Component {
 					<Link to="/posts">Insights</Link>
 					<h1>{title}</h1>
 				</ArticleIntro>
-				<Article dangerouslySetInnerHTML={{ __html: content }} />
+				<Article dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
 			</Base>
 		);
 	}

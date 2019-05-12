@@ -13,6 +13,10 @@ export function httpTohttps(html) {
 	return html.replace("http://", "https://");
 }
 
+export function relativePaths(html) {
+	return html.replace("https://wjhm.noface.app", "");
+}
+
 export function removeDimensions(html) {
 	html = html.replace(/width="[^"]*"/g, "");
 	html = html.replace(/height="[^"]*"/g, "");
