@@ -355,7 +355,7 @@ function CaseTemplate({ pageContext }) {
 			{testimonialData.testimonials[0] && (
 				<Testimonials data={testimonialData} />
 			)}
-			{related[0] && <Related data={related} />}
+			{/* {related[0] && <Related data={related} />} */}
 		</Base>
 	);
 }
