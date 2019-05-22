@@ -271,8 +271,7 @@ function CaseTemplate({ pageContext }) {
 		testimonialData.testimonials[i].logo = {};
 		testimonialData.testimonials[i].media.full =
 			testimonial.testimonial.media.url;
-		testimonialData.testimonials[i].logo.full =
-			testimonial.testimonial.logo.url;
+		testimonialData.testimonials[i].logo = testimonial.testimonial.logo.url;
 		return null;
 	});
 
