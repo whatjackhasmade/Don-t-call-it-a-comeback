@@ -1,6 +1,9 @@
 import React from "react";
+import parse from "html-react-parser";
+import { renderToStaticMarkup } from "react-dom/server";
 import { Link } from "gatsby";
 import styled from "styled-components";
+import { TwitterTweetEmbed } from "react-twitter-embed";
 import { relativePaths } from "../helpers";
 
 import { device } from "../particles/MediaQueries";
@@ -163,13 +166,28 @@ export default class PostTemplate extends React.Component {
 		const { content, title } = this.props.pageContext;
 		const sanitizedContent = relativePaths(content);
 
+		const elements = parse(sanitizedContent, {
+			replace: domNode => {
+				if (
+					domNode.attribs &&
+					domNode.attribs.class &&
+					domNode.attribs.class.includes(`wp-block-embed-twitter`)
+				) {
+					const tweetURL = domNode.children[1].children[0].data;
+					const lastPart = tweetURL.split("/").pop();
+					const tweetID = lastPart.toString();
+					return <TwitterTweetEmbed tweetId={tweetID} />;
+				}
+			}
+		});
+
 		return (
 			<Base>
 				<ArticleIntro>
 					<Link to="/posts">Insights</Link>
 					<h1>{title}</h1>
 				</ArticleIntro>
-				<Article dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
+				<Article>{elements}</Article>
 			</Base>
 		);
 	}
