@@ -16,7 +16,7 @@ const opts = {
 	}
 };
 
-function YouTubeElement({ data }) {
+function YouTubeChannel({ data }) {
 	const [channelVideos, setChannelVideos] = useState([]);
 
 	const _onReady = event => {
@@ -27,9 +27,10 @@ function YouTubeElement({ data }) {
 	useEffect(() => {
 		async function fetchData() {
 			const PlayListID = `UUIOm-HME4V_STS9yWM5aXIg`;
-			const APIKEY = `AIzaSyArCR7gVx2-HT0wXvjLl3GHOPqolqVINoA`;
 			const NumberResults = 12;
-			const apiURL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId=${PlayListID}&key=${APIKEY}&maxResults=${NumberResults}`;
+			const apiURL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId=${PlayListID}&key=${
+				process.env.YOUTUBE_API
+			}&maxResults=${NumberResults}`;
 			const channelData = await fetch(apiURL).then(res => {
 				return res.json();
 			});
@@ -103,7 +104,6 @@ function YouTubeElement({ data }) {
 }
 
 function Video({ index, key, video }) {
-	console.log(video.snippet.resourceId.videoId);
 	return (
 		<div index={index} className="youtube__video" title={video.snippet.title}>
 			<a
@@ -121,4 +121,4 @@ function Video({ index, key, video }) {
 	);
 }
 
-export default YouTubeElement;
+export default YouTubeChannel;
