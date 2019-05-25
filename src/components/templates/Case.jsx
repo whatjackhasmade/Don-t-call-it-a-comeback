@@ -12,6 +12,8 @@ import { YouTubeGetID } from "../helpers";
 
 import Base from "./Base";
 
+import ImageLoader from "../molecules/imageloader/ImageLoader";
+
 import Intro from "../organisms/intro/Intro";
 import Testimonials from "../organisms/testimonials/Testimonials";
 
@@ -164,6 +166,7 @@ const Devices = styled.section`
 `;
 
 const GalleryContainer = styled.section`
+	align-items: flex-start;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -185,13 +188,13 @@ const GalleryContainer = styled.section`
 	&.gallery--small {
 		justify-content: flex-start;
 
-		img {
+		> * {
 			height: 200px;
 
 			@media ${device.md} {
 				max-width: calc(25% - 16px);
 
-				+ img {
+				+ * {
 					margin-left: 21.333px;
 				}
 
@@ -206,17 +209,30 @@ const GalleryContainer = styled.section`
 		}
 	}
 
-	img {
-		height: 280px;
+	.gallery__image {
+		height: 0;
+		padding-top: 56.25%;
+		position: relative;
 		width: 100%;
 
-		object-fit: cover;
+		* {
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
 
+			object-fit: cover;
+		}
+	}
+
+	> * {
+		width: 100%;
 		@media ${device.md} {
 			max-width: calc(50% - 16px);
 		}
 
-		+ img {
+		+ * {
 			margin-top: 32px;
 
 			@media ${device.md} {
@@ -412,8 +428,10 @@ function Break({ image }) {
 		return (
 			<InView threshold={0} triggerOnce={true}>
 				{({ inView, ref }) => (
-					<BreakImage>
-						<img ref={ref} src={image.url} alt="" />
+					<BreakImage ref={ref}>
+						<div className="break__image">
+							<ImageLoader src={image.url} alt="" />
+						</div>
 					</BreakImage>
 				)}
 			</InView>
@@ -429,9 +447,9 @@ function Related({ data }) {
 			{data.map(item => (
 				<InView key={item.post_name} threshold={0} triggerOnce={true}>
 					{({ inView, ref }) => (
-						<RelatedItem>
+						<RelatedItem ref={ref}>
 							<Link to={`/${item.post_name}`}>
-								<img ref={ref} src={``} alt="" />
+								<ImageLoader src={``} alt="" />
 								<h2>{item.post_name}</h2>
 								<p>{item.post_name}</p>
 							</Link>
@@ -456,11 +474,15 @@ function Gallery({ images, small }) {
 						ref={ref}
 					>
 						{images.map(image => (
-							<img
-								key={image.url}
-								src={image.sizes.featured_md}
-								alt={image.alt}
-							/>
+							<div className="gallery__image__wrapper">
+								<div className="gallery__image">
+									<ImageLoader
+										key={image.url}
+										src={image.sizes.featured_md}
+										alt={image.alt}
+									/>
+								</div>
+							</div>
 						))}
 					</GalleryContainer>
 				)}
