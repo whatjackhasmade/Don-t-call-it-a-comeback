@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "gatsby";
-import styled from "styled-components";
 
 import Base from "../components/templates/Base";
 
