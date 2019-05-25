@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import YouTube from "react-youtube";
 
-import LogoYouTube from "../../../assets/images/icons/brands/youtube.svg";
 import backgroundLeft from "./youtube-left.png";
 import backgroundRight from "./youtube-right.png";
-
 import YouTubeComponent from "./YouTube-Styles";
+
+import ImageLoader from "../../molecules/imageloader/ImageLoader";
 
 const opts = {
 	playerVars: {
@@ -40,11 +40,15 @@ function YouTubeChannel({ data }) {
 	return (
 		<YouTubeComponent>
 			<img
+				alt=""
 				className="youtube__background youtube__background--left"
+				// height={1080}
 				src={backgroundLeft}
 			/>
 			<img
+				alt=""
 				className="youtube__background youtube__background--right"
+				// height={1080}
 				src={backgroundRight}
 			/>
 			<div className="youtube__content">
@@ -67,6 +71,7 @@ function YouTubeChannel({ data }) {
 					<a
 						className="button"
 						href="https://youtube.com/whatjackhasmade"
+						rel="noopener noreferrer"
 						target="_blank"
 					>
 						View My YouTube Channel
@@ -110,10 +115,11 @@ function Video({ index, key, video }) {
 				href={`https://www.youtube.com/watch?v=${
 					video.snippet.resourceId.videoId
 				}`}
+				rel="noopener noreferrer"
 				target="_blank"
 			>
 				<div className="youtube__video__thumbnail">
-					<img
+					<ImageLoader
 						src={video.snippet.thumbnails.medium.url}
 						alt={video.snippet.title}
 					/>

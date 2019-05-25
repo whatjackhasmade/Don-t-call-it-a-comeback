@@ -1,6 +1,5 @@
 import React from "react";
 import parse from "html-react-parser";
-import { renderToStaticMarkup } from "react-dom/server";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import { TwitterTweetEmbed } from "react-twitter-embed";

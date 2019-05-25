@@ -6,6 +6,8 @@ import "slick-carousel/slick/slick-theme.css";
 
 import PresentationsComponent from "./PresentationsStyles";
 
+import ImageLoader from "../../molecules/imageloader/ImageLoader";
+
 import Intro from "../intro/Intro";
 
 export default props => (
@@ -16,7 +18,7 @@ export default props => (
 					edges {
 						node {
 							id
-							imageFull
+							imageSM
 							title
 							venue
 						}
@@ -103,10 +105,10 @@ function Event({ index, event, venue }) {
 			index={index}
 			key={`${event.node.title}-${index}`}
 		>
-			<img
+			<ImageLoader
 				alt={event.node.title}
 				className="presentations__event__thumbnail"
-				src={event.node.imageFull}
+				src={event.node.imageSM}
 			/>
 			<div className="presentations__event__meta">
 				<h5 className="subheading">{venue}</h5>

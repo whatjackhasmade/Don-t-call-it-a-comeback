@@ -5,13 +5,12 @@ import RowComponent from "./RowStyles";
 
 import ImageLoader from "../../molecules/imageloader/ImageLoader";
 
-function Row(props) {
-	const { data, index } = props;
+function Row({ data, index }) {
 	const { content, link, media } = data;
 
 	const alignment = index % 2 === 0 ? `left` : `right`;
 
-	const mediaFull = media.full;
+	const mediaFull = media.medium_large;
 	const ext = mediaFull.substr(mediaFull.lastIndexOf(".") + 1);
 
 	const prepareContent = content => {
