@@ -55,14 +55,17 @@ function YouTubeChannel({ data }) {
 					<h2>My YouTube Channel</h2>
 					<p>
 						Early on in my career I knew it was important to document what I was
-						learning, not only for myself but to also share my understanding of
-						topics with others looking to develop their skills.
+						learning, so I started a blog. The next step on from that was to
+						start my own YouTube channel. I did this not only for myself, but to
+						also share my understanding of topics with others looking to develop
+						their skills.
 					</p>
 					<p>
-						Not only has this been a great benefit for seeing my progress over
-						the years, but it has encouraged me to understand a topic deeply. As
-						to teach a topic, you must have a strong grasp on the concepts
-						involved.
+						Starting my own YouTube channel encouraged me to understand a topic
+						deeply as to teach a topic, you must have a strong grasp on the
+						concepts involved. I don't claim to be an expert on every subject I
+						cover, but if I find it of interest, I will cover it and share my
+						experience with others.
 					</p>
 					<Button
 						anchor={true}
