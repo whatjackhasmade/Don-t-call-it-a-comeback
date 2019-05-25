@@ -24,11 +24,10 @@ function YouTubeChannel({ data }) {
 
 	useEffect(() => {
 		async function fetchData() {
+			const GAPI = `AIzaSyArCR7gVx2-HT0wXvjLl3GHOPqolqVINoA`;
 			const PlayListID = `UUIOm-HME4V_STS9yWM5aXIg`;
 			const NumberResults = 12;
-			const apiURL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId=${PlayListID}&key=${
-				process.env.YOUTUBE_API
-			}&maxResults=${NumberResults}`;
+			const apiURL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId=${PlayListID}&key=${GAPI}&maxResults=${NumberResults}`;
 			const channelData = await fetch(apiURL).then(res => {
 				return res.json();
 			});
