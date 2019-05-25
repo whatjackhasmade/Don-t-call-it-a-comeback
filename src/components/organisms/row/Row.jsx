@@ -10,8 +10,17 @@ function Row({ data, index }) {
 
 	const alignment = index % 2 === 0 ? `left` : `right`;
 
-	const mediaFull = media.medium_large;
-	const ext = mediaFull.substr(mediaFull.lastIndexOf(".") + 1);
+	let mediaURL = ``;
+
+	if (media.medium_large) {
+		mediaURL = media.medium_large;
+	} else if (media.large) {
+		mediaURL = media.large;
+	} else {
+		mediaURL = media.full;
+	}
+
+	const ext = mediaURL.substr(mediaURL.lastIndexOf(".") + 1);
 
 	const prepareContent = content => {
 		return content.replace(
@@ -32,10 +41,10 @@ function Row({ data, index }) {
 					<div className="row__column">
 						{link !== "" ? (
 							<a href={`${link}`} target="_blank" rel="noopener noreferrer">
-								<RowMedia media={mediaFull} ext={ext} />
+								<RowMedia media={mediaURL} ext={ext} />
 							</a>
 						) : (
-							<RowMedia media={mediaFull} ext={ext} />
+							<RowMedia media={mediaURL} ext={ext} />
 						)}
 					</div>
 					<div
