@@ -91,7 +91,7 @@ function YouTubeChannel({ data }) {
 					{channelVideos &&
 						channelVideos !== [] &&
 						channelVideos.map((video, index) => {
-							if (index > 0 && index < 13) {
+							if (index > 0 && index < 19) {
 								return <Video index={index} key={video.id} video={video} />;
 							} else {
 								return null;
@@ -112,10 +112,12 @@ function Video({ index, key, video }) {
 				}`}
 				target="_blank"
 			>
-				<img
-					src={video.snippet.thumbnails.medium.url}
-					alt={video.snippet.title}
-				/>
+				<div className="youtube__video__thumbnail">
+					<img
+						src={video.snippet.thumbnails.medium.url}
+						alt={video.snippet.title}
+					/>
+				</div>
 			</a>
 		</div>
 	);

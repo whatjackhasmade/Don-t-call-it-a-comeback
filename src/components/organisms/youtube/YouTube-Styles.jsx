@@ -66,13 +66,20 @@ const YouTubeComponent = styled.section`
 
 		@media ${device.xl} {
 			padding: 0 130px;
-			width: 80%;
+		}
+
+		@media ${device.xxl} {
+			padding: 0 30px;
 		}
 	}
 
 	.youtube__intro {
 		@media ${device.md} {
 			margin-right: 48px;
+		}
+
+		@media ${device.xxl} {
+			margin-right: 160px;
 		}
 
 		h2,
@@ -88,7 +95,6 @@ const YouTubeComponent = styled.section`
 			margin-top: 32px;
 			position: relative;
 			padding-bottom: 56.25%; /* 16:9 */
-			padding-top: 25px;
 
 			iframe {
 				position: absolute;
@@ -114,11 +120,15 @@ const YouTubeComponent = styled.section`
 			width: calc(450px + 64px);
 		}
 
-		.youtube__video {
-			height: 150px;
-			margin-top: 32px;
+		.youtube__video__thumbnail {
+			height: 0;
+			padding-bottom: 56.25%; /* 16:9 */
 			position: relative;
 			width: 150px;
+		}
+
+		.youtube__video {
+			margin-top: 32px;
 
 			box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11),
 				0 1px 3px rgba(0, 0, 0, 0.08);

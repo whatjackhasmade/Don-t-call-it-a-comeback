@@ -19,7 +19,7 @@ const components = {
 	row: Row,
 	testimonials: Testimonials,
 	youtube: YouTube,
-	youtubeChannel: YouTubeChannel
+	youtubechannel: YouTubeChannel
 };
 
 export default class CreateMarkup extends Component {
