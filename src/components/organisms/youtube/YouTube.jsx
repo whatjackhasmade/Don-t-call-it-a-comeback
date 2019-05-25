@@ -7,8 +7,6 @@ import backgroundRight from "./youtube-right.png";
 
 import YouTubeComponent from "./YouTube-Styles";
 
-import Button from "../../atoms/Button";
-
 const opts = {
 	playerVars: {
 		// https://developers.google.com/youtube/player_parameters
@@ -67,13 +65,13 @@ function YouTubeChannel({ data }) {
 						cover, but if I find it of interest, I will cover it and share my
 						experience with others.
 					</p>
-					<Button
-						anchor={true}
+					<a
+						className="button"
 						href="https://youtube.com/whatjackhasmade"
 						target="_blank"
 					>
 						View My YouTube Channel
-					</Button>
+					</a>
 					{channelVideos &&
 						channelVideos !== [] &&
 						channelVideos[0] &&
