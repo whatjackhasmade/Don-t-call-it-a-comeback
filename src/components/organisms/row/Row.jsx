@@ -40,7 +40,7 @@ function Row({ data, index }) {
 				>
 					<div className="row__column">
 						{link !== "" ? (
-							<a href={`${link}`} target="_blank" rel="noopener noreferrer">
+							<a href={`${link}`}>
 								<RowMedia media={mediaURL} ext={ext} />
 							</a>
 						) : (
