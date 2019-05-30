@@ -10,7 +10,7 @@ import TestimonialsComponent from "./TestimonialsStyles";
 const settings = {
 	draggable: false,
 	infinite: true,
-	lazyLoad: true,
+	lazyLoad: false,
 	nextArrow: false,
 	prevArrow: false,
 	slidesToShow: 1,
