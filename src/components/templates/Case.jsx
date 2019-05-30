@@ -190,6 +190,7 @@ const GalleryContainer = styled.section`
 
 		> * {
 			height: 200px;
+			overflow: hidden;
 
 			@media ${device.md} {
 				max-width: calc(25% - 16px);
@@ -243,15 +244,28 @@ const GalleryContainer = styled.section`
 `;
 
 const RelatedContainer = styled.section`
-	display: flex;
+	margin: 96px auto;
+
+	.related__items {
+		display: flex;
+		margin-top: 48px;
+	}
 `;
 
 const RelatedItem = styled.div`
 	display: block;
-	width: calc(33.33% - 32px);
 
-	+ & {
-		margin-left: 48px;
+	@media ${device.md} {
+		width: calc(33.33% - 32px);
+
+		+ & {
+			margin-left: 48px;
+		}
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
 	}
 `;
 
@@ -384,7 +398,7 @@ function CaseTemplate({ pageContext }) {
 				{testimonialData.testimonials[0] && (
 					<Testimonials data={testimonialData} />
 				)}
-				{/* {related[0] && <Related data={related} />} */}
+				{related[0] && <Related data={related} />}
 			</Base>
 		</ReactBreakpoints>
 	);
@@ -444,19 +458,22 @@ function Break({ image }) {
 function Related({ data }) {
 	return (
 		<RelatedContainer>
-			{data.map(item => (
-				<InView key={item.post_name} threshold={0} triggerOnce={true}>
-					{({ inView, ref }) => (
-						<RelatedItem ref={ref}>
-							<Link to={`/${item.post_name}`}>
-								<ImageLoader src={``} alt="" />
-								<h2>{item.post_name}</h2>
-								<p>{item.post_name}</p>
-							</Link>
-						</RelatedItem>
-					)}
-				</InView>
-			))}
+			<h2>Related Case Studies</h2>
+			<div className="related__items">
+				{data.map(item => (
+					<InView key={item.post_name} threshold={0} triggerOnce={true}>
+						{({ inView, ref }) => (
+							<RelatedItem ref={ref}>
+								<Link to={`/${item.slug}`}>
+									<ImageLoader src={item.imageMD} alt={item.title} />
+									<h3>{item.yoast.title}</h3>
+									<p>{item.yoast.description}</p>
+								</Link>
+							</RelatedItem>
+						)}
+					</InView>
+				))}
+			</div>
 		</RelatedContainer>
 	);
 }

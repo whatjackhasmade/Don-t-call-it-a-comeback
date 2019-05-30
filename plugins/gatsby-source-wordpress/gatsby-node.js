@@ -167,7 +167,22 @@ exports.createPages = ({ graphql, actions }) => {
 									illustration
 								}
 								related {
-									post_name
+									id
+									date
+									imageXS
+									imageSM
+									imageMD
+									imageLG
+									imageXL
+									imageFull
+									slug
+									title
+									yoast {
+										description
+										image
+										slug
+										title
+									}
 								}
 								siteURL
 								testimonials {
