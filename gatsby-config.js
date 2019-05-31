@@ -85,6 +85,13 @@ module.exports = {
 			}
 		},
 		{
+			resolve: `gatsby-plugin-netlify`,
+			options: {
+				mergeLinkHeaders: false,
+				mergeCachingHeaders: false
+			}
+		},
+		{
 			resolve: `gatsby-plugin-robots-txt`,
 			options: {
 				host: `https://www.example.com`,
