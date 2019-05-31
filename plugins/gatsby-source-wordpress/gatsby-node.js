@@ -3,8 +3,8 @@ const queryString = require(`query-string`);
 const crypto = require(`crypto`);
 const path = require(`path`);
 
-const WordPressDomain = `https://wjhm.noface.app`;
-// const WordPressDomain = `http://local-whatjackhasmade.co.uk`;
+// const WordPressDomain = `https://wjhm.noface.app`;
+const WordPressDomain = `http://local-whatjackhasmade.co.uk`;
 
 exports.sourceNodes = async (
 	{ actions: { createNode }, createNodeId },
@@ -116,59 +116,170 @@ exports.sourceNodes = async (
 	});
 };
 
-exports.createPages = ({ graphql, actions }) => {
-	const { createPage } = actions;
-	return new Promise((resolve, reject) => {
-		graphql(`
-			{
-				allCase {
-					edges {
-						node {
-							id
-							slug
-							title
-							yoast {
-								description
-								image
+const createThePages = true;
+
+if (createThePages) {
+	exports.createPages = ({ graphql, actions }) => {
+		const { createPage } = actions;
+		return new Promise((resolve, reject) => {
+			graphql(`
+				{
+					allCase {
+						edges {
+							node {
+								id
 								slug
 								title
-							}
-							content {
-								blocks {
-									fields {
-										title
-										column_one
-										column_two
-									}
-								}
-								devices {
-									desktop
-									mobile
-								}
-								gallery {
-									alt
-									url
-									sizes {
-										thumbnail
-										medium
-										large
-										ratio
-										featured_xs
-										featured_sm
-										featured_md
-										featured_lg
-										featured_xl
-									}
-								}
-								intro {
-									subtitle
-									title
+								yoast {
 									description
-									illustration
+									image
+									slug
+									title
 								}
+								content {
+									blocks {
+										fields {
+											title
+											column_one
+											column_two
+										}
+									}
+									devices {
+										desktop
+										mobile
+									}
+									gallery {
+										alt
+										url
+										sizes {
+											thumbnail
+											medium
+											large
+											ratio
+											featured_xs
+											featured_sm
+											featured_md
+											featured_lg
+											featured_xl
+										}
+									}
+									intro {
+										subtitle
+										title
+										description
+										illustration
+									}
+									related {
+										id
+										date
+										imageXS
+										imageSM
+										imageMD
+										imageLG
+										imageXL
+										imageFull
+										slug
+										title
+										yoast {
+											description
+											image
+											slug
+											title
+										}
+									}
+									siteURL
+									testimonials {
+										testimonial {
+											author
+											role
+											logo {
+												url
+											}
+											media {
+												url
+											}
+											testimonial
+										}
+									}
+								}
+							}
+						}
+					}
+					allPage {
+						edges {
+							node {
+								content {
+									blockName
+									attrs {
+										id
+										data {
+											background_colour
+											content
+											heading
+											link
+											media {
+												thumbnail
+												medium
+												medium_large
+												large
+												ratio
+												featured_xs
+												featured_sm
+												featured_md
+												featured_lg
+												featured_xl
+												full
+											}
+											subheading
+											testimonials {
+												author
+												logo
+												media {
+													thumbnail
+													medium
+													medium_large
+													ratio
+													featured_xs
+													featured_sm
+													featured_md
+													full
+												}
+												role
+												testimonial
+											}
+										}
+									}
+								}
+								id
+								imageXS
+								imageSM
+								imageMD
+								imageLG
+								imageXL
+								imageFull
+								slug
+								title
+								yoast {
+									description
+									image
+									slug
+									title
+								}
+							}
+						}
+					}
+					allPost {
+						edges {
+							node {
+								id
+								content
+								date
+								excerpt
+								imageFull
 								related {
 									id
 									date
+									excerpt
 									imageXS
 									imageSM
 									imageMD
@@ -177,167 +288,77 @@ exports.createPages = ({ graphql, actions }) => {
 									imageFull
 									slug
 									title
-									yoast {
-										description
-										image
-										slug
-										title
-									}
 								}
-								siteURL
-								testimonials {
-									testimonial {
-										author
-										role
-										logo {
-											url
-										}
-										media {
-											url
-										}
-										testimonial
-									}
-								}
-							}
-						}
-					}
-				}
-				allPage {
-					edges {
-						node {
-							content {
-								blockName
-								attrs {
-									id
-									data {
-										background_colour
-										content
-										heading
-										link
-										media {
-											thumbnail
-											medium
-											medium_large
-											large
-											ratio
-											featured_xs
-											featured_sm
-											featured_md
-											featured_lg
-											featured_xl
-											full
-										}
-										subheading
-										testimonials {
-											author
-											logo
-											media {
-												thumbnail
-												medium
-												medium_large
-												ratio
-												featured_xs
-												featured_sm
-												featured_md
-												full
-											}
-											role
-											testimonial
-										}
-									}
-								}
-							}
-							id
-							imageXS
-							imageSM
-							imageMD
-							imageLG
-							imageXL
-							imageFull
-							slug
-							title
-							yoast {
-								description
-								image
-								slug
 								title
-							}
-						}
-					}
-				}
-				allPost {
-					edges {
-						node {
-							content
-							id
-							imageFull
-							slug
-							title
-							yoast {
-								description
-								image
 								slug
-								title
+								yoast {
+									description
+									image
+									slug
+									title
+								}
 							}
 						}
 					}
 				}
-			}
-		`).then(result => {
-			result.data.allCase.edges.forEach(({ node }) => {
-				createPage({
-					path: node.slug,
-					component: path.resolve(`./src/components/templates/Case.jsx`),
-					context: {
-						content: node.content,
-						id: node.id,
-						imageXS: node.imageXS,
-						imageSM: node.imageSM,
-						imageMD: node.imageMD,
-						imageLG: node.imageLG,
-						imageXL: node.imageXL,
-						imageFull: node.imageFull,
-						title: node.title,
-						slug: node.slug,
-						yoast: node.yoast
-					}
+			`).then(result => {
+				result.data.allCase.edges.forEach(({ node }) => {
+					createPage({
+						path: node.slug,
+						component: path.resolve(`./src/components/templates/Case.jsx`),
+						context: {
+							content: node.content,
+							id: node.id,
+							imageXS: node.imageXS,
+							imageSM: node.imageSM,
+							imageMD: node.imageMD,
+							imageLG: node.imageLG,
+							imageXL: node.imageXL,
+							imageFull: node.imageFull,
+							title: node.title,
+							slug: node.slug,
+							yoast: node.yoast
+						}
+					});
 				});
-			});
-			result.data.allPage.edges.forEach(({ node }) => {
-				const slug =
-					node.slug === "home" || node.slug === "homepage" ? `/` : node.slug;
-				createPage({
-					path: slug,
-					component: path.resolve(`./src/components/templates/Page.jsx`),
-					context: {
-						content: node.content,
-						id: node.id,
-						imageXS: node.imageXS,
-						imageSM: node.imageSM,
-						imageMD: node.imageMD,
-						imageLG: node.imageLG,
-						imageXL: node.imageXL,
-						imageFull: node.imageFull,
-						slug: node.slug,
-						title: node.title,
-						yoast: node.yoast
-					}
+				result.data.allPage.edges.forEach(({ node }) => {
+					const slug =
+						node.slug === "home" || node.slug === "homepage" ? `/` : node.slug;
+					createPage({
+						path: slug,
+						component: path.resolve(`./src/components/templates/Page.jsx`),
+						context: {
+							content: node.content,
+							id: node.id,
+							imageXS: node.imageXS,
+							imageSM: node.imageSM,
+							imageMD: node.imageMD,
+							imageLG: node.imageLG,
+							imageXL: node.imageXL,
+							imageFull: node.imageFull,
+							slug: node.slug,
+							title: node.title,
+							yoast: node.yoast
+						}
+					});
 				});
-			});
-			result.data.allPost.edges.forEach(({ node }) => {
-				createPage({
-					path: node.slug,
-					component: path.resolve(`./src/components/templates/Post.jsx`),
-					context: {
-						content: node.content,
-						id: node.id,
-						image: node.imageFull,
-						title: node.title,
-						slug: node.slug
-					}
+				result.data.allPost.edges.forEach(({ node }) => {
+					createPage({
+						path: node.slug,
+						component: path.resolve(`./src/components/templates/Post.jsx`),
+						context: {
+							content: node.content,
+							excerpt: node.excerpt,
+							id: node.id,
+							image: node.imageFull,
+							related: node.related,
+							title: node.title,
+							slug: node.slug
+						}
+					});
 				});
+				resolve();
 			});
-			resolve();
 		});
-	});
-};
+	};
+}

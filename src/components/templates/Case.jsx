@@ -247,10 +247,10 @@ const RelatedContainer = styled.section`
 	margin: 96px auto;
 
 	.related__items {
-		display: flex;
 		margin-top: 32px;
 
 		@media ${device.md} {
+			display: flex;
 			margin-top: 48px;
 		}
 	}
@@ -259,14 +259,14 @@ const RelatedContainer = styled.section`
 const RelatedItem = styled.div`
 	display: block;
 
-	+ & {
+	+ * {
 		margin-top: 48px;
 	}
 
 	@media ${device.md} {
 		width: calc(33.33% - 32px);
 
-		+ & {
+		+ * {
 			margin-left: 48px;
 			margin-top: 0;
 		}
