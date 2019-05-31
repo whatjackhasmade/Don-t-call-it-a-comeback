@@ -168,16 +168,16 @@ function PostTemplate({ pageContext }) {
 	const sanitizedContent = relativePaths(content);
 
 	const elements = parse(sanitizedContent, {
-		replace: domNode => {
+		replace: ({ attribs, children }) => {
 			if (
-				domNode.attribs &&
-				domNode.attribs.class &&
-				domNode.attribs.class.includes(`wp-block-embed-twitter`)
+				attribs &&
+				attribs.class &&
+				attribs.class.includes(`wp-block-embed-twitter`)
 			) {
-				const tweetURL = domNode.children[1].children[0].data;
+				const tweetURL = children[1].children[0].data;
 				const lastPart = tweetURL.split("/").pop();
 				const tweetID = lastPart.toString();
-				return <TwitterTweetEmbed tweetId={tweetID} />;
+				return <Tweet id={tweetID} />;
 			}
 		}
 	});
@@ -294,6 +294,11 @@ function Related({ data }) {
 			</div>
 		</RelatedContainer>
 	);
+}
+
+function Tweet(id) {
+	const tweetID = id.toString();
+	return <TwitterTweetEmbed tweetId={tweetID} />;
 }
 
 export default PostTemplate;
