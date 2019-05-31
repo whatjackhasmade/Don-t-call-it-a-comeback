@@ -3,8 +3,8 @@ const queryString = require(`query-string`);
 const crypto = require(`crypto`);
 const path = require(`path`);
 
-// const WordPressDomain = `https://wjhm.noface.app`;
-const WordPressDomain = `http://local-whatjackhasmade.co.uk`;
+const WordPressDomain = `https://wjhm.noface.app`;
+// const WordPressDomain = `http://local-whatjackhasmade.co.uk`;
 
 exports.sourceNodes = async (
 	{ actions: { createNode }, createNodeId },
