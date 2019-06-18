@@ -482,7 +482,13 @@ function Break({ image }) {
 				{({ inView, ref }) => (
 					<BreakImage ref={ref}>
 						<div className="break__image">
-							<ImageLoader src={image.url} alt="" />
+							<ImageLoader
+								alt=""
+								className={``}
+								loadedClassName={``}
+								loadingClassName={``}
+								src={image.url}
+							/>
 						</div>
 					</BreakImage>
 				)}
@@ -506,7 +512,9 @@ function Related({ data }) {
 									<ImageLoader
 										src={item.imageMD}
 										alt={item.title}
-										className="related__media"
+										className={`related__media`}
+										loadedClassName={`related__media`}
+										loadingClassName={`related__media`}
 									/>
 									<h3>{item.yoast.title}</h3>
 									<p>{item.yoast.description}</p>
@@ -536,9 +544,12 @@ function Gallery({ images, small }) {
 							<div className="gallery__image__wrapper">
 								<div className="gallery__image">
 									<ImageLoader
+										alt={image.alt}
+										className={``}
+										loadedClassName={``}
+										loadingClassName={``}
 										key={image.url}
 										src={image.sizes.featured_md}
-										alt={image.alt}
 									/>
 								</div>
 							</div>
