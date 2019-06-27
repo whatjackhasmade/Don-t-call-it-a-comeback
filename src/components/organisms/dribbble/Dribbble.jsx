@@ -1,13 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { StaticQuery, graphql } from "gatsby";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import LogoDribbble from "../../../assets/images/icons/brands/dribbble.svg";
 
+import ImageLoader from "../../molecules/imageloader/ImageLoader";
 import Intro from "../intro/Intro";
 
 import DribbbleComponent from "./DribbbleStyles";
+
+export default props => (
+	<StaticQuery
+		query={graphql`
+			query {
+				allDribbble {
+					edges {
+						node {
+							id
+							description
+							html_url
+							images {
+								two_x
+							}
+							title
+						}
+					}
+				}
+			}
+		`}
+		render={query => <Dribbble query={query} {...props} />}
+	/>
+);
 
 const settings = {
 	autoplay: true,
@@ -52,22 +77,7 @@ const settings = {
 };
 
 function Dribbble(props) {
-	const { data } = props;
-	const [shots, setShots] = useState([]);
-
-	useEffect(() => {
-		async function fetchData() {
-			const accessToken = `9422ed733294915d402ad516d509f33f618c1ddde539c9fddd94415530e127e3`;
-			const dribbbleData = await fetch(
-				`https://api.dribbble.com/v2/user/shots?access_token=${accessToken}`
-			).then(res => {
-				return res.json();
-			});
-			return dribbbleData;
-		}
-
-		fetchData().then(data => setShots(data));
-	});
+	const { data, query } = props;
 
 	return (
 		<DribbbleComponent>
@@ -79,8 +89,8 @@ function Dribbble(props) {
 				<div dangerouslySetInnerHTML={{ __html: data.content }} />
 			</Intro>
 			<Slider {...settings}>
-				{shots !== [] &&
-					shots.map((shot, index) => (
+				{query.allDribbble.edges !== [] &&
+					query.allDribbble.edges.map((shot, index) => (
 						<Shot index={index} key={shot.id} shot={shot} />
 					))}
 			</Slider>
@@ -89,6 +99,8 @@ function Dribbble(props) {
 }
 
 function Shot({ index, key, shot }) {
+	shot = { ...shot.node };
+
 	const [mouseOver, setMouseOver] = useState(false);
 
 	const handleHover = e => {
@@ -112,7 +124,11 @@ function Shot({ index, key, shot }) {
 				target="_blank"
 			>
 				<LogoDribbble className="dribbble__shot__logo" />
-				<img alt={shot.title} src={shot.images.teaser} />
+				<img
+					alt={shot.title}
+					className="presentations__event__thumbnail"
+					src={shot.images.two_x}
+				/>
 			</a>
 			<div className="dribbble__shot__meta">
 				<a href={shot.html_url} rel="noopener noreferrer" target="_blank">
@@ -126,5 +142,3 @@ function Shot({ index, key, shot }) {
 		</div>
 	);
 }
-
-export default Dribbble;

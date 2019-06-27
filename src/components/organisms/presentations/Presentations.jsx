@@ -105,7 +105,7 @@ function Event({ index, event, venue }) {
 			index={index}
 			key={`${event.node.title}-${index}`}
 		>
-			<ImageLoader
+			<img
 				alt={event.node.title}
 				className="presentations__event__thumbnail"
 				src={event.node.imageSM}

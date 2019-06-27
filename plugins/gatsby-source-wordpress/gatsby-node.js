@@ -10,6 +10,28 @@ exports.sourceNodes = async (
 	{ actions: { createNode }, createNodeId },
 	{ plugins, ...options }
 ) => {
+	const accessToken = `9422ed733294915d402ad516d509f33f618c1ddde539c9fddd94415530e127e3`;
+	const dribbbleURL = `https://api.dribbble.com/v2/user/shots?access_token=${accessToken}`;
+	const dribbbleResponse = await fetch(dribbbleURL);
+	const dribbbleData = await dribbbleResponse.json();
+
+	dribbbleData.forEach(inspo => {
+		createNode({
+			...inspo,
+			id: createNodeId(`dribbble-${inspo.id}`),
+			parent: null,
+			children: [],
+			internal: {
+				type: "Dribbble",
+				content: JSON.stringify(inspo),
+				contentDigest: crypto
+					.createHash("md5")
+					.update(JSON.stringify(inspo))
+					.digest("hex")
+			}
+		});
+	});
+
 	const caseURL = `${WordPressDomain}/wp-json/cases/v2/all`;
 	const caseResponse = await fetch(caseURL);
 	const caseData = await caseResponse.json();

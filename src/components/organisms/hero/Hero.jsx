@@ -57,13 +57,13 @@ function HeroMedia({ duotone, media, overlay }) {
 				</Duotone>
 			</HeroMediaComponent>
 		);
-	} else {
-		return (
-			<HeroMediaComponent overlay={overlay}>
-				<img src={media} alt="" />
-			</HeroMediaComponent>
-		);
 	}
+
+	return (
+		<HeroMediaComponent overlay={overlay}>
+			<img src={media} alt="" />
+		</HeroMediaComponent>
+	);
 }
 
 export default Hero;
