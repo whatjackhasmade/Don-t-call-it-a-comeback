@@ -32,6 +32,30 @@ exports.sourceNodes = async (
 		});
 	});
 
+	const GAPI = `AIzaSyArCR7gVx2-HT0wXvjLl3GHOPqolqVINoA`;
+	const PlayListID = `UUIOm-HME4V_STS9yWM5aXIg`;
+	const NumberResults = 12;
+	const youtubeURL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId=${PlayListID}&key=${GAPI}&maxResults=${NumberResults}`;
+	const youtubeResponse = await fetch(youtubeURL);
+	const youtubeData = await youtubeResponse.json();
+
+	youtubeData.forEach(video => {
+		createNode({
+			...video,
+			id: createNodeId(`youtube-${video.id}`),
+			parent: null,
+			children: [],
+			internal: {
+				type: "Youtube",
+				content: JSON.stringify(video),
+				contentDigest: crypto
+					.createHash("md5")
+					.update(JSON.stringify(video))
+					.digest("hex")
+			}
+		});
+	});
+
 	const caseURL = `${WordPressDomain}/wp-json/cases/v2/all`;
 	const caseResponse = await fetch(caseURL);
 	const caseData = await caseResponse.json();

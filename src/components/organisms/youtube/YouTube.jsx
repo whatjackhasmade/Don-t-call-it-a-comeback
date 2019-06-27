@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { StaticQuery, graphql } from "gatsby";
 import YouTube from "react-youtube";
 
 import backgroundLeft from "./youtube-left.png";
@@ -14,28 +15,30 @@ const opts = {
 	}
 };
 
-function YouTubeChannel({ data }) {
-	const [channelVideos, setChannelVideos] = useState([]);
+export default props => (
+	<StaticQuery
+		query={graphql`
+			query {
+				allYoutube {
+					edges {
+						node {
+							id
+						}
+					}
+				}
+			}
+		`}
+		render={query => <YouTubeChannel query={query} {...props} />}
+	/>
+);
 
+function YouTubeChannel({ data }) {
 	const _onReady = event => {
 		// access to player in all event handlers via event.target
 		event.target.pauseVideo();
 	};
 
-	useEffect(() => {
-		async function fetchData() {
-			const GAPI = `AIzaSyArCR7gVx2-HT0wXvjLl3GHOPqolqVINoA`;
-			const PlayListID = `UUIOm-HME4V_STS9yWM5aXIg`;
-			const NumberResults = 12;
-			const apiURL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId=${PlayListID}&key=${GAPI}&maxResults=${NumberResults}`;
-			const channelData = await fetch(apiURL).then(res => {
-				return res.json();
-			});
-			return channelData;
-		}
-
-		fetchData().then(data => setChannelVideos(data.items));
-	}, []);
+	return null;
 
 	return (
 		<YouTubeComponent>
@@ -128,5 +131,3 @@ function Video({ index, key, video }) {
 		</div>
 	);
 }
-
-export default YouTubeChannel;
