@@ -149,14 +149,6 @@ const GlobalStyle = createGlobalStyle`
 		}
 	}
 
-	/* Fix anchor scroll positioning */
-  [id]::before {
-    display: block;
-    content: '';
-    margin-top: -4rem;
-    height: 4rem;
-  }
-
 	body {
 		overflow-x: hidden;
 		scroll-behavior: smooth;
@@ -176,6 +168,14 @@ const GlobalStyle = createGlobalStyle`
 
 		@media ${device.xs} {
 			padding: 0 30px;
+		}
+
+		/* Fix anchor scroll positioning */
+		[id]::before {
+			display: block;
+			content: '';
+			margin-top: -4rem;
+			height: 4rem;
 		}
 	}
 

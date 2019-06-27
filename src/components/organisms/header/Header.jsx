@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "gatsby";
 
 import HeaderComponent from "./HeaderStyles";
@@ -7,8 +7,14 @@ import Logo from "../../../assets/images/logo/logo.svg";
 import IconBars from "../../../assets/images/icons/solid/bars.svg";
 import IconTimes from "../../../assets/images/icons/solid/times.svg";
 
+const MailtoUI = require("mailtoui/dist/mailtoui-min.js");
+
 function Header() {
 	const [menuOpen, toggleMenu] = useState(false);
+
+	useEffect(() => {
+		MailtoUI.run(); // <--- Run MailtoUI manually
+	});
 
 	return (
 		<HeaderComponent>
@@ -21,10 +27,12 @@ function Header() {
 					{/* <Link to="/work">Work</Link> */}
 					<Link to="/posts">Insights</Link>
 					<Link to="/about">About</Link>
-					<Link to="/vostron">Latest Work</Link>
+					<Link to="/leomik">Latest Work</Link>
 					{/* <Link to="/services">Services</Link> */}
 				</nav>
-				<a href="mailto:jack@noface.co.uk">Hire Me</a>
+				<a className="mailtoui" href="mailto:jack@noface.co.uk">
+					Hire Me
+				</a>
 				<button onClick={() => toggleMenu(!menuOpen)}>
 					<span>{menuOpen ? `Close` : `Open`} Menu</span>
 					<span> Navigation</span>
