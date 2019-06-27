@@ -6,7 +6,6 @@ import "slick-carousel/slick/slick-theme.css";
 
 import LogoDribbble from "../../../assets/images/icons/brands/dribbble.svg";
 
-import ImageLoader from "../../molecules/imageloader/ImageLoader";
 import Intro from "../intro/Intro";
 
 import DribbbleComponent from "./DribbbleStyles";
@@ -91,7 +90,7 @@ function Dribbble(props) {
 			<Slider {...settings}>
 				{query.allDribbble.edges !== [] &&
 					query.allDribbble.edges.map((shot, index) => (
-						<Shot index={index} key={shot.id} shot={shot} />
+						<Shot index={index} key={shot.node.id} shot={shot} />
 					))}
 			</Slider>
 		</DribbbleComponent>

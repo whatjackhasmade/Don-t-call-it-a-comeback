@@ -30,7 +30,13 @@ export default class CreateMarkup extends Component {
 			content = content.filter(block => block.blockName !== null);
 			const pageComponents = content.map((component, index) => {
 				const Component = components[component.blockName.substr(4)];
-				return <Component index={index} data={component.attrs.data} />;
+				return (
+					<Component
+						index={index}
+						key={`component-${index}`}
+						data={component.attrs.data}
+					/>
+				);
 			});
 			if (pageComponents) {
 				return pageComponents;

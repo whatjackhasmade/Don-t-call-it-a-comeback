@@ -6,8 +6,6 @@ import "slick-carousel/slick/slick-theme.css";
 
 import PresentationsComponent from "./PresentationsStyles";
 
-import ImageLoader from "../../molecules/imageloader/ImageLoader";
-
 import Intro from "../intro/Intro";
 
 export default props => (
