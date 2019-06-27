@@ -32,7 +32,7 @@ exports.sourceNodes = async (
 		});
 	});
 
-	const GAPI = `AIzaSyArCR7gVx2-HT0wXvjLl3GHOPqolqVINoA`;
+	const GAPI = ``;
 	const PlayListID = `UUIOm-HME4V_STS9yWM5aXIg`;
 	const NumberResults = 12;
 	const youtubeURL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId=${PlayListID}&key=${GAPI}&maxResults=${NumberResults}`;
