@@ -359,6 +359,14 @@ const GlobalStyle = createGlobalStyle`
 	.slick-arrow {
 		display: none !important;
 	}
+
+	.mailtoui-button-copy {
+		align-items: center;
+
+		> * {
+			top: auto;
+		}
+	}
 `;
 
 export default class Base extends React.Component {
