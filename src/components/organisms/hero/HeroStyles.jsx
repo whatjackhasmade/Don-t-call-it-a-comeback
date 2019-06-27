@@ -92,7 +92,7 @@ const HeroComponent = styled.section`
 		width: 100%;
 
 		@media ${device.xs} {
-			padding: 0 30px;
+			padding: 45px;
 		}
 	}
 `;

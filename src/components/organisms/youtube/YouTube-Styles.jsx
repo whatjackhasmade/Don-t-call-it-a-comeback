@@ -66,11 +66,19 @@ const YouTubeComponent = styled.section`
 	}
 
 	.youtube__background--left {
-		left: 0;
+		left: -80px;
+
+		@media ${device.xxl} {
+			left: 0;
+		}
 	}
 
 	.youtube__background--right {
-		right: 0;
+		right: -80px;
+
+		@media ${device.xxl} {
+			right: 0;
+		}
 	}
 
 	.youtube__content {
