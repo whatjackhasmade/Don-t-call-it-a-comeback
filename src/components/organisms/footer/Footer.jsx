@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import MailtoUI from "mailtoui/dist/mailtoui-min.js";
 
 import FooterComponent from "./FooterStyles";
 
@@ -6,8 +7,6 @@ import IconGithub from "../../../assets/images/icons/brands/github.svg";
 import IconLinkedIn from "../../../assets/images/icons/brands/linkedin.svg";
 import IconTwitter from "../../../assets/images/icons/brands/twitter.svg";
 import IconYouTube from "../../../assets/images/icons/brands/youtube.svg";
-
-const MailtoUI = require("mailtoui/dist/mailtoui-min.js");
 
 function Footer() {
 	useEffect(() => {
