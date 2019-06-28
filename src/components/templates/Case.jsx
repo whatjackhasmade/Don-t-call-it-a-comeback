@@ -12,6 +12,8 @@ import { YouTubeGetID } from "../helpers";
 
 import Base from "./Base";
 
+import Button from "../atoms/Button";
+
 import ImageLoader from "../molecules/imageloader/ImageLoader";
 
 import Intro from "../organisms/intro/Intro";
@@ -380,7 +382,7 @@ function CaseTemplate({ pageContext }) {
 				/>
 				<Media>
 					{({ breakpoints, currentBreakpoint }) =>
-						breakpoints[currentBreakpoint] > breakpoints.lg && (
+						breakpoints[currentBreakpoint] > breakpoints.lg ? (
 							<InView threshold={0} triggerOnce={true}>
 								{({ inView, ref }) => (
 									<Devices
@@ -416,6 +418,15 @@ function CaseTemplate({ pageContext }) {
 									</Devices>
 								)}
 							</InView>
+						) : (
+							<Button
+								href={siteURL}
+								className="button"
+								rel="noopener noreferrer"
+								target="_blank"
+							>
+								View The {intro.subtitle} Website
+							</Button>
 						)
 					}
 				</Media>

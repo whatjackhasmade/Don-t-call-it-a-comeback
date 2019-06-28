@@ -111,7 +111,7 @@ export default class Button extends Component {
 			type
 		} = this.props;
 
-		if (anchor === true) {
+		if (href) {
 			return (
 				<BtnLink
 					href={href}
