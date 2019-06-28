@@ -393,9 +393,9 @@ function CaseTemplate({ pageContext }) {
 											<div className="device-wrapper macbook">
 												<div
 													className="device"
+													data-color="white"
 													data-device="Macbook2015"
 													data-orientation="portrait"
-													data-color="white"
 												>
 													<div className="screen">
 														<YouTubeEmbed url={content.devices.desktop} />
