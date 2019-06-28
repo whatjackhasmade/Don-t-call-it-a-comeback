@@ -61,3 +61,6 @@ bundle-stats.json
 # My Ignored Files
 .lock
 package-lock.json
+*.env
+.env.development
+.env.development

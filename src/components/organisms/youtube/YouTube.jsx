@@ -23,6 +23,18 @@ export default props => (
 					edges {
 						node {
 							id
+							snippet {
+								description
+								resourceId {
+									videoId
+								}
+								title
+								thumbnails {
+									medium {
+										url
+									}
+								}
+							}
 						}
 					}
 				}
@@ -32,26 +44,24 @@ export default props => (
 	/>
 );
 
-function YouTubeChannel({ data }) {
+function YouTubeChannel({ data, query }) {
 	const _onReady = event => {
 		// access to player in all event handlers via event.target
 		event.target.pauseVideo();
 	};
 
-	return null;
+	const channelVideos = query.allYoutube.edges;
 
 	return (
 		<YouTubeComponent>
 			<img
 				alt=""
 				className="youtube__background youtube__background--left"
-				// height={1080}
 				src={backgroundLeft}
 			/>
 			<img
 				alt=""
 				className="youtube__background youtube__background--right"
-				// height={1080}
 				src={backgroundRight}
 			/>
 			<div className="youtube__content">
@@ -82,13 +92,13 @@ function YouTubeChannel({ data }) {
 					{channelVideos &&
 						channelVideos !== [] &&
 						channelVideos[0] &&
-						channelVideos[0].snippet && (
+						channelVideos[0].node.snippet && (
 							<div
 								className="youtube__video"
-								title={channelVideos[0].snippet.title}
+								title={channelVideos[0].node.snippet.title}
 							>
 								<YouTube
-									videoId={channelVideos[0].snippet.resourceId.videoId}
+									videoId={channelVideos[0].node.snippet.resourceId.videoId}
 									opts={opts}
 									onReady={_onReady}
 								/>
@@ -100,10 +110,16 @@ function YouTubeChannel({ data }) {
 						channelVideos !== [] &&
 						channelVideos.map((video, index) => {
 							if (index > 0 && index < 19) {
-								return <Video index={index} key={video.id} video={video} />;
-							} else {
-								return null;
+								const data = video.node;
+								return (
+									<Video
+										index={index}
+										key={data.snippet.resourceId.videoId}
+										video={data}
+									/>
+								);
 							}
+							return null;
 						})}
 				</div>
 			</div>
@@ -111,7 +127,7 @@ function YouTubeChannel({ data }) {
 	);
 }
 
-function Video({ index, key, video }) {
+function Video({ index, video }) {
 	return (
 		<div index={index} className="youtube__video" title={video.snippet.title}>
 			<a
