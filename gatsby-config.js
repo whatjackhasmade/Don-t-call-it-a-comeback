@@ -20,7 +20,7 @@ module.exports = {
 		`gatsby-plugin-layout`,
 		`gatsby-plugin-lodash`,
 		`gatsby-plugin-offline`,
-		ß`gatsby-plugin-react-helmet`,
+		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-sharp`,
 		`gatsby-plugin-styled-components`,
 		`gatsby-plugin-twitter`,
