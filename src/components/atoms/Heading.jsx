@@ -1,15 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class Button extends Component {
-	render() {
-		const { level, style } = this.props;
-
-		const HeadingComponent = `h${level}`;
-
-		return (
-			<HeadingComponent className={style && `h${style}`}>
-				{this.props.children}
-			</HeadingComponent>
-		);
-	}
+function Heading({ children, level, style }) {
+	const HeadingComponent = `h${level}`;
+	return (
+		<HeadingComponent className={style && `h${style}`}>
+			{children}
+		</HeadingComponent>
+	);
 }
+
+export default Heading;

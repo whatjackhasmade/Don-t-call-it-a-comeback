@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 import { device } from "../particles/MediaQueries";
 
@@ -20,8 +20,8 @@ const HRComponent = styled.hr`
 	}
 `;
 
-export default class HR extends Component {
-	render() {
-		return <HRComponent />;
-	}
+function HR() {
+	return <HRComponent />;
 }
+
+export default HR;

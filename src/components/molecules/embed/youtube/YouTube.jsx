@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 
 import YouTubeComponent from "./YouTubeStyles";
 
-export default class YouTube extends Component {
-	render() {
-		return (
-			<YouTubeComponent>
-				<div className="youtube__contents" />
-			</YouTubeComponent>
-		);
-	}
+function YouTube({ children }) {
+	return (
+		<YouTubeComponent>
+			<div className="youtube__contents">{children}</div>
+		</YouTubeComponent>
+	);
 }
+
+export default YouTube;

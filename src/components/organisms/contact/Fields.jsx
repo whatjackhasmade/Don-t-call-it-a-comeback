@@ -2,24 +2,22 @@ import React from "react";
 
 import ContactFormComponent from "./Fields-Styles";
 
-function ContactForm(props) {
-	const {
-		bot,
-		company,
-		email,
-		firstname,
-		handleSubmit,
-		lastname,
-		message,
-		submitted,
-		setBot,
-		setCompany,
-		setEmail,
-		setFirstname,
-		setLastname,
-		setMessage
-	} = props;
-
+function ContactForm({
+	bot,
+	company,
+	email,
+	firstname,
+	handleSubmit,
+	lastname,
+	message,
+	submitted,
+	setBot,
+	setCompany,
+	setEmail,
+	setFirstname,
+	setLastname,
+	setMessage
+}) {
 	return (
 		<ContactFormComponent
 			name="contact"
