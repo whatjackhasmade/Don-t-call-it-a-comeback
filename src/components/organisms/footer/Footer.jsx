@@ -11,7 +11,9 @@ const MailtoUI = require("mailtoui/dist/mailtoui-min.js");
 
 function Footer() {
 	useEffect(() => {
-		MailtoUI.run(); // <--- Run MailtoUI manually
+		if (typeof window !== `undefined`) {
+			MailtoUI.run(); // <--- Run MailtoUI manually
+		}
 	});
 
 	return (

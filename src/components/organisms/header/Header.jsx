@@ -13,7 +13,9 @@ function Header() {
 	const [menuOpen, toggleMenu] = useState(false);
 
 	useEffect(() => {
-		MailtoUI.run(); // <--- Run MailtoUI manually
+		if (typeof window !== `undefined`) {
+			MailtoUI.run(); // <--- Run MailtoUI manually
+		}
 	});
 
 	return (
