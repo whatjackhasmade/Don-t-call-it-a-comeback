@@ -12,8 +12,6 @@ import { YouTubeGetID } from "../helpers";
 
 import Base from "./Base";
 
-import Button from "../atoms/Button";
-
 import ImageLoader from "../molecules/imageloader/ImageLoader";
 
 import Intro from "../organisms/intro/Intro";
@@ -419,14 +417,14 @@ function CaseTemplate({ pageContext }) {
 								)}
 							</InView>
 						) : (
-							<Button
+							<a
 								href={siteURL}
 								className="button"
 								rel="noopener noreferrer"
 								target="_blank"
 							>
 								View The {intro.subtitle} Website
-							</Button>
+							</a>
 						)
 					}
 				</Media>
