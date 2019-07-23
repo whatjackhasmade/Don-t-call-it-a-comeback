@@ -21,7 +21,6 @@ module.exports = {
 		`gatsby-plugin-lodash`,
 		`gatsby-plugin-offline`,
 		`gatsby-plugin-react-helmet`,
-		`gatsby-plugin-sharp`,
 		`gatsby-plugin-styled-components`,
 		`gatsby-plugin-twitter`,
 		{

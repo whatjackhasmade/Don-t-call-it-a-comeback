@@ -123,3 +123,5 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/macos,windows
+yarn.lock
+package-lock.json

@@ -31,15 +31,12 @@ const GlobalStyle = createGlobalStyle`
 				Fonts.SuisseIntlRegularWOFF2
 			}) format('woff2'), /* Super Modern Browsers */
 			url(${Fonts.SuisseIntlRegularWOFF}) format('woff'), /* Pretty Modern Browsers */
-			url(${
-				Fonts.SuisseIntlRegularTTF
-			})  format('truetype'), /* Safari, Android, iOS */
-			url(${Fonts.SuisseIntlRegularSVG}) format('svg'); /* Legacy iOS */
+			url(${Fonts.SuisseIntlRegularTTF})  format('truetype');
 		font-style: normal;
 		font-weight: normal;
 	}
 
-		@font-face {
+	@font-face {
 		font-family: 'SuisseIntl';
 		src: url(${Fonts.SuisseIntlItalicEOT}); /* IE9 Compat Modes */
 		src: url(${
@@ -47,10 +44,7 @@ const GlobalStyle = createGlobalStyle`
 		}) format('embedded-opentype'), /* IE6-IE8 */
 			url(${Fonts.SuisseIntlItalicWOFF2}) format('woff2'), /* Super Modern Browsers */
 			url(${Fonts.SuisseIntlItalicWOFF}) format('woff'), /* Pretty Modern Browsers */
-			url(${
-				Fonts.SuisseIntlItalicTTF
-			})  format('truetype'), /* Safari, Android, iOS */
-			url(${Fonts.SuisseIntlItalicSVG}) format('svg'); /* Legacy iOS */
+			url(${Fonts.SuisseIntlItalicTTF})  format('truetype');
 		font-style: italic;
 		font-weight: normal;
 	}
@@ -63,10 +57,7 @@ const GlobalStyle = createGlobalStyle`
 		}) format('embedded-opentype'), /* IE6-IE8 */
 			url(${Fonts.SuisseIntlMediumWOFF2}) format('woff2'), /* Super Modern Browsers */
 			url(${Fonts.SuisseIntlMediumWOFF}) format('woff'), /* Pretty Modern Browsers */
-			url(${
-				Fonts.SuisseIntlMediumTTF
-			})  format('truetype'), /* Safari, Android, iOS */
-			url(${Fonts.SuisseIntlMediumSVG}) format('svg'); /* Legacy iOS */
+			url(${Fonts.SuisseIntlMediumTTF})  format('truetype');
 		font-style: normal;
 		font-weight: 500;
 	}
@@ -80,8 +71,7 @@ const GlobalStyle = createGlobalStyle`
 		}) format('embedded-opentype'), /* IE6-IE8 */
 			url(${Fonts.SuisseIntlBoldWOFF2}) format('woff2'), /* Super Modern Browsers */
 			url(${Fonts.SuisseIntlBoldWOFF}) format('woff'), /* Pretty Modern Browsers */
-			url(${Fonts.SuisseIntlBoldTTF})  format('truetype'), /* Safari, Android, iOS */
-			url(${Fonts.SuisseIntlBoldSVG}) format('svg'); /* Legacy iOS */
+			url(${Fonts.SuisseIntlBoldTTF})  format('truetype');
 		font-style: normal;
 		font-weight: bold;
 	}
@@ -94,8 +84,7 @@ const GlobalStyle = createGlobalStyle`
 		}) format('embedded-opentype'), /* IE6-IE8 */
 			url(${Fonts.SuisseIntlBlackWOFF2}) format('woff2'), /* Super Modern Browsers */
 			url(${Fonts.SuisseIntlBlackWOFF}) format('woff'), /* Pretty Modern Browsers */
-			url(${Fonts.SuisseIntlBlackTTF})  format('truetype'), /* Safari, Android, iOS */
-			url(${Fonts.SuisseIntlBlackSVG}) format('svg'); /* Legacy iOS */
+			url(${Fonts.SuisseIntlBlackTTF})  format('truetype');
 		font-style: normal;
 		font-weight: 900;
 	}
@@ -370,21 +359,6 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default class Base extends React.Component {
-	componentDidMount() {
-		if (navigator.serviceWorker) {
-			navigator.serviceWorker
-				.getRegistrations()
-				.then(registrations => {
-					for (let registration of registrations) {
-						registration.unregister();
-					}
-				})
-				.catch(function(err) {
-					console.log("Service Worker registration failed: ", err);
-				});
-		}
-	}
-
 	render() {
 		return (
 			<ThemeProvider theme={ThemeDefault}>
