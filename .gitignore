@@ -125,3 +125,6 @@ $RECYCLE.BIN/
 # End of https://www.gitignore.io/api/macos,windows
 yarn.lock
 package-lock.json
+.env.production
+.env.development
+*.env

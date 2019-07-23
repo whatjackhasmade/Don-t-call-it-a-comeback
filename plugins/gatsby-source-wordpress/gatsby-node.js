@@ -39,22 +39,24 @@ exports.sourceNodes = async (
 	const youtubeResponse = await fetch(youtubeURL);
 	const youtubeData = await youtubeResponse.json();
 
-	youtubeData.items.forEach(video => {
-		createNode({
-			...video,
-			id: createNodeId(`youtube-${video.id}`),
-			parent: null,
-			children: [],
-			internal: {
-				type: "Youtube",
-				content: JSON.stringify(video),
-				contentDigest: crypto
-					.createHash("md5")
-					.update(JSON.stringify(video))
-					.digest("hex")
-			}
+	if (youtubeData && youtubeData.items) {
+		youtubeData.items.forEach(video => {
+			createNode({
+				...video,
+				id: createNodeId(`youtube-${video.id}`),
+				parent: null,
+				children: [],
+				internal: {
+					type: "Youtube",
+					content: JSON.stringify(video),
+					contentDigest: crypto
+						.createHash("md5")
+						.update(JSON.stringify(video))
+						.digest("hex")
+				}
+			});
 		});
-	});
+	}
 
 	const caseURL = `${WordPressDomain}/wp-json/cases/v2/all`;
 	const caseResponse = await fetch(caseURL);
