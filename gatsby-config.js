@@ -16,6 +16,14 @@ module.exports = {
 		siteUrl: urljoin(config.siteUrl)
 	},
 	plugins: [
+		{
+			resolve: `gatsby-plugin-sharp`,
+			options: {
+				useMozJpeg: false,
+				stripMetadata: true,
+				defaultQuality: 100
+			}
+		},
 		`gatsby-plugin-catch-links`,
 		`gatsby-plugin-layout`,
 		`gatsby-plugin-lodash`,
