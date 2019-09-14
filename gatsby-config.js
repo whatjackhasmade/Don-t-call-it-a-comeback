@@ -16,23 +16,13 @@ module.exports = {
 		siteUrl: urljoin(config.siteUrl)
 	},
 	plugins: [
-		{
-			resolve: `gatsby-plugin-sharp`,
-			options: {
-				useMozJpeg: false,
-				stripMetadata: true,
-				defaultQuality: 100
-			}
-		},
-		`gatsby-plugin-catch-links`,
+		`gatsby-plugin-sitemap`,
 		`gatsby-plugin-layout`,
 		`gatsby-plugin-lodash`,
 		`gatsby-plugin-offline`,
 		`gatsby-plugin-react-helmet`,
 		`gatsby-plugin-styled-components`,
-		{
-			resolve: `gatsby-source-wordpress`
-		},
+		`gatsby-source-wordpress`,
 		{
 			resolve: `gatsby-plugin-hotjar`,
 			options: {
@@ -44,37 +34,6 @@ module.exports = {
 			resolve: `gatsby-plugin-google-analytics`,
 			options: {
 				trackingId: config.googleAnalyticsID
-			}
-		},
-		`gatsby-plugin-sitemap`,
-		{
-			resolve: `gatsby-plugin-manifest`,
-			options: {
-				name: config.siteTitle,
-				short_name: config.siteTitleShort,
-				description: config.siteDescription,
-				start_url: config.pathPrefix,
-				background_color: config.backgroundColor,
-				theme_color: config.themeColor,
-				display: `minimal-ui`,
-				icons: [
-					{
-						src: `/logos/logo-192x192.png`,
-						sizes: `192x192`,
-						type: `image/png`
-					},
-					{
-						src: `/logos/logo-512x512.png`,
-						sizes: `512x512`,
-						type: `image/png`
-					}
-				]
-			}
-		},
-		{
-			resolve: `gatsby-plugin-favicon`,
-			options: {
-				logo: `./src/assets/images/favicon.png`
 			}
 		},
 		{
@@ -101,8 +60,8 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-robots-txt`,
 			options: {
-				host: `https://www.example.com`,
-				sitemap: `https://www.example.com/sitemap.xml`,
+				host: `https://www.whatjackhasmade.co.uk`,
+				sitemap: `https://www.whatjackhasmade.co.uk/sitemap.xml`,
 				resolveEnv: () => activeEnv,
 				env: {
 					development: {
