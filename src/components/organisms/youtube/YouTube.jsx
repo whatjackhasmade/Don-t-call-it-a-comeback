@@ -15,15 +15,42 @@ const opts = {
 	}
 };
 
-export default props => <></>;
+export default props => (
+	<StaticQuery
+		query={graphql`
+			query {
+				allYoutube {
+					edges {
+						node {
+							id
+							snippet {
+								description
+								resourceId {
+									videoId
+								}
+								title
+								thumbnails {
+									medium {
+										url
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		`}
+		render={query => <YouTubeChannel query={query} {...props} />}
+	/>
+);
 
-const YouTubeChannel = ({ data, query }) => {
+function YouTubeChannel({ data, query }) {
 	const _onReady = event => {
 		// access to player in all event handlers via event.target
 		event.target.pauseVideo();
 	};
 
-	const channelVideos = data.allYoutube.edges;
+	const channelVideos = query.allYoutube.edges;
 
 	return (
 		<YouTubeComponent>
@@ -98,9 +125,9 @@ const YouTubeChannel = ({ data, query }) => {
 			</div>
 		</YouTubeComponent>
 	);
-};
+}
 
-const Video = ({ index, video }) => {
+function Video({ index, video }) {
 	return (
 		<div index={index} className="youtube__video" title={video.snippet.title}>
 			<a
@@ -117,4 +144,4 @@ const Video = ({ index, video }) => {
 			</a>
 		</div>
 	);
-};
+}
