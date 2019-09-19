@@ -15,34 +15,7 @@ const opts = {
 	}
 };
 
-export default props => (
-	<StaticQuery
-		query={graphql`
-			query {
-				allYoutube {
-					edges {
-						node {
-							id
-							snippet {
-								description
-								resourceId {
-									videoId
-								}
-								title
-								thumbnails {
-									medium {
-										url
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		`}
-		render={query => <YouTubeChannel query={query} {...props} />}
-	/>
-);
+export default props => <></>;
 
 function YouTubeChannel({ data, query }) {
 	const _onReady = event => {

@@ -56,6 +56,9 @@
 		"develop": "gatsby develop",
 		"serve": "gatsby serve"
 	},
+	"browerslist": [
+		"last 2 versions"
+	],
 	"remarkConfig": {
 		"plugins": [
 			"remark-preset-lint-recommended"
