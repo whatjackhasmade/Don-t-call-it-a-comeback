@@ -401,7 +401,8 @@ if (createThePages) {
 							image: node.imageFull,
 							related: node.related,
 							title: node.title,
-							slug: node.slug
+							slug: node.slug,
+							yoast: node.yoast
 						}
 					});
 				});

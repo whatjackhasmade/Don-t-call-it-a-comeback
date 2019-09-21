@@ -77,6 +77,7 @@ export default class SEO extends Component {
 
 					{/* Twitter Card tags */}
 					<meta name="twitter:card" content="summary_large_image" />
+					<meta property="twitter:url" content={postSEO ? postURL : blogURL} />
 					<meta
 						name="twitter:creator"
 						content={config.userTwitter ? config.userTwitter : ""}

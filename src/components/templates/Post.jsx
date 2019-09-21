@@ -163,7 +163,7 @@ const Article = styled.article`
 	}
 `;
 
-function PostTemplate({ pageContext }) {
+const PostTemplate = ({ pageContext }) => {
 	const { content, related, title } = pageContext;
 	const sanitizedContent = relativePaths(content);
 
@@ -183,7 +183,7 @@ function PostTemplate({ pageContext }) {
 	});
 
 	return (
-		<Base>
+		<Base context={pageContext}>
 			<ArticleIntro>
 				<Link to="/posts">Insights</Link>
 				<h1>{title}</h1>
@@ -194,7 +194,7 @@ function PostTemplate({ pageContext }) {
 			)}
 		</Base>
 	);
-}
+};
 
 const RelatedContainer = styled.section`
 	margin: 96px auto;
