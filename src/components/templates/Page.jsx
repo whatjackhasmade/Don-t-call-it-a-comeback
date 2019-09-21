@@ -9,3 +9,5 @@ const PageTemplate = ({ pageContext }) => (
 		<ACFParser content={pageContext.content} />
 	</Base>
 );
+
+export default PageTemplate;
