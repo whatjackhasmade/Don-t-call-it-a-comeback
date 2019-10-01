@@ -50,9 +50,10 @@ function Row({ data, index }) {
 							<RowMedia media={mediaURL} ext={ext} />
 						)}
 					</div>
-					<div className="row__column row__content">
-						{prepareContent(content)}
-					</div>
+					<div
+						className="row__column row__content"
+						dangerouslySetInnerHTML={{ __html: prepareContent(content) }}
+					></div>
 				</RowComponent>
 			)}
 		</InView>
