@@ -1,5 +1,6 @@
 import React from "react";
 import { InView } from "react-intersection-observer";
+import DOMPurify from "dompurify";
 
 import RowComponent from "./RowStyles";
 
@@ -23,6 +24,7 @@ function Row({ data, index }) {
 	const ext = mediaURL.substr(mediaURL.lastIndexOf(".") + 1);
 
 	const prepareContent = content => {
+		content = DOMPurify(content);
 		return content.replace(
 			`/wp-content/uploads/`,
 			`https://wjhm.noface.app/wp-content/uploads/`
@@ -47,12 +49,9 @@ function Row({ data, index }) {
 							<RowMedia media={mediaURL} ext={ext} />
 						)}
 					</div>
-					<div
-						className="row__column row__content"
-						dangerouslySetInnerHTML={{
-							__html: prepareContent(content)
-						}}
-					/>
+					<div className="row__column row__content">
+						{prepareContent(content)}
+					</div>
 				</RowComponent>
 			)}
 		</InView>
