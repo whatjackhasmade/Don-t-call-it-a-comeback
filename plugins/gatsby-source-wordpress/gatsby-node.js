@@ -43,9 +43,6 @@ exports.sourceNodes = async (
 	const youtubeResponse = await fetch(youtubeURL);
 	const youtubeData = await youtubeResponse.json();
 
-	console.log(youtubeURL);
-	console.log(youtubeData);
-
 	if (youtubeData && youtubeData.items) {
 		youtubeData.items.forEach(video => {
 			createNode({
