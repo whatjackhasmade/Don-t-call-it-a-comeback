@@ -1,3 +1,7 @@
+require("dotenv").config({
+	path: `.env.${process.env.NODE_ENV}`
+});
+
 const fetch = require(`node-fetch`);
 const queryString = require(`query-string`);
 const crypto = require(`crypto`);
@@ -38,6 +42,9 @@ exports.sourceNodes = async (
 	const youtubeURL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId=${PlayListID}&key=${GAPI}&maxResults=${NumberResults}`;
 	const youtubeResponse = await fetch(youtubeURL);
 	const youtubeData = await youtubeResponse.json();
+
+	console.log(youtubeURL);
+	console.log(youtubeData);
 
 	if (youtubeData && youtubeData.items) {
 		youtubeData.items.forEach(video => {
