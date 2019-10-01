@@ -1,6 +1,5 @@
 import React from "react";
 import { InView } from "react-intersection-observer";
-import sanitizeHtml from "sanitize-html-react";
 
 import RowComponent from "./RowStyles";
 
@@ -28,7 +27,6 @@ function Row({ data, index }) {
 			`/wp-content/uploads/`,
 			`https://wjhm.noface.app/wp-content/uploads/`
 		);
-		newContent = sanitizeHtml(newContent);
 		return newContent;
 	};
 
