@@ -1,6 +1,6 @@
 import React from "react";
 import { InView } from "react-intersection-observer";
-import DOMPurify from "dompurify";
+import sanitizeHtml from "sanitize-html-react";
 
 import RowComponent from "./RowStyles";
 
@@ -24,11 +24,12 @@ function Row({ data, index }) {
 	const ext = mediaURL.substr(mediaURL.lastIndexOf(".") + 1);
 
 	const prepareContent = content => {
-		content = DOMPurify(content);
-		return content.replace(
+		let newContent = content.replace(
 			`/wp-content/uploads/`,
 			`https://wjhm.noface.app/wp-content/uploads/`
 		);
+		newContent = sanitizeHtml(newContent);
+		return newContent;
 	};
 
 	return (

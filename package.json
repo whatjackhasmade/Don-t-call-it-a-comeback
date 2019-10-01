@@ -4,7 +4,6 @@
 	"version": "2.0.0",
 	"author": "Jack Pritchard (jack@noface.co.uk)",
 	"dependencies": {
-		"dompurify": "^2.0.3",
 		"dotenv": "8.1.0",
 		"gatsby": "2.15.15",
 		"gatsby-plugin-catch-links": "2.1.9",
@@ -40,6 +39,7 @@
 		"react-transition-group": "4.3.0",
 		"react-twitter-embed": "2.0.8",
 		"react-youtube": "7.9.0",
+		"sanitize-html-react": "^1.13.0",
 		"slick-carousel": "1.8.1",
 		"smooth-scroll": "16.1.0",
 		"styled-components": "4.3.2",
