@@ -16,6 +16,7 @@ module.exports = {
 		siteUrl: urljoin(config.siteUrl)
 	},
 	plugins: [
+		`gatsby-plugin-favicon`,
 		`gatsby-plugin-sitemap`,
 		`gatsby-plugin-layout`,
 		`gatsby-plugin-lodash`,
